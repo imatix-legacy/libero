@@ -1,0 +1,113 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Get-External-Event</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser7.htm">&lt;</A>
+ | <A href="lruser9.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC9">Using Get-External-Event</A></H2>
+
+<P>The Get-External-Event module is empty in most types of program, and very
+important in other ones.  This module lets you centralise any kind of
+interface to the outside world that collects events.  An example of this is
+the <A href="lrintr3.htm#rover">Rover</A> subprogram we designed above.  The dialog explicitly
+does a Wait-for-incoming-message before each new state. We can put this code
+into Get-external-event, which makes the dialog simpler.</P>
+
+<P>Here I also move all handling for Onhook to the Defaults state - assuming
+that the Stop-Local-Tones module is safe to use at any time:</P>
+
+<PRE>
+After-Init:
+    (--) Ok                         -&gt; Idle
+          +
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Idle:
+    (--) Offhook                    -&gt; Dialing-First
+          + Start-Dial-Tone
+          + Reset-Dialed-Number
+    (--) Request                    -&gt; Ringing
+          + Start-Ringing-Local
+
+Dialing-First:
+    (--) Digit                      -&gt; Dialing-Next
+          + Stop-Local-Tones
+          + Have-Dialed-Digit
+    (--) Whole-Number               -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+
+Dialing-Next:
+    (--) Digit                      -&gt; Dialing-Next
+          + Have-Dialed-Digit
+    (--) Whole-Number               -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+
+Seizing:
+    (--) Accept                     -&gt; Ringing
+          + Start-Ringing-Remote
+    (--) Busy                       -&gt; Seize-Failed
+          + Start-Busy-Tone
+    (--) Reject                     -&gt; Seize-Failed
+          + Start-Reject-Tone
+
+Seize-Failed:
+    (--) Onhook                     -&gt; Idle
+          + Stop-Local-Tones
+
+Ringing:
+    !  Events from local phone
+    (--) Offhook                    -&gt; Talking
+          + Stop-Ringing-Local
+    (--) Onhook                     -&gt; Idle
+          + Stop-Ringing-Remote
+    !  Event from remote phone
+    (--) Answer                     -&gt; Talking
+          + Stop-Ringing-Remote
+
+Talking:
+    !  Event from local phone
+    (--) Onhook                     -&gt; Idle
+          + Send-Outgoing-Release
+    !  Event from remote phone
+    (--) Release                    -&gt; Idle
+          + Start-Released-Tone
+
+Defaults:
+    (--) Onhook                     -&gt; Idle
+          + Stop-Local-Tones
+</PRE>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser7.htm">&lt;</A>
+ | <A href="lruser9.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <EM>Using Get-External-Event</EM>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,170 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The Coke Machine Example</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr.htm">&lt;</A>
+ | <A href="lrintr2.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC6">The Coke Machine Example</A></H2>
+
+<P>The coke machine (once awake and gently humming) sits against the wall,
+waiting.  There is a theory about this humming business, notably that coke
+machines have terrible memories, and can't remember the words.  A second
+school of thought says that the coke machines are humming because they're
+thinking about all the terrible things they're going to do to humans with
+crow bars.  A third school of thought reckons that the coke machines have
+already done something, and are humming because they thought it was really
+funny.  Like all coke machines, it's very good at waiting, due to Natural
+Selection.  All the impatient proto-coke machines ran off screaming 'I can't
+take it anymore' and were crunched underfoot by brontosaurii back in the
+mists of prehistory.</P>
+
+<P>A punter arrives with a handful of loose change.  The coke-machine
+(covered by the modern and tasteful metal grid that serves both as a
+defensive covering and as an attraction for coke machines of the opposite
+sex) moves into 'attention' mode.  When it hears the clink of tasty cash,
+rather that the ominous clunk of a heavy crow-bar, it relaxes into 'ready
+mode'.  The machine is now ready to handle any eventuality, so long as it
+includes coinage.</P>
+
+<P>As the last coin falls and the punter presses the button labelled
+'healthie waye sparkling spring water', the machine considers the
+possibilities.  Should it play dead, and just take the punter's money?
+Or maybe it can substitute a can of 30% sucrose 'sweeto-sap'?  Finally
+it rumbles once, then again for added effect, then excretes a can of water.
+It munches the coins, then settles back against the wall, quietly humming
+again.</P>
+
+<P>Just to prove that you can describe <I>any</I> sequence of events, however
+improbable, with a state machine, here goes.  (The observant reader will have
+skipped to the next section by now, realising that this one is not worth the
+paper it's printed on.  If you're reading this on-line, then this section is
+not worth the phosphor it's been digitised, rasterised, and sprayed by an
+electronic beam gun onto.)  Act 1, scene 1 has our protagonist against the
+wall, trying to remember the words of the song.  Our coke-machine hero is
+normally OK; if something went terribly wrong with the rehearsals (e.g. a
+dinosaur got sucked through a five-dimensional space-time vortex stretched
+between the middle terrasic to five minutes into rehersals; the dinosaur a
+little off balance after the trip puts down its left foot, and 'crunch'...),
+it might be Dead, in which case we have to call the whole thing off.  We'll
+call this scene 'Should Be Gently Humming'...</P>
+
+<PRE>
+Should-Be-Gently-Humming:
+    (--) Ok                         -&gt; Something-Happened
+          + Wait-For-A-Punter
+    (--) Dead                       -&gt;
+          + Stop-The-Programme
+</PRE>
+
+<P>The coke machine has been waiting, perhaps for days, for a punter to come
+along.  When the footprints fade in from the distance (a coke machine's ears
+are always against the ground, which explains why you rarely find coke
+machines on wet or dirty surfaces), the machine hears either a cashy 'clink'
+or a more sinister 'clunk':</P>
+
+<PRE>
+Something-Happened:
+    (--) Clink                      -&gt; Before-Cooperating
+          + Accept-Punter's-Cash
+          + Wait-For-Punter's-Choice
+          + Shall-We-Cooperate?
+    (--) Clunk                      -&gt;
+          + Exit-Stage-Left-Running
+          + Stop-The-Programme
+</PRE>
+
+<P>The advent of a 'Clunk' tells the machine to beat it, smartly.  If a
+'Clink' happened, the machine goes on to think about a game plan for the
+coming few minutes.  It accepts whatever spare change the punter has to
+spare, then pounces, metaphorically:</P>
+
+<PRE>
+Before-Cooperating:
+    (--) Ok                         -&gt; Cooperate
+          + Consider-Punter's-Choice
+    (--) Nasty                      -&gt; Let's-Be-Nasty
+          + Consider-Punter's-Choice
+    (--) Play-Dead                  -&gt; Something-Happened
+          + Switch-Off-All-Lights
+          + Wait-Until-Punter-Has-Left
+          + Switch-On-The-Lights
+          + Wait-For-A-Punter
+</PRE>
+
+<P>If it's in a good mood, the machine ejects more or less the drink that the
+punter chose:</P>
+
+<PRE>
+Cooperate:
+    (--) Coke                       -&gt; Something-Happened
+          + Eject-Can-Of-Coke
+          + Wait-For-A-Punter
+    (--) Spring-Water               -&gt; Something-Happened
+          + Eject-Can-Of-Spring-Water
+          + Wait-For-A-Punter
+    (--) Juice                      -&gt; Something-Happened
+          + Eject-Can-Of-Juice
+          + Wait-For-A-Punter
+    (--) Sweeto-Sap                 -&gt; Something-Happened
+          + Eject-Can-Of-Sweeto-Sap
+          + Wait-For-A-Punter
+    (--) Empty                      -&gt;
+          + Switch-Off-All-Lights
+          + Stop-The-Programme
+</PRE>
+
+<P>If the coke machine's pretty weak internal moral system failed, it
+supplies the opposite of whatever the punter wanted:</P>
+
+<PRE>
+Let's-Be-Nasty:
+    (--) Coke                       -&gt; Something-Happened
+          + Eject-Can-Of-Juice
+          + Wait-For-A-Punter
+    (--) Spring-Water               -&gt; Something-Happened
+          + Eject-Can-Of-Sweeto-Sap
+          + Wait-For-A-Punter
+    (--) Juice                      -&gt; Something-Happened
+          + Eject-Can-Of-Coke
+          + Wait-For-A-Punter
+    (--) Sweeto-Sap                 -&gt; Something-Happened
+          + Eject-Can-Of-Spring-Water
+          + Wait-For-A-Punter
+    (--) Empty                      -&gt;
+          + Switch-Off-All-Lights
+          + Stop-The-Programme
+</PRE>
+
+<P>This diagram is a little complex for a first example.  Remember however,
+that we are modelling a rich behaviour pattern that took several hundreds of
+millions of years to evolve.  Real software is usually developed much faster,
+and should therefore be much simpler, only it isn't.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr.htm">&lt;</A>
+ | <A href="lrintr2.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <EM>The Coke Machine Example</EM>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

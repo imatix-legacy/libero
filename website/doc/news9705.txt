@@ -1,0 +1,244 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                     MAY 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 5
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Infinite State Machines - Programming - News and Views - Other Junk
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Some weekends we load up into the iMatobile and go to the movies.  Many 
+    other people get the same idea, of course, and the road to and from our
+    local gigaplex cinema is a mess.  This month they're rebuilding the
+    intersection and advising people to leave 30 minutes earlier to get there
+    on time.
+
+    So, last time, we looked at a map, and figured-out a new route.  It goes
+    behind the port, takes a small bridge, and comes out close to the cinema.
+    What we found was a large, new, and totally empty highway, leading up to
+    the cinema steps.  Instead of the usual 15 minutes, the trip took five.
+
+    Of course, this made us jump and dance in glee.  While everyone and his
+    wife were getting road rage at the intersection, we had found a way to
+    get to the same place, with no effort at all.  The film was fun, and the
+    drive back was a pleasure.
+
+    This is the kind of satisfaction we get at iMatix HQ when we build our
+    software.  Why queue-up with the crowd when you can discover an unused
+    freeway that takes you to the front door?
+
+    Pieter Hintjens
+    Antwerpen
+    1 May 1997
+
+
+ == NEWS -...-.---.-.---...-..-.---.-.-....-..--...--.--...-.---..-.---.--.--
+
+    Xitami 1.2b released... Dow Jones Hits New Record!
+    
+        In a stunning scene today, the Dow Jones hit a new record following
+        the public release of a shining new Xitami webserver, version 1.2b.
+        Can this be pure coincidence?  We think so.
+
+    Liberetto Obsessed With Webservers?
+
+        Angry complaints will have hit our editorial desks tomorrow (we use
+        the Lingala future past tense).  Why no in-depth articles on Libero?
+        Why no fine discussion about the difference between exceptions and
+        external events?  Why no jokes about coffee machines that think
+        they're coke machines but cannot handle the temporal disruptions? 
+        Well, as usual we have a slick and convenient explanation ready... 
+        Somewhere... Heck, it was here a few minutes ago.  More news at ten.
+
+    Website Reaches Across The World
+
+        About 600 people per week, from over 60 countries, each reading
+        about 50 pages...  that's our website.  Big Al, our local website
+        analyst, tells us that the average iMatix reader is over 15, male or
+        female, owns or has access to a computer, and is looking for
+        interesting information about the future of software development. 
+        Our resident usability tester, Mandy, who we want to call 'big', but
+        cannot, since she is, and quite strong too, says the average iMatix
+        reader is about or under 15, male, spotty, using his dad's computer,
+        and is looking for illicit material, thinking that the reference to
+        'finite-state machines' in comp.lang.software-tools was a disguised
+        pointer to tasteless GIFs.  Mandy is a cynic.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    More data from our SMTP-enabled server communications interface, or
+    'mailbox' as the technies down at iMatix AI lab would call it.
+
+    > From: "Kevin McPherson Sr." <os2ibn@earthlink.net>
+    > Dear Support,
+    > Can this product handle heavy traffic on the Window 95 platform?
+    > Thanks
+    > Kevin
+
+    > From: mike barletta <mbarlett@ix.netcom.com>
+    > Subject: tec specs
+    > I am looking into server programs to use for and industrial site.  How
+    > many simultaneous connections can this program support on a system
+    > with win95, a cyrix 6x 200, 256 meg of ram, on a t connection?  What
+    > are the legal aspects of using your program for a buisness/profit?
+    > thank you,
+    > Mike Barletta
+    > mbarlett@ix.netcom.com
+ 
+    On a 66Mhz 486 with 8-16Mb RAM and a fast disk running Windows 95 and
+    nothing else, you should be able to serve documents to 100 users
+    without too much difficulty.  (Of course depending on the number and
+    size of documents downloaded, network speed, disk speed, etc.)
+    Basically Xitami can pump document data down the network connection 
+    as fast as the connection can take it.  On a Cyrix 200, with 256 Mb of
+    RAM, on a T1 (1 Mbits) connection, the main limiting factor is the
+    network.  Xitami is _fast_, but we don't need to tell you that.
+
+    > From: Kenneth Irving <ken@bilbo.edu.uy>
+    > Subject: Initialize vs. Initialise
+    > Under Unix (any brand):
+    > according to 'spell' initialize is correct, but...
+    > according to 'spell -b' initialise is correct
+    > The '-b' stands for "british". So the correct spelling is initialise.
+    > I've included an alias spell='spell -b' in my .kshrc. :-)
+    > 
+    > Thanks for Libero and SMT, two great tools, specially in a Unix
+    > environment. By the way, could you explain a little further how
+    > exceptions work in Libero. I found the documentation a little obscure,
+    > and an example or two would be very useful. Thank you again.
+    > Kenneth
+
+    Libero betrays its non-US origins...  If you never wrote a Libero
+    program, this discussion is difficult to follow.  That's what happens if
+    you subscribe to a serious journal like this only for the jokes! 
+    Speaking of jokes, God was talking to St. Peter, and said: "Hey, Pete,
+    I'm going to make this great country, really cool, with fertile
+    lowlands, and breathtaking highlands where silver rivers run down the
+    sides of mountains, and with glens that shine purple in the summer.  The
+    women will be beautiful and proud, and the men strong and bold.  I'm
+    going to give them a drink of gold, which we'll call Whisky."  St. Peter
+    thinks for a while, then replies: "But God, if you make such a perfect
+    country, people won't need to come to Paradise any longer.  All hell
+    will break loose, so to speak!"  God laughs, a deep, billion-year-old
+    laugh, and says "Aha!  Wait until you see what bastards I'm going to
+    give them as neighbours!"
+
+    [This humourticle was contributed by Big Al, who is partly Scottish, and
+    does not reflect the editorial opinions of this journal.  Several of our
+    friends are English.  2.19% of all iMatix website activity is from the
+    UK, and we appreciate it, people.]
+
+    > From: "Michael T. Smith" <aa529@chebucto.ns.ca>
+    > Subject: Security hole in Xitami 1.2b Win95/NT (XIW3212B.EXE)
+    > Although paths like http://localhost/../ seem to be blocked (they 
+    > always give me the page in webpages, even after I set the root to 
+    > somewhere else), paths such as http://localhost/.../ and
+    > http://localhost/..../ are not.
+    > Assuming that my webpages directory is in D:\Xitami\webpages, this 
+    > means that I can get a directory listing of D: (or access any file 
+    > on that hard drive) with a URL like http://localhost/.../ .
+    > Also, is there any way in Xitami of allowing cgi-bins to run from only 
+    > one directory? I want to restrict people from putting their own CGIs
+    > in their webspaces and keep everything at http://hostname/cgi-bin/.
+    > Other than that, it's a very fast web server. ;)
+    > Michael T. Smith
+
+    Uh-oh!  Security holes!  Do people really try things like
+    'http://localhost/.../'?  [Ed. the answer would be obvious to anyone
+    except the cheap staff writers we have to put-up with here.]  Will be
+    fixed in the next release of Xitami.  As for running CGIs in some
+    specific directory, there is an option for Xitami that allows this.
+
+    > From: "Ambrosio Berdijo Jr." <ambo@topmax.com.ph>
+    > Organization: Topmax Philippines, Inc.
+    > To: info@imatix.com
+    > Subject: Xitami WWW Server Kudos
+    > I just would like to congratulate you for your very good and fast
+    > WWW server.  I have been trying out a lot of WWW servers for Win95
+    > (Netscape FastTrack, Microsoft Personal Web Server, O'Reilly Website
+    > 1.1, etc) and so far Xitami is the fastest and the smallest (in terms
+    > of diskspace consumed by the installation).
+    > I hope to download the Xitami LINUX version (source code?) and see how
+    > it goes up against our Apache WWW server in a 486DX4-100 Linux 2.0.30
+    > server.
+    > Again, congratulations.
+
+    Ain't it strange how portable software like Xitami can be faster,
+    smaller, cuter, and generally much more efficient than alternatives that
+    cost much more, and don't pretend to be portable.  We love this little
+    web server, because it demonstrates every day again that our ideas work.
+
+
+ == FOCUS ON TECHNOLOGY --...-..---.-..-.-.---...-....-.-.---.-.-.---....--.
+
+    This month...  Generating HTML documents straight from your C code.
+    
+    If you looked at the SFL or SMT webpages, you may have seen that the
+    majority of these pages are generated directly from the source code.  We
+    use a tool called 'srcdoc' for this.  Srcdoc was written by Pieter
+    Hintjens, who spoke to our raving reporter about it.
+
+    Liberetto: So, Pieter, how's life?
+    Pieter: Great. Hey, you recording this?
+    Liberetto: No, we agreed, no photos, no tape recordings.
+    Pieter: And only used bills, small denominations?
+    L. Right.  Now, if I can ask you a few questions...
+    P. Shoot!
+    L. How did you come to make srcdoc?
+    P. It happened one Sunday.  The Boss had asked me to hack some HTML
+    pages to document the SFL library.  But I wanted to go drumming.  So,
+    instead of writing the documentation, I put together srcdoc.
+    L. So you could go drumming?
+    P. No, it took me until about 3am before it worked.
+    L. Right, but how does it actually work?
+    P. We always write our programs to be _readable_.  Srcdoc just takes
+    that principle a step further.  Some people call this 'literate
+    programming'.  I call it 'excellent laziness'.  When we write a piece of
+    code for SFL, we explain what it does, using comments in the code. 
+    Srcdoc takes these comments, plus the code, and whacks-out a nice HTML
+    page.  If the reader can't understand the comments, they just look at
+    the code.
+    L. How did you write srcdoc?
+    P. Glad you asked that.  Of course, I used Libero.  I chose Perl, since 
+    it's an excellent tool for this kind of work.  Perl with Libero, really
+    a classic combination, like gin and tonic.  Whisky and soda.  Wine and
+    cheese.  Beer and more beer...
+    L. (interrupting) Yeah, I see.  Why is Perl so good?
+    P. Perl is wonderful.  You write some incantation like
+    '/typedef\s+(.*)\s+\((\W*)(\w+)\)\s*(.+);/' and it does something you
+    need a page of C code to do.  Libero gives large Perl programs a nice
+    structure.  Like I said, a classic combination.
+    L. So what can I use srcdoc for?
+    P. It's really meant to handle libraries of code written in C.  It could
+    probably be extended to handle C++ and Java quite easily.  But its real
+    value is as an example.  It was much faster to write this tool than to
+    write the documentation directly.  Srcdoc actually produces input for
+    htmlpp, something that works nicely.
+    L. Well, thanks for your time.
+    P. No big deal.
+
+
+ == T-SHIRT SLOGAN FOR THE MONTH ---.-.-..---.-.-..---.-.-...-.-....---..-..
+
+    Liberetto - Subtle Recklessness Of The Spirit
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    Special offer!  Unsubscriptions are totally free for this month only!
+    Yes, you can bring the whole family!  Sure, bring grandma and grandad
+    too!!  There's no limit!  <SMALL PRINT>Unsubscriptions should be used
+    externally only.  Excessive use can lead to loss of humour, hair, and
+    those small green things you left in the sofa yesterday and which you
+    suspect the dog may have eaten by now.  This offer expires 12 April,
+    1974.  Refunds are made in kind only, and only on presentation of a
+    signed and stamped cashier ticker.</SMALL PRINT>
+
+    Try one NOW!

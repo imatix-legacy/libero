@@ -1,0 +1,262 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                FEBRUARY 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 2
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1998 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    So, Compaq finally went and bought Digital for a fistful of dollars.
+    Digital was one of the firms that launched the computer revolution,
+    with their PDP-1 in 1961.  The first was sold to Bolt Beranek and
+    Newman (BBN), who pretty much invented the Internet; the second was
+    donated to MIT, who pretty much invented the hacker approach to
+    programming and life in general.
+
+    Back to today, and a company that's been selling PCs for 15 years
+    swallows-up one that's been selling minicomputers for 37 years.  This
+    says a lot about the profit margin on Compaq PCs.  It also says much
+    about the future of this business.
+
+    I'm never one to reject a good conspiracy theory, so let's look at the
+    pieces...  Digital was (and still is) respected in many areas: a strong
+    operating system (VMS), fast CPUs (Alphas) and the technical skills
+    required to sell large computers to large businesses.
+
+    Microsoft bought Digital's operating systems teams to help develop NT.
+    Intel bought Digital's Alpha chip.  Now Compaq has bought the rest of
+    Digital.  If Digital was well-known for making superb hard disks, we'd
+    probably see Seagate swimming around there somewhere.
+
+    A minute's silence...
+
+    The concept of a Microsoft-Intel-Compaq axis being able to flatten any
+    other computer company, including the last of the old timers, IBM, is
+    interesting if not particularly savoury.  The battle is headed uphill,
+    to the territory of the Large Machines.  Expect to see new servers from
+    Compaq, stuffed with 4 to 32 Alpha CPUs, working in tight clusters, and
+    running NT only.  The fight between NT and Unix is already over (Unix
+    lost, I'm sorry to report).  The next round is between M-I-C and IBM.
+
+    Pieter Hintjens
+    Antwerpen
+    1 February 1998
+
+
+ == NEWS -..--.-.-.-..--.-.-....----.-.---...---..-.-.-----...-.---.-.-.-.---
+
+    Garcon!  Plat du Jour!!
+        Our ever-active web crawlers, Pixel and Rasta, dug-up an obscure
+        site called 'zdnet' that apparently chose Xitami as their pick of 
+        the day, way back in prehistoric 1997!  Their review of 7 January
+        was... well, we were pretty happy.  This is what ZDNet said:
+        
+        "Xitami is a personal web server for Windows 95/NT. Versions are
+        also available for Windows 3.x, OS/2, Unix, and OpenVMS. The server
+        features browser-based administration, FTP service, customizable
+        error messages, and detailed logs and supports a selectable port
+        (80 or higher) for the service to run on. The author claims faster
+        speed than with many other web servers, but no difference in speed
+        was evident during review. The server expects to find web pages
+        in the \WEBPAGES directory (or subdirectories as appropriate)
+        created during installation. Security features are available
+        but require manual editing of text files in the web server's
+        application directory. Java and CGI (Perl/Rexx/Awk) support is
+        included, but ISAPI and NSAPI interfaces are not (the documentation
+        indicates that a future release might support this). Documentation
+        is included in HTML format. If you're looking for an
+        easy-to-configure web server, take a look at Xitami."
+
+        3.700 people downloaded Xitami to try it out.  We got maybe twenty
+        more e-mails.
+
+    l'Addition, s'il vous plait!
+        - Volume served by www.imatix.com each day: 160 Mbytes.
+        - Number of new hosts served each week: 2.500.
+        - Number of different countries served: 85.
+        - Country we never heard of before: Niue.
+        - Top three domains: .com (21%), .net (17%), .de (8%).
+        - Monthly downloads of Libero software: 600.
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    This month, a selection of e-mail from our users...  (Needless to say we
+    chose a balanced selection of the most positive, enthusiastic and nice
+    e-mails.)  (It's either that or the 'This Is Not A Spam' stuff!)
+
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:        Fri, 16 Jan 1998 18:19:17 -0600
+    From:             Ron Crain <rcrain@tfs.net>
+
+    Xitami is a diamond! For months I have been playing with web
+    servers that I can run on the same W95 machine as my web editor. (I
+    like to completely use and verify the site before it is deployed.)
+
+    I tried Netscape servers - too big, Frontpage - too bad, MS
+    Personal Web server - too erratic, etc. The best solution was a
+    compromise to run Apache on a LInux box on the network, but that
+    was still overkill. Xitami is just right.
+
+    The built-in ftp makes it easy to build a complete site, and make a
+    trial deployment to the server and test before having to do it live.
+
+    I began writing code on 8080, z80, under CP/M, and I have never
+    lost an appreciation for small, tight, well written programs. I
+    hope to find the time (and a project) for trying Libero and your
+    other efforts.
+
+    FWIW, After much effort, I believe I have the perfect web site
+    development environment:
+
+    Homesite, Macromedia Dreamweaver, WS_FPT, CSE3310 Validator
+    Xitami
+
+    All I need now is a good link checker.
+    +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~+
+    | Ron Crain                            | rcrain@tfs.net     |
+    | American Heartland Corporation       | CIS   70011,307    |
+    | P.O. Box 3025                        | (913) 780-2800     |
+    | Olathe, Kansas  66063                | (913) 780-3516 Fax |
+    +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~+
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:        Sat, 17 Jan 1998 00:42:29 -0700
+    From:             Jeff Wolkove <wolkove@biz-link.com>
+    Subject:          FYI - Xitami is a workhorse
+
+    ...but I'm sure you knew that already.
+
+    I don't know what kind of users you have using Xitami, but here's a
+    story for the doubters out there.
+
+    I just spun off part of my site to a second site, and got listed on the
+    search engine last night about 1:00 AM.
+
+    In the past 23 hours, my clunker 486 served up over 3 gigs to over 4300
+    visitors. Kinda scary, actually. I have to cut down on what's online or
+    I'll be in trouble with the cable company very soon. Xitami has not even
+    hiccupped. I'm very impressed and glad I stuck with it.
+
+    Why do you give this away for free?  HOW DO you guys make your money?
+    Just from selling sources? Sorry, maybe it's none of my business, but If
+    Libero can do what you say, then why not package it up with a sleek
+    manual and sell it?
+
+    Forgive me if I ramble.  Have a good weekend.
+    Jeff
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:          Tue, 20 Jan 1998 03:16:30 -1000
+    From:             "rex l. manzano" <rmanzano@hawaii.edu>
+    Subject:          thank you!
+
+    wonderful products! WONDERFUL!!! . . . and a TRUE gift amidst this
+    nauseatingly commercialized world of the internet !!!...a rare find
+    indeed!!!  who are you people?  to whom do the undeserving (myself
+    included) owe this incredible generosity?  thank you! thank you!!!
+
+    rex
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:        Sun, 25 Jan 1998 16:25:22 -0500
+    From:             Stan Buchanan <stan@hermesnet.net>
+    Subject:          The most exellent libero
+
+    First, let me say I love your libero product! I have been trying out the
+    windows gui interface recently, and just wanted to ask a (perhaps dumb)
+    question:
+
+    How do I get capital letters into a state or module name? For example,
+    when I try to make a module name like "Send-DISC-Frame-to-LME" it gets
+    munched into "Send-Disc-Frame-To-Lme" which is not as clear.
+
+    I need to put these abbreviations in all caps for clarity. Any ideas?
+
+    Thank you!
+    Stan
+
+    <<- - - ->>
+    
+    Hi Stan,
+    
+    :-/  Well, this is one of those areas where Libero is just too damn
+    smart; it will always convert names into what it considers to be a
+    standard style.  You are of course right that LME should not be spelt
+    'Lme'; the only benefit of Libero's approach is that all spellings
+    are consistent.
+
+    You will have to accept this price for using Libero ;-)
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:        Fri, 30 Jan 1998 00:20:41 -0800
+    To:               info@imatix.com
+    From:             Dan Weinlader <dan@kaylon.com>
+    Subject:          Libero
+
+    Very nice program, I have built many FSMs with it.  I created my own schema
+    so that the FSM is event driven and found it amazingly easy to do.
+    However, one small problem that might just be my lack of understanding.
+    Why do I get error messages with this trivial dialog?
+
+    -- start --
+    B:
+        (--) Event0     -> A
+            + OP1
+    A:
+        (--) Event0     -> B
+            + OP0
+    -- end --
+
+    The output of Libero 2.30 running on NT 4.0 is:
+
+    d:\>lr test.l
+    LIBERO v2.30 (c) 1991-97 iMatix <http://www.imatix.com>
+    Options file 'lr.ini' not found
+    lr I: processing 'test.l'...
+    lr E: next state cannot be 'b'
+    lr I: building test.d...
+    lr I: building test.i...
+
+    Why can the next state not be 'b'?  I apologize in advance if this is in
+    the documentation, I did not see it when I looked.
+
+    Thanks in advance for you time and help.
+
+       - Dan Weinlader, Kaylon Technologies
+         Test drive Powermarks at http://www.kaylon.com/power.html
+
+    <<- - - ->>
+
+    Hi Dan,
+    
+    The 'B' state is the dialogs initial state: Libero starts the program
+    in the first state in the dialog.  Now, although the kind of loop you
+    describe is perfectly valid, it means that you can enter the initial
+    state several times.  This is just confusing (to the reader), so Libero
+    does not allow it.  This is one of those things that seemed a great
+    idea at the time.  
+   
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Fun with languages... This is what we got when we translated a Spanish
+    web site page into English using AltaVista's (now Compaq-owned?) site:
+    
+    "Xitami Multithreaded Webserver 1.3c - Powerful server of Web multithreaded
+    that executes under Windows 95/NT.  Soporta hundreds of connections
+    simulta'neas,y the best thing: he is gratuitous! FREEWARE".
+ 

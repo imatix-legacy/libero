@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<TITLE>Expression parser in Java using Libero</TITLE>
+</HEAD>
+<BODY BACKGROUND="../newstone.gif">
+<P><IMG SRC="../lr_tiny.gif" ALT="Libero" HEIGHT=60 WIDTH=55>Libero 2.12</P>
+<CENTER><P><APPLET CODE="calcexpr.class" WIDTH=283 HEIGHT=130></APPLET></P>
+</CENTER>
+<P>In Nescape Navigator, to view the animation display, select 'Show Java
+Console' from the menu.</P><HR>
+<H2><B>calcul.l Dialog for expression calculation functions</B></H2>
+<P>Written: 96/06/23 Antonnaux pascal</P>
+<P>Revised: 96/07/06</P>
+<MENU>
+<H2>After-Init:</H2>
+<MENU>
+<LI>(--) Ok --------------------------------&gt;<B> Expecting-Operand</B></LI>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+<LI>(--) Error -----------------------------&gt; </LI>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+</MENU>
+</MENU>
+<P>
+<HR></P>
+<MENU>
+<H2>Expecting-Operand:</H2>
+<MENU>
+<LI>(--) String ------------------------------&gt;<B> Expecting-Operator</B></LI>
+<MENU>
+<LI>+ Stack-The-String</LI>
+</MENU>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+<LI>(--) Number ----------------------------&gt;<B> Expecting-Operator</B></LI>
+<MENU>
+<LI>+ Stack-The-Number</LI>
+</MENU>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+<LI>(--) Left-Par ----------------------------&gt;<B> Expecting-Operand</B></LI>
+<MENU>
+<LI>+ Stack-The-Operator</LI>
+</MENU>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+</MENU>
+</MENU>
+<P>
+<HR></P>
+<MENU>
+<H2>Expecting-Operator:</H2>
+<MENU>
+<LI>(--) Operator --------------------------&gt; <B>Expecting-Operand</B></LI>
+<MENU>
+<LI>+ Unstack-Ge-Operators</LI>
+</MENU>
+<MENU>
+<LI>+ Stack-The-Operator</LI>
+</MENU>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+<LI>(--) End-Mark -------------------------&gt; </LI>
+<MENU>
+<LI>+ Unstack-All-Operators</LI>
+</MENU>
+<MENU>
+<LI>+ Unstack-If-End-Mark</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Right-Par--------------------------&gt;<B> Expecting-Operator</B></LI>
+<MENU>
+<LI>+ Unstack-All-Operators</LI>
+</MENU>
+<MENU>
+<LI>+ Unstack-If-Left-Par</LI>
+</MENU>
+<MENU>
+<LI>+ Get-Next-Token</LI>
+</MENU>
+</MENU>
+</MENU>
+<P>
+<HR></P>
+<MENU>
+<H2>Defaults:</H2>
+<MENU>
+<LI>(--) String -------------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Number ----------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Operator --------------------------&gt;</LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) End-Mark -------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Token-Missing</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Exception ------------------------&gt; </LI>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Other -------------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Left-Par ---------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+<LI>(--) Right-Par -------------------------&gt; </LI>
+<MENU>
+<LI>+ Signal-Invalid-Token</LI>
+</MENU>
+<MENU>
+<LI>+ Terminate-The-Program</LI>
+</MENU>
+</MENU>
+</MENU>
+<P>
+<HR></P>
+<P><A HREF="/index.htm"><IMG SRC="../im0096c.gif" ALT="iMatix"
+BORDER=2 HEIGHT=36 WIDTH=96></A>Designed
+by <A HREF="/html/pascal.htm">Pascal Antonnaux</A>
+&copy; 1996 iMatix</P>
+</BODY>
+</HTML>

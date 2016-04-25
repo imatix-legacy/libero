@@ -1,0 +1,136 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The MS Visual Basic Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang7.htm">&lt;</A>
+ | <A href="lrlang9.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="vb">&nbsp;</A>
+<H2><A NAME="TOC11">The MS Visual Basic Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Visual Basic?</DT>
+<DD>Visual Basic (VB) is Microsoft's rapid application development language.
+It is the standard scripting language for MS applications such as Word and
+Excel.</DD>
+<DT>Portability</DT>
+<DD>None.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: easy to use and widely used; lots of support from third-party
+add-ons; interpreted language.  Cons: slow screen updates; interpreted
+language.</DD>
+<DT>How To Get It</DT>
+<DD>Buy it from your local software shoppe.</DD>
+<DT>Libero Supports</DT>
+<DD>MS Visual Basic 3.0. Not tested with 4.0, but probably will work
+unchanged.</DD>
+</DL>
+
+<H3>Working With Visual Basic</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.vb.</LI>
+<LI><B>Program model:</B> subroutine with arbitrary name and arguments.</LI>
+<LI><B>Good for:</B> complex VB subroutines; batch programs.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.bas</TT>; generates a
+program called <TT>myprog.int</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>Private Sub module_function_name ()</TT></LI>
+<LI><B>Private functions:</B>
+<TT>Private Sub private_function_name ()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 999 states, events, modules.  (Libero allows 1000 of
+anything.)  All tables are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> when you change the <TT>.bas</TT> source file,
+you can run the VB application right away.  When you change the dialog, you
+must regenerate the <TT>.int</TT> and <TT>.bas</TT> files, and either stop
+and restart VB, or remove and re-insert the two files from your project</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+'
+'****************   MODULE FUNCTION NAME   *****************
+'
+Private Sub module_function_name ()
+
+End Sub
+
+Private Sub private_function_name (argument,...)
+    the_next_event = ok_event
+    exception_raised = True
+    the_exception_event = error_event
+}
+</PRE>
+
+<P><A HREF="doc/vbcalc.bas">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<OL>
+<LI>Since there is no way to distinguish module functions from private
+functions, the schema turns-off idle module checking.</LI>
+<LI>The <TT>.int</TT> code file is the dialog interpreter.  You have to
+include both the <TT>.bas</TT> and <TT>.int</TT> files in your project.  I
+make the split into two files so that you are not faced with the generated
+code when you edit the <TT>.bas</TT> source file.</LI>
+<LI>The <TT>.int</TT> interpreter calls the <TT>.bas</TT> source file via a
+dispatcher function.  This function (which is generated) calls a particular
+module and returns event information.  This is not particularly fast, but
+works okay.</LI>
+<LI>All functions are private; this allows several Liberated programs in the
+same VB application.</LI>
+<LI>VB sorts functions in a source file into alphabetical order; I called the
+dispatcher 'ZzDis_...' to ensure that it comes at the end.  This is just for
+cosmetic reasons.  If for some reason the dispatcher function comes somewhere
+in the middle of the source, everything will still work okay.  (I have at
+least one source file where VB did not arrange the functions correctly.)</LI>
+</OL>
+
+<H3>Specific Schema Options</H3>
+
+<UL>
+<LI><B>-opt:slice=shared</B> - the program will periodically calls DoEvents()
+to allow other Windows applications to run at the same time.</LI>
+<LI><B>-opt:slice=exclusive</B> - the program does not cooperate with Windows
+multitasking.  This is the default option.</LI>
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang7.htm">&lt;</A>
+ | <A href="lrlang9.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <EM>The MS Visual Basic Language</EM>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

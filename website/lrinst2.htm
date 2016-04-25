@@ -1,0 +1,134 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Installing Libero for UNIX</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst1.htm">&lt;</A>
+ | <A href="lrinst3.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC6">Installing Libero for UNIX</A></H2>
+
+<P>To install Libero for a UNIX system you must compile it.  Download one
+of:
+
+<PRE>
+<A href="/pub/libero/src/lrsrc230.tgz">lrsrc230.tgz </A>   144126 97/07/14 16:20:26  Gzip/tar archive
+<A href="/pub/libero/src/lrsrc230.zip">lrsrc230.zip </A>   192945 97/07/14 16:20:08  ZIP archive
+<A href="/pub/libero/src/lrsrc231.tgz">lrsrc231.tgz </A>   151603 98/11/27 12:30:10  Gzip/tar archive
+<A href="/pub/libero/src/lrsrc231.zip">lrsrc231.zip </A>   207869 98/11/27 12:29:10  ZIP archive
+<A href="/pub/libero/src/lrsrc232.tgz">lrsrc232.tgz </A>   162260 99/12/05 19:35:02  Gzip/tar archive
+<A href="/pub/libero/src/lrsrc232.zip">lrsrc232.zip </A>   222169 100/01/01 19:33:29  ZIP archive
+</PRE>
+
+<P>You'll need an ANSI C compiler.  The source kit comes with build scripts
+for UNIX and VMS.  To unpack the sources in portable Zip format, load
+<TT>lrsrc232.zip</TT> into a working directory and extract the
+contents using <TT>unzip</TT>:
+
+<PRE>
+    $ mkdir temp
+    $ mv lrsrc232.zip temp
+    $ cd temp
+    $ unzip -a lrsrc
+    $ chmod +x install
+</PRE>
+
+<P>To unpack the sources in GNU gzip format, load
+<TT>lrsrc232.tgz</TT> into a working directory and extract the
+contents using <TT>gunzip</TT> and <TT>tar</TT>:
+
+<PRE>
+    $ mkdir temp
+    $ mv lrsrc232.tgz temp
+    $ cd temp
+    $ gunzip lrsrc
+    $ tar -xvf lrsrc232.tar
+</PRE>
+
+<P>The <TT>install</TT> script is smart enough to detect the UNIX system and
+use appropriate compile switches. It proposes various options: start with
+(b)uild to compile and (maybe) install Libero.  You can run Libero as soon as
+it is built; you don't need to install it into an install directory.  Run
+<TT>install</TT> like this (you may need root access if you want to install
+Libero into a system directory):
+
+<PRE>
+    $ su root
+    $ chmod +x install
+    $ ./install
+</PRE>
+
+<P>The <TT>install</TT> script uses the Korn shell, which is not available on
+all UNIX systems.  You can use <TT>install.sh</TT> instead, which uses the
+Bourne shell.  On some UNIX systems the Bourne shell does not support
+functions; then this script will not run either.  If you have trouble running
+<TT>install</TT> or <TT>install.sh</TT>, try something like this (it's what
+the scripts basically try to do):
+
+<PRE>
+    $ cc <I>&lt;switches&gt;</I> lr.c lr????.c -o lr
+    $ cp lr lrmesg.txt lrschema.* installdir
+    $ rm *.o
+</PRE>
+
+<P>The <I>&lt;switches&gt;</I> are the compiler switches that do an ANSI C
+compile.  Type <TT>man cc</TT> for details.
+
+<P>Once you have built the <TT>lr</TT> file, and installed it and its data
+files, you should check that the install directory is on the <TT>PATH</TT>
+definition.  By default the install script proposes <TT>/usr/local/bin</TT>
+as an install directory.
+
+<P>If you do not like placing non-executable files into a /bin directory, you
+can place <TT>lr</TT> there, and the remaining files (<TT>lrmesg.txt,
+lrschema.*</TT>) into another directory.  This second directory may be on the
+PATH or be defined in another, arbitrary environment variable; for example,
+<TT>LRPATH</TT>.  You must then tell Libero which variable you are using with
+a command-line switch like: <TT>-path=LRPATH</TT>.  You can also specify the
+path literally: <TT>-path=/usr/local/tools/bin</TT>. Place such global
+options in the <TT>lr.ini</TT> file.
+
+<P>Note that on UNIX, all filenames are lower-case.  If you do not manage to
+install Libero on a non-MS-DOS system, you can always run Libero on a PC,
+then upload the generated code.  You can also run Libero for Windows or
+MS-DOS, accessing your UNIX disk via a network.  This works pretty well for
+many people.
+
+<P>System-specific notes:
+<UL>
+<LI>Linux, gcc: compile switches: <TT>-pedantic -O2 -Wall -c</TT>.
+<LI>HP/UX: compile switches: <TT>-Aa</TT>.
+<LI>SunOS, SunC: compile switches: <TT>-O -vc -Xa</TT>.
+<LI>SunOS, gcc: see Linux.
+<LI>AIX 3.2.5: default compiler switches.  <TT><TT>LIBPATH</TT></TT> must be
+set to<TT><TT>/usr/lib</TT></TT> when you link <TT>lr</TT>, or you'll get an
+error at runtime.  This appears to be normal compiler behaviour.
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst1.htm">&lt;</A>
+ | <A href="lrinst3.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrinst.htm">Installing Libero</A>
+| <A href="lrinst1.htm">What You Will Need</A>
+| <EM>Installing Libero for UNIX</EM>
+| <A href="lrinst3.htm">Installing the MS Windows Kit</A>
+| <A href="lrinst4.htm">Installing the MS-DOS Kit</A>
+| <A href="lrinst5.htm">Installing the 32-bit MS-DOS Kit</A>
+| <A href="lrinst6.htm">Installing the OS/2 Kit</A>
+| <A href="lrinst7.htm">Installing the VAX/VMS Kit</A>
+| <A href="lrinst8.htm">Installing the Examples</A>
+| <A href="lrinst9.htm">Configuring and Testing Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

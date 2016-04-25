@@ -1,0 +1,241 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    July 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 7
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    This is not a joke.  Really.
+
+    Researchers in the US recently discovered just how important sleep is.
+    People need a certain amount of sleep (8 to 9 hours) every night.  If
+    you get less sleep, you get stupider.  No joke: every hour of sleep that
+    you don't get, costs you one point of IQ.  The effect is cumulative, but
+    not permanent.
+
+    Let's say you're working on a really important project.  You lose an hour
+    of sleep every night.  After a month you're down 30 IQ points.  If you
+    started at 100, which is the population average, you'd be down to 70, at
+    which level you're having difficulty working the toaster.      
+
+    The population of the US, and Europe is apparently chronically tired.
+    A sure sign of lack of sleep is whether you start snoring during boring
+    events such as company presentations, after-lunch meetings, telephone
+    calls, or trips to the toilet.  When you step over someone who has
+    fallen comatose onto the office floor while downloading NT Service Pack
+    4, you now know why this happened.
+
+    Anyone who has followed this industry for a while will realise that
+    there must be some external force at work, something so powerful that it
+    can explain why the combined talents of so many, well, talented people,
+    comes up with what can rarely be described politely.  Sturgeon's Law
+    states that 90% of anything is junk.  So why is 95% of software junk?
+    Or, if you measure it by volume, 99.9%.  
+
+    Yes, we've been suffering from release after release of software built
+    by sleep-stupid geniuses.  They'll start a project with a fantastic
+    design, powerful and abstracted.  As the work progresses, they get
+    stupider and stupider, losing little IQ points every time they stretch
+    the working day into the night.  Finally they're programming at the
+    imbecile level, and people are shocked that there are so many bugs.
+    It's amazing that anything works at all!
+
+    Forget the macho stuff about 'Hey, I only need five hours' sleep a
+    night'.  This is about as smart as saying 'Hey, I can drink ten beers
+    and still drive home at top speed!'.
+
+    I'm waiting until California legislates mandatory minimum sleeping
+    hours, then I'm going to live there.
+    
+    Pieter Hintjens
+    Antwerpen
+    1 July 1998
+
+
+ == NEWS -..-..---.-.----.-..-.---..-..---.-..-..----.-.-.---....-.-.---.-..-
+
+    Xitami Pro in Alpha State!
+        No, not a reference to light sleep patterns, but to our forthcoming
+        Xitami Pro webserver, which is almost ready for alpha testing.  This
+        professional server will feature SSL, as well as a raft of other
+        functions for serious web sites.  Xitami will be renamed 'Xitami
+        Personal' and we will continue to improve it and make it freely
+        available as before.
+
+        
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    From:  Kovacs Istvan <kofa@alarmix.net>
+    -----------------------------------------------------------------------    
+    Hi!
+    I've been watching your fight with '\' and '/' in configuration paths
+    and URL's for some time. :-) Why don't you use some kind of
+   'canonicaliser' that could eliminate these problems (that is, it should
+    convert all '\' characters to '/', and do whatever else is necessary)?
+    How are you doing, BTW? Congratulations for your (er, Xitami's) 3rd
+    place! A year ago it was a largely unknown software (none of my friends
+    (working for ISP's, or other Internet-related jobs) knew it), and now
+    it's a widely used server! Quite a success story. Should I watch out
+    for an interview with Mr. Hintjens on CNN? ;-) 
+    Kofa
+
+    - - -
+
+    We have no time for CNN, sadly.  All the back slashes in our labs went
+    on strike and we're trying to make Xitami work with only forward
+    slashes, sometimes turned over.  But now the Windows NT server has
+    gotten into an argument with the BEos beast about whose slashes are
+    who's.  Life in the iMatix AI labs is not always harmonious.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From:    Dale Phillips <dphi@ix.netcom.com>
+    Subject: Re: Liberetto III/6
+    -----------------------------------------------------------------------    
+    Ode to the Keepers of Turing:
+    (i.e. OOP FSM)
+
+    Finite and fixed, functions so pure
+    state to state 
+    sub_routine called by sub_routine 
+    return to where I started please... 
+    What if ... the keepers cried ...
+    IF each state in our finite machine 
+     - so fixed and straight 
+            was and object??
+    Come one come all and see the light 
+    objects methods and inheiritance cast in same old light ...
+    The End
+
+    Dale
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From:             Jimi Joergensen <jimi@joergensen.net>
+    Subject:          Xitami
+    -----------------------------------------------------------------------    
+    Well, I thought I would write you a mail and for once not nag you about
+    some detail in the highly regarded and loved Xitami.
+    It works perfect, my server is screaming and the network is burning as
+    always..
+    Oh well, I have another reason for mailing :-).
+    I have 2 questions:
+    1) I would expect Xitami to run just as well on Alpha AXP as it does
+    on Intel platform, would there be anything that would prevent this
+    from work just as brilliant as it does now ?
+    2) How big is the overhead (memory / CPU) pr. virtual host ?
+    The case here is that I could very well end up, within a month or
+    two, with a solution that required me to have something in the order
+    of 20000 - 25000 virtual-hosts on a single server.
+    /Jimi
+    - I always wanted to be somebody, but I should have been more specific...
+
+    - - -
+    
+    Sure Xitami will run on Alpha AXP.  Actually, with Jimi's help we hope
+    to make this available in binary form for a future release.  Did you say
+    twenty-thousand virtual hosts?  No, I thought I was imagining it.  Must
+    get more sleep.  Snork snork.
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From: Pieter Hintjens <ph@imatix.com>
+    To: Terry Steichen <tjs@huskynet.com>
+    Subject: Free software
+    -----------------------------------------------------------------------    
+    Terry,
+    Thanks for your questions.
+
+    > Re: Free software as an effective marketing alternative - You know,
+    > as strange as that sounds, I'm seeing more and more of that.  I
+    > think it's in process of becoming the new 'rage'.  I'm curious, just
+    > the same - is the majority of your income from consulting services
+    > then?  And most of these services are related to use of your free
+    > software?
+
+    We regard free software as (a) an important marketing tool, perhaps
+    the only one available to a small but ambitious company with global
+    plans; (b) a mission to spread our techniques and tools as widely as
+    possible, and (c) a good way to test and refine technology (such as
+    SMT) on which our consulting business depends.  It's a mixed bag, but
+    works well and I think the results prove it.
+    Our specific strategy with Xitami is fairly classic: bring out a good,
+    reliable, popular free product, and use this as the basis for a
+    commercial product family.
+    - Pieter Hintjens
+
+    From:             "Terry Steichen" <tjs@huskynet.com>
+    Subject:          Free software
+    -----------------------------------------------------------------------    
+    Thanks for your response.  I am immensely impressed with what you're
+    doing. Until a couple of years ago I had a software company (developing
+    and marketing an agent-based system to monitor/manage file servers).
+    The product met an important market need, but getting attention (let
+    alone market penetration) as a small company was terribly hard.
+    Eventually, I just had to let it go.
+    But I've never stopped thinking about how to do it better, and I think
+    your group is on to the way to do that.  It so goes against the grain
+    (to give away well-designed software), that it's difficult to grasp
+    seriously and permanently.  But, it does work.  A week or so ago I
+    noticed that a distributor of electronic components, Microcom
+    Technologies (www.microcomtech.com) announced it was giving away a
+    version of its Web-mining software (www.partminer.com).  It took me
+    a while to figure out how it would work for them, but now that I've
+    examined it a bit, I'm very impressed.
+    It's increasingly clear that if you give the market something it
+    considers valuable (ie, Xitami), it will use it and become favorably
+    inclined toward the provider (ie, iMatix).  Then the 'trick' is to
+    allow (not pressure) the market to expand on the free (already
+    valuable) stuff to make it even more valuable.  That process is
+    what traditional advertising strives to do; but, especially in the
+    Internet age, such advertising is only marginally effective and
+    often terribly costly.
+    All of this on the heels of Netscape's (desperation-driven) opening
+    up of its source, and IBM's adoption of Apache.  Something very
+    important and very profound it happening.  And I think you're
+    positioning iMatix correctly in this emerging trend.
+    Regards,
+    Terry Steichen
+
+
+ == LINKS OF THE MONTH -..-..---.-.--...-.-..---..-....---..-.-.-.--...-.-..-.
+
+    http://serverwatch.internet.com/webreview-xitami.html
+
+    "If you need speed but don't want the baggage that comes with most other
+    web servers, Xitami may be your answer.  Xitami's strength is in its
+    diminutive but stalwart footprint which is built around iMatix's high
+    performance SMT (Simple Multi-Threading) kernel. Xitami has a loyal --
+    perhaps even fanatic -- following that is growing steadily due to its
+    price tag (free!) and its tried and true performance. To the delight of
+    many, Xitami resuscitates older Pentium boxes, making these
+    dust-collectors serviceable once again."
+
+    http://serverwatch.internet.com/top10.html
+
+    Xitami hit number 2 and then went back to number 4 in the Top 10.  We
+    suspect that if enough people click on the 'Download' button, it could
+    actually hit number 1.  (Hint, hint.)
+    
+    http://www.zdnet.com/anchordesk/story/story_2212.html
+
+    Build Your Own Intranet Right Now.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Tired of Liberetto?  Falling asleep on the keyboard?  Why don't you go
+    home this evening, run a nice warm bath, and soak until your skin starts
+    to go wrinkly.  Drink a nice mug of hot milk, then go to sleep.  It'll
+    be better tomorrow.
+
+    If that does not help, then we can't help either, so just ask us to take
+    you off this list.

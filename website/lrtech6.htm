@@ -1,0 +1,72 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Standard :do Conditions</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech5.htm">&lt;</A>
+ | <A href="lrtech7.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC11">Standard :do Conditions</A></H2>
+
+<P>Libero defines this set of :do conditions:
+<DL>
+<DT>:do action</DT>
+<DD>For each state defined in the dialog; generates the action
+for each event in each state.</DD>
+<DT>:do event</DT>
+<DD>For each event defined in the dialog.</DD>
+<DT>:do event local</DT>
+<DD>For each event defined in the current :do state.</DD>
+<DT>:do module</DT>
+<DD>For each dialog module defined in the dialog.</DD>
+<DT>:do module local</DT>
+<DD>For each dialog module defined in the current :do event.</DD>
+<DT>:do nextst</DT>
+<DD>For each state defined in the dialog; generates the
+next-state for each event in each state.</DD>
+<DT>:do state</DT>
+<DD>For each state defined in the dialog.</DD>
+<DT>:do stubs [filename]...</DT>
+<DD>For each dialog module defined in the dialog, but not yet
+present in the source file (or filename(s) if specified).</DD>
+<DT>:do vector</DT>
+<DD>For each action vector required by the dialog.  An action
+vector is the list of modules to execute for an event in a
+state.  Libero collects these and builds a list of unique action
+vectors.</DD>
+</DL>
+
+<P>You cannot nest these standard :do loops cannot be nested (i.e. twice the
+same condition).
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech5.htm">&lt;</A>
+ | <A href="lrtech7.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <EM>Standard :do Conditions</EM>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

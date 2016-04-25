@@ -1,0 +1,177 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The GNU Borne-Again Shell Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang4.htm">&lt;</A>
+ | <A href="lrlang6.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="bash">&nbsp;</A>
+<H2><A NAME="TOC8">The GNU Borne-Again Shell Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is The GNU BASH?</DT>
+<DD>GNU BASH is the GNU project's UNIX shell. It replaces the (not really)
+standard UNIX Bourne and Korn shells.</DD>
+<DT>Portability</DT>
+<DD>BASH (<TT>/bin/bash</TT>) is available for all UNIX systems that I know
+of.  BASH scripts can be ported to other UNIX shell languages: the closest is
+the Korn shell.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: freely available and standardised. Follows the POSIX standard; has
+the best of all the UNIX shells in one package.  Cons: not necessarily
+installed on your UNIX box.</DD>
+<DT>How To Get It</DT>
+<DD>Get it from your local GNU shoppe. BASH and the other GNU tools are part
+of all Linux distributions.</DD>
+</DL>
+
+<H3>Working With The GNU Borne-Again Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.bsh.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts; portable to GNU systems.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates a
+script called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+function module_function_name
+{
+</PRE></LI>
+<LI><B>Private functions:</B> <TT>function private_function_name {</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name
+{
+    return                      # Empty module needs 'return'
+}
+
+function private_function_name {
+    the_next_event=$ok_event
+    raise_exception $error_event
+}
+</PRE>
+
+<A NAME="unix_shells">&nbsp;</A>
+<H3>Programming with UNIX Shells</H3>
+
+<OL>
+<LI>You must remember to assign events and other variables as follows:
+<TT>the_next_event=$some_event</TT>.  If you make the common mistake of
+forgetting the '$', the results are interesting but not useful.  The schema
+checks against this error, at a slight cost in runtime.  You can skip these
+checks by using the -nocheck option. The BASH language lets you declare
+numeric variables explicitly, so this check is not required in the
+lrschema.bsh schema.</LI>
+
+<LI>Your <TT>.mod</TT> file is not copied entirely, but in sections. The
+script schemas extract three sections marked with the keywords &lt;HELP&gt;
+to &lt;END&gt;, &lt;DATA&gt; to &lt;END&gt;, and &lt;CODE&gt; to
+&lt;END&gt;.  You will see :include commands in the schemas that do this.
+The final &lt;END&gt; is optional, and probably best to ignore.</LI>
+
+<LI>The &lt;HELP&gt; section is copied to the header of the script. Each line
+in this section should start with '#'.  Some of my scripts are
+self-anotating: if run with '-h' as argument, they do something like
+this:
+
+<PRE>
+    expand $0 | egrep "^# |^#$" | cut -c 4-80 | more
+</PRE></LI>
+
+<LI>The module <TT>Initialise_the_program</TT> gets the command-line
+arguments; ie. it can refer to $1, $2, in the normal way.</LI>
+
+<LI>The <TT>script_name</TT> variable contains the command-line variable $0.
+You could put something like this in initialise_the_program:
+
+<PRE>
+    if test "$1" = "-h"; then
+       expand $script_name | egrep "^# |^#$" |        cut -c 4-80 | more
+       exit
+   fi
+</PRE></LI>
+</OL>
+
+<P>Also note that:
+<OL>
+<LI>It is sometimes useful to start a script using the <TT>.</TT> operator.
+For instance, to trace a script you could use these commands:<BR>
+<TT>set -x; . scriptname</TT><BR>
+If such a script ends with <TT>exit</TT> (and the generated ones do), you
+exit the current shell. If it's your main shell, you are logged-out.  To
+avoid this, enclose the entire command in parentheses:<BR>
+<TT>(set -x; . scriptname)</TT>
+or run a sub-shell first.</LI>
+
+<LI>The auto-annotating function explained above won't work if you run the
+script using the <TT>.</TT> operator ($0 becomes the name of the
+shell...).</LI>
+
+<LI>These shell script schemas are somewhat slow.  I optimised the code to
+use as many internal commands as possible in place of external commands.
+This cut the time spent in the dialog manager code by 60% over the first
+version.  The bash and ksh versions are the most efficient; bsh does not have
+a <TT>let</TT> command, so I need to use the clumsy <TT>a = `expr 1 + 1`</TT>
+to increment a variable.  The bash shell version is the cleanest, since I can
+use <TT>declare</TT> to define numeric variables.  Any attempt to assign text
+to a numeric variable gives an explict shell error message.</LI>
+
+<LI>I use a function <TT>LR_idx</TT> to access arrays of numbers by shifting
+and returning a numeric value.  This is the fastest method I could find, and
+it works in all three shell languages. As a consequence, there is a limit of
+254 events (255 is the terminate_event).</LI>
+
+<LI>If you are doing heavy shell-type programming, consider using Perl.</LI>
+</OL></P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang4.htm">&lt;</A>
+ | <A href="lrlang6.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <EM>The GNU Borne-Again Shell Language</EM>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

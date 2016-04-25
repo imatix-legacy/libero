@@ -1,0 +1,216 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Example of Using a Telephone</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr1.htm">&lt;</A>
+ | <A href="lrintr3.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC7">Example of Using a Telephone</A></H2>
+
+<P>In a more technical example, we'll model the steps we take in using making
+a telephone call.  By convention, the first state is <TT>After-Init</TT>.
+Another convention is to use <TT>Terminate-The-Program</TT> to halt the
+dialog.</P>
+
+<P>After initialisation (I would recommend a good coffee or a decent beer,
+depending on the time of day), we pick-up the handset, and listen to the
+dialing tone.</P>
+
+<PRE>
+After-Init:
+    (--) Ok                          -&gt; Want-Dialing-Tone
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Error                       -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>This leads us to the state <TT>Want-Dialing-Tone</TT>.  Here we handle
+each of the possible events produced by <TT>Listen-For-Dialing-Tone</TT>.
+Let's look at these in detail:
+<UL>
+<LI><B>Ok</B> We have a dialing tone, so we can dial the number.  This
+is the normal, expected event.</LI>
+<LI><B>Silent, no tone</B> The telephone exchange is having a hard day, or
+someone unplugged the phone.  Or maybe a ninja attack team has cut the phone
+cables and is at this moment sneaking up the stairs and AAAARGH...  In this
+simple example we loop forever; in a real program we would allow a limited
+number of attempts.</LI>
+<LI><B>Voices on the line</B> Some other member of the household is making
+the phone company richer.  We apologise and forget it.</LI>
+<LI><B>Modem noise</B> - the young bro' is downloading some more bootleg
+GIF's.</LI>
+</UL></P>
+
+<P>We give each of these events a short snappy name and list them in a
+reasonable order.  Like a 'case' statement, the actual order makes no
+difference to the machine, but helps the person reading the dialog.
+Typically we put the most frequent or expected events first, with the more
+bizarre ones at the end.  Each event provokes one or more <I>actions</I> that
+correspond to <I>modules</I> of code.  A module can be a <I>function</I>,
+<I>procedure</I>, <I>subroutine</I>, <I>paragraph</I>, etc., depending on the
+programming language.  A module is where you do the real work.</P>
+
+<PRE>
+Want-Dialing-Tone:
+    (--) Ok                          -&gt; Want-Ringing-Tone
+          + Dial-Required-Number
+          + Listen-For-Ringing-Tone
+    (--) Silent                      -&gt; Want-Dialing-Tone
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Voices                      -&gt;
+          + Apologise-Telephone-Busy
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Modem                       -&gt;
+          + Put-Down-Telephone-Handset
+          + Apologise-Cutting-Modem
+          + Terminate-The-Program
+</PRE>
+
+<P>Here we are waiting for a ringing tone.  We can reuse some of the event
+names - <TT>Ok</TT>, <TT>Silence</TT>, <TT>Voices</TT> - from the previous
+state.  This makes the generated code smaller, and is nice for the reader,
+since there are fewer names to remember:</P>
+
+<PRE>
+Want-Ringing-Tone:
+    (--) Ok                          -&gt; Want-Answer
+          + Listen-For-Answer
+    (--) Silence                     -&gt; Want-Dialing-Tone
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Engaged                     -&gt; After-Engaged
+          + Put-Down-Telephone-Handset
+          + Consider-Trying-Again
+    (--) Voices                      -&gt; Want-Dialing-Tone
+          + Complain-Crossed-Connection
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+</PRE>
+
+<P>You get the picture.  The remaining states map out the rest of the
+conversation.  The next state has an event, <TT>Doorbell</TT>, that is not
+produced by any previous module, but that can happen at any time.  We call
+this an <I>exception event</I>, and we add the handling for it in the state
+where it can happen:</P>
+
+<PRE>
+Want-Answer:
+    (--) Ok                          -&gt;
+          + Have-Conversation
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Wrong-Number                -&gt;
+          + Apologise-Wrong-Number
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Answering-Machine           -&gt; Have-Answering-Machine
+          + Consider-Leaving-Message
+    (--) Modem-Or-Fax
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Doorbell                    -&gt;
+          + End-Conversation-Quickly
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+
+After-Engaged:
+    (--) Ok                          -&gt; Want-Ringing-Tone
+          + Dial-Required-Number
+          + Listen-For-Ringing-Tone
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+
+Have-Answering-Machine:
+    (--) Message                     -&gt;
+          + Leave-The-Message
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+</PRE>
+
+<P>The <TT>Defaults</TT> state is special; we never come here explicitly.
+Rather, the state holds events that are implicitly valid in any other state.
+Here we say that whenever the <TT>Doorbell</TT> event strikes, we put the
+phone down and beat it doorwards.  Note that the <TT>Doorbell</TT> event is
+handled explicitly in <TT>Want-Answer</TT> - the action in that state is a
+little different from the other states.</P>
+
+<PRE>
+Defaults:
+    (--) Doorbell                    -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+</PRE>
+
+<H3><A NAME="TOC8">Serious Stuff: Events and Names</A></H3>
+
+<P>Now I want to show how an action module 'produces' an event.  Libero
+provides a standard variable called <TT>The-Next-Event</TT>.  An event like
+'Ok' is actually called <TT>Ok-Event</TT> in the program (Libero tacks-on
+'-Event' for you).  This is how you would set <TT>The-Next-Event</TT> in
+various languages:
+<UL>
+<LI>C/C++: <TT>the_next_event = ok_event;</TT></LI>
+<LI>80x86 assembler: <TT>mov the_next_event,ok_event</TT></LI>
+<LI>UNIX Korn Shell: <TT>the_next_event=$ok_event</TT></LI>
+<LI>Perl: <TT>the_next_event = $ok_event;</TT></LI>
+<LI>COBOL: <TT>MOVE OK-EVENT TO THE-NEXT-EVENT</TT></LI>
+<LI>Visual Basic: <TT>the_next_event = ok_event</TT></LI>
+</UL></P>
+
+<P>Libero applies this rule: <I>at least </I>one of the action modules for an
+event must supply a value for <TT>The-Next-Event</TT>.  If no value for
+<TT>The-Next-Event</TT> is supplied, the dialog halts with some kind of error
+message.</P>
+
+<P>The names of events and action modules can take various forms, depending
+on the language and your preferences.  For example, the C/C++ code could take
+any of these forms:
+<UL>
+<LI>Plain style: <TT>the_next_event = ok_event;</TT></LI>
+<LI>Caps style: <TT>TheNextEvent = OkEvent;</TT></LI>
+<LI>Headline style: <TT>The_Next_Event = Ok_Event;</TT></LI>
+<LI>Title style: <TT>The_next_event = Ok_event;</TT></LI>
+</UL></P>
+
+<P>Personally I prefer the first style, which is why it's the default.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr1.htm">&lt;</A>
+ | <A href="lrintr3.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <EM>Example of Using a Telephone</EM>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

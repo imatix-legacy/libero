@@ -1,0 +1,4 @@
+*.html	/opt/www/discover/lib/html2txt <
+*.shtml	/opt/www/discover/lib/html2txt <
+*.sht	/opt/www/discover/lib/html2txt <
+*.htm	/opt/www/discover/lib/html2txt <

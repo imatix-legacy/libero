@@ -1,0 +1,220 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-               SEPTEMBER 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 9
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming - Conspiracy Theories - Finite State Machines - News - Views
+
+    WARNING: this edition of Liberetto contains material that is off-topic,
+    in bad taste, and probably offensive to many people.  If you choose to
+    read what follows, you do so at your own discretion.  (We considered
+    removing the offending section -- near the end -- but thought that the
+    Liberetto archives should rather remain accurate.)
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Bill Gates again demonstrated the flexibility that would make a circus
+    contortionist envious, and that makes Microsoft act more like a two-man
+    start-up than the behemoth it really is.  With a modest $150M of small
+    change thrown into Apple's hat, Microsoft has ensured that its software
+    (and especially its browser) will be embedded in future Mac systems.
+
+    Apple's stock rose from a low point of $12.5 to $26.5 in less than a
+    month.  If Bill is willing to invest in Apple, so are we, I guess.
+
+    Of course, the really interesting question is "Why?"  I've been asking
+    around, and have collected lots of theories.  These mostly fall into
+    these camps:
+
+    1.  Bill is really scared of Apple's future Rhapsody system, so wants
+        to be sure that Windows NT won't be made obsolete by it.
+
+    2.  Bill just wants to make sure that Rhapsody is actually NT 5.  Why
+        make life hard for the consumer with all those tough choices.
+
+    3.  Bill and Steve are really scared by Java, so want to make a last-
+        ditch stand against the Sun/Netscape/Oracle camp.
+
+    4.  Bill and Steve are really scared by the Network Computer (which is
+        a variation of the Java Threat, only it also includes Nintendo in
+        the enemy camp.)
+
+    5.  Bill is worried about the Trust Busters who think he has an unfair
+        grip on the computer software industry.  He reckons that by buying
+        part of Apple, he can say that he's not only interested in profits,
+        but has a heart too.
+
+    5.  Bill and Steve are both Scientologists and this is part of a plot
+        to censor all anti-Scientology newsgroups.
+
+    6.  Bill and Steve are both scared by *something*, and it's not Sun,
+        nor Netscape, nor Oracle.  (Nor iMatix, though they *should* be.)
+        They've realised that the old Evil Empire, IBM, is still around,
+        leaner, meaner, and getting ready to blast the parvenues into
+        bloody smithereens.
+
+    Well, at iMatix HQ we came to a more mundane conclusion. $150M is only
+    three times what Bill spends each year on developing Internet Explorer,
+    something he then gives away for nothing.  For this he gets control of
+    the Mac desktop, snubs Netscape, and creates a little more market share
+    for his milk cow, Office.
+
+    Oh yes, his $150M purchase in shares is now worth over $300M, so it was
+    not exactly wasted money.
+
+    Pieter Hintjens
+    Antwerpen
+    2 September 1997
+
+
+ == EXCUSES -....---.-...---.-..-.---....-.-..---..-....----.-..-.--.-...-.--
+
+    Yes, another short newsletter this month.  The whole iMatix crew have
+    just come back from vacation, and don't feel like working.  Lazy lot!
+    So, while we get-out the cattle prods and cat-o-nines, we shamefully
+    present our humblest excuses for a truncated edition.  However, we must
+    make it clear that we still aspire to becoming a Serious Journal, with
+    articles on subjects like 'The Somatropic Effects Of Mixed Bilateral
+    Conjunctions' and 'Building Your Own Multithreaded Coffee Dispenser'.
+
+    In the meantime you'll have to be content with the usual junk.
+
+    Oh yes, all the usual terms and conditions apply.  Any text that may
+    appear to have humouristic tendencies is provided without guarantee of
+    any kind, including the assumed promise of SUITABILITY FOR CHILDREN,
+    and in no conditions will iMatix be responsible, liable, or forfeit for
+    the consequences of CULTURAL HUMOURISTIC SHIFTING or simple BAD JOKES.
+    Everything in CAPITALS should be read while standing upside-down.
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-..
+
+    Xitami 2.0 goes into Beta Test!
+        Yes, the web server that dares to say 'Boo!' to the big guys is
+        getting ready for round II.  What's new?  FTP, browser-based admin,
+        lots of improvements and bug fixes, more portability.  Xitami 2.0
+        also runs on Digital OpenVMS.  With version 2.0 you'll be able to
+        run and manage the same web server on dozens of different systems.
+
+    iMatix Denies Involvement!
+        Amid rumours and press reports, a frazzled iMatix spokesman denied
+        today that iMatix was involved in any way whatsoever in the tragic
+        and premature death of Lady Di, a fourteen-year old cocker spaniel
+        that demonstrated once more the effects of kinetic energy when it
+        ran happily into the road and under a number twelve bus.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Yesterday morning the iMatix Internal Quality Manager was strolling
+    through the office when he came across Mandy, sorting-out the e-mail in
+    large heaps across her desk.  (She told us this tale in hushed tones
+    over espresso this morning.)  He berated her for keeping so much useless
+    paper on her desk (his words, not ours) and told her to throw-out
+    everything that was not absolutely vital.  As she explained, she did
+    this, filling fifteen large recycling boxes with old emails saying
+    'Xitami is the greatest', 'I don't understand Libero', 'how do I build
+    SFL on SunOS', and so on.  Big Al asked Mandy if her desk was now
+    cleared.  'Of course not,' she replied.  'I never throw anything away
+    without making a photocopy first!'
+
+    Here are a couple of the letters that survived.
+
+    >Date sent:        Sat, 2 Aug 1997 07:50:32 -1000
+    >From:             Art Pollard <pollarda@hawaii.edu>
+    >Subject:          Re: Liberetto II/8
+    >Just a note about your thoughts regarding WP5.1.  There have been many
+    >studies which have shown that a text based word processer is far more
+    >productive than a WYSIWYG one.  Why?  Because people using the
+    >graphical system spend more time worrying about how the document looks
+    >rather than what it says.  The graphical interface for this reason
+    >interupts the thought process and the "flow" of writing.
+    >I am always amazed at how many people I know still use WP5.1 and still
+    >consider it their word processer of choice.  (Myself included.)  In
+    >fact, I ran into someone not long ago that still uses and loves WP4.5
+    >though they are part of a University Faculty and has access to just
+    >about anything one could want.
+    >-Art
+
+    Thanks Art.  Perhaps we can use your recommendations to get Mandy to
+    upgrade from her Commodore-64 with Easy-Write.
+
+    >Date sent:        Thu, 28 Aug 1997 23:17:52 +0200 (MET DST)
+    >From:             Nils Segerdahl <seger@webway.se>
+    >Subject:          Re: Xitami protect root with password.
+    >Hi,
+    >Thank you for your fast reply.
+    >We are launching a prototype web site next week. since it is a
+    >prototype I can take the risk using a preview version of the webserver.
+    >So I would be very happy if you could send me one to try.  We are using
+    >a FreeBSD 2.2 unix on an fast Compaq pentium computer. It's so fast
+    >with xitami it's almost unbelivable.
+    >Best regards,
+    >   /Nils
+    >"Man skall inte „ga mer „n man kan ta med sig i sin lustjakt"
+    >                   - Gammalt Bulvanskt ordst„v
+
+    Nils is referring to the soon-to-be-released version 2.0 of Xitami, also
+    known as 'Xitami 97', where '97' is the percentage of people who cannot
+    pronounce the name.
+
+
+ == THE EX FILES --...-.-.--.-..-:\---..-.-.-.--...-.-.---.-.---...-.-....-.-
+
+    In keeping with this month's theme, we bring you the totally irrelevant
+    and probably treasonable "Di Theory Of The Month" page.  Our paparazzi
+    have been busy...
+
+    Theory 1: Di and company died in a car crash, chased by photographers.
+        This theory is laughable, and we rejected it immediately.  It's
+        just too bizarre.  We told this to Occam and he fell-over laughing,
+        "Come on", he said, "An amour plated Mercedes 600 does not stop
+        for anything, let alone some concrete pillars. Why did they chose
+        a drunken driver, instead of their helicopter. Why flee the press
+        photographers that they'd been courting all evening at the Ritz?
+        Why did Al Fayeed (little Al?) only have one bodyguard with him.
+        Look at it like any crime: who stands to benefit the most?"
+
+    Theory 2: Di and co. were killed by a hit squad sent by The Firm*.
+        (Oh oh, they'll send the SAS to iMatix HQ for this!)  This is more
+        like it.  Very convenient, Princess Di's departure.  Now Charlie
+        can marry again, be King, and Di won't go off with that foreign
+        chap.  Besides, she tried to leave The Firm, and there really is
+        only one exit.  And we know that most premature terminations are
+        caused by unwanted interactions with one's kith and kin.
+
+    Theory 3: Di and co. did not die at all, but were abducted by aliens.
+        We like this one, but it implies that the French were involved in
+        a cover-up, and we know the French.  They could not organise such
+        a delicate matter.  (Desole, mes amis, mais il faut pouvoir faire
+        un blague ou deux de temps en temps.)
+
+    Theory 4: Di had arranged with The Firm to fake her death, which would
+        benefit everyone: Di gets the hundred mill, Charlie can marry again,
+        and the land mine conference gets its saint.  Only problem: The Firm
+        has its own ideas, and switches to plan B as described by Theory 2.
+
+    Theory 5: Di is alive and living with Elvis.
+
+    Theory 6: Di really is Michael Jackson!  Why else would he have to cancel
+        his concert.  Being dead is a real hinderance.  Though it does not
+        seem to stop the Rolling Stones from doing another World Tour.
+
+    Remember - you read it here first!
+
+    * Also known as 'The Royal Family'
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Ardent royalists and paparazzi can send their flames to the editor at
+    flames-r-us@imatix.com.  Any other decent honourable folk who were
+    totally offended by the contents of this newsletter can let us know
+    about it.  Please do not go postal!
+

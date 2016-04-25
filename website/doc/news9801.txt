@@ -1,0 +1,500 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 JANUARY 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 1
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1998 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    I was recently cleaning out a cupboard full of yesterday's junk - copies
+    of old computer magazines, boxes of diskettes, NT 5.0 betas - when I came
+    across a little box containing the last copies anywhere of a video game
+    that I wrote years ago. This game, which ran on a Commodore 64, was a
+    lovely piece of work: fast, loud, and colourful. I remember that it took
+    several months of intensive work to produce.  Sadly (perhaps) this game
+    never hit the shelves, and I had to go back to university and study real
+    computer science instead of ending up a video-game youth millionaire.
+
+    Well, I mentioned this to my friend Marc, who said he would dig-up an
+    old C64 that he still had in his attic, complete with cassette recorder.
+    With a little luck we'll be able to resurrect the game and be stunned at
+    how the state of the art has advanced in 15 years.  As a special treat
+    to celebrate another year of advances, we're giving a few of these
+    unique cassettes away.  But that's another story and another section.
+
+    It's amazing how much effort can be put into something that has a shelf
+    life measured in months.  It's amazing how many people write software
+    for platforms that are almost guaranteed to become obsolete.  I hate
+    throwing stuff away, but a bunch of optimised graphics routines in 6502
+    assembler are not much use these days.
+
+    Here at iMatix Research Labs (AKA 'room 101') we take a different
+    approach to software. Our principle is that every program we write has
+    to last forever, or even longer if possible.  It's not a complex
+    proposition, just a little unusual in a business where 'far future'
+    usually means the next release of Windows.
+
+    In the words of Ben Trembelay: "Build it as though it will be your last;
+    build it as though it will last a thousand years."
+
+    Oh, and have a really excellent 1998!
+
+    Pieter Hintjens
+    Antwerpen
+    1 January 1998
+
+
+ == NEWS --..---.--..---.-.-.-.-.-.-.-.-.--..---.--..---.--..---.-.-.-.-.-..-
+
+    iMatix Website Hits 100Mb Daily!!
+        Well, it seems a lot to us!  Something like 200 people are
+        downloading something every day.  Or there is one person out there,
+        really pumping-up their internet connection.  Hey you, stop it!!
+        Last month imatix.com sent-out about 3Gb of data.  When we finally
+        stopped partying and testing the Humus Recipe, we realised that
+        about 2.98Gb of that was sent-out by mistake to a nice lady in
+        Aruba who just got onto the Net.  Sorry, ma'am!!
+
+    Xitami Web Server Makes Inroads
+        Check-out the Netcraft site (http://www.netcraft.com/survey/).  The
+        number of websites surveyed world-wide went up by 40% from July to
+        December.  The number of sites which run on Xitami went up from 22
+        in July to over 300 in December!!  Our boffins tell us that these
+        statistics prove that everyone in the world will be using Xitami by
+        the year 2000!!!  Statistics also prove that the average person has
+        less than two legs, so voila!
+
+    Things That Happened in 1997...
+
+     o  Japanese TV mangas sent children into bloody epileptic convulsions.
+        This was considered highly impolite and the show was cancelled.
+
+     o  Nelson Mandela gave politicians a good name, Willie tried to set the
+        record straight, and Tony Blair finally gave Britain a government
+        that would cut benefits for the old and disabled.
+
+     o  iMatix developers discovered FreeCell and MP3.  Productivity fell,
+        but a lot of great music got played in the offices.
+
+     o  The world stock markets, possibly disappointed by yet another year
+        in which iMatix did not go public, fell too, three times.  Or perhaps
+        folk were a little worried by several debt crises in Asia with nasty
+        long-term global implications.  Nah, we prefer the first explanation.
+
+     o  The first Internet-based Tamagochi mourning service arrived.  Yes,
+        you can now pay for a real Buddhist monk to pray three times daily
+        for your loved and much-missed has-been virtual pet.  And all from
+        your office desk.  At last the Internet is starting to become useful
+        for something.  http://www.go-dead-little-tamagochi.com/.
+
+     o  A lot of really tasteless Di jokes were circulated, some quite funny,
+        although we still don't understand the one about dandruff.  Something
+        about finding shampoo on the dashboard.
+
+     o  Bill did not release Spice Windows, yet.
+
+     o  We just about got through our source code, changing '96' to '97'
+        in all the little 'copyright' notices.  Oh well.
+
+
+ == FOCUS ON TECHNOLOGY -..-..--..-..--..-..--.--.--.--.--.-..-...-.--...-.--
+
+    This month we look at the WSX (web server extension) protocol.  What is
+    it, what can you do with it, and who do you call when your phone-bill
+    comes in?
+
+    Imagine cruising to a remote tropical beach between the mangroves and
+    coconut palms.  You jump out of the boat, swim to the beach.  The water
+    is warm, and you can see little shoals of fish darting around.  Someone
+    climbs up a coconut palm, and cuts some coconuts loose.  There you are,
+    lying on the beach, thinking about how right it is: the hot sun, the sea,
+    the beach, the conveniently-placed tropical fruits.
+
+    Well, that's a little like discovering how easy it is to write a WSX
+    plugin for Xitami.  Okay, the hot sun is probably your desk lamp; the
+    sea is made of coffee, the fish only live in your screen-saver, and the
+    tropical fruits (if you can call curried toasted chickpeas 'fruit') come
+    from the 24-hour Bangladeshi convenience store around the corner.
+
+    If you've looked at our software a little, you'll have noticed that our
+    web server is built out of pieces, much like a kid's construction set.
+    WSX works in the same way: you can add bits and pieces to the little
+    two-window-front-door-and-chimney house until you get an amazing
+    twin-towered gargoyled Gothic cathedral, if that's your fancy.  Heck,
+    you could go and install IIS4 right away too, but that's no fun.  And
+    enough with the turkey jokes, already!
+
+    You can compare WSX to the xxAPIs provided by other web servers (ISAPI,
+    ASAPI, NSAPI,...).  There are a couple of differences.  Firstly, a WSX
+    plugin is multithreaded, like Xitami itself.  Important if you're doing
+    serious business.  Next, WSX plugins can register on-the-fly.  This
+    means that you can choose which URLs you'll handle at runtime, not by
+    playing with a config file (although that works too).  The WSX protocol
+    is also simple to use, since it's based on the SMT messaging protocol
+    that the web server components already use to talk to each other.
+    Finally, and perhaps most significantly, WSX is 100% TLA-compliant*.
+
+    The next release of Xitami (2.2) contains a much improved WSX protocol
+    which a couple of people are already using to build weird and wonderful
+    plugins.  We hope to be able to announce some of these in the future.
+
+    Now, a recipe for Humus, from a reader who says "I don't know what
+    you're always going on about with your infinite states and things, but
+    here's something useful you can do with chickpeas." So, you take a 500g
+    tin of cooked chickpeas, drain and keep the liquid.  Put the chickpeas
+    into a mixer.  Add the juice of a lemon, a small plain yoghurt, some
+    salt, black pepper, ground coriander, a little garam masala, and
+    (this is important) a good dollop of tahine, which is a kind of sesame
+    goo.  Mix the lot, well, and add as much of the pea water as you need
+    to get a nice firm but dippable sauce.  Serve in a flat bowl with
+    dollops of olive oil, a little cayenne pepper, fresh chopped coriander
+    leaves, flat Greek or Turkish bread, and a decent red wine.  Feeds four.
+    Yeah, party on!!
+
+    Note: a dollop is equal to four imperial smidgins, or half a slosh, if
+    you prefer.  This is not the same as a gallop, which is something a
+    horse does when it's in a hurry.  A horse person will also tell you that
+    a gallop is roughly the same as three-and-a-half trots, or half a full
+    canter.  Until you fall off, in which case you have to multiply by the
+    size of the wall, and the height of the horse, which is always measured
+    in cubits.  This is the kind of thing that caused the collapse of the
+    Roman Empire, so it's probably best if we stop right here.
+
+  * Three-letter acronyms are of course one of the most critical resources
+    in the technology sector.
+
+
+ == STATISTICS -.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    For those who like obscure figures, here are lots of them...  try to
+    correlate the traffic figures with sunspot activity, if you like.  We
+    tried, and now we can't see so well anymore...
+
+    Program started at Sat-Dec-27-1997 02:26 local time.
+    Analyzed requests from Sun-Nov-30-1997 23:56 to
+                           Fri-Dec-26-1997 23:50 (26.0 days).
+
+    Total successful requests: 141,614 (36,473)
+    Average successful requests per day: 5,447 (5,210)
+    Total successful requests for pages: 37,096 (10,279)
+    Average successful requests for pages per day: 1,427 (1,468)
+    Number of distinct hosts served: 7,622 (2,177)
+    Number of new hosts served in last 7 days: 1,801
+    Total data transferred (in bytes): 3,127,564,841 bytes (828,372,551 bytes)
+    Total data transferred (in Megabytes): 2982.678 Megabytes (789.998 Mb)
+    Average data transferred per day: 120,307,022 bytes (118,338,936 bytes)
+    (Figures in parentheses refer to the last 7 days).
+
+    Weekly Report
+
+    week beg.: #reqs:  %reqs:      bytes: %bytes:
+    ---------  -----  ------  ----------  ------
+    Nov/30/97: 28448: 20.09%:  514299057: 16.44%:
+    Dec/ 7/97: 28850: 20.37%:  580144774: 18.55%:
+    Dec/14/97: 51807: 36.58%: 1307256547: 41.80%:
+    Dec/21/97: 32509: 22.96%:  725864463: 23.21%:
+
+    Daily Summary
+
+    day: #reqs:  %reqs:     bytes: %bytes:
+    ---  -----  ------  ---------  ------
+    Sun: 15379: 10.86%: 396464919: 12.68%:
+    Mon: 27985: 19.76%: 624526826: 19.97%:
+    Tue: 26415: 18.65%: 559655294: 17.89%:
+    Wed: 20291: 14.33%: 429448840: 13.73%:
+    Thu: 20236: 14.29%: 429033785: 13.72%:
+    Fri: 20537: 14.50%: 446768084: 14.28%:
+    Sat: 10771:  7.61%: 241667093:  7.73%:
+
+    Daily Report
+
+         date: #reqs:  %reqs:     bytes: %bytes:
+    ---------  -----  ------  ---------  ------
+    Dec/ 1/97:  5061:  3.57%:  76787288:  2.46%:
+    Dec/ 2/97:  4844:  3.42%:  95565204:  3.06%:
+    Dec/ 3/97:  4558:  3.22%:  85126832:  2.72%:
+    Dec/ 4/97:  5359:  3.78%:  91863234:  2.94%:
+    Dec/ 5/97:  5323:  3.76%:  98334766:  3.14%:
+    Dec/ 6/97:  3298:  2.33%:  65796918:  2.10%:
+
+    Dec/ 7/97:  3018:  2.13%:  57742349:  1.85%:
+    Dec/ 8/97:  4501:  3.18%:  78189148:  2.50%:
+    Dec/ 9/97:  4742:  3.35%:  94715333:  3.03%:
+    Dec/10/97:  4814:  3.40%: 100265861:  3.21%:
+    Dec/11/97:  4837:  3.42%: 102399248:  3.27%:
+    Dec/12/97:  3774:  2.66%:  83648371:  2.67%:
+    Dec/13/97:  3164:  2.23%:  63184464:  2.02%:
+
+    Dec/14/97:  7104:  5.02%: 198068697:  6.33%:
+    Dec/15/97: 10077:  7.12%: 251791785:  8.05%:
+    Dec/16/97:  9484:  6.70%: 229545942:  7.34%:
+    Dec/17/97:  7330:  5.18%: 168788811:  5.40%:
+    Dec/18/97:  6337:  4.47%: 158338572:  5.06%:
+    Dec/19/97:  7166:  5.06%: 188037029:  6.01%:
+    Dec/20/97:  4309:  3.04%: 112685711:  3.60%:
+
+    Dec/21/97:  5252:  3.71%: 139829058:  4.47%:
+    Dec/22/97:  8346:  5.89%: 217758605:  6.96%:
+    Dec/23/97:  7345:  5.19%: 139828815:  4.47%:
+    Dec/24/97:  3589:  2.53%:  75267336:  2.41%:
+    Dec/25/97:  3703:  2.61%:  76432731:  2.44%:
+    Dec/26/97:  4274:  3.02%:  76747918:  2.45%:
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes:
+    --  -----  ------  ---------  ------
+     0:  4589:  3.24%:  98955472:  3.16%:
+     1:  4877:  3.44%: 119427882:  3.82%:
+     2:  4577:  3.23%: 112870667:  3.61%:
+     3:  4332:  3.06%: 115341155:  3.69%:
+     4:  5237:  3.70%: 122854112:  3.93%:
+     5:  6593:  4.66%: 167361804:  5.35%:
+     6:  6701:  4.73%: 147944277:  4.73%:
+     7:  7943:  5.61%: 168791321:  5.40%:
+     8:  7206:  5.09%: 149829036:  4.79%:
+     9:  7428:  5.25%: 172856574:  5.53%:
+    10:  7565:  5.34%: 174104924:  5.57%:
+    11:  6713:  4.74%: 130540897:  4.17%:
+    12:  7398:  5.22%: 161608719:  5.17%:
+    13:  6712:  4.74%: 133424209:  4.27%:
+    14:  7284:  5.14%: 128837490:  4.12%:
+    15:  5826:  4.11%: 146071598:  4.67%:
+    16:  6178:  4.36%: 140226365:  4.48%:
+    17:  5820:  4.11%: 125468920:  4.01%:
+    18:  5575:  3.94%: 100498236:  3.21%:
+    19:  4749:  3.35%: 104773338:  3.35%:
+    20:  4482:  3.16%:  99612994:  3.19%:
+    21:  4404:  3.11%:  93231461:  2.98%:
+    22:  5137:  3.63%: 100327925:  3.21%:
+    23:  4288:  3.03%: 112605465:  3.60%:
+
+    Domain Report
+
+    #reqs:  %reqs:     bytes: %bytes: domain
+    -----  ------  ---------  ------  ------
+    30627: 21.63%: 642505491: 20.54%: .com (Commercial, mainly USA)
+    30475: 21.52%: 677672813: 21.67%: [unresolved numerical addresses]
+    27042: 19.10%: 550374571: 17.60%: .net (Network)
+     7183:  5.07%: 228041565:  7.29%: .de (Germany)
+     6357:  4.49%: 118419319:  3.79%: .edu (USA Educational)
+     5460:  3.86%: 121777405:  3.89%: .ca (Canada)
+     2908:  2.05%:  75879466:  2.43%: .uk (United Kingdom)
+     2804:  1.98%:  58382374:  1.87%: .se (Sweden)
+     2645:  1.87%:  52348379:  1.67%: .nl (Netherlands)
+     2224:  1.57%:  47083271:  1.51%: .au (Australia)
+     2189:  1.55%:  44443218:  1.42%: .it (Italy)
+     1593:  1.12%:  39044960:  1.25%: .br (Brazil)
+     1380:  0.97%:  27962627:  0.89%: .fr (France)
+     1218:  0.86%:  14141160:  0.45%: .be (Belgium)
+     1049:  0.74%:  17068660:  0.55%: .no (Norway)
+     1048:  0.74%:  18932579:  0.61%: .fi (Finland)
+     1043:  0.74%:  19407197:  0.62%: .jp (Japan)
+      910:  0.64%:  28679091:  0.92%: .ru (Russian Federation)
+      908:  0.64%:  21556804:  0.69%: .ch (Switzerland)
+      879:  0.62%:  19307301:  0.62%: .org (Non-Profit Making Organisations)
+      855:  0.60%:  20064142:  0.64%: .es (Spain)
+      791:  0.56%:  15746099:  0.50%: .dk (Denmark)
+      672:  0.47%:  25259652:  0.81%: .pl (Poland)
+      634:  0.45%:  18218772:  0.58%: .sg (Singapore)
+      595:  0.42%:  18985274:  0.61%: .my (Malaysia)
+      568:  0.40%:  16321519:  0.52%: .gov (USA Government)
+      477:  0.34%:   8461514:  0.27%: .pt (Portugal)
+      474:  0.33%:  11054418:  0.35%: .us (United States)
+      465:  0.33%:  12025674:  0.38%: .gr (Greece)
+      440:  0.31%:  11920861:  0.38%: .at (Austria)
+      387:  0.27%:   6946178:  0.22%: .nz (New Zealand)
+      378:  0.27%:   3681542:  0.12%: .kr (South Korea)
+      363:  0.26%:   8752157:  0.28%: .cz (Czech Republic)
+      356:  0.25%:   6700899:  0.21%: .il (Israel)
+      325:  0.23%:   8771741:  0.28%: .mil (USA Military)
+      320:  0.23%:  12878845:  0.41%: .th (Thailand)
+      260:  0.18%:   6538554:  0.21%: .za (South Africa)
+      216:  0.15%:   8164838:  0.26%: .tw (Taiwan)
+      213:  0.15%:   2733092:  0.09%: .si (Slovenia)
+      205:  0.14%:   8434189:  0.27%: .hr (Croatia)
+      205:  0.14%:   3191237:  0.10%: .su (Former USSR)
+      191:  0.13%:   4524433:  0.14%: .lt (Lithuania)
+      184:  0.13%:   8507609:  0.27%: .hk (Hong Kong)
+      160:  0.11%:   3506445:  0.11%: .id (Indonesia)
+      156:  0.11%:   4361649:  0.14%: .ar (Argentina)
+      156:  0.11%:   2960243:  0.09%: .ke (Kenya)
+      156:  0.11%:   6531892:  0.21%: .mx (Mexico)
+      150:  0.11%:   7447714:  0.24%: .hu (Hungary)
+      131:  0.09%:   2202971:  0.07%: .lu (Luxembourg)
+      119:  0.08%:   2508279:  0.08%: .arpa (Old style Arpanet)
+       99:  0.07%:   2515626:  0.08%: .cl (Chile)
+       87:  0.06%:   1102685:  0.04%: .yu (Yugoslavia)
+       81:  0.06%:   3943425:  0.13%: .ie (Ireland)
+       78:  0.06%:   1471904:  0.05%: .ro (Romania)
+       76:  0.05%:   1724557:  0.06%: .tr (Turkey)
+       74:  0.05%:    833252:  0.03%: .sk (Slovak Republic)
+       60:  0.04%:    187434:  0.01%: .bg (Bulgaria)
+       57:  0.04%:   3066828:  0.10%: .lv (Latvia)
+       54:  0.04%:    389950:  0.01%: .ph (Philippines)
+       47:  0.03%:    397091:  0.01%: .cr (Costa Rica)
+       46:  0.03%:    209798:  0.01%: .ee (Estonia)
+       39:  0.03%:    121398:       : .pe (Peru)
+       34:  0.02%:    597592:  0.02%: .cn (China)
+       27:  0.02%:   1853974:  0.06%: .in (India)
+       27:  0.02%:   1138799:  0.04%: .is (Iceland)
+       21:  0.01%:    339823:  0.01%: .bs (Bahamas)
+       19:  0.01%:   1159196:  0.04%: [unknown]
+       18:  0.01%:    263807:  0.01%: .mu (Mauritius)
+       18:  0.01%:    535087:  0.02%: .ua (Ukraine)
+       17:  0.01%:     57102:       : .tt (Trinidad and Tobago)
+       16:  0.01%:    585158:  0.02%: .aw (Aruba)
+       16:  0.01%:    248276:  0.01%: .bo (Bolivia)
+       13:  0.01%:     33212:       : .ae (United Arab Emirates)
+       13:  0.01%:     37064:       : .int (International)
+       11:  0.01%:   1008917:  0.03%: .ve (Venezuela)
+        7:       :    457374:  0.01%: .uy (Uruguay)
+        6:       :    819334:  0.03%: .gb (Great Britain)
+        3:       :     15205:       : .kz (Kazakhstan)
+        2:       :    980304:  0.03%: .li (Liechtenstein)
+        1:       :      4149:       : .co (Colombia)
+        1:       :    197377:  0.01%: .cy (Cyprus)
+        1:       :    425825:  0.01%: .ge (Georgia)
+        1:       :    412635:  0.01%: .lk (Sri Lanka)
+
+    File Type Report
+
+    #reqs:  %reqs:      bytes: %bytes: extension
+    -----  ------  ----------  ------  ---------
+    88190: 62.27%:  210374681:  6.73%: .gif
+    29405: 20.76%:  405220392: 12.96%: .htm
+     7689:  5.43%:   31496966:  1.01%: (directories)
+     5673:  4.01%:   12964807:  0.41%: (no extension)
+     4446:  3.14%: 1489510925: 47.63%: .exe
+     4423:  3.12%:  832893397: 26.63%: .zip
+      999:  0.71%:   12531843:  0.40%: .txt
+      542:  0.38%:  130199422:  4.16%: .tgz
+      127:  0.09%:     402748:  0.01%: .class
+       31:  0.02%:     437812:  0.01%: .c
+       25:  0.02%:     358233:  0.01%: .cpp
+       19:  0.01%:     278669:  0.01%: .pl
+       17:  0.01%:     235284:  0.01%: .mod
+       11:  0.01%:     124190:       : .bas
+        8:  0.01%:     347306:  0.01%: .cob
+        4:       :      77096:       : .asm
+        3:       :       1605:       : .cgi
+        2:       :     109465:       : .html
+
+    Request Report - all archives
+
+    #reqs:  %reqs:     bytes: %bytes: file
+    -----  ------  ---------  ------  ----
+      925:  0.65%: 324534783: 10.38%: /pub/xitami/xiw3221a.exe
+      902:  0.64%: 335734828: 10.73%: /pub/xitami/xiw3221b.exe
+      898:  0.63%: 282362980:  9.03%: /pub/xitami/xiw3220e.exe
+      526:  0.37%:  77441165:  2.48%: /pub/xitami/xiw3213c.zip
+      333:  0.24%:  69370582:  2.22%: /pub/libero/bin/lrmswin.zip
+      323:  0.23%:  94227147:  3.01%: /pub/xitami/xic3220e.exe
+      322:  0.23%:  24500439:  0.78%: /pub/tools/htmlpp.zip
+      316:  0.22%:  72014912:  2.30%: /pub/libero/bin/lrmswins.zip
+      309:  0.22%: 108113636:  3.46%: /pub/xitami/xic3221b.exe
+      239:  0.17%:  73054736:  2.34%: /pub/xitami/xic3221a.exe
+      206:  0.15%:  57073766:  1.82%: /pub/libero/doc/lrhtml.zip
+      187:  0.13%:  12558820:  0.40%: /pub/libero/doc/lrfull.zip
+      176:  0.12%:  63479743:  2.03%: /pub/xitami/xis3221a.exe
+      169:  0.12%:  35751154:  1.14%: /pub/libero/example/complete.zip
+      151:  0.11%:  51744421:  1.65%: /pub/xitami/xis3220e.exe
+      133:  0.09%:  54340677:  1.74%: /pub/xitami/xis3221b.exe
+      129:  0.09%:  12122224:  0.39%: /pub/libero/bin/lrdos32.zip
+      106:  0.07%:  35015665:  1.12%: /pub/xitami/xiw3221a.zip
+      100:  0.07%:  60652932:  1.94%: /pub/xitami/xswin21b.zip
+       96:  0.07%:  11667812:  0.37%: /pub/libero/src/lrsrc230.tgz
+       94:  0.07%:  18574884:  0.59%: /pub/xitami/xiw3220e.zip
+       88:  0.06%:  22410792:  0.72%: /pub/sfl/src/sflsrc18.zip
+       88:  0.06%:  19948212:  0.64%: /pub/xitami/xiw3220d.exe
+
+    Browser Summary - top 15 by traffic
+
+    #reqs:  %reqs:      bytes: %bytes: browser
+    -----  ------  ----------  ------  -------
+    90039: 63.06%: 1892929694: 60.81%: Netscape
+    48060: 33.66%: 1021948697: 32.83%: Netscape (compatible)
+      540:  0.38%:   87821016:  2.82%: GetRight
+     1776:  1.24%:   27413509:  0.88%: WebZIP
+       61:  0.04%:   18790370:  0.60%: Net_Vampire
+      259:  0.18%:   18446410:  0.59%: Lynx
+      188:  0.13%:    8627406:  0.28%: ReGet
+      156:  0.11%:    7333347:  0.24%: IBM-WebExplorer-DLL
+       19:  0.01%:    4449751:  0.14%: Lynx 2.5  libwww-FM
+       44:  0.03%:    4084420:  0.13%: DLM
+       14:  0.01%:    3117605:  0.10%: Wget
+       60:  0.04%:    2916682:  0.09%: Mosaic
+      277:  0.19%:    2102609:  0.07%: Crescent Internet ToolPak HTTP OLE
+      178:  0.12%:    1199114:  0.04%: Microsoft Internet Explorer
+       41:  0.03%:    1182850:  0.04%: Javelin
+
+    Browser Report - top 25
+
+    #reqs:  %reqs:     bytes: %bytes: browser
+    -----  ------  ---------  ------  -------
+    14137:  9.90%: 307566077:  9.88%: Mozilla/4.0 (MSIE 4.0; Windows 95)
+    13681:  9.58%: 255188237:  8.20%: Mozilla/4.04 [en] (Win95; I)
+     6570:  4.60%: 149138236:  4.79%: Mozilla/4.03 [en] (Win95; I)
+     5647:  3.96%: 110013851:  3.53%: Mozilla/4.0 (MSIE 4.01; Windows 95)
+     4278:  3.00%:  91859798:  2.95%: Mozilla/4.0 (MSIE 4.0; Windows NT)
+     3841:  2.69%:  75956597:  2.44%: Mozilla/4.01 [en] (Win95; I)
+     3370:  2.36%:  65766668:  2.11%: Mozilla/3.01Gold (Win95; I)
+     3218:  2.25%:  70331523:  2.26%: Mozilla/4.04 [en] (WinNT; I)
+     3052:  2.14%:  64220307:  2.06%: Mozilla/2.0 (MSIE 3.02a; Windows 95)
+     3001:  2.10%:  64344768:  2.07%: Mozilla/4.0 (MSIE 4.01; Windows NT)
+     2852:  2.00%:  70561664:  2.27%: Mozilla/3.01 (Win95; I)
+     2568:  1.80%:  47306705:  1.52%: Mozilla/4.03 [en] (WinNT; I)
+     2373:  1.66%:  59707060:  1.92%: Mozilla/2.0 (MSIE 3.01; Windows 95)
+     2251:  1.58%:  31417857:  1.01%: Mozilla/3.0 (Win95; I)
+     2201:  1.54%:  45155025:  1.45%: Mozilla/4.04 [en] (Win95; I ;Nav)
+     2070:  1.45%:  44230336:  1.42%: Mozilla/4.02 [en] (Win95; I)
+     1987:  1.39%:  39731286:  1.28%: Mozilla/2.0 (MSIE 3.02; Windows 95)
+     1776:  1.24%:  27413509:  0.88%: WebZIP/1.30 (http://www.spidersoft.com)
+     1763:  1.23%:  44470111:  1.43%: Mozilla/2.0 (MSIE 3.0; Windows 95)
+     1744:  1.22%:  35601133:  1.14%: Mozilla/4.03 [en] (Win95; I ;Nav)
+     1640:  1.15%:  31566307:  1.01%: Mozilla/3.04Gold (Win95; I)
+     1614:  1.13%:  48992440:  1.57%: Mozilla/3.0 (Win95; I; HTTPClient 1.0)
+     1586:  1.11%:  38680985:  1.24%: Mozilla/3.04 (Win95; I)
+     1518:  1.06%:  29629785:  0.95%: Mozilla/4.04 [en] (Win95; U)
+     1379:  0.97%:  24422542:  0.78%: Mozilla/3.0Gold (Win95; I)
+
+
+ == FREE OFFER .-..-..---.-...---.--...-.-.---...-.-..----..-.-...---.---..--
+
+    Yes, get your free copy of "Starfire" - a Real Collectors Item!!
+
+    To celebrate 1998 and a glorious third volume of Liberetto, we are
+    offering this unique free gift to the first three readers who send their
+    name and address on paper to iMatix, Pijlstraat 9, 2060 Antwerpen,
+    Belgium.  Yes, you have to use snail-mail - we want this to be a real
+    challenge!  All runners-up will receive a unique Starfire mini-poster
+    (okay, cassette inlay, if you prefer the truth).
+
+    Starfire comes in its own original full-colour luxury packaging.
+    Requires a Commodore-64 computer with cassette deck; joystick optional.
+
+    Starfire is not, and never has been, available in any store.  This offer
+    is not open to iMatix employees, their cats, relatives (unless very
+    distant and/or very rich), or neighbours (ditto the rich part).  We
+    reserve the right to do just about anything we think appropriate, if
+    that's okay with everyone.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Happy New Year!  Or, if you're one of those rare people who thinks that
+    we're still on the Julian Calendar, Happy Easter!!  Or, if you're one
+    of those people we met last night, We Got You On Film!!  Hahaha.  Sorry,
+    private joke.  Wait till the pics go out on the Internet.
+
+    Where were we... oh yes, you *can* actually get off this mailing list,
+    if you want to.  Rumours about Liberetto being sent telepathically to
+    one of our really ex-subscribers are totally false.
+

@@ -1,0 +1,235 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Introduction to Libero</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | &lt;
+ | <A href="lrintr1.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<H1>Introduction to Libero</H1>
+
+<P>
+<MENU>
+<LI><A HREF="#TOC1">Summary</A></LI>
+<LI><A HREF="#TOC2">Terms and Disclaimer</A></LI>
+<LI><A HREF="#TOC3">Introduction</A></LI>
+<MENU>
+<LI><A HREF="#TOC4">How It All Started</A></LI>
+<LI><A HREF="#TOC5">Learning To Use Libero</A></LI>
+</MENU>
+<LI><A HREF="lrintr1.htm#TOC6">The Coke Machine Example</A></LI>
+<LI><A HREF="lrintr2.htm#TOC7">Example of Using a Telephone</A></LI>
+<MENU>
+<LI><A HREF="lrintr2.htm#TOC8">Serious Stuff: Events and Names</A></LI>
+</MENU>
+<LI><A HREF="lrintr3.htm#TOC9">Example of Controlling a Telephone</A></LI>
+<LI><A HREF="lrintr4.htm#TOC10">Source Code For Phone.c</A></LI>
+<LI><A HREF="lrintr5.htm#TOC11">Example of a C/C++ Comment Stripper</A></LI>
+<LI><A HREF="lrintr6.htm#TOC12">Example of Parsing An Arithmetic Expression</A></LI>
+<LI><A HREF="lrintr7.htm#TOC13">Dialogs For Dummies</A></LI>
+<MENU>
+<LI><A HREF="lrintr7.htm#TOC14">Explain It Like I'm 5 Years Old</A></LI>
+<LI><A HREF="lrintr7.htm#TOC15">A Bit Of Animation</A></LI>
+</MENU>
+<LI><A HREF="lrintr8.htm#TOC16">Frequently Asked Questions</A></LI>
+</MENU>
+</P>
+<HR>
+
+<H2><A NAME="TOC1">Summary</A></H2>
+
+<UL>
+<LI>Libero is a Programmer's Tool and Code Generator.  You
+define the high-level logic of a problem as a diagram: Libero
+generates the code to implement this logic.  Your applications
+are easier to write, more robust, easier to understand. Libero
+uses a finite-state machine as the underlying model.</LI>
+<LI>Libero generates code in these languages: C, C++, Java,
+Perl, Awk, 80x86 assembler, COBOL, MS Visual Basic, MS Test
+Basic, UNIX C Shell, UNIX Korn Shell, UNIX Bourne Shell, GNU
+Bash Shell, Rexx, PL/SQL, and PHP.  You can extend Libero support
+to other languages via external <EM>schema</EM> files.</LI>
+<LI>Libero runs on: UNIX (tested on Linux, HP/UX, SunOS, Irix,
+AIX, Solaris), MS-DOS, MS-Windows, Digital Open-VMS, OS/2.  It
+is in theory portable to any ANSI C compiler; the Libero sources
+are part of the package.</LI>
+</UL>
+
+<H2><A NAME="TOC2">Terms and Disclaimer</A></H2>
+
+<P>This program is free software; you can redistribute it and/or modify it
+under the terms of the <A href="/html/gnugpl.htm">GNU General Public License</A> as published by
+the Free Software Foundation; either version 2 of the License, or (at your
+option) any later version. This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</P>
+
+<H2><A NAME="TOC3">Introduction</A></H2>
+
+<BLOCKQUOTE><P>&quot;Laziness</P>
+
+<P>The quality that makes you go to great effort to reduce
+overall energy expenditure.  It makes you write labour-saving
+programs that other people will find useful, and document what
+you wrote so you don't have to answer so many questions about
+it.  Hence the first great virtue of a programmer.&quot;</P>
+
+<P>Larry Wall [Programming Perl, Larry Wall and Randal. L.
+Schwartz, 1992 O'Reilly &amp; Associates, Inc., page
+426.]</P></BLOCKQUOTE>
+
+<H3><A NAME="TOC4">How It All Started</A></H3>
+
+<P>In 1982, as a student, I got into games programming as a way
+of making some money.  I skipped the build-it-yourself-from-an-
+old-TV-screen-and-a-hex-keypad phase of people computers, and
+jumped straight into the world of ready-to-go colour and sound.
+My first PC had 5K of RAM, and 25x22 colour video.  It could
+beep in three-part harmony.  My first published work was an
+article that explained how to tweak the video output to 30x33
+(hi-resolution!).  Soon I was writing sprite painters, assembly
+libraries for sound and graphics, even languages to replace the
+built-in Basic.  Anything to let me write my games faster and
+better.  Before I knew what had hit me, I was hooked into the
+cycle of writing tools to improve the world I lived in.</P>
+
+<P>I haven't written a game for a long time, but I've continued
+writing tools. Libero is one of the best - it's simple, clean,
+portable, and has hit the mark so often that I feel it's unfair
+to keep it for myself.</P>
+
+<P>The ideas behind Libero evolved in Brussels, Belgium during
+the 1980's and 90's.  I worked with <A href="mailto:leif@ibm.net">Leif Svalgaard</A>, on
+what we would now call a CASE tool - <A href="http://www.toscintl.com">ETK</A> - that let
+COBOL programmers produce clean, portable code instead of the
+mess we generally saw.  One of the key techniques we used was a
+programming method based on finite state machines. Historically,
+the first real programs that used finite state machines were
+compilers.  In 1967, Peter Naur describes a new way of using
+FSMs (which he refers to as a Turing machine approach) in a
+compiler, and shows how they simplify error checking.  He goes
+on to say:</P>
+
+<BLOCKQUOTE>
+<P>&quot;The above description has stressed the checking aspect
+of the Turing machine approach.  However, an equally important
+aspect is the ease with which arbitrary actions may be
+specified.  By using this approach it is usually possible to
+avoid tests in individual actions to a surprisingly high degree.
+This in our experience is a very effective way of reducing the
+bulk and execution time of the translator algorithm.&quot; </P>
+<P>[Annual Review in Automatic Programming, &quot;Design Of The
+Gier Algol Compiler&quot;, Ed. Richard Goodman; 1964 Pergamon
+Press, page 77.]</P>
+</BLOCKQUOTE>
+
+<P>ETK provides an interactive editor that you use to describe
+the logic of the program as a FSM.  This approach encourages you
+to think about the complete problem.  You describe everything
+that can happen, and how the program should react.  The end-
+result looks a little like a flow-chart, but has more arrows,
+and fewer different kinds of boxes.  The value of this approach
+is that you can abstract a complex problem using the restricted
+semantics of a FSM.  In the same way that a <B>While</B>
+statement is less powerful but more useful than a <B>Goto</B>, a
+FSM is less powerful but more useful than a structured
+programming approach for describing complex problems.  Leif
+Svalgaard once said: &quot;the issue is not one of power, but
+coping with the human difficulty in understanding complex
+structures&quot;.
+</P>
+
+<P>Now, in a conventional state machine, these boxes are given
+numbers, and the programmer builds some tables that encode the
+arrows.  To make such a table by hand - or, just as bad, encode
+the table directly in the logic of the program, using GOTOs - is
+a Bad Thing, since the result is near to impossible to maintain.
+The neat part of our solution was that we took the textual
+description (called a 'dialog'), and generated the mystical
+tables directly as COBOL code.  This is a Good Thing, since the
+original dialog is easy to change, and suddenly becomes
+excellent (and always accurate) documentation.  In 1992 I began
+working as a consultant, and found that I wanted to use these
+techniques in my work.  I was writing in C, so I threw together
+a code generator that could output C code using the same dialog
+methodology I was used to.  I called this tool 'Libero' after
+the guy who runs around the sidelines at the football/soccer
+pitch doing all the dirty work.  My first serious job was a
+bunch of TCP/IP clients and servers.  It was nice to come back
+to the place three years later and find that the guy maintaining
+my work had only found one bug, and was happy to go into the
+programs.  He said that the dialogs made them easy to understand
+and modify.</P>
+
+<P>This kind of experience convinced me that there was real
+value in this tool. I've written lots of cute programs that are
+useful for my own needs, but that just don't hack it in the real
+world.  Libero is different.</P>
+
+<P>The first public release of Libero (1.7) generated C code
+using an external model, a kind of script called a 'schema'.  I
+had a couple of schemas; one for ANSI C code, and one for
+multithreaded DEC/VMS code.  I released version 2.0 onto the Net
+after adding schemas for UNIX scripts. This release gave me a
+lot of feedback, and I rewrote the code-generator again to make
+it much more generic.  The current version 2.11 has a lot more
+language schemas and a lot fewer bugs, plus a front-end for MS-
+Windows.</P>
+
+<P>I hope to continue in both these directions.  Libero has
+become a tool that lets you switch between languages at ease.
+The first step is to accept the state-machine as a valid method
+for program development.  This takes a little effort, but I hope
+that the examples which follow will help convince you.  The
+second step is to see that this method is language-independent.
+You can write a program in C, then recode it in Perl without
+changing its design.</P>
+
+<P>A hypothetical development team might write mainframe
+business applications in COBOL, tools in Perl, servers in C,
+batch scripts in Korn shell, Web clients in Java.  Yet instead
+of a team fragmented into  specialists in each domain, you would
+have a team that enjoys a common design  technique and who can
+quickly take on each other's work.  In practice, you also get a
+certain communality of programming style, which disturbs
+language  purists.  However, I like it when - say - a COBOL
+programmer that knows only  Libero take a C program written with
+Libero and says: &quot;But it looks like  COBOL!&quot;.  Of
+course neither the Libero+C nor Libero+COBOL programs look
+anything like 'COBOL'.</P>
+
+<H3><A NAME="TOC5">Learning To Use Libero</A></H3>
+
+<P>I've not found a quick way to convey the true nature of state
+machine programming.  In my experience, it invariably takes a
+few days of practice. After three or four days' exposure to the
+idea there is a near-audible 'click!' and something in the brain
+connects all the pieces together and you go 'Oh, it's like
+THAT!'.  Maybe people cultured on event-driven programming will
+get it faster.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | &lt;
+ | <A href="lrintr1.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <EM>Introduction to Libero</EM>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

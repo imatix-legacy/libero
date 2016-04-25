@@ -1,0 +1,73 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Installing the VAX/VMS Kit</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst6.htm">&lt;</A>
+ | <A href="lrinst8.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC11">Installing the VAX/VMS Kit</A></H2>
+
+<P>To install Libero for Digital OpenVMS you can either download the
+<A href="/pub/libero/bin/lrvax.zip">binary kit for VAX/VMS</A> or the source kit, if you have
+a C compiler (Vax C, Dec C, or GNU gcc).  Currently we do not have a
+binary kit for Alpha OpenVMS - you must build from the source kit.
+To rebuild from the source kit, download <A href="/pub/libero/src/lrsrc232.zip">/pub/libero/src/lrsrc232.zip</A> and place it
+into a working directory.  You need the unzip tool to extract it:
+
+<PRE>
+    $ set def [.temp]
+    $ create/dir []
+    $ ... upload LRSRCxxx.ZIP into this directory
+    $ unzip -a -o lrsrc232
+    $ @buildvax.txt
+</PRE>
+
+<P>If you do not have Unzip on your VMS system, consider installing it - it
+is well worth the bother.  You can also unzip the sources on a PC and upload
+them from there.
+
+<P>The file <TT>BUILDVAX.TXT</TT> is a procedure that compiles and links
+Libero.  Run it (<TT>@buildvax.txt</TT>).  Then copy these files into an
+installation directory which is world-readable:
+<UL>
+<LI><TT>LR.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+
+<P>To run Libero your <TT>LOGIN.COM</TT> file must include these lines:
+
+<PRE>
+    $ define/nolog path "<I>directory</I>";  ! name of Libero directory
+    $ lr :== $<I>$disk</I>[<I>directory</I>]lr.exe
+</PRE>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst6.htm">&lt;</A>
+ | <A href="lrinst8.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrinst.htm">Installing Libero</A>
+| <A href="lrinst1.htm">What You Will Need</A>
+| <A href="lrinst2.htm">Installing Libero for UNIX</A>
+| <A href="lrinst3.htm">Installing the MS Windows Kit</A>
+| <A href="lrinst4.htm">Installing the MS-DOS Kit</A>
+| <A href="lrinst5.htm">Installing the 32-bit MS-DOS Kit</A>
+| <A href="lrinst6.htm">Installing the OS/2 Kit</A>
+| <EM>Installing the VAX/VMS Kit</EM>
+| <A href="lrinst8.htm">Installing the Examples</A>
+| <A href="lrinst9.htm">Configuring and Testing Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

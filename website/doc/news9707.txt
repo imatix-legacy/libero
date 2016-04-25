@@ -1,0 +1,227 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    JULY 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 7
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last month I visited Chicago with some friends. One day we drove to a
+    mall.  After an hour driving through the world's largest parking lot -
+    affectionately called an 'expressway' by the locals - we arrived at
+    Woodfield Mall.  Not just one mall, this is a city of malls, with its
+    own InterMall expressways.  Mall City!  MALL WORLD!!
+
+    In the sheer mass of shops, there were some interesting and pleasant
+    surprises - a backrub store, a hemp store, a shop specialising in toys
+    for the mind.  But the main impression was one of desparate quantity, with
+    less choice and higher prices in the shops than in downtown Chicago.
+
+    In the 'Rainforest Restaurant', we ate between plastic trees and giant
+    animal heads mounted on the walls.  Every five minutes the elephant
+    heads moved and shook and roared as I suppose an elephant would, when
+    trapped in MallWorld, USA.  Ed's rules for restaurant happiness: don't
+    sit beneath the loudspeakers, or beside the coffee grinder in a French
+    restaurant, or beneath the elephant heads in MallWorld.  Our portions
+    were enormous, far too much to eat.  We tried the Oriental Salad, a
+    humungous bowl of food, with a subtle layer of sesame seeds at least an
+    inch thick.  "Ok, we added sesame seeds.  Now what else can we do?"  
+    "Make the portions larger!"
+
+    If Mall World was software, it'd be one of the megapackages coming out
+    of Redmond.  Having stuck every possible function into their software,
+    the software mall developers turn to sheer quantity.  There are some
+    interesting and useful tools in there somewhere, but 95% is filler,
+    giving bulk but not quality.  Who needs it?  The only good reason I
+    heard anyone give for buying Office 97 was this: they were receiving
+    documents that they could not read with their 'old' Office 95.  The
+    good folks at Microsoft changed their file formats, presumably for an
+    excellent reason.  But possibly because there has to be some reason
+    to upgrade again.  This is good business sense, but bad design.
+
+    One of the hallmarks of a good design is simplicity.  Software, like
+    like food and shops, can be better in small portions.  To celebrate 
+    the notion that "less is more", this month's issue of Liberetto has
+    been trimmed to modest proportions.
+
+    Pieter Hintjens
+    Antwerpen
+    1 June 1997, plus ou moins.
+
+
+ == NEWS ---..-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Xitami Benchmark Shock!
+        Yes, the rumours are true.  Our nouvelle-cuisine web server performs
+        faster than the major PC software application!  In a bold new 
+        experiment we broke the barriers of convention and logic and compared
+        the CPU resources needed by Xitami with the most commonly-used office
+        and business application, namely "Solitaire".  Xitami consumed only 
+        50-80% of the CPU required by this major product.  Unbelievable but 
+        true!  Xitami can serve web pages faster than Solitaire can deal cards.
+        Our tests were conducted on a Pentium 133 with 32Mb RAM and two cups
+        of coffee.
+
+    Nairobi Goes Alpha - iMatix HQ Denies Rumours!
+        A spokesman at iMatix world HQ today strongly denied rumours that
+        the long awaited response to MS-DOS 2.10, code-named Nairobi, will be
+        released in alpha this month.  When questioned, the iMatix spokesman
+        forcefully rejected any suggestions that Nairobi (not the city; the 
+        code-named product) is part of the iMatix internet application
+        toolkit, platform, providing a simple but effective way to use an 
+        intranet or internet for business software development!!  (Don't go
+        to sleep yet!!)  "Any suggestions that this so-called Nairobi will
+        do for software development what a small red Mombassa pepper can do
+        to an unsuspecting child who thinks it's something to chew on are
+        wholly unfounded!".
+
+    Yet Another Rumour Denied!
+        In a busy week for our spin doctors, iMatix HQ (also known as "Garage
+        number nine") denied press rumours that iMatix employed people who
+        could be described as of a bunch of sexist, long-haired, antisocial,
+        unconventional, loud, heavy-metal loving, and often unsober 
+        technoverts with delusions of grandeur, or just plain delusions.
+        "Anyone who works here has to get a decent haircut - we're very 
+        fussy," explained Mandy, a pert 29.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >Date sent:        Sun, 1 Jun 1997 13:14:24 -0700
+    >From:             <address deleted to protect the innocent>
+    >To:               editors@imatix.com
+    >Subject:          REMOVE ME FROM LIST
+    >
+    >Delete me from your mailing list and do not allow resubscriptoin.
+    >Someone is forging my e-mail address and joining me to over 600
+    >mailing lists REPEATEDLY.  This is happening to many people.
+    >PLEASE install subscriptoin verify on your list to stop the madness.
+    >All e-mail to me is destroyed automatically. I get megabytes per day.
+    >PLEASE FORWARD THIS MESSAGE TO YOUR MAIL LIST ADMINISTRATOR.
+    >THIS IS AN AUTOMATICALLY GENERATED REPLY.
+    >Thank You, charles1@netcom.com
+
+    Your subscriptoin has been deletoid.  STOP THE MADNESS NOW!!  Okay,
+    whoever it was that subscribed poor Mr X to two thousand copies of
+    Liberetto, tut-tut!  That was *not* very funny.
+
+    -------------------------------------------------------------------------
+    >Date sent:        Mon, 2 Jun 1997 09:12:07 -0400
+    >From:             gtn@eps.inso.com (Gavin Nicol)
+    >To:               editors@imatix.com
+    >Subject:          Re: Liberetto II/5
+    >
+    >One thing I've often wondered, is why something like configure isn't
+    >used for your software. I've often tried to build it on Solaris 2.5
+    >and have generally failed to do so.
+
+    One thing you learn early in the portability business is to do things the
+    hard way.  If we can't make Libero, SFL, SMT, Xitami build cleanly on a
+    particular system, it's because something is wrong.  We'd rather fix that
+    than spend time learning to use configure, make, imake,... to get around
+    the problem.  This is another way of saying 'what the he?! is configure,
+    and how will it get around the problem of no standard C compiler and no
+    standard libraries?'  We don't just show our ignorance around here, we
+    take it out and wave it around like a Scotsman discovering that his last
+    ten-pound note has caught fire.
+
+    -------------------------------------------------------------------------
+
+    >From:             "Nomad" <netdxr@earthlink.net>
+    >To:               ph@imatix.com
+    >Date sent:        Thu, 26 Jun 1997 04:53:59 +0000
+    >Subject:          Thank you! :-)
+    >
+    >I happened across your website while browsing the No-nags repository
+    >for a web server.  I not only found exactly what I was looking for
+    >with Xitami, but I was blown away to the point of inspiration by all
+    >the outstanding offerings on your site... and all of it with the
+    >source code included!!!  The elegance of your designs makes the
+    >mystique of portability seem trival... and cross platform design is
+    >an art that sometimes seems completely lost to many of the software
+    >development houses churning out "Windows only" apps these days.
+    >
+    >I'm looking forward to exploring your libero tool as it focuses well
+    >needed attention on the DESIGN phase that so many SW engineers blow
+    >through all too quickly... myself included!
+    >
+    >Thanks again for your generous contributions... they, and the
+    >talented people behind them such as yourself are greatly appreciated
+    >and make the internet world a lot brighter and more productive place!
+    >
+    >Tom Lisjac
+    >Email: netdxr@earthlink.net
+
+    Thanks, Tom.
+
+    -------------------------------------------------------------------------
+
+    >From:             "Aaron N. Tubbs" <aaron@parrett.net>
+    >To:               <xitami@imatix.com>
+    >Subject:          Re: Xitami update 1.2e
+    >Date sent:        Sat, 21 Jun 1997 11:12:46 -0400
+    >
+    >I just wanted to complement you.  With every newsletter that comes out, 
+    >and every update that comes out, I'm always amazed.  Seldom is an 
+    >excellent product built for free, and is as loved, cared for, and 
+    >maintained as well as Xitami.  I prefer its use over any other shareware
+    >or freeware server, and I've yet to find a commercial system with enough
+    >advantages to draw me to it instead.  Congradulations on a most excellent
+    >product, and I hope it continues to be as good as ever!
+    >
+    >Sincerely,
+    >Aaron N. Tubbs
+    >aaron@parrett.net
+
+    Thanks, Aaron.
+
+    -------------------------------------------------------------------------
+
+    >Date sent:        Fri, 20 Jun 1997 16:48:49 +0200
+    >From:             Frank Pilhofer <frank@tm.informatik.uni-frankfurt.de>
+    >To:               xitami@imatix.com
+    >Subject:          thanks and bug
+    >
+    >I was looking for a simple Win95 Web server to install some CGIs
+    >(written in Tcl) on a home-based machine which unfortunately was
+    >not Linux, and came across your server. It's simple, fast, and
+    >free. Thanks.
+    >
+    >I also believe I've found a bug. I use the PATH_INFO, and also query
+    >the SCRIPT_NAME environment variable for self-references. However, your
+    >server includes the PATH_INFO in the SCRIPT_NAME, which is IMHO wrong.
+    >Let the script be /cgi-bin/foo. If you call /cgi-bin/foo/bar, 
+    >SCRIPT_NAME should be /cgi-bin/foo, and not /cgi-bin/foo/bar.
+    >
+    >Frank
+
+    Thanks Frank.  Oh yes, you did find a bug.  Fixed in the New Version.
+
+
+ == IRRELEVANT TSHIRT SLOGAN OF THE MONTH --..-.--.-.--...-.-.--.----...-.--
+
+    "Hong Kong - Just another Chinese takeaway?"
+
+    We apologise for anyone offended by this.  Please do not send a trial
+    PLA starter kit complete with all new armoured personel carriers for
+    only US$230M excluding local sales tax where applicable.
+
+    "Diese Anwendung wird wegen eines unerlaubten Vorgangs geschlossen"
+
+    Seen when running Xitami under a German Windows 95.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    To quote Ben Johnson, "When you're tired of Liberetto, you're tired of
+    reading an incoherent piece of misplaced but more often missing humour 
+    in the hope of ever finding-out the meaning of the little morse-code
+    messages".  It's not too late to unsubscribe!  Unless you got this, in 
+    which case you were too slow.

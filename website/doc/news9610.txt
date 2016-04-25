@@ -1,0 +1,125 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/10
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                DECEMBER 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                          Volume 1 Issue 10
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - News and Views - Reader's Letters - Tips & Hints
+
+
+ == APOLOGY -..-.---...-.-.--....---..-.-....-.-..-.-.-..-.-..---...-.-..--..
+
+    * Headnote: Sometimes the Internet looks more like a muddy village
+    road, potholes still filled with muddy water from last night's rain.
+    What happened to the Superhighway, zapping bits 'n bytes across the
+    known universe, and Brussels?  Well, our service provider has a disk,
+    called /var/tmp, that got full.  So, outgoing mail didn't, so to say.
+
+    Well, better late than never, in principle.  In practice, reading
+    this month's Liberetto again, it is not a sure bet.  If you got this
+    message several times, sorry.  If you didn't get it at all, you are
+    probably blissfully ignorant about Libero, Liberetto, and the staff
+    at iMatix.  Keep it so.
+
+    So, our service provider (nameless, but probably in the message header)
+    has cleaned-out /var/tmp, and we can get on with the show...
+
+
+ == EDITORIAL ..---.-.-.-....-----.--.....----.-.---....----.-.-...-.---...-.
+
+
+    The IP LAN is dead...  Long Live The Intranet!
+
+    We're coming to the end of 1996, and it's been an interesting year.
+    One easy prediction for 1997 is that the "intranet" will become a hot
+    topic, selling more machines, books, and consultant hours than even
+    the Internet.  Of course, technically, it's a bit ironic, since the
+    internet protocol (IP) has been around since about 1980, about the same
+    time that IBM produced that other unlikely revolutionary, the PC.
+
+    So why the fuss over reheated porridge?  Something is happening, but
+    few people will be able to say exactly why the "intranet" is different
+    from the already widespread IP local area network.  Since people tend
+    to understand computer systems in terms of metaphors and 'paradigms',
+    we need to see how the network metaphor is changing.
+
+    People used to be grateful if their network could provide shared disks
+    and printers.  Some 'groupware' products promised to do much more than
+    that, but hey - things were complex enough already!  Now, the Internet
+    metaphor is completely different, and based mainly on the notions of
+    cheap communications (e-mail) and cheap publishing (ftp and the Web).
+
+    One more important metaphor is the 'business application'.  This is a
+    centralised way to collect and process that data that a business needs
+    to serve its clients.  This metaphor has the power to keep people
+    dependent on large, outdated, expensive mainframe systems.
+
+    The intranet promises to bring the cheap and cheerful Internet
+    technologies in-house, and eventually, somehow, to handle the business
+    applications.
+
+    What's wrong with this picture?  Two things.  Firstly, setting-up and
+    running a web site is not simple.  One approach is to create a single
+    website for the company...  This is great for your 'shop window', but
+    lousy for internal needs.  The reason why Internet publishing is cheap
+    and effective is that people do it themselves, so are responsible, and
+    so do it better.  I.e. if you create any kind of centralised website,
+    people will not contribute as freely as when they run their own
+    'microsite'.  Only, not everyone has a degree in webmastery...
+
+    Secondly, there is no real solution yet for the business application on
+    an intranet.  Intranets will contain a mix of PCs, Macs, UNIX boxes,...
+    We don't really believe that the answer is Java or Microsoft's flavour
+    of the month.
+
+    Never modest, we believe we have at least part of the answer.  Our web
+    server, Xitami, is simple and quick.  It runs on lots of UNIX systems,
+    32-bit Windows, and could run on Windows 3.x, VMS, and Macs with a little
+    more work.  Xitami is fast (using our portable multithreading system), so
+    you can easily let it run in the background on your PC.
+
+    Imagine: people who need to publish documents can create a microsite on
+    their own PC.  After a few months, you'll have more information on-line,
+    linked, and used, than ever before.  You can index the lot using a robot
+    indexer (like AltaVista); probably even cut a CD-ROM with the whole set
+    of microsites in your company.
+
+    A webserver on every desktop... Why not?
+
+    Pieter Hintjens
+    Antwerpen
+    1 December 1996*
+
+
+ == HEADLINES --.-...---.-.-..--.-.-...--.-.-.-...--.-.-...-.-..---.-.-...--.
+
+    TWSFKAC (The Webserver Formally Known As Cosmos)... News Update!
+
+        The iMatix COSMOS webserver is dead... Long Live TWSKAC!  Well,
+        doesn't really roll off the tongue.  We rejected a host of other
+        names, including: JAWS (just another webserver), APACHE (already
+        taken by some obscure group), BLIKSEM (Dutch for lightning, very
+        clever, but not original)...  Finally, we loaded-up our CD-ROM
+        of "Schruberger's Dictionary of Multilingual Insults", volumes I
+        thru IV, which together cover all current languages.  A quick
+        random word generator hack-up, and we found a word that is almost
+        pronouncable, and definitely not an insult in any known language,
+        always a good start.  Yes, XITAMI was born.  A name that promises
+        exotic travels, tropical breezes, perhaps even bits of raw fish
+        on a bed of shredded sea grass, but is actually just iMatix spelt
+        backwards.  Such is life.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    People sometimes ask us how we have time to prepare such a fine and
+    balanced journal every month when we are obviously so busy.  Well, the
+    answer is this: we don't, always.  So, this time, that's all folks.
+

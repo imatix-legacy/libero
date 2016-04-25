@@ -1,0 +1,131 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Dialogs For Dummies</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr6.htm">&lt;</A>
+ | <A href="lrintr8.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC13">Dialogs For Dummies</A></H2>
+
+<H3><A NAME="TOC14">Explain It Like I'm 5 Years Old</A></H3>
+
+<P>You've gone through all the examples and still you can't
+quite get your mind around the concepts?  Don't worry, this is
+normal.  It's like anything new -- it takes a while for your
+brain to change shape.</P>
+
+<P>So far, we have seen fairly realistic examples - depending on
+how much booze was consumed for lunch, admittedly.  Sometimes it
+helps to look at the entire issue from other angles.  So, here
+is a small piece extracted from our Liberzine
+<EM><A href="index2.htm#liberetto">Liberetto I/3</A></EM>.  Our correspondent, Big
+Al, writes...</P>
+
+<BLOCKQUOTE>
+<P>iMatix asked me to write a small piece on how I learnt to use
+Libero. After a short discussion about fees and expenses, I
+quickly learnt to use Libero, applying the principle 'imagine I
+am a child of 5'.  "No, don't try to interest me in plastic
+bunnies.  Explain Libero to me." "Right, kids, get into two
+groups.  You lot sit there, and you lot sit there.  Now, we'll
+play a game..."</P>
+
+<P>The first group of kids sit around a large playing board,
+marked with a large 'START' square, and paths that twist around.
+Some end in the Snake Pit, others die horrible deaths in the
+Bathtime Room.  Just one path leads through all the dangers to
+the Cookie Room.  The aim of the game is to get to the Cookie
+Room, of course.  Let's look at the START square.  You are in a
+small room.  Twisty passages lead left, right, north, and south.
+You are holding a candle.  There is a small breeze coming from
+the west.  The floor is blue.  Blue?  Yeah.</P>
+
+<P>The second group of kids have three or four funny dice.  Each
+die is a different colour, with size sides.  The blue die says
+'Left', 'Right', 'Forwards', 'Backwards', 'Roll Again', and
+'Bathtime'.  The red die says 'Fight', 'Run', 'Get Eaten', 'Eat
+it', 'Order a taxi', and 'Bathtime'.  (You gotta know how to
+*really* scare a five-year old.)</P>
+
+<P>The rules are simple.  The first group of kids just shout a
+colour. The second group of kids roll the matching die and -
+after puzzling over the letters a while - shout out what the die
+says.  Each time the die rolls, the first group move their piece
+along the board to a new square.</P>  <P>You start to see the
+balance of the game.  Neither group of children controls the
+game, it moves step-by-step until the piece wins or loses. The
+two groups only communicate by exchanging colours and results.
+Well, this is Libero.  Colours are actions, results are events.
+And that was the easiest lunch I ever earned.</P>
+</BLOCKQUOTE>
+
+<H3><A NAME="TOC15">A Bit Of Animation</A></H3>
+
+<P>Sometimes it's hard to mentally connect the dialog to the
+running program.  On the one hand you have the dry, pedantic
+dialog with its events and states; on the other hand you have a
+real live program that is actually <EM>doing</EM> something.  A
+good way to join these two concepts is the <TT>-animate</TT>
+option.  Use this when you generate code, and you get a display
+of the dialog steps a program runs through.</P>
+
+<P>The examples archive has a set of programs that work out the
+value of arithmetic expressions.  This is what one of these
+looks like as it works out the value of '1 + 1':</P>
+
+<PRE>
+After-Init:
+    (--) Ok-Event                       We just started
+          + Get-Next-Token                so we collect the next token
+
+Expecting-Operand:
+    (--) Number-Event                   We got the first '1'
+          + Stack-The-Number            Stick it on the operand stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operator:
+    (--) Term-Op-Event                  We got the '+'
+          + Unstack-Ge-Operators        Do any higher-priority operators
+          + Stack-The-Operator            then stick the '+' on the stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operand:
+    (--) Number-Event                   We got the second '1'
+          + Stack-The-Number            Stick it on the operand stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operator:
+    (--) End-Mark-Event                 We hit the end of the expression
+          + Unstack-All-Operators       Do all operators on the stack
+          + Unstack-If-End-Mark         The operand stack holds the result
+2                                       This is displayed by the program
+          + Terminate-The-Program       End and return to the caller
+</PRE>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr6.htm">&lt;</A>
+ | <A href="lrintr8.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <EM>Dialogs For Dummies</EM>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,426 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                November 1999
+ =========
+  =======    The iMatix Newsletter                         Volume IV Issue 11
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    When I work, I like to play music.  In the past this meant buying CDs
+    and getting-up every hour or so to reload the CD player.  Then came PCs
+    equipped with CD-ROM players.  Then came MP3 and huge hard disks, which
+    let me realise a long dream - all my CDs stored on my computer, music
+    at the click of a mouse.
+
+    Today, when I'm within reach of a fast Internet line, I just hook into
+    shoutcast.com and choose one of the hundreds of channels.  "Afternoon
+    Nap" was my favourite last month.
+
+    A few years ago the idea of composing a musical work that lasted eight
+    hours meant either science fiction or Wagner.  If you'd asked anyone
+    what technical advances were necessary to allow this, few people would
+    have predicted that it was basically a matter of software.  MP3 and its
+    kin make a ten-hour CD and music-over-ip feasible and cheap.
+
+    The idea that software can evolve exponentially faster than hardware is
+    not new.  Humans are the embodiement of the principle that 'software is
+    cheaper than hardware'.  We're basically great apes with loads of extra
+    software, quickly developed in the last million years or so.  Our
+    culture, technology, and language are loaded into each baby's eager
+    brain like the latest Linux release.
+
+    What's happening now is that our culture is suddenly becoming more and
+    more digitalised.  Modern artists express themselves with digital video,
+    not paint.  We communicate more through e-mail than telephone.  We
+    listen to digitalised music, share digital snapshots, watch movies built
+    around computer-generated effects and we love it.
+
+    I think it's easy to predict that in five years' time, the Internet will
+    be pervasive, connecting everything and everyone, carrying with it a
+    rich digital culture.  At the same time we'll see a myriad of tiny
+    computers, able to consume and produce this culture.  I'm thinking of
+    MP3 players, digital cameras, digital paper, and so on.  One individual
+    with the inclination will be able to produce more bits of data in a day
+    than the entire Roman Empire produced on paper and stone in a year.
+
+    Living through the whirlwind that these changes bring, it's easy to
+    dismiss it all as technogadgetry.  When we started iMatix four years
+    ago, at the end of 1995, we envisaged using the Internet as a backbone
+    for serious business applications, but these ideas seemed outlandish at
+    the time.  Few people in Belgium even had e-mail then.  Today it seems
+    obvious, and we're starting to see companies like Ford and GM using the
+    Internet to redefine not their front-end sales processes, but their
+    back-end supply chains.  This is serious stuff.
+    
+    The Internet is unleasing a revolution in the way we live and the way
+    we work.  I suspect Homo Sapiens is evolving new software to handle the
+    changes.  We're products of the television and video game, hungry for
+    information and change.  Internet Time is bringing this to us, big time.
+
+    Pieter Hintjens
+    Antwerpen
+    7 November 1999
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-..
+
+    iMatix.com nears half-a-million hits!!
+        With around 20,000 actual visitors from 99 countries, imatix.com
+        is a busy little website.  More news below.
+
+    Htmlpp.org goes live!
+        Htmlpp now has its own website, htmlpp.org, designed and built by
+        none other than Mr. Enrique Bengoechea, the godfather of htmlpp.
+        We're proud to welcome this cute website into the family.  From now
+        on you can get your htmlpp kicks at http://www.htmlpp.org.
+
+    Xitami 2.5 Beta released!
+        Our little web server just keeps getting better.  Release 2.5 has
+        full server-side XML support.  XML... XML... what the heck is XML?
+        If you don't know, you don't need it, but if you know what it is,
+        you'll appreciate the way Xitami lets you play with it.  Take your
+        XML data file, write your GSLgen schema, and see the results as
+        shining HTML.
+
+    Xitami up there with the Big Boys!!
+       "=================================================================
+        WINDOWS SECURITY DIGEST                               1999 SERIES
+        Watching the Watchers                            November 2, 1999
+        =================================================================
+             SPONSORED BY VERISIGN - THE INTERNET TRUST COMPANY
+                              -- C O N T E N T S --
+          << IN FOCUS >>
+              * Security Training: Where'd You Get That?
+          << SECURITY RISKS >>
+              * Netscape Messaging Server Subject to Denial of Service
+              * Denial of Service Against SERVICES.EXE
+              * Avirt Mail Server 3.3a and 3.5 Buffer Overflow Condition
+              * Ximtami Web Server Subject to Buffer Overflow
+              * CMail 2.4 Might Allow Execution of Arbitrary Code
+              * ExpressFS 2.x FTPServer Subject to Buffer Overflow
+              * WFTPD v2.34 and 2.40 Subject to Buffer Overflow
+              * TCP/IP Sequence Number Randomness
+              * Java VM Sandbox Vulnerability
+              ...
+        Meliksah Ozoral discovered a problem with Xitami Web Server v2.4c3,
+        where sending large amounts of data can cause the service to crash,
+        leading to denial of service for the machine." 
+
+        Meliksah found a problem in the LRWP/1.0 handler built-in to Xitami.
+        At the same time as this security digest came into our mailbox, an
+        all-new version of the LRWP handler, LRWP/2.0, was making its way
+        onto our websites.
+
+        We take buffer overflows *very* seriously.  Just the other day, our
+        coffee buffer flew over onto the canteen floor, and the boss, who
+        we call 'Mr. P' (but not to his face) was cross indeed!!  While
+        we're an equal opporunities employer, this does not extend to
+        buffers with overflow tendencies.  No siree!
+
+    
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:           Paul Reid <preid@rci.rutgers.edu>
+    To:            	editors@imatix.com
+    -----------------------------------------------------------------------
+    I am using Xitami, please add me to your mail list.  I saw your "What
+    people say" page... they're crazy!
+    Pentiums? 32 megs??? What a hardware-waste!  I have Xitami running on
+    a 386SX-16 with 8 megs. And near as I can tell, it does not need the
+    8 megs. Oh - ancient 8-bit network card too! And WfWG with sluggish MS
+    TCP/IP stack.  Inside the building, I can test it and show that it is
+    not quite as fast as a Pentium-133. Outside the building, the campus
+    routers and general internet congestion masks ALL trace of slowness. 
+    A 386SX-16 _IS_ ample for web serving, with the right software: Xitami.
+    -Paul Reid
+
+    >>>>>>>>>>>>>>>
+    This is heresy!!  There is something indecent about using such an
+    out-of-date PC to do useful work.  Are you certain it's legal?  Is it
+    Y2K compatible?  Does your mother know about this?  Anyhow, don't tell
+    Intel about this, or they'll send the guys in dark suits around to your
+    dorm to blue-screen you.
+
+    Actually we like your story.  Xitami is one of the thinest web servers
+    around that can actually do a real job.  But it's really just a trick:
+    staying thin in a world where everyone else grows fatter by the day is
+    not anything special.
+
+
+    Date sent:     	Wed, 03 Nov 1999 19:17:40 +0200
+    From:          	Dieny du Toit <dieny@iafrica.com>
+    Subject:       	Liberetto for November.
+    To:            	editors@imatix.com
+    -----------------------------------------------------------------------
+    Is there going to be one, or has mine gone astray in the post? As for
+    billions of others Out There, it has become a part of my life style,
+    bio-rhythm, bad habits.
+    Something refreshing in a greying old world.
+    Dieny du Toit.	
+
+    >>>>>>>>>>>>>>>
+    Rumours of Liberetto's death are greatly exaggerated.  We do have a lot
+    of work right now... apparently something called 'the millenium' is
+    making lots of people nervous.  Probably they're worring whether
+    they'll have enough drink for the entire weekend.  Here at iMatix we've
+    taken the sensible precaution of stocking-up on the three essentials of
+    life - beer, coffee, and chana dall.
+
+
+    From:          	Graham Foster <graham_foster@merck.com>
+    To:            	editors@imatix.com
+    -----------------------------------------------------------------------
+    Just to let you know that our Netscape Enterprise server on NT curled
+    up and died last week. 4 hours of dedicated resuscitation failed to
+    have useful results. I recommended Xitami and our main intranet
+    web-site was operational again within 10 mins. Response from the
+    webmaster was "I'm amazed how easy it was.. it actually seems to be
+    noticeably faster than Netscape too"
+    Just though you might like to know this - Xitami is also the 'personal'
+    webserver of choice for us developers too.
+    Regards,
+    Graham Foster 
+
+    >>>>>>>>>>>>>>>
+    Ah, lad, it warms the cockles o' my heart, it does, to hear yer tale.
+    Someone once described 'expert users' as those too traumatised to feel
+    the pain any longer.  Enter Xitami, the kinder, gentler web server!!
+
+
+ == HAPPY BIRTHDAY -...-.-.-----...-.-.---...-.-.-.---.---....-.---..----...-
+
+    30 years ago last month, the Internet was born as a computer in Stanford
+    sent a message to one at UCLA using the new-fangled IP protocol. Setting
+    the tone, the connection crashed after sending the first two letters,'L'
+    and 'O' (the third was supposed to be 'G').
+
+    iMatix is proposing to celebrate this historic date with a new solution
+    to all Y2K issues - we will start a new calendar based on this important
+    date.  So we're now in the year 30 AN (year of our network).  The great
+    thing about this system is that us oldies suddenly have a negative birth
+    date, which makes it impossible to fill in tax forms.
+
+    A big Happy Birthday too to Libero, which is seven years old this month,
+    any way you count it.  Last month around 1,000 people downloaded Libero,
+    which we find pretty cool.
+    
+
+ == IMATIX.COM STATISTICS --.-..---.-.-.---.-.---.-.-..--.-.-..--.-.-.-..---.
+
+    Just to prove that we can generate random information too, the stats for
+    www.imatix.com for October 1999.  Half-a-million hits and growing!
+    These figures represent about 20,000 actual visitors, and don't include
+    www.xitami.com and our mirror sites.
+
+    Let's have a big welcome for Brunei Darussalam, folks!!
+
+    Program started at Sun-Oct-31-1999 01:49 local time.
+    Analyzed requests from Thu-Sep-30-1999 23:55 to
+      Sat-Oct-30-1999 23:54 (30.0 days).
+
+    Total successful requests: 495,100 (106,566)
+    Average successful requests per day: 16,503 (15,223)
+    Total successful requests for pages: 89,255 (19,570)
+    Average successful requests for pages per day: 2,975 (2,795)
+    Total failed requests: 7,527 (1,524)
+    Total redirected requests: 260 (60)
+    Number of distinct files requested: 967 (898)
+    Number of distinct hosts served: 22,190 (5,720)
+    Number of new hosts served in last 7 days: 4,097
+    Corrupt logfile lines: 197
+    Unwanted logfile entries: 62
+    Total data transferred (in bytes): 4,149.9 MB (900.7 MB)
+    Total data transferred (in MB): 3957.660 MB (859.067 MB)
+    Average data transferred per day: 138.3 MB (128.6 MB)
+    (Figures in parentheses refer to the last 7 days).
+
+    Daily Summary
+    day: #reqs:  %reqs:     bytes: %bytes: 
+    ---  -----  ------  ---------  ------  
+    Sun: 42655:  8.62%: 346865661:  8.36%: 
+    Mon: 76029: 15.36%: 657869070: 15.85%: 
+    Tue: 76794: 15.51%: 650687058: 15.68%: 
+    Wed: 78717: 15.90%: 648937359: 15.64%: 
+    Thu: 75537: 15.26%: 648356494: 15.62%: 
+    Fri: 80386: 16.24%: 643613684: 15.51%: 
+    Sat: 64982: 13.13%: 553577540: 13.34%: 
+
+    Hourly Summary
+    hr: #reqs:  %reqs:     bytes: %bytes: 
+    --  -----  ------  ---------  ------  
+     0: 20603:  4.16%: 185324802:  4.47%: 
+     1: 17587:  3.55%: 159014523:  3.83%: 
+     2: 18493:  3.74%: 170978766:  4.12%: 
+     3: 17462:  3.53%: 162387106:  3.91%: 
+     4: 20399:  4.12%: 199631847:  4.81%: 
+     5: 20899:  4.22%: 171740003:  4.14%: 
+     6: 24190:  4.89%: 196297209:  4.73%: 
+     7: 25108:  5.07%: 200989381:  4.84%: 
+     8: 26630:  5.38%: 207724180:  5.01%: 
+     9: 25236:  5.10%: 227775689:  5.49%: 
+    10: 22535:  4.55%: 177761756:  4.28%: 
+    11: 25544:  5.16%: 197359555:  4.76%: 
+    12: 26801:  5.41%: 217557453:  5.24%: 
+    13: 26368:  5.33%: 202951538:  4.89%: 
+    14: 23518:  4.75%: 207584041:  5.00%: 
+    15: 21245:  4.29%: 179634742:  4.33%: 
+    16: 17506:  3.54%: 139747773:  3.37%: 
+    17: 16756:  3.38%: 138640440:  3.34%: 
+    18: 16609:  3.35%: 147727016:  3.56%: 
+    19: 17136:  3.46%: 140141398:  3.38%: 
+    20: 15599:  3.15%: 132104268:  3.18%: 
+    21: 15789:  3.19%: 131337600:  3.16%: 
+    22: 17063:  3.45%: 118443623:  2.85%: 
+    23: 16024:  3.24%: 137052157:  3.30%: 
+
+    Domain Report
+     #reqs:  %reqs:     bytes: domain
+    ------  ------  ---------  ------
+    105784: 21.37%: 846553565: [unresolved numerical addresses]
+    105135: 21.24%: 869726484: .com (Commercial, mainly USA)
+     98700: 19.94%: 855225979: .net (Network)
+     30466:  6.15%: 243258239: .de (Germany)
+     17447:  3.52%: 112040467: .edu (USA Educational)
+     10568:  2.13%:  77447348: .nl (Netherlands)
+     10014:  2.02%:  74563516: .ca (Canada)
+      8543:  1.73%:  46200173: .ru (Russian Federation)
+      8091:  1.63%:  73441071: .uk (United Kingdom)
+      7748:  1.56%:  57430728: .br (Brazil)
+      7286:  1.47%:  66745467: .fr (France)
+      7184:  1.45%:  53302963: .se (Sweden)
+      6138:  1.24%:  46374724: .jp (Japan)
+      5662:  1.14%:  56028574: .au (Australia)
+      5288:  1.07%:  68117175: .it (Italy)
+      4265:  0.86%:  33264584: .ch (Switzerland)
+      3915:  0.79%:  26092859: .at (Austria)
+      3846:  0.78%:  44522873: .be (Belgium)
+      2725:  0.55%:  36638999: .es (Spain)
+      2642:  0.53%:  18302375: .fi (Finland)
+      2622:  0.53%:  21075110: .dk (Denmark)
+      2351:  0.47%:  31970604: .pl (Poland)
+      2221:  0.45%:  25744501: .no (Norway)
+      2011:  0.41%:  13594736: .us (United States)
+      1999:  0.40%:  22674114: .my (Malaysia)
+      1933:  0.39%:  15579967: .sg (Singapore)
+      1825:  0.37%:  12420906: .org (Non-Profit Making Organisations)
+      1768:  0.36%:  14732761: .hu (Hungary)
+      1650:  0.33%:  16711053: .ua (Ukraine)
+      1462:  0.30%:  16565414: .tw (Taiwan)
+      1380:  0.28%:  14337794: .il (Israel)
+      1374:  0.28%:  10013136: .nz (New Zealand)
+      1275:  0.26%:  12831269: .gov (USA Government)
+      1232:  0.25%:  11697407: .mx (Mexico)
+      1127:  0.23%:  14737650: .tr (Turkey)
+      1087:  0.22%:  14932570: .ar (Argentina)
+      1081:  0.22%:  12705977: .kr (South Korea)
+      1044:  0.21%:  18959875: .cz (Czech Republic)
+      1026:  0.21%:  11040838: .gr (Greece)
+       893:  0.18%:   7447345: .ie (Ireland)
+       752:  0.15%:   7447072: .pt (Portugal)
+       747:  0.15%:  11975803: .th (Thailand)
+       744:  0.15%:  11612410: .ro (Romania)
+       709:  0.14%:   7691720: .ee (Estonia)
+       613:  0.12%:   4164086: .su (Former USSR)
+       576:  0.12%:   3268165: .hk (Hong Kong)
+       555:  0.11%:   8431328: .id (Indonesia)
+       553:  0.11%:   8146803: .in (India)
+       541:  0.11%:   3416192: .za (South Africa)
+       512:  0.10%:   3873290: .mil (USA Military)
+       465:  0.09%:  11524787: .hr (Croatia)
+       460:  0.09%:   4295846: .lv (Latvia)
+       452:  0.09%:   5152665: .si (Slovenia)
+       322:  0.07%:   2734087: .by (Belarus)
+       301:  0.06%:   2081494: .lt (Lithuania)
+       282:  0.06%:   2114878: .do (Dominican Republic)
+       270:  0.05%:   1591833: .sk (Slovak Republic)
+       265:  0.05%:   2131443: .sa (Saudi Arabia)
+       247:  0.05%:    827662: .cl (Chile)
+       245:  0.05%:   1595710: .bg (Bulgaria)
+       244:  0.05%:   1167992: .yu (Yugoslavia)
+       238:  0.05%:   1876773: .arpa (Old style Arpanet)
+       215:  0.04%:   1714265: .lu (Luxembourg)
+       202:  0.04%:   1016137: .int (International)
+       169:  0.03%:    821417: [unknown]
+       144:  0.03%:   1953532: .co (Colombia)
+       144:  0.03%:    585136: .kz (Kazakhstan)
+       129:  0.03%:   1327879: .ve (Venezuela)
+       116:  0.02%:   1032184: .tt (Trinidad and Tobago)
+       108:  0.02%:   1181753: .ec (Ecuador)
+        92:  0.02%:   1022883: .ae (United Arab Emirates)
+        91:  0.02%:   1742971: .pe (Peru)
+        84:  0.02%:    549548: .ad (Andorra)
+        77:  0.02%:    378682: .cn (China)
+        58:  0.01%:    122344: .ke (Kenya)
+        56:  0.01%:    935610: .vn (Vietnam)
+        55:  0.01%:    218771: .bo (Bolivia)
+        53:  0.01%:    224986: .nu (Niue)
+        47:  0.01%:    300637: .cx (Christmas Island)
+        38:  0.01%:    141609: .cr (Costa Rica)
+        38:  0.01%:    710252: .is (Iceland)
+        29:  0.01%:    130942: .cy (Cyprus)
+        28:  0.01%:    249842: .ba (Bosnia-Herzegovina)
+        28:  0.01%:    127226: .bs (Bahamas)
+        28:  0.01%:    113483: .mg (Madagascar)
+        28:  0.01%:    127226: .va (Vatican City State)
+        27:  0.01%:    137814: .ph (Philippines)
+        26:  0.01%:     68632: .lb (Lebanon)
+        24:       :     86448: .kg (Kyrgyzstan)
+        20:       :    119582: .uy (Uruguay)
+        11:       :     68338: .ni (Nicaragua)
+         9:       :     71689: .jm (Jamaica)
+         8:       :     67061: .mt (Malta)
+         5:       :    192359: .eg (Egypt)
+         4:       :    163978: .om (Oman)
+         2:       :       510: .md (Moldavia)
+         1:       :       510: .am (Armenia)
+         1:       :       510: .az (Azerbaidjan)
+         1:       :      8384: .bn (Brunei Darussalam)
+         1:       :       510: .ge (Georgia)
+
+    Referrer Report (non-imatix.com)
+     #reqs: URL
+    ------  ---
+       970: http://serverwatch.internet.com/webserver-xitami.html
+       824: http://members.xoom.com/_XOOM/sogoj/arquivos.htm
+       581: http://www.winfiles.com/apps/98/servers-websrv.html
+       559: http://www.freecode.com/
+       491: http://www.worldremote.net/ftc/ftpserv.html
+       285: http://www.download.com/pc/software/
+       184: http://dir.yahoo.com/Computers_and_Internet/Software/Internet/
+                   World_Wide_Web/Servers/
+       183: http://www.geocities.com/SouthBeach/Jetty/5394/IPtra.html
+       178: http://www.mkzwo.de/
+       160: http://www.winfiles.com/apps/nt/servers-websrv.html
+       154: http://members.xoom.com/_XOOM/sogoj/ok.html
+       152: http://search.yahoo.com/bin/search?p=xitami
+       152: http://members.tripod.com/~osninjas/xitami.htm
+       145: http://www.angelfire.com/sc/electron/
+       116: http://www.listsoft.ru/programs/pr1738.htm
+        99: http://www.weblehre.de/software/189.htm
+        91: http://www.perl.com/
+
+    Browser Summary (top 10)
+     #reqs:  %reqs:      bytes: %bytes: browser
+    ------  ------  ----------  ------  -------
+    307762: 61.40%: 2120344876: 51.31%: Netscape (compatible)
+    174890: 34.89%: 1461366390: 35.37%: Netscape
+      3124:  0.62%:  154089935:  3.73%: GetRight
+      1386:  0.28%:   79341551:  1.92%: Go!Zilla 3.5 (www.gozilla.com)
+      1193:  0.24%:   64017885:  1.55%: DISCo Pump 3.0
+      1005:  0.20%:    5072734:  0.12%: WebZIP
+       858:  0.17%:   10412078:  0.25%: Pockey
+       651:  0.13%:    2890733:  0.07%: Slurp
+       597:  0.12%:    3257957:  0.08%: Offline Explorer
+       593:  0.12%:   11399885:  0.28%: Konqueror
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.

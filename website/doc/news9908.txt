@@ -1,0 +1,193 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                  August 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 8
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last month I complained that Windows NT was giving me pain.  I got
+    quite a few mails back from Liberetto readers.  About half asked what I
+    was doing on Windows - surely I'd moved to Linux by now.  The other half
+    pointed-out that the fix for my problem was simple.  Just change this
+    boot option, start using that parameter, etc.
+
+    Well, I'm still with NT, and the problem was decidedly *not* easy to
+    fix.  Actually, it got worse this month.  Bill's Law states that a
+    PC will always die most horribly just when you'd expected to spend the
+    weekend on the beach.  Instead of the beach, I ended-up reinstalling NT
+    from scratch, because it would not boot at all.  Somehow, a number of
+    vital system files had gotten corrupted.  My full backup from the day
+    before did not help...  Okay, reinstalling from scratch is not so bad,
+    except for the dozens of reboots, and the fact that my CD writer won't
+    write any longer, and my network won't start*.  But the IE4 web look is
+    real purdy.
+
+    What bothers me is that I persist in using NT on my big system, and 95
+    on my notebook.  When making choices for other people, it's much easier
+    to recommend or install Windows than one of the alternatives.  Sure it
+    sucks, but the pain is shared amongst millions.  If I install Linux on
+    a PC for a friend, I'll spend the next three months explaining why you
+    need to 'unmount' the CD before swapping it.
+
+    For my own use, it's true that my CD writer, photo scanner, and other
+    gadgets are a lot easier to get working under any recent flavour of
+    Windows than under Linux.  But is this worth the ongoing trauma of not
+    being sure that your principal PC will reboot successfully the next
+    time?  Njet.  Something else is going on, and I think I know what it
+    is.
+
+    There is a theory that explains why some people like to eat hot spicy
+    food.  The pepper stimulates the pain receptors in your mouth.  Your
+    brain responds by pumping out endorphins, pain-killing opiates that
+    give you a warm happy feeling.  Noticed how Mexican food makes people
+    go happy and giggly?  Now you know why.
+
+    So, the same applies for other kinds of long-lasting low-level pain.
+    Tattoos, for instance, or body piercing.  The body's response to being
+    jabbed, pierced, and cut is to produce endorphins.  Hurgh-hurgh, do the
+    other arm now, it feels good...
+
+    If this theory is correct, it may explain many other bizarre forms of
+    obviously painful behaviour, such as watching TV news, driving to work,
+    going to summer pop festivals, wearing neckties, and so on.  You get
+    the picture.
+
+    We may also finally be able to explain why millions of people seem to
+    be stuck in a love-hate relationship with their PCs and the software
+    running on them.  Basically, we're endorphin addicts, getting our daily
+    dose by watching helplessly as the PC consumes our time, our work, and
+    our money.  I'll bet you that there is an inverse relationship between
+    hours spent at a PC and hours spent in a tattoo parlour.
+
+    So here's my programme for breaking that cycle of dependency on Windows:
+    get left arm tattooed with dragon motief, buy a crate of Jamaican Hot!
+    Pepper Sauce, get nipples pierced.  With any luck that will produce
+    enough endorphins to make Windows completely redundant, and I can then
+    upgrade to Linux and get on with things.
+
+    Pieter Hintjens
+    Antwerpen
+    2 August 1999
+
+    * The 'Server' service says 'Error 1130: Not enough server storage is
+      available to process this command'.  I don't think I actually *want*
+      to know what this means.  Gaining access to such arcane knowledge
+      probably involves a nasty ritual exchange of souls with the devil or
+      one of his earthly representatives.
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:       "Danny Morrow" <dmorrow@unicomp.net>
+    Subject:    Re: Where is Libero Version 2.32 (for Windows)?
+    -----------------------------------------------------------------------
+    Well, are you going to put out any schemas that will help with Finite
+    State Machines (like Libero does), or are you going to let a fine
+    application like Libero wither on the vine while you chase after a
+    text-parser like GSLgen is so far.   I see absolutely NO support for
+    FSM's with GSLgen, because there are no schemas on the iMatix website
+    for code generation, nor anywhere else.  Not even a white paper on the
+    subject.  Seems like both products are at a standstill, because GSLgen
+    is just getting started and Libero is being neglected.
+    :-)  and :-(
+
+    >>>>>>>>>>>>>>>
+    We wrote the portable command-line version of Libero in 1994 or so, and
+    the Windows version in 1995, using Visual Basic (talk about long-lasting
+    low-level pain!).  While the portable version is still up and running,
+    the Windows version was out of date a year after we finished it, not
+    because our needs changed, but because VB changed.
+
+    The Windows version was incredibly expensive to make.  We learnt one
+    big lesson from this: free software must be portable, or it can't be
+    any good.  The economics of gradual improvement only work when software
+    can survive a decade of moving from one machine to another.
+
+    Another thing we have learnt: when software works, don't mess with it.
+    Libero does one thing, and does it well.  You can extend its reach by
+    writing new schemas for all kinds of languages and purposes, and people
+    do this regularly.
+
+    Lastly, we believe that if Libero is going to evolve, it's going to be
+    as part of a larger strategy for code generation, in which state
+    machines are just one of the many objects for which we can generate
+    large chunks of code.  GSLgen is the start of this strategy.  Instead
+    of working on several different code generators, we're putting our
+    effort into a single code generation engine.
+
+    Libero does one thing, well, and we don't neglect it at all - we use
+    it every day.  Don't mistake change for progress, or stability for
+    neglect.
+
+
+    From:       BillByrd.com" <me@billbyrd.com>
+    Subject:    Xitami
+    -----------------------------------------------------------------------
+    My compliments on a wonderful product. I work for a small internet
+    development company in Greenbelt Maryland and each person there runs a
+    copy of their favorite server on their machine for testing things.  My
+    server of choice, both now, and in the past two years when I have been
+    developing for the web freelance, is Xitami. Recently just as a joke,
+    a co-worker ran a denial of service attack on my server at work, and I
+    just want you to know that Xitami not only withstood almost 30,000 hits
+    from his Java based attacking program, I did not even notice it
+    attacking until I noticed that number of hits just ticking away. Quite a
+    feat. The DOS program actually spawned seperate threads to hit the server
+    through our LAN and while I did not notice it at all, the number of
+    threads hitting Xitami brought his NT workstation to a slow crawl, and I
+    had Xitami running under window 98!
+    -
+    Bill Byrd
+
+    >>>>>>>>>>>>>>>
+    :-)
+
+
+    From:       Ewen McNeill <ewen@imatix.com>
+    Subject:    Re: Liberetto IV/7 
+    -----------------------------------------------------------------------
+    Pieter Hintjens writes:
+    > [The "easy" way to fix the video card thing]
+    > Total time: 55 minutes.  Possible fatal mistakes: 10.
+    > [The "hard" way to fix the video card thing]
+    > counselling.  Total time: 6 hours.  Possible fatal mistakes: 3.
+
+    Hmm.  I thought that NT had a boot-with-standard-VGA mode that you could
+    specify in boot.ini; which if it works anything like the OS/2 equivalent
+    gets you out of this situation.  (Boot in VGA mode, install new video
+    drivers, reboot, done.  Total time: about 15 minutes.)
+
+    For more challenge, though, I suggest you install OS/2 and Windows NT on
+    the same drive, using HPFS and NTFS, and allowing two drive letters per
+    operating system (so that the "standard" drive letters are available for
+    company wide shares).
+
+    By process of eliminiation (I've done this three times now), the "best"
+    way to do this is to install DOS, partition with OS/2 making all the
+    partitions needed, with OS/2 first then NT, delete all but the DOS and
+    NT ones, then install NT, which will be D:.  In partition manager, fix
+    the drive to be D:.  Reboot, and make the partitions for OS/2 again,
+    reboot, and install OS/2 (a few more reboots elided).  Then when OS/2
+    is working, hack on boot.ini so that NT will boot again (the partitions
+    have changed on it, so it hangs during boot).  Finally refix the drive
+    letters in disk manager under NT, hide the HPFS ones, and your away.
+    Until something other than Windows updates the partition table, or
+    even looks at it in the wrong way.
+    -
+    Ewen
+
+    >>>>>>>>>>>>>>>
+    I'll bet you're not into tattoos.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.

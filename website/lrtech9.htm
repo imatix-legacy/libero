@@ -1,0 +1,102 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Generating Module Stubs</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech8.htm">&lt;</A>
+ | <A href="lrtech10.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC24">Generating Module Stubs</A></H2>
+
+<P>Take a hypothetical language where a module stub looks like
+this:
+
+<PRE>
+//###################  SOME FUNCTION   ##################//
+
+MODULE some_function () {
+
+}
+</PRE>
+
+<P>To generate stubs like this we add these commands to the schema:
+
+<PRE>
+:internal initialise_the_program
+:internal get_external_event
+:set $module_line  = "MODULE %s () {"
+:set $stub_first   = "//"
+:set $stub_between = "#"
+:set $stub_last    = "//"
+:do stubs
+
+MODULE $name () {
+
+}
+
+:enddo stubs
+</PRE>
+
+<P>This is how it works:
+<UL>
+<LI>The <TT>:internal</TT> commands tell Libero to ignore these two modules
+when it looks through the source file.  Without these two commands, Libero
+would print a message saying that the source file contained modules no longer
+used in the dialog.  We tell it that some modules are used internally by the
+generated code.
+
+<LI>The <TT>$module_line</TT> tells Libero what to look for when it is
+running its idle module check.  This must always match the header of the stub
+below.
+
+<LI>Libero looks at each file specified in the <TT>:do stubs</TT> line.  If
+you do not specify any files, Libero looks just at the source file.
+
+<LI>When it builds a new module stub, Libero outputs a line containing
+<TT>$stub_before</TT> before each stub.  Usually this is a blank line.
+
+<LI>Libero uses <TT>$stub_first</TT>, <TT>$stub_between</TT>, and
+<TT>$stub_last</TT> to build-up the header line.
+
+<LI>The text between the <TT>:do</TT> and <TT>:enddo</TT> is repeated, with a
+header, for each missing module.
+</UL>
+
+<P>The <TT>:do stubs</TT> command can come at any point in the schema.  It
+does not do any output to the current output file.  However, in many cases it
+is a good idea to list generated files in the <TT>:dostubs</TT> line, which
+means that this should come at the end of the schema, when everything has
+been generated.
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech8.htm">&lt;</A>
+ | <A href="lrtech10.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <EM>Generating Module Stubs</EM>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

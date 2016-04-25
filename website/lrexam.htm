@@ -1,0 +1,318 @@
+<HTML><HEAD><!--Revised: 10 May 1996, 19:29 By: Pieter Hintjens-->
+<TITLE>Libero Examples</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrexam.htm">&lt;&lt;</A> | &lt;
+ | &gt; | <A href="lrexam.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<H1>Libero Examples</H1>
+
+<P>
+<MENU>
+<LI><A HREF="#TOC1">Libero 'install' Script for UNIX</A></LI>
+<LI><A HREF="#TOC2">COBOL Picture Parser</A></LI>
+<LI><A HREF="#TOC3">Expression Parser</A></LI>
+<LI><A HREF="#TOC4">Configuration Management System</A></LI>
+<LI><A HREF="#TOC5">Multithreaded Agent For VAX/ACMS</A></LI>
+<LI><A HREF="#TOC6">E-mail Robot - ERBOT</A></LI>
+<LI><A HREF="#TOC7">HTML Preprocessor</A></LI>
+<LI><A HREF="#TOC8">Complete Examples Archive</A></LI>
+</MENU>
+</P>
+<HR>
+
+<H2><A NAME="TOC1">Libero 'install' Script for UNIX</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/install.zip">install.zip</A>.</P>
+
+<P>This is a nice example of a UNIX script that is complex enough to warrant
+a dialog.  The script shows a small menu, and does various things depending
+on the choice:</P>
+
+<PRE>
+Libero installation script                       Version 2.20
+-------------------------------------------------------------
+This script installs or de-installs Libero on your Unix system.
+If you are going to install into a system binary directory you
+will need write-access to the system directory.  You can also
+run Libero from the current directory.
+
+UNIX system="aix", compiler="cc", options="-O2"
+-------------------------------------------------------------
+
+Choose an action:
+  (b)uild Libero and optionally install
+  (d)e-install Libero
+  (c)lean-up current directory
+  (q)uit
+
+Choice:
+</PRE>
+
+<P>This is the dialog:</P>
+
+<PRE>
+-schema=lrschema.ksh
+
+After-Init:
+    (--) Ok                         -&gt; Have-Package
+          + What-System-Are-We-On
+          + What-Package-Do-We-Have
+
+Have-Package:
+    (--) Source                     -&gt; Before-Action
+          + Get-Source-Install-Action
+    (--) Binary                     -&gt; Before-Action
+          + Get-Binary-Install-Action
+
+Before-Action:
+    (--) Build                      -&gt; Have-Install-Directory
+          + Check-All-Files-Exist
+          + Compile-All-Subroutines
+          + Link-Main-Programs
+          + Get-Directory-Name
+    (--) Install                    -&gt; Have-Install-Directory
+          + Get-Directory-Name
+    (--) Delete                     -&gt; Have-Delete-Directory
+          + Get-Directory-Name
+    (--) Cleanup                    -&gt; Have-Package
+          + Clean-Up-Directory
+          + What-Package-Do-We-Have
+    (--) Error                      -&gt; Have-Package
+          + What-Package-Do-We-Have
+
+Have-Install-Directory:
+    (--) Ok                         -&gt; Have-Package
+          + Check-Directory-Writable
+          + Install-Product-Files
+          + What-Package-Do-We-Have
+    (--) Current                    -&gt; Have-Package
+          + What-Package-Do-We-Have
+    (--) Error                      -&gt; Have-Install-Directory
+          + Get-Directory-Name
+
+Have-Delete-Directory:
+    (--) Ok                         -&gt; Have-Package
+          + Check-Directory-Writable
+          + Delete-Product-Files
+          + What-Package-Do-We-Have
+    (--) Error                      -&gt; Have-Delete-Directory
+          + Get-Directory-Name
+
+Defaults:
+    (--) Error                      -&gt;
+          + Return-Error-Feedback
+          + Terminate-The-Program
+    (--) Quit                       -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The script reads install.cat to tell it which files to handle.
+For example, this is the module Compile-All-Subroutines:</P>
+
+<PRE>
+######################   COMPILE ALL SUBROUTINES ######################
+
+function compile_all_subroutines
+{
+    test -f *.o && rm *.o
+    for FILE in `awk '/^&.*@c/ {print $2}' $CATALOG`; do
+        echo "Compiling $FILE..."
+        $CCNAME -c $CCOPTS $FILE
+    done
+}
+</PRE>
+
+<H2><A NAME="TOC2">COBOL Picture Parser</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/picture.zip">picture.zip</A>.</P>
+
+<P>One of my still-unfinished projects is a portable COBOL compiler.  I was
+writing a blindingly fast parser when I got sidetracked with Libero at the
+start of 1995.  Anyhow, I found that lex was not really good at some of the
+syntactic warble that COBOL allows, so I finally wrote a specific analyser.
+The COBOL picture is one of the hairier aspects of the language.  I wrote a
+function, with a dialog, that was robust and fast.</P>
+
+<P>The function takes a picture string and returns its size, type, and
+various other bits of info.  If the picture is not correct it returns an
+error message.</P>
+
+<P>It took just over a week, part-time, to write and test this program, so it
+can't have been too hard.  I wrote a test program that shoves a load of test
+pictures through the function and prints the results.  If you are running
+MS-DOS, you can try the testpict program.  It outputs stuff like this:</P>
+
+<PRE>
+9(3)                        :                      size=3 numeric
+9(3)V                       :                      size=3 numeric
+V9(3)                       :                      size=3 numeric 3 decs
+9(3)V9(3)9(3)9(3)9(3)9(3)   :                      size=18 numeric 15 decs
+9(01                        :                      size=0 undefined
+   ^
+')' missing after repeat specifier.
+ZZZZZ.ZZ9                   : ZZZZZ.....ZZ         size=12 undefined 2 decs
+        ^
+decimals cannot be partly zero-suppressed
+9999,(2).(2)                : 9999,,..             size=8 undefined
+         ^
+(...) must follow one of: B X Z 0 9 * / + - , $
+</PRE>
+
+<P>This package might be useful if you need to analyse COBOL code. There is a
+lot of it around (150 Gigalines at last count) so this is not such a
+far-fetched idea.</P>
+
+<P>There are also some nice functions in the package; for instance some
+pretty fast file i/o code, which is non-portable enough to squeeze the best
+out of the C libraries on a number of systems.</P>
+
+<H2><A NAME="TOC3">Expression Parser</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/expr.zip">expr.zip</A>.</P>
+
+<P>The expression parser that I use in the introduction as an example is a
+real program that has cropped-up in various places, including in Libero.
+Often, when I make a new language schema for Libero, I rewrite the expression
+parser as a test.</P>
+
+<P>This package has the same program, more or less, written in C, C++, Java,
+COBOL, Rexx, 8086 assembler and Visual Basic.  The <A href="http://www.toscintl.com">ETKPAK</A> archive
+at TOSC contains a more complete version of the COBOL program that supports
+mathematical functions.</P>
+
+<H2><A NAME="TOC4">Configuration Management System</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/config.zip">config.zip</A>.</P>
+
+<P>On one project I worked on, a friend of mine, Patrick Bedert, had to write
+a configuration management tool.  This tool had to keep track of each of
+several thousand programs in the system we were developing.</P>
+
+<P>A program has a life-cycle with various stages: in development, in
+testing, in integration, in production, etc.  The developers can work on a
+program only when it is in a certain stage.</P>
+
+<P>After some thought, and lunch, we said this: 'Basically the life-cycle or
+a program is a state-machine.  The states are the life-cycle stages.  The
+events are the actions that the developer wants to, or does, do on the
+program.'</P>
+
+<P>So we designed the life-cycle as a Libero dialog.  The events were the
+'sensitive' actions which either depended on the life-cycle stage, or which
+changed it.  For example, you could only compile a program if you had
+previously reserved it for modification.  You could only do this if it was in
+the development stage.</P>
+
+<P>We wrote this program as a UNIX shell script.  The script takes a program
+and action as argument, and returns an exit code that is 0 (okay) or 1 (not
+okay).</P>
+
+<P>Whenever a developer wants to do a sensitive action, the script fires-up
+the dialog.  It loads the last state for the program into LR_state, and
+converts the action into an event.  The dialog then runs one cycle, and
+either accepts the event and perhaps moves to a new state, or rejects the
+event.  We save the state for each program in one file.  A small utility,
+<TT>gate</TT>, makes sure that this file is never accessed by more than one
+process at a time.</P>
+
+<P>I can't supply the actual code, since this belongs to the client who paid
+for the work.  However, I provide a small example, control, that should give
+you the general idea.  Note that this dialog uses a hacked version of
+lrschema.ksh, with some extra code to generate a table of state names.</P>
+
+<P>This was a nice example of using a dialog to describe a real problem that
+is normally beyond the scope of software.  It is also the slowest-running
+program I have ever seen; one step through the dialog can take days!</P>
+
+<H2><A NAME="TOC5">Multithreaded Agent For VAX/ACMS</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/acms.zip">acms.zip</A>.</P>
+
+<P>One of the most complex programs I ever wrote was a multithreaded terminal
+handler for a reservation system running on a Digital VAX/ACMS system.</P>
+
+<P>Digital VAX/ACMS is a transaction processor somewhat akin to IBM's CICS,
+or Tuxedo for UNIX.  In the ACMS model, people work on a front-end program
+called an 'agent'.  The application programs run on the main system, the
+'server'.  This is a good way to split the client-server
+responsibilities.</P>
+
+<P>In our project we were unable to use any of the standard Digital agents
+(e.g. for DecForms), since we wanted to do our own screen handling.  The only
+recourse was to write our own agent. This is easy enough when each user can
+run in their own interactive session.  The agent program is then a normal
+program which can handle a terminal and talk to ACMS.</P>
+
+<P>The fun starts when you need to connect several hundred users (in our case
+up to a thousand).  VMS, like any operating system, cannot handle so many
+interactive sessions.  The only valid approach is to handle all the terminals
+in a single process.  This means writing a multithreaded program where each
+thread manages one terminal.</P>
+
+<P>Perceived wisdom has it that this type of work is deadly difficult, and we
+had something of a fight to convince the client that it would actually work.
+The schedule was tight, and there was no time (nor will, on my part) to
+develop the multithreaded code using conventional techniques.</P>
+
+<P>So, I took the standard Libero C schema and changed it around so that it
+generated multithreaded code.  The multithreaded schema actually generates a
+tiny kernel that handles the multithreading aspects.  The code you write has
+to be careful, as always, but is only a little more complex than normal
+single-threaded code.</P>
+
+<P>We beat the schedule, and made the client happy.  The multithreaded agent
+is about 3500 lines of code, and a hairy program.  Still, it has run without
+trouble for several years, efficiently, and survived several meaty
+changes.</P>
+
+<H2><A NAME="TOC6">E-mail Robot - ERBOT</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/erbot.zip">erbot.zip</A>.</P>
+
+<P>A fairly complex Awk program, erbot is a kind of remote agent that you
+can ask to do work via email.  For instance, you can use erbot to upload
+or download files, run commands, etc. all by e-mail.  It is password
+protected, and still experimental.</P>
+
+<H2><A NAME="TOC7">HTML Preprocessor</A></H2>
+
+<P>The source files for this package are in <A href="/pub/libero/example/htmlpp.zip">htmlpp.zip</A>.</P>
+
+<P>Htmlpp is a preprocessor for HTML files, and is intended to simplify the
+task of maintaining large sets of HTML documents.  You provide htmlpp
+with a document that is a mix of HTML-tagged text and htmlpp commands.
+Htmlpp generates a set of HTML files from that document.</P>
+
+<P>During this process, htmlpp replaces symbols, reads include files, builds
+tables of contents, and generally does a lot of otherwise tedious and
+error-prone manual work.  To use htmlpp you should be happy writing HTML
+with a simple text editor.</P>
+
+<P>This is an old version of htmlpp, since this tool is continually
+getting better.  Check-out the links on the iMatix home page for the
+latest version of htmlpp.</P>
+
+<H2><A NAME="TOC8">Complete Examples Archive</A></H2>
+
+<P>You can download the complete examples package in <A href="/pub/libero/example/complete.zip">complete.zip</A>.
+Unzip this and you get all the example archives.  For best results, unzip
+each one into a separate directory.</P>
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrexam.htm">&lt;&lt;</A> | &lt;
+ | &gt; | <A href="lrexam.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <EM>Libero Examples</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

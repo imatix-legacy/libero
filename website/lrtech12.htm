@@ -1,0 +1,103 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Compiled-In Limitations</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech11.htm">&lt;</A>
+ | <A href="lrtech13.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC27">Compiled-In Limitations</A></H2>
+
+<P>A number of more-or-less arbitrary limits are defined in the header file
+<TT>lrpriv.h</TT>.  If you need to, you can increase these, then recompile
+all Libero programs (and if you are smart, drop me a line explaining your
+reasons):
+<UL>
+<LI><TT>LR_SYMBOLMAX</TT> - the size of Libero's symbol table.  This table is
+used to hold all state, event, and module names.  Defined as 32000; maximum
+value is 32767.
+
+<LI><TT>LR_STATEMAX</TT> - the maximum number of states in the dialog.
+Defined as 1000.  Maximum value is 16383, assuming schema can handle it.
+
+<LI><TT>LR_EVENTMAX</TT> - the maximum number of different events in the
+dialog.  Defined as 1000.  Maximum value is 16383, assuming schema can handle
+it.
+
+<LI><TT>LR_MODULEMAX</TT> - the maximum number of different modules in the
+dialog.  Defined as 1000.  Maximum value is 16383, assuming schema can handle
+it.
+
+<LI><TT>LR_VECTORMAX</TT> - the maximum number of different vectors in the
+dialog.  Defined as 1000.  <TT>LR_VECTORMAX * 2 * $maxaction</TT> should not
+be larger than 32k.
+
+<LI><TT>LR_FILENAMEMAX</TT> - the maximum size of a filename with extension,
+but not path.  Defined as 128 characters.
+
+<LI><TT>LR_HEADER_WIDTH</TT> - the default width of a header line.  For
+various archaic reasons I like this to be 79.  You can change this in a
+schema by setting <TT>$stub_width</TT>.
+
+<LI><TT>LR_RUNAWAY_LIMIT</TT> - the number of times you can go through a
+<TT>:do</TT> loop before Libero says thinks you are in trouble.  Defined as
+1000.  Maximum value is 32767.
+
+<LI><TT>LR_ROW_WIDTH</TT> - the default width of one line of a <TT>$row</TT>.
+For various reasons I like this to be 60.  You can change this in a schema by
+setting <TT>$row_width</TT>.
+</UL>
+
+<P>The header file <TT>prelude.h</TT> also defines a constant
+<TT>LINE_MAX</TT>, with the value 255, which is used to allocate buffers for
+input and full filenames (ie. including path).  You should not write dialogs
+wider than a normal page (ie. 80 columns).
+
+<P>Libero allocates memory dynamically to store its dialog definition, so the
+maximum size of a dialog actually depends on available memory.  You should
+only change the constants in <TT>lrpriv.h</TT> if you get a message that
+specifically says that you have reached such a limit.
+
+<P>The code that the standard C schema generates assumes that events can be
+stored in a signed 16-bit word; while state, module, and action numbers can
+be stored in an unsigned 16-bit word.  A more compact version could be made
+by using 8-bit values.
+
+<P>If you change Libero, or suspect bugs, compile with the symbol
+<TT>DEBUG</TT> defined.  This switches on the assertions that are sprinkled
+through the code.  The executable will be a little larger, but if a bug
+corrupts Libero's internal data structures, you will (usually) get a nice
+message instead of an unpredictable crash.
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech11.htm">&lt;</A>
+ | <A href="lrtech13.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <EM>Compiled-In Limitations</EM>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,338 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   MARCH 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 3
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Welcome to this Spring Issue of Liberetto.  It's been exactly 12
+    months since Liberetto I/1 came out, and it's been an interesting year.
+    In March 1996, iMatix produced just one product, Libero.  Since then
+    we've built a range of software around and on top of Libero.  The most
+    popular is Xitami, our tiny, fast web server.  Xitami is strong proof
+    that Libero, SMT, SFL, and our other tools are a serious basis for
+    commercial-quality software.
+
+    So where will iMatix be in a year's time?  We have plans.
+
+    A recurring theme in Liberetto has been the need for a solid, long-term
+    approach to software development.  For us it seems quite simple: the
+    'developed' world cannot keep paying for software that does not last
+    more than a few years at most.  At some near-future point, the
+    'developing' world will be wired, skilled, and hungry.  There is no
+    magic to writing software, no reason why the next Microsoft has to be
+    based in the USA.  This is bad news for the many rich and inefficient
+    software service companies in the USA and Europe.
+
+    I believe that the Internet is the key to the problem, and to the
+    solution.  The Internet looks unstoppable; it will even penetrate
+    countries like China and flatten the playing field forever.
+
+    We are building tools that turn the Internet into a useful basis for
+    writing solid, long-term software.  Libero, Xitami,... these are all
+    parts of the assembly.  Wait for our new Internet tool, code-named
+    "Nairobi", that will provide a transaction processor for HTML form
+    programming, a HTML form builder, integrated into a customised version
+    of Xitami.  Nairobi will let you write serious programs that show their
+    screens as Web pages.  Yes, such technology already exists, it's called
+    "CGI".  But CGI is slow and clumsy.  Nairobi will produce fast, simple
+    programs that can handle hundreds of people at the same time.
+
+    The next 12 months promise to be as interesting as the last.
+
+    Pieter Hintjens
+    Antwerpen
+    1 March 1997
+
+
+ == NEWS ---..-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Xitami Does Windows!
+        Our tiny, blazingly-fast web server storms the Windows platform in 
+        no less than four separate packages...  Whatever your Windows 
+        machine, you'll find a Xitami that turns it into a fast web server.  
+        You don't need to buy NT 4.0 to get IIS: Xitami runs as a service on 
+        NT 3.51.
+
+    Xitami Does OS/2!
+        Ewen McNeill, winner of the "User Of The Month" award so many times 
+        that we had to change the rules, ported the iMatix toolset to OS/2.  
+        He generously provided OS/2 versions of Libero and Xitami.  Check-
+        out the iMatix web site.
+
+    Otto At Your Service, Ma'am!
+        Otto (short for 'automatic something or other') is a small creature 
+        that emerged from iMatix Artificial Life Engineering Labs one grim 
+        morning.  Never feed Otto after midnight, or let him taste your 
+        coffee!  Last month, Otto metamorphosed from its Awklet larval 
+        lifeform to emerge fully Perled.  Thanks to Ewen M., Otto does OS/2 
+        too without even getting out of breath.  Otto wears a t-shirt saying 
+        'Makefiles Must Die!!'.  No, we don't understand that either.  But 
+        no-one has really dared ask Otto what it means.
+
+    Mailstrom... Shock Horror Probe Reveals All!
+        iMatix HQ gets reports that some Liberati* are not getting their 
+        monthly infusion of finite neuronic stimulation!  We steal the specs 
+        for a new protocol, PGPY from Byte Magazine, and send a subether 
+        message to all Liberati, with an e-mail copy for security.  
+        Overwhelming response!  See the Special Maelstrom Section for a full 
+        report!
+
+        * Thanks to Ben Tremblay <btrembla@is2.dal.ca> for the term.
+
+    Htmlpp 2.0 released.  Web Pages, Prepare To Meet Your Maker!
+        Newly released, better than ever, htmlpp is the best tool around for 
+        serious Web writers.  If you have to produce large amounts of HTML, 
+        htmlpp is the professional approach.  "I liked it so much that I 
+        wrote it!" says our Chief Technical Egghead, Mr. P.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >From:         "Bernard D. Tremblay" <ab006@chebucto.ns.ca>
+    >To:           info@imatix.com
+    >Subject:      The first "Liberati Programming Award" should go to: Mel
+    >
+    >Pieter; y'all ... you have to read this:
+    >Linkname: real programmers use machine code
+    >    URL: http://www.fdisk.com/humor/real-programmers.txt
+    >I taught myself to program using machine code ... first project ...
+    >poking int's up to 255 into high memory on an 8K Z80 machine ... and
+    >then the samething on a 6502 (yes, zero-page addressing is an
+    >alternative to registers!) ... and so I thought I knew what to expect
+    >from this little tid-bit...
+    >Mel, wherever you are ... you're the last of a breed!
+    >
+    >ben
+
+    Ah, yes, those were the days.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Wed, 05 Feb 1997 09:27:08 -0500
+    >From:             Jeff Stone <jstone@world.std.com>
+    >Organization:     Softworks,  Boxborough, MA
+    >
+    >I'm trying to figure out how to use the interpreter in 'single-step'
+    >mode -- that is, I want to collect events outside the interpreter and
+    >call it to handle each event.  The interpreter should resume with it's
+    >last context at each call.  Is there support in the interpreter code
+    >(lrschema.c) to do this or do you know of anyone else doing it?
+    >
+    >Thanks.
+    >Jeff Stone
+
+    To make a single-stepping program, you can use the standard schema 
+    quite easily.  In Initialise-The-Program, you need to restore the 
+    variables _LR_state, _LR_stack_size, and get the_next_event from your 
+    calling function. Then, in Get-External-Event, set the_next_event to 
+    terminate_event.  The FSM will do one cycle, then halt.
+
+    If you want to be able to halt halfway through a module list, or
+    handle multiple threads, things get more complex...  I'd suggest SMT.
+    Try this, let me know how it goes.  Heck, I know it works, since we
+    once did the same thing using the Korn Shell schema.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Fri, 31 Jan 1997 18:18:52 -0800 (PST)
+    >From:             "Terrence M. Brannon" <brannon@bufo.usc.edu>
+    >To:               editors@imatix.com
+    >Subject:          Liberetto Volume II/2
+    >  == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..--
+    >Is there something about this comment that applies to Libero? Or is it
+    >just general commentary?
+    >--
+    >terrence brannon brannon@rana.usc.edu
+
+    Ahem, yeah, right.  Well, as Terrence points out, Liberetto seems to be
+    diverging from its original mission, to seek-out and explore new Libero
+    horizons.  Most Libero horizons have been well and truly sought by now,
+    and Liberetto now covers the other iMatix tools too.  Also, our Ed. is
+    an independent spirit, and tends to waffle quite freely ('waffle' is
+    local dialect for producing large amounts of more-or-less relevant
+    verbage, usually with the hidden aim of inducing a trained response
+    against further questions).
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Mike Little <MikeLittle@worldnet.att.net>
+    >Subject:          Ignoring events
+    >Date sent:        Thu, 30 Jan 1997 17:58:16 +0000
+    >
+    >Is it a good practice to ignore events that make no sense for the state
+    >that I'm currently in, or should I put the events some place (state or
+    >defaults) and let them dead end in a controlled fashion.
+    >
+    >The reason I ask is that I'm writing control software that interfaces
+    >to a telephone line interface card and it has to respond to the status 
+    >from the card as well as other processes such as the control interface. 
+    >That is a LOT of events. I'm anticipating some events that might hit a 
+    >state for which it ignores (mostly in the defaults state) but I'm 
+    >wondering about the rest. I could comment out the printf statement:
+    >    if (_LR_index == 0)
+    >      {
+    >        printf ("State %d - event %d is not accepted\n",
+    >                 _LR_state, _LR_event);
+    >        break;
+    >      }
+    >and maybe return a feedback value that lets me know something like this 
+    >has happened, but I don't think it will be catastrophic for the most 
+    >part. The ones that are I will deal with.
+    >Any comments?
+    >Mike Little
+    >SwifNet, Inc
+
+    Clearly the normal reaction of the schema to an invalid event is not
+    what you want in a realtime program.  In many programs, unexpected
+    events are a programming error, and you want to see this as quickly and
+    brutally as possible.  However, not in your scenario.  The simplest way
+    to protect against unwanted events is to add an event $other in the
+    Defaults state.  Since version 2.20, Libero understands this to mean:
+    all other events.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Thu, 27 Feb 1997 14:41:02 -0500
+    >To:               info@imatix.com
+    >From:             Mark Dickinson <gt7561a@prism.gatech.edu>
+    >Subject:          xitami
+    >
+    >I just installed your xitami web server a few days ago.  Excellent 
+    >product!!  I couldn't believe that such a product is released as 
+    >freeware. Thank you for your excellent product and for allowing a 
+    >college student with little money to still put up his own web page.  I 
+    >do have one question, though.  How can I map certain file extensions to 
+    >MIME types with your server?  Thanks again for your product and for 
+    >helping me out.
+    >Mark Dickinson
+
+    Xitami does not yet support user-defined MIME types, unless you want to
+    go into the code and add them yourself*.  We expect to add this soon...
+    more news at 10!
+
+    * Easily done, in smthttpl.h and smthttpl.c.  However, probably better
+    to wait unless you're really impatient.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Wed, 26 Feb 1997 05:31:32 -0100
+    >To:               editors@imatix.com
+    >From:             Alexander McGhee <amg@softtoys.com>
+    >Subject:          Liberetto
+    >
+    >Sirs,
+    >I finally managed to decoded the hidden morse-code messages in 
+    >Liberetto, and I think I have the answer:
+    >  ---.-.. .---.-.- --....-.-..---.- -...-.-  -.---.-....-!
+
+    Alexander,
+    Sorry to say this, but you've gotta stop playing those records
+    backwards.  Also, stop watching the TV static.  It's bad for your
+    brain, pal.
+
+
+  == MAELSTROM SHOCK HORROR PROBE -..---.-.--.-.----....--.-.----.-.---...-.-.
+
+    Thanks to all of you who helped us to test our distribution list.  An
+    amazing response!  We expected a few people to say 'sure, yeah, we got
+    some kinda message'.  But no!  Literally hundreds of you replied.  So,
+    we know that our new mailing system works.  Some of the comments you
+    sent us:
+
+    From: "Patrick Petrossians" <petross@ibm.net>
+    >>... the PGPY (pretty good parapsychology) >protocol is still under
+    >>development.
+    >Your beta-version seems to work: I have sensed that in a near future
+    >I will know that I may have received this message.
+
+    >From: David Wood <david@thermoteknix.co.uk>
+    >I had a pass error in the PGPY protocol version, you should know.
+    >That'll teach me to use product from Microsoft I guess.
+    >I got it fine!
+    >SEP comes to mind again! Now where did I put my pink paint pot.
+
+    >From: frans "snarf" janssens we441 3024 <frans@sebb.bel.alcatel.be>
+    >> Really I should ask you to tell us if you *don't* receive this
+    >> message.
+    >I hate to tell you this, but I didn't *don't* receive your message.
+
+    >From: "Johan Coppieters" <johan@delight.be>
+    >Help, I'm held hostage by Cyberpunks, help me to escape...
+    >sdr rkdfgret fgdfglerr fdoggg rrtro ddf kree o  g dgrt f  yjfgdflt
+    >ffsgjkf dfret f fdsrkjret fdg rt prtret pofg ret rt pore tpogflk jrte 
+    >repj rpjfgf gffg  rt  jfdgpjo gerpjrtpre  fjglkjr fjpjrtgj  oepdfjaw a
+    >fdjsdjerw jojgsdf lefdd dg dfldggf rt xfgoijfg jn f rtl;krt ofgoppr 
+    >flkj grp dgfjr etijoretr dfggrtr repofg kljr.
+
+    >From: sholmes@cais.com (Stephen R. Holmes)
+    >All appears well from my perspective. I haven't been able to spend
+    >*nearly* as much time "playing" with Libero as I'd like, but I still
+    >read every word of 'Libretto', and every new issue brightens my day.
+    >Best wishes (and a belated Happy New Year) to the whole gang at
+    >iMatix...
+
+    >From: John Dammeyer <johnd@islandnet.com>
+    >A thought came into my head,
+    >That perhaps Liberetto was dead,
+    >But I have no fear,
+    >Nor will shed a tear,
+    >Liberetto will arrive in Feb.!
+    >8-)
+
+    >From: sheila@emplus.demon.co.uk (Sheila McGregor)
+    >If this was the one with the stupid woman who didn't know
+    >that RSM meant Red Shiny Motorbike, I didn't get it.
+
+    >From: "Tom Bushell" <tbushell@Fox.nstn.ca>
+    >>... the PGPY (pretty good parapsychology) protocol is still under
+    >>development.
+    >I'd be happy to review the RFC..., which my second sight tells me will
+    >reach the draft stage on Aug 16, 1997.
+
+    >From: jnorman@denver.net (John Norman)
+    >Got your test, but I knew it was coming.  You must have the PGPY in
+    >beta?
+
+    >From: "PARK.CHRIS" <Park.Chris@principal.com>
+    >Thank You Very Much ...  I enjoy reading your articles.
+
+    This is getting embarassing.  Where are the flames?  Where's the
+    controversy?  What do we have to do to get Liberetto banned by the
+    State, and burnt in the streets by angry demonstrators?
+
+
+ == ERRATA --.-.----..-.-.--...---.-.---....-.-....----.-...-.-...----..-.--
+
+    Liberetto II/2 contained an error, referring to "John Klass", in place
+    of the honourable John's correct name, "Klassa".  The guilty have been
+    promoted, the innocent have been taken out and severely told off.  Life
+    at iMatix H.Q. is almost back to normal.  That is to say: a small black
+    hole developed in a corner of our Research & Development Lab, where a
+    Windows NT 4.0 system had somehow gotten access to Office 97, causing
+    an implosion of the hard disk, followed by rapid catastrophic nuclear
+    collapse of the hard disk bits.  We sent in Pixel, the iMatix rodent
+    disassembler, which was messy.  Sorry, Pixel.  (One second silence.)
+    The black hole got larger and larger, easily consuming an idle Linux
+    system that did not get out of the way fast enough.
+
+    Having carved a nice round hole in the wall, the black hole suddenly
+    flashed 'Beta Version License Expired' and vanished.  The hole in the
+    wall is now serving as a doorway for Pixel's brother, Rasta.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    To get off the Liberetto mailing list, just send a PGPY-encoded message
+    to 'maelstrom@imatix.com', quoting your favourite sonnet from
+    Shakespear, or provide us with an amusing letter for next month's
+    issue.  This offer is only valid so long as stocks last, and may be
+    subject to local rules and regulations.

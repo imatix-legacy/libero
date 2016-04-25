@@ -1,0 +1,256 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 January 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 1
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last week, I was typing away on my PC, when suddenly the thought struck
+    me that it had been a long time since we loaded-up the diesel oil tank
+    which supplies our central heating system.  Okay, a quick check showed
+    that the tank was pretty much empty.  We called the guys who supply us
+    with oil, and they promised to come later in the afternoon.  At that
+    instant, the burner went out, and I suddenly understood how primitive
+    man felt when a mammoth stepped on his fire in the middle of winter.
+    Bummer!  No big deal - the diesel guy came as promised and loaded the
+    tank with a fresh load of hydrocarbons.  He cheerfully warned me to wait
+    an hour before starting it up, which I did, since I don't like to mess
+    with the one thing that fundamentally separates us from primitive man.
+    We still sit around in groups, banging our heads against immovable
+    objects, grunting and drawing strange pictures.  Only we do it with
+    central heating, and we call it 'information technology'.
+
+    So, an hour later, I went to start the burner.  It's real simple: there
+    is a little red button that shouts 'press me!!'.  I pressed it.  The
+    burner started making rumbling and shaking noises, then growled into
+    full action, with a tremendous 'whoosh' as it forced diesel oil under
+    high pressure into the ignition chamber.  A second later there was a
+    kind of unexplosion, and the same diesel oil billowed out in clouds.
+    Ooops!  Not good.  This stuff is supposed to burn, not do a smoke-
+    machine imitation.  Bracing myself, I tried again.  Same growling and
+    rumbling, then the whooshing of the injector, then 'ploof!' and clouds
+    of diesel in my face.
+
+    I phoned the diesel guy, but it was dark outside and already past six
+    pm.  'Our offices are closed, please leave a message'.  It was Friday
+    evening.  In Belgium, plumbers and diesel people work the same hours as
+    civil servants.  Uh-huh.
+
+    One long and cold weekend later, I got the diesel guy on the phone.
+    Sure, they could send a specialist round, how about round the middle
+    of January?  This is a classic negotiation ploy, which I countered with
+    the customary tale of woe about how my aged grandmother had frozen into
+    the bath and this was upsetting her.  The diesel guy tried responding
+    with indignation that this was surely a problem for the water company,
+    but it was only a half-hearted defence, and within two hours he was
+    there, to look at my boiler.
+
+    When you describe a problem to a tradesman and he shakes his head
+    sideways, and mutters 'tsk-tsk', you know he's figuring how long he can
+    make the job last.  Diesel Guy was tsk-ing like an expert.  Finally he
+    asked if I had pressed the Red Button.  'Um, yes'.  'Tsk-tsk'.  We went
+    to the burner and looked at it.  'Tsk-tsk'.  Then he pressed the Red
+    Button.  As the burner moved from growl to rumble and then to whoosh, I
+    carefully stepped behind Diesel Guy so he'd get the diesel clouds before
+    me.  But the burner just kept whooshing, and after a minute it was clear
+    that the thing worked just fine.
+
+    'Air bubbles', said Mr Diesel.  'Just gotta press the button three or
+    four times, to clear it, see?  I'll send you the bill.'
+
+    On my desk were some papers that I'd pulled out to find Diesel Guy's
+    phone number.  There on top was a FAQ (I swear, these things predate the
+    Internet) with the top ten things to do BEFORE you called the heating
+    repair guy.  Number one: if your heating stops working, press the Red
+    Button up eight or nine times.  If this fails, check point two.  Etc.
+
+    Uh-huh.  Welcome to 1999!
+
+    Pieter Hintjens
+    Antwerpen
+    1 January 1999
+
+
+ == NEWS ..---.-...---.--..-.---...-.-.----.-..-.-.-.-.-----..-.-.-.----.-..-
+
+    GSLgen 1.1 Now Available!
+        From the depths of the iMatix Research & Development Labs comes a
+        new technology for code generation.  GSL (Generic Schema Language)
+        does what Libero does for program dialogs, but for anything you
+        like.  GSL works a lot like the schema language used by Libero, but
+        takes its input from XML files.
+
+        GSLgen is a GSL code generator, and is now available from the iMatix
+        website, www.imatix.com.  It's available in three editions:
+
+        * GSLgen Trial Edition is a free package that lets you evaluate
+          GSLgen for a limited period.  The Trial Edition is 100% functional
+          and not time-restricted.  It's available for Windows, Linux, OS/2.
+
+        * GSLgen Personal Edition is a binary packaging of GSLgen.  GSLgen
+          Personal Edition costs US$195 and may be used on one system by one
+          developer. It's available for Windows, Linux, OS/2.
+
+        * GSLGen Professional Edition contains the full source code for
+          GSLgen and lets you include GSLgen's capabilities in your own
+          applications and tools through a simple API.  This is an excellent
+          way to build XML-processing tools and code generators.  GSLgen
+          Professional Edition costs US$950 and may be used by any number of
+          developers within a site.  It's available for Windows, Linux, OS/2,
+          other Unix systems, and Digital OpenVMS.
+
+        Check-out http://www.imatix.com/html/gslgen/index.htm and try GSLgen
+        today!
+
+    Xitami Introduces Crash Recovery Feature!!
+        Not satisfied with making the fastest portable webserver, we've now
+        added a feature that is unique to web servers, if not to most kinds
+        of software: if Xitami crashes, its Crash Recovery function detects
+        this, logs the fault, and restarts Xitami before you can blink.
+        Crash Recovery works on Windows 9x and Windows NT at present and is
+        included in Xitami from version 2.4c0 onwards.
+
+    Xitami Still in Web Server Top 10!
+        The little server that dared to compete against the Big Boys is still
+        up there at #2 on www.internet.com.  Number one is Apache.  Thanks to
+        all those who downloaded Xitami.
+
+
+ == OPINIONS ..--...--..--...--..--...---.-.-.-.--...-.-...---....-.-.--..--.
+
+    We polled our editorial staff for their predictions and opinions for
+    1999.  Unfortunately most of these were unprintable, so we had to make
+    up some stuff.  Here it is:
+
+      * Linux in 1999
+
+        At least five of IBM, Microsoft, Oracle, Sun, Corel, HP, AOL, and
+        Novell will produce a Linux distribution for official use.  By the
+        end of 1999, the majority of 'Next Generation' Unix systems will be
+        based on Linux kernels.  Linux will be understood to be an open
+        operating system technology, like TCP/IP is an open networking
+        technology, rather than an operating system in its own right.  As
+        far as iMatix is concerned, the whole discussion about which OS to
+        use is pretty irrelevant.  Software portability makes a lot of
+        discussions irrelevant.  We like that.
+
+      * Open Source Software (OSS)
+
+        OSS will become a major trend and be embraced by some major firms.
+        This will pose a serious dilemma for the counter-culture hackers
+        who keep OSS working, since in order to defeat the establishment
+        (Microsoft) they have to become part of it.  We expect to see OSS
+        break into the Realists (who believe that commercial funding is a
+        necessary evil if you want to reach Joe Public) and the Purists (who
+        agree, and feel that this is exactly the problem).  At iMatix we're
+        happy with these trends, since they bring credit to our original
+        business plan, which was to combine realism and idealism in a mix
+        that would harness the power of the OSS development model, while
+        still pay for a hamburger every second Tuesday.
+
+      * The Ultimate Gadget
+
+        Arriving some time in late 2000: a credit-card computer that has a
+        couple of hundred megabytes of RAM and a fast CPU, probably running
+        Linux.  It has jacks for audio output and microphone input.  One side
+        has a 200x400 mono LCD touch-sensitive screen with fingertip scribble
+        recognition and speech recognition.  At one edge is a tuck-away CCD
+        camera.  The LCD screen serves as a view-finder.  The entire card
+        plugs into a PC-card slot like the Rex does.  It has a little laser
+        pointer, just for fun, and an FM radio receiver built in.  It is a
+        GSM portable phone, and agenda and clock radio, camera, MP3 recorder
+        and player, and GPS receiver.  It's also an electronic wallet, a
+        digital document holder, and a digital ID.  It's so important that
+        it has a proximity detector and when it gets father than six feet
+        from its owner, it starts to scream.  Runs Xitami. Around a thousand
+        bucks in large quantities.  I'll take one, please.
+
+      * Bye-bye Byte Magazine :-(
+
+        In August 1998 we reported that BYTE Magazine, the oldest and (in
+        this writer's opinion) the best personal computer magazine was
+        bought by CMP Media. They suspended publication, with a little note
+        saying 'this is the last BYTE for a while'. Now comes a snail-mail
+        card telling us that BYTE will not resume publication. Oh, a BYTE
+        subscriber can get compensation through an equal number of something
+        called 'Windows Magazine' (humorously described as 'the most
+        reliable computer publication in the country covering the future
+        of information technology today'), but has to explicitly tick the
+        card, and mail it back. No, this does not happen automatically, no,
+        there is no option of being refunded the balance, no, this cannot be
+        done through e-mail, and no, postage is not included. That growling
+        noise you hear is the sound of hundreds of thousands of hackles
+        being raised across the globe.  This is a dismal end to a fine
+        magazine.  CMP Media treated BYTE's subscribers badly and gets the
+        1998 Wooden Spoon Award.  May their stock options go negative and
+        their teeth go rusty in strange places!!
+
+
+ == FOCUS ON TECHNOLOGY -..-..--..-..--..-..--.--.--.--.--.-..-...-.--...-.--
+
+    Xitami Crash Recovery - Interview with the designer
+
+    We talk to the designer of this radical technology, Alex McGregor, and
+    get an insight into how iMatix responds to its users' needs.
+
+    Liberetto: Alex, can you tell me a little about the background to this
+    technique... what is it, and why did you design it?
+    Alex: since the last few releases of Xitami, we've been adding many new
+    features, and unfortunately, a few bugs too.  These seem to hit certain
+    people only, possibly they're doing something unusual with Xitami.
+    Anyhow, we've been spending a lot of effort tracking these down, which
+    is quite hard.
+
+    Liberetto: Why?
+    Alex: all we get is a message saying something like 'XIWIN32.EXE caused
+    an error at address 0ff1b:001e2e1d'.  It's not much help.  If someone
+    who's getting a crash like this has a C compiler, they can use the
+    debugger to see where it fails.  But very few people are up to this.
+    So, we were discussing this, and the fact that people who get this error
+    are seriously unhappy to have their server crash on them and I thought:
+    if we can't find the problem, at least we can recover from it.
+
+    Liberetto: Was that easy, then?
+    Alex: Hmmm.  In fact, we can't do it (yet) under Unix or OS/2.  We can
+    do it under Windows because the C compiler provides a way to trap fatal
+    errors.  It works because Xitami uses the SFL memory manager (sflmem).
+    I was able to simply free all allocated memory, then restart the thread
+    which handles the web server.  Xitami pops-up a small Window showing
+    where it crashed, and stuffs this in a log file too.  The web manager
+    can restart Xitami, or set it to recover automatically.  It's quite
+    magical, actually.  Xitami recovers in a fraction of a second.
+
+    Liberetto: What do Unix and OS/2 users get?
+    Alex: well, on the way, we improved the tracking that Xitami does
+    internally.  You know we use Libero to build the Xitami agents.  So we
+    are now able to follow each state, event, and module as they happen.
+    When Xitami crashes, it can show or log this information, which is a
+    *lot* more useful to us than 'address 0ff1b:00e2e1d'.  The state/event/
+    module info tells us exactly what Xitami was doing, and why, when it
+    crashed.
+
+    Liberetto: Is this possible with other applications?
+    Alex: if you use the same tools we use for Xitami (SMT, SFL and Libero)
+    it's possible.  Adding this kind of function to other apps could be
+    pretty difficult.  But it'd definitely be a nice trend.  Imagine if your
+    computer, when it crashed, politely said 'Sorry, I have a problem', then
+    saved your work, and automatically restarted itself, in under a second.
+
+    Liberetto: Keep dreaming!  Okay, thanks for the interview.
+    Alex: Yeah, my pleasure!
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Unlike CMP Media, we're not going to offend you by offering to convert
+    your subscription to Liberetto into free copies of Windows Magazine!
+    Accept no substitutes!!  You can however end your subscription by
+    sending us a mail.

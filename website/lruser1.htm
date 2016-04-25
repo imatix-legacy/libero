@@ -1,0 +1,127 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The Dialog File Syntax</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser.htm">&lt;</A>
+ | <A href="lruser2.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC2">The Dialog File Syntax</A></H2>
+
+<P>This is the skeleton.l file - it is a useful starting point for new
+dialogs:</P>
+
+<PRE>
+!
+!   myprogd.l   Dialog description for myprog.c
+!
+!   Written:    yy/mm/dd  My name
+!   Revised:    yy/mm/dd
+!
+!   Syntax:  '!' comment header
+!            -option[=value]
+!            [ state-name ':' [ '&lt;'Superstate-Name'&gt;' ]...
+!                  [ '(' event-nbr ')' event-name [ '-&gt;' next-
+state ]
+!                  [ '+' module-name ]... ]... ]...
+!
+-source=myprog
+
+After-Init:
+    (--) Ok                         -&gt;
+          +
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Defaults:
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The dialog file defines a series of <EM>states</EM>: the first state in
+the dialog is the starting state, and the remaining states can come in any
+order.  You cannot define the same state twice.  A state carries a name,
+which is purely for your (the reader's) information.  A state allows one or
+more <EM>events</EM>.  The ordering of events within a state is not
+important.  Each event looks like this:
+<PRE>
+    (--) Event-Name                 -&gt; Next-State-Name
+          + Module-To-Execute
+          + Module-To-Execute
+          ...
+</PRE>
+The module list is executed when that event occurs in the state.  The module
+list can be empty.  The next state name can be
+blank, meaning 'the current state'.  Otherwise the next state name refers to
+another state within the dialog, excluding the initial starting state.</P>
+
+<P>The module names correspond to functions, blocks, procedures, etc. in the
+program.  Since various languages and individuals like different conventions
+for naming modules, Libero always uses Names-Like-This, which may refer to
+pieces of code labelled 'NamesLikeThis', 'names_like_this', 'NAMES-LIKE-
+THIS', etc.</P>
+
+<P>The program always refers to events by adding the suffix '-Event'.  Thus,
+if a dialog refers to an event 'Ok', the program will refer to 'Ok-Event',
+allowing for whatever name-mashing the language imposes.</P>
+
+<P>A program never refers to state/next-state names.  These are there only to
+make the dialog more readable, and useful.  You could, if you wanted to,
+refer to states as 'S1', 'S2', 'S3', instead of 'Expecting-Token', 'Have-
+Number', 'Have-String'.   Hahaha.  I've seen people doing this.</P>
+
+<P>An event name '$other' is taken to mean 'all other events'.   This
+is shorthand for typing all other events in the dialog: any event you
+did not already handle in the state gets the '$other' handling.</P>
+
+<P>Note that:
+<UL>
+<LI>You can put a comment anywhere, starting with '!' until the end of the
+line.  I advise you to put comments on lines of their own; the pretty
+printing function in Libero will then work better.</LI>
+<LI>You can put options before the first state, several per line or one per
+line.  If you put several on one line, separate them by spaces as you do on
+the command line.</LI>
+<LI>You need one or more spaces between words.  Libero is not fussy about the
+amount of blank space or line breaks between words.  However, I recommend the
+layout above as it is easy to read, and if you use Libero for Windows, it
+will rewrite the dialog in this format in any case.</LI>
+<LI>Use an editor that lets you cut and paste lines easily, and that works in
+overwrite mode.  This is the easiest way to write dialogs.</LI>
+<LI>If you intend to move dialog files between systems (MS-DOS, UNIX,
+VMS,...) don't use tabs.  These don't align the same on different
+systems.</LI>
+<LI>It is quite okay to make a sloppy dialog; the -pretty option in Libero
+will straighten things out.  However, a good programmer should need this.
+</LI>
+</UL></P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser.htm">&lt;</A>
+ | <A href="lruser2.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <EM>The Dialog File Syntax</EM>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

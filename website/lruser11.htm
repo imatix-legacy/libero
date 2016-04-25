@@ -1,0 +1,89 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>When To Use Libero</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser10.htm">&lt;</A>
+ | &gt; | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC16">When To Use Libero</A></H2>
+
+<P>Don't hammer screws, or vice-versa.  If a program is like a building, then
+Libero is like an architectural design that automatically forms the
+foundation and scaffolding.  In any programming language there are
+directions and complexities where Libero is worth using.  Until you get
+there, you'll be losing time.</P>
+
+<P>As far as I can see, these are some typical cases where you will profit
+from Libero:
+<UL>
+<LI>If you need to use some kind of pseudocode or other technique to document
+the program.  Better to use a dialog - it will always be up to date.  Libero
+lets you attach comments anywhere in the dialog.</LI>
+
+<LI>If you are making designs that another programmer will implement (i.e.
+you are doing 'analysis').  The programmer does not need to interpret your
+design.  Libero will generate a prototype program (with empty stubs for all
+modules), so you get feedback on your design right away.</LI>
+
+<LI>If your program analyses text, and you don't have access to tools like
+yacc.  It is harder to build a parser using a dialog than to use a parser
+generator, but it is still a lot simpler than doing it by hand.  Libero lets
+you build really large dialogs.</LI>
+
+<LI>If your program is a communications handler with incoming and outgoing
+messages.  A dialog is a perfect way of describing the handling for each
+message.  We've used Libero for <EM>complex</EM>TCP/IP servers in this
+way.</LI>
+
+<LI>If your program controls a device.  A dialog is a perfect way of
+describing the various states that a device can be in, with the handling for
+events in each state.</LI>
+
+<LI>If your program runs a complex task on a database; for example,
+processing data from a series of tables depending on various criteria and
+conditions.  A dialog shows the processing logic clearly, with a state for
+each main point in the processing, and an event for each condition or type of
+record.</LI>
+
+<LI>If your program is 'just too damn complex'.  It is difficult to keep the
+'main logic' separate from the details. Libero does this for you, and then
+splits the detailed code into individual modules.  Your program is easy to
+understand, easy to maintain, and easy to reuse.</LI>
+
+<LI>If you have to make design a program in several languages, or if you have
+people working in several languages.  Libero is language independent.</LI>
+
+<LI>If you are working in some esoteric language that has no support from
+third-party tools.  You can build a Libero schema for any language (or I'll
+change Libero).</LI>
+</UL></P>
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser10.htm">&lt;</A>
+ | &gt; | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <EM>When To Use Libero</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

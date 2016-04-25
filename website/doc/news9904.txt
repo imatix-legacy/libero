@@ -1,0 +1,693 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   April 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 4
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+    SPECIAL SPRING BUMPER ISSUE!!
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Imagine the scene... an office littered with pizza boxes and soda cups,
+    in the distance, a small metallic voice repeats the phrase 'Thank you
+    for trying Windows 1999, do you want to play again?' over and over again.
+    It's late summer of 1998, and we're a fly on the wall of Steve Ballmer's
+    office, as the top staff of Microsoft hold a noisy emergency meeting.
+    There's a hint of panic in the air.  It appears there is a problem...
+    Suddenly the door opens, a figure steps into the room, and everyone
+    stops talking.  Bill's back in town, and someone's gonna get it.
+
+    "Ah hear you suckers are havin' problems with business", he drawls,
+    taking a moment to hawk and spit into a half-full cup of coke.  "Ah jus
+    done turn ma back, and you yellerbellied goofs messin' things up!"
+    Bill is not pleased.  He must have heard the news.  "Dang, a man can't
+    even try find his inner self without everyone screwin' things up!"
+
+    He steps up to one of the Microsoft VPs, who blanches when Bill's breath
+    hits his face.  Too many years of chewing tobacco and finger nails have
+    left their mark.
+
+    "Justice department, shmustice department, no big deal.", he says.
+    "All great American companies get nailed by the Feds.  We still paying
+    our taxes?"  The finance VP nods.  "So how come Windows 99 is gonna be
+    a year late?"  Steve Ballmer mutters: "Actually, we were thinking of
+    calling it Windows 2001".  Bill's face goes red, then fades back to its
+    normal vanilla.  "Son, yer lucky Ahm here.  We gotta kill this Chucky
+    Doll dead for once an' for all.  Ah got myself an idea".
+
+    Bill pulls up a chair, tosses his cowboy hat and accent into a corner,
+    and explains his plan...
+
+    A month or two later, on Halloween, the world is shocked to hear that an
+    internal Microsoft memo describes the Open Software movement, and Linux,
+    as a serious challenge.  Intel buys a stake in RedHat, and before you
+    can say 'Press Ok To Reboot', Linux is propelled into the spotlight as
+    the premier operating system for the next millenium.  Microsoft's
+    competitors adopt Linux, Apache, and other OS developments, and pump
+    money into porting and refining them.  Sun, IBM, Compaq, and Corel
+    announce that they will supply Linux on their systems.  Someone is
+    spending big bucks to boost Linux in the press, and I'm not talking
+    about the low-budget groups who created it and distributed it up to now.
+
+    Meanwhile, Microsoft is quietly porting MS Office, ActiveX, DCOM, and
+    the MS Visual tools onto Linux.  They find that this is surprisingly
+    easy.  Most of the libraries already exist, and are actually fast and
+    stable!  This is a revelation to the Microserfs working on Linux.
+
+    Let's not be too surprised when Microsoft announce their own Linux
+    distribution, MS-Linux, with a smooth installation program, Office
+    and Visual Studio and several MS-specific bugs, running on Intel,
+    Alpha, Mips, and Macintosh.  I presume they will release Windows 2000
+    anyhow, to save face, but this is the last generation of Chucky Doll
+    operating systems, I reckon.
+
+    Would *you* spend billions developing Windows 2002 when there was a
+    better alternative waiting to be picked-up off the shelf for free?
+    Nah, me neither.  Remember, you read it here first.
+
+    Pieter Hintjens
+    Antwerpen
+    1 April 1999
+
+
+ == ANALYSIS -..-....---..-.-.--...---...-...---...-.---..-..--..-..-..---..-
+
+    Clearly we're interested by the evolution of Open Source, since we were
+    one of the first companies to integrate an Open Source approach into
+    our business strategy from the very first day.  So, here's our analysis
+    of the future of OS...
+
+    Why Open Source will crash in flames in 1999:
+
+    1.  The OS movement is being ruthlessly exploited by big commercial
+        interests and this will turn-off the idealistic hackers who make it
+        all work.
+
+    2.  The OS movement depends on too few key people (like Linus Torvalds)
+        who are starting to become a bottleneck.
+
+    3.  When commercial interests perceive an OS project as a threat, they
+        will simply buy-out the group and bury the project.  www.ssleay.com
+        is a sad example of this.
+
+    Why Open Source will explode in the Third Millenium:
+
+    1.  OS works better than any other approach we have for developing
+        software.
+
+    2.  OS software is usually better, faster, and more portable than
+        anything commercial.  The fact that it's free is nice too.
+
+    3.  The Internet makes it cheap to develop and distribute software.
+        No shrink-wrapped box can compete with electronic delivery.  (Uh,
+        I guess this applies to music too.  Next big thing: OS music?)
+
+    4.  When a commercial interest tries to bury an OS project, it simply
+        stimulates five times as many people to revive it.  You cannot put
+        the genie back into the bottle.  www.openssl.org is a nice example
+        of this.
+
+
+ == NEWS .--...-.-..--..-..-..----.---...---...-.-.-...--....---.-..--..---..
+
+    iMatix Announces World's First Personnel Web System!
+        Having trouble finding your personnel?  In today's rapidly moving
+        world, it can be a real challenge to locate key people.  Rather than
+        calling their mobile phones and asking 'where are you?', take a look
+        at the innovative Personnel Web System (PWS) from iMatix.  Full
+        details below...
+
+    Xitami makes Internet.Com's 'Hall of Fame 1999'!
+        After a year in the Web Server Top 10 at Internet.Com's ServerWatch
+        site, Xitami has once again been selected for this honour.  Never
+        lower than #3, Xitami has spent most of the year at #2, behind
+        Apache.  Well, you can't win them all!  Yet.
+
+    GSLgen scheduled for Open Source Release
+        Our top-of-the-line code generator, GSLgen, will be released as
+        Open Source this year.  iMatix CEO Pieter Hintjens says 'We will
+        release the full source code for GSLgen 1.2 as Open Source, once
+        we're finished with a set of improvements to the current version,
+        making it faster and more powerful.'  Asked how iMatix could afford
+        to give away something as valuable as GSLgen, he said: 'GSLgen is a
+        key technology for the future development of Libero, SMT, Xitami,
+        and iMatix Studio, and we've always had the policy of making our
+        technologies Open Source, even as we develop commercial products
+        and services on top of those technologies.  Giving away GSLgen
+        will strengthen our position as a leading Open Source technology
+        provider.'  Weehaaw!  Whistle-whistle, clap-clap, cheer-cheer!!
+
+    Xitami Features In JAWN!
+        JAWN - Just Another Weekly Newsletter - features Xitami!  Issue 4,
+        22 February 1999, says: "Usage: Download. Install. Run. Serve.
+        Description: Fast. Free. Small. Sources included."  Read JAWN at
+        http://www.infomediasystems.com/bernard/jawn/.
+
+    Xitami/Pro Free For Evaluation
+        Xitami/Pro is now available for free evaluation from xitami.com.
+        This server supports full SSL, on top of the solid Xitami kernel.
+        The free download runs on Windows, so should not be used for
+        production sites.  Rats, we shouldn't have said that!
+        
+
+ == NEW PRODUCTS -..-..-.-..-.-..-.-..-----..----....-..-.----..-..-.----..--
+
+    The iMatix Personnel Web System - PWS
+
+    Using the technology of the Internet to solve a everyday problem, PWS is
+    the answer to a long-standing problem for large organisations: how to
+    locate staff members who may be anywhere within the building.
+    
+    PWS version 1.0 will be released for beta testing on April 1st, 1999.
+    Elegant and modern, PWS is based entirely on Open Source software and
+    the power of your company intranet.  Each staff member wears a small
+    portable computer, the Universal Personnel Locator (UPL), which uses
+    radio-frequency band-hopping technology to scan the intranet and
+    allocate a dynamic IP address as soon as it comes within reach.
+
+    The UPL is a fully self-contained web server, based on Spice Linux and
+    Xitami, that responds to requests such as http://your.company/find?joe.
+    Now, finding your secretary or chief programmer is as simple as reading
+    the Dilbert of the Day.  Current UPL models are built from 100% recycled
+    materials, and are securely anchored to the staff member's left foot
+    using an unbreakable carbon-fibre cord.
+
+    By using old computer cases, we also solve the problem of recycling all
+    those old VAX, AS/400, and Data General boxes.  Fifty pounds may seem
+    heavy to some, but adding some little wheels can help loads!  Version
+    2.0 will handle stairs in real-time.
+
+    Our researchers have also developed a sub-kilo UPL that can be implanted
+    in the buttocks for those staff who have to move a lot.  They won't sit
+    down on the job!  We're now developing a DNA-based nanotech version that
+    will finally put intranet technology where it belongs.  Not in fridges,
+    microwave ovens, or toasters, but in human beings!
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:     "banibrata dutta" <bdutta@hotmail.com>
+    Subject:  Libero in Multi-threaded environment...
+    -----------------------------------------------------------------------
+    Hi,
+    I have been using Libero for about a year now, and I must tell you that
+    I have found it really very useful, i.e. it is a RAD tool for sure,
+    which expedites the whole process of writing code, so I have been able
+    to spend more time on a robust design than a buggy-bugging code.  All
+    through I have been using Libero for building Single-Threaded systems,
+    but now I am in dire-need of using Libero in a Multi-threaded system,
+    i.e. each of the threads of my process are FSMs in them selves.  How
+    can i get Libero to do that for me. I know, if i plow thru the tonnes of
+    docs, and Libero code, I'd make it, but I was asking, just in case you
+    have a ready answer, and solution, s.t. my effort is reduced a bit. 
+    TIA,
+    -
+    banibrata.
+
+    >>>>>>>>>>>>>>>
+    The ready answer is: use SMT.  This is a complete multithreading add-on
+    for Libero, so powerful that we have to keep it chained-up in a cellar
+    under iMatix HQ.  SMT lets you create and manage multiple virtual
+    parallel multithreaded independent asynchronous concurrent and indeed
+    multitasking FSMs.
+
+
+    From:     Jonathan Schultz <jschultz@tartarus.uwa.edu.au>
+    Subject:  Parallel FSMs
+    -----------------------------------------------------------------------
+    I thought for about 2 minutes about Brad Dixon's problem in Liberetto
+    99/3.  Your answer doesn't explain how to handle the events.  Brad seems
+    to want to have one set of events (the incoming characters) drive two
+    (or more) simultaneous pattern-matching FSMs.  So you simply use SMT,
+    have a distribution thread, which accepts the incoming events and
+    distributes them to each pattern-matching FSM running in its own thread.
+    The thread which finds a match can pass an event back to the
+    distribution thread, which can tell all the other threads to stop
+    looking.  Piece of cake.
+    -
+    Jonathan
+
+
+    From:     Ewen McNeill <ewen@imatix.com>
+    Subject:  Re: Liberetto IV/3 
+    -----------------------------------------------------------------------
+    "Liberetto" said:
+    > To be removed from this mailing list, e-mail us with the subject
+    > 'remove'.  Liberetto should be taken once monthly, with food and drink.
+    I wouldn't recommend taking with food and drink.  Not unless you've got
+    an extensive supply of keyboards.  Liberetto is one of the things that
+    I've learned not to eat/drink while reading; ASR is another.  BTW, the
+    Y2KVP is far too realistic.
+    -
+    Ewen
+
+
+    From:     Kenneth Ohaeri <ohaerik@yahoo.com>
+    Subject:  Designing USing FSM and Libero Tool 
+    -----------------------------------------------------------------------
+    I am using the Windows 95/NT version of Libero in my design.  The print
+    quality is great.  It has greatly improved the flow of my spec on paper.
+    Is there a way I could generate the code in a text format so that I can
+    copy it into my C source library or into other programming language
+    editors?
+    -
+    Kenneth
+
+    >>>>>>>>>>>>>>>
+    The Windows version of Libero is a front-end that lets you enter and
+    print your dialog.  Frankly, it's not much easier than using a simple
+    text editor, since the Libero dialog file is pretty easy to read in its
+    plain text form.  We've often included the dialog as-is when we want to
+    use it as doc.  You can also use Libero's own code generation abilities
+    to turn a dialog into a formatted document.  There are examples of this
+    in the imatix.com web site (the Archives section).
+    Lastly, it's pretty simple, if you've mastered Visual Basic, or some
+    other GUI language, to read a dialog file and turn it into a drawing on
+    the screen or a metafile that you can stick into a document.  True,
+    Libero does not do this, but all the code is there for you to play with,
+    so don't be shy...
+    By the way: Libero for Windows was written using MS Visual Basic 3,
+    quite fun, but a terrible amount of work.  This experience was one of
+    our main motivations for moving towards 100% portable tools, using a
+    web interface when necessary.  Portability is just so much cheaper.
+
+
+    From:     "Devin Barlow" <dbarlow@deusxmachina.com>
+    Subject:  register
+    -----------------------------------------------------------------------
+
+    Gosh - have you guys considered developing an OS?  I could use something
+    as beautiful as Xitami.  Thank you thank you for such a wonderful
+    product.  I made the move tonight from IIS 3.0 to Xitami, in literally
+    30 seconds - stop services from Internet Service Manager, uninstall IIS
+    3.0, install Xitami, copy web page files over to \webpages.  Done.
+    I went from a 5MB footprint to 1.8MB, and my performance is an order of
+    magnitude better.
+    You rock.
+    Hey, can I have a "Powered by Xitami" gif for my site?
+
+    >>>>>>>>>>>>>>>
+    Stop it, we're blushing!  Well, if you want a suggestion for an OS, try
+    Linux.  You'll find it efficient and transparent.  Also very politically
+    correct.  No-one got fired for proposing a Beowulf Linux cluster in
+    place of that clunky old mainframe.  See the Guru Guide For Idiots below.
+
+
+    From:         "Gillian Bates"  <sosueme2@hotmail.com>
+    To:           editors@imatix.com
+    Subject:      Stop bashing Microsoft!  Get a life!!
+    -----------------------------------------------------------------------
+    Hey guys,
+    Why are you always bashing Microsoft?  Bill Gates has created lots of
+    jobs, and Windows is much easier to use than DOS ever was.  I don't
+    want to have to learn linux just to send my emails.  Go stick your head
+    in a bucket!
+    -
+    Gillian
+
+    >>>>>>>>>>>>>>>
+    We sometimes get e-mails from people complaining that we unfairly bash
+    Microsoft.  Untrue!  Our bashing is entirely fair, we think, and we're
+    happy to extend our wrath to any large or small company that produces
+    rotten software in pretty packaging.  We're not partisan, just an
+    independent needle in the haystack of hype that this business floats
+    on.  Hey, who wrote DOS, anyhow?
+    
+
+ == FOCUS ON TECHNOLOGY --...--.-.--.....--.-.-.---...--.--...-..---...-..-.-
+
+    This month, we look at the iMatix SFL, short for the 'Standard Function
+    Library'.  We've brought the microphones and cameras down to the dusty
+    corridors of Level -5, deep below iMatix World Empire Headquarters, to
+    speak to the chief architect of SFL, an elusive hacker known publicly
+    only as 'Joe@imatix.com'.  After a long search, we find Joe huddled in
+    a dark room, talking intensely to a coke machine.
+
+    Liberetto: Joe, can we talk?
+    Joe: $the_next_event = $ok_event;
+
+    Liberetto: Cool.  Can you tell us how the SFL got started?
+    Joe: if (not portable) then work *= 100;
+
+    L.: You mean that writing non-portable applications is a lot of work
+    for nothing.  So you decided it was worth creating a standard library
+    that would fix this for once and for all?
+    J.: ASSERT (TRUE); code (clean) == code (portable);
+
+    L.: I see.  The SFL makes it possible to write fully portable code,
+    since all the low-level non-portable stuff is hidden in a clean, easy
+    to use, and well-tested library.  A program that uses the SFL instead
+    of its own non-portable code is automatically portable to any present
+    or future platform.
+    J.: repeat (TRUE);
+
+    L.: But why does the SFL only support ANSI C applications.  What about
+    Java, C++, Perl, and Python??
+    J.: Awk!  Language {Choice} != $important;
+
+    L.: You're saying that people tend to focus on the choice of language,
+    for instance debating the virtues of Java over ActiveX, when the real
+    issue is that most developers are forced to work without decent tools,
+    thus wasting time and money, and re-inventing the wheel every time they
+    need it?  But surely SFL misses out on the Object revolution?
+    J.: egrep "plus ca change, plus ca reste la meme" *.*;  objects = "NFG"
+
+    L.: That's a harsh charge.  Granted, the Internet did not arise out of
+    an OO approach, but rather from the drive to create open and reusable
+    standards.  So, according to you, object-orientation makes the technical
+    environment more complex, rather than less so, and complexity is the
+    real problem confronting most programmers...
+    J.: ASSERT; SFL = "simple abstraction", like (Libero, GSL); 
+    OOPS .. interrupt (SIG_WC)!
+
+    L.: Sure, and thanks for the interview!
+    J.: STOP RUN, EXIT
+
+
+ == OPINION -..--...--..--...--..--...---.-.-.-.--...-.-...---....-.-.--..--.
+
+    Occasionally we make the iMatix soapbox available to guest speakers who,
+    let's put it gently, have opinions that interest us.  This month, Jim
+    Bowlin explains why NT goes against all that is natural.  Perhaps the
+    start of a new trend, green software?  Eco-programmers, up to their chins
+    in fertiliser...  makes you wonder.  Anyhow, on with the show!!
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    > Incidentally, what server software are you using?  I'd like to know
+    > what to avoid as we are considering new servers.
+
+    I was running NT.  The server has now been up for more than 24 hours.
+    There were many, many reinstallations of the OS and upgrades to the OS
+    followed by the reinstallation of all of our software only to have the
+    server crash again and again.
+
+    There were at least three different problems that all together made
+    things very difficult:
+
+     1) Previous NT crashes wiped out some capabilities that then caused it
+        to crash more which made it more likely to crash and so on, in a
+        downward spiral.
+
+     2) Versions of NT below SP-3 or SP-4 would bring up the blue screen of
+        death at random times but no report of where the problem came from.
+
+     3) I ***think*** that the XXXXXX ftp server is not compatible with the
+        SP-3 or SP-4 upgrades.  This caused the entire windows system to
+        lock up at random times.  Again no report of what was causing the
+        error.
+
+    All of these problems are rooted in Microsoft's fundamental design
+    philosophy which is based upon restricting the flow of information.
+    They don't provide me with enough information to fix their code and
+    the code the provide me with is buggy.
+
+    IF they wrote perfect code, and IF they provided full documentation,
+    and IF they provided all of the software needed to configure the server
+    properly and IF I only wanted to do things that they have already
+    thought I would want to do THEN there would not have been any problems.
+
+    However, their code is buggy and crashy.  It is not well documented, the
+    source code is not available.  Furthermore, they do not provide working
+    software in a timely manner that I need such as an FTP server and a
+    "chmod" that works from the command line.  Thus I am forced to get third
+    party software to fill in the gaps left by Microsoft.  But then since
+    there are still some pretty major bugs in the NT OS (causing system
+    crashes with no error logging, etc.), massive upgrades to the OS are
+    needed (SP-4 was over 70 Megabytes).  Because of their paternalistic
+    attitude (or perhaps corporate greed), they do not make sure that these
+    upgrades are backward compatible with the 3rd party software that I
+    needed to get around the bugs in the software that came from Microsoft.
+    They keep pulling the rug out from under the 3rd party developers who
+    created working versions of the flawed Microsoft software.
+
+    Early on in my 20+ years as a hardware and software designer I realized
+    that there is one key point that needs to be addressed when designing
+    computer systems --stability.
+
+    Computer systems are very complicated with layers upon layers upon
+    layers of hardware and software.  If any one of these layers does not
+    respond appropriately regardless of what input it is given, it makes
+    working at higher layers very, very difficult because you don't know
+    where the problems are coming from.
+
+     1) Stable hardware is designed so that no matter what software is run,
+        the hardware will not damage itself.
+
+     2) Stable operating systems (which launch and provide services for
+        other programs) continue to run no matter what the subprograms try
+        to do.
+
+     3) Stable programs continue to run no matter what input is provided by
+        the user.
+
+    This all boils down to a very simple idea: each layer needs to totally
+    isolate itself from problems arising from the next level up.  Each layer
+    needs to always respond appropriately.  This simple idea has been
+    revolutionizing the computer industry and has spawned the development of
+    new computer languages such as Java, Perl, and Python, all of which
+    strive to be stable computer languages.
+
+    Furthermore, one of the prime motivations for the object oriented
+    revolution that has been transforming the software industry for the past
+    ten years programming is to allow programmers to create stable libraries
+    of reusable code that will always respond appropriately.
+
+    The NT operating system is not stable.
+
+    These seven words are reason enough to never use NT if there is a stable
+    alternative.  They should cast fear into the heart of anyone that wants
+    to run a reliable server with the NT operating system.
+
+    The reason that this is such a severe problem is that with an unstable
+    operating system, the only way to make the entire system is stable (i.e.
+    no crashes) is to ensure that EVERY SINGLE PROGRAM running on the system
+    under EVERY POSSIBLE SET OF INPUTS AND CONDITIONS never ever executes a
+    series of instructions that causes the operating system to crash.
+
+    Since there can be hundreds of programs and for each program there is a
+    countless range of possible inputs (initialization parameters, other
+    programs running, timing, etc.) systems crashes are almost inevitable.
+    This problem is compounded by the fact that the set of conditions that
+    cause NT to crash is changing with time.
+
+    There is an alternative to this madness: Linux.
+
+    The Linux operating system is *much* more stable than NT.  It is already
+    the most popular OS on the internet today. More server on the internet
+    are running Linux than any other single operating system and this
+    percentage is growing rapidly.  The main reasons for this are:
+
+     1) Linux is *much* more stable than NT.
+     2) Linux runs on many different platforms
+     3) Linux is open source
+
+    Linux runs on a large variety of hardware platforms (including iX86,
+    sparc, alpha, powerPC, and others). It is getting ported to other
+    platforms such as IBM RS/6000.  This means that if you are running
+    Linux, it is possible to upgrade to a more powerful hardware platform.
+
+    Linux is "open source software" which means that you can have access to
+    all of the source code that was used to create the operating system.
+    This is the ultimate in full documentation.  If even just one user in a
+    thousand looks at the source code when she runs into a problem, this
+    translates to thousands of people debugging the software.  No commercial
+    company can match this effort.  Even Microsoft has admitted this in an
+    internal memo that was leaked to the press, now known as the "Halloween
+    Documents".
+
+    All of the software that you need to run a server (and the vast majority
+    of all of the software that runs on Linux) is also open source.  So all
+    of the benefits of open source software extend to the programs that are
+    running on Linux.
+
+    None of the problems that I experienced with NT would have arisen if NT
+    were open source.  All of the problems stemmed from the fact that NT is
+    a proprietary operating system which is based upon the hiding of
+    information.  Microsoft was able to become the world's largest company
+    by a combination of two things:
+
+       1) the economy of scale of the software industry and,
+       2) restricting information flow
+
+    The economy of scale of the software industry is very simple but it is
+    different from most other industries.  It costs me the same time and
+    effort to write a program that 10 people use as it does to write a
+    program that 10 million people use.  Mass produced software costs are
+    entirely in initial outlay -- the per item cost is zero.  This is
+    because software is entirely composed of information.  In most other
+    industries involving mass production, the initial expenses can be
+    amortized over many items and the total expenses are dominated by the
+    non zero per item cost.
+
+    Microsoft was able to use this economy of scale to create a vast
+    accumulation of wealth by intentionally creating a bottleneck in the
+    flow of information.  Every time someone squeezed through the
+    bottleneck, they had to pay Microsoft.  The vast power of the software
+    economy of scale was feeding Microsoft's wealth at the expense of
+    everyone who used their software.  Microsoft got rich and we got buggy
+    software which we were entirely dependent upon Microsoft to fix.
+
+    The open source movement uses a different approach to harnessing the
+    vast power that was responsible for creating Microsoft's wealth:
+
+       1) the economy of scale of the software industry and,
+       2) open access to information.
+
+    This inverts the outcome of the Microsoft scenario.  We get much
+    better software that can be cooperatively debugged but the developers
+    do not get paid directly for their work.
+
+    This may seem like a startling new concept but it is really as old as
+    the hills -- older even.  There has always been an evolution from
+    closed information systems to more open information systems and the
+    open, cooperative systems tend to win out.  Kropotkin explained how
+    this works in his book "Mutual Aid: A Factor in Evolution".  The
+    development of language was a major turning point in human evolution.
+    The reason language was so important is that it allowed us humans to
+    cooperate better.  We could work together to solve problems, gang up
+    on other species, and individuals could specialize in solving certain
+    tasks.  We could also use language to pass information on to
+    seceding generations and thus develop cultures and civilizations.
+
+    A similar revolution took place a billion years earlier when the only
+    living things on earth were single celled creatures living in the
+    primordial sea.  At some point these single celled critters started to
+    cooperate and share information.  These groups started to enjoy the
+    same benefits that humans received when language developed.  The cells
+    could work together to solve problems, gang up on other cells, and
+    individual cells could specialize in solving certain tasks.  When
+    these groups of cells were finally able to recreate their cooperative
+    structure in seceding generations a new day dawned in evolution and
+    multi-celled organisms sprang into life.  Take a walk outside anywhere
+    to see the wonders that this revolution in cooperation created.
+
+    There are many other examples of revolutionary leaps created by
+    improvements in information flow allowing better cooperation.  Some of
+    the highlights include: democracy, monetary currency, written
+    language, and movable type.
+
+    I encourage you to embrace the open software movement and participate
+    in this apparently new form of human cooperation.  Don't be frightened
+    off by people who claim that it is "new" or "strange" or "just a flash
+    in the pan" or a "passing phase".  There is a rich history of
+    cooperative systems overcoming uncooperative systems.  It is what our
+    bodies are based on.  It is the basis of life itself.  It is the most
+    natural thing in the world.
+
+    -- Jim Bowlin <bowlin@sirius.com>
+
+
+ == GURU SECTION -..-..-.----...-..----..-.....----.-.-.-.-.----...----...--.
+
+    This month we bring you a special feature called the "Idiot's Guide to
+    Being a Computer Guru".  Just memorize this simple guide and apply it
+    during meetings, at the coffee machine, and at presentations.  You'll
+    soon acquire extra inches in stature as people admire your skills and
+    derring-do as a true Computer Guru.
+
+    1.  Acquire your own web site, and fill it with eclectic links to other
+        sites, such as astalavista.box.sk, w3.org, and microsoft.com. 
+
+    2.  When anyone describes a new product or technology, ask whether
+        they've already have a domain name for it, and when the answer is
+        negative, shake your head from left to right and make a sympathetic
+        but resigned tut-tut noise.  If the answer is positive, ask how
+        they host it, and whatever they say, shake your head sadly.
+
+    3.  Ask 'But does it work with XML?' whenever anyone describes a new
+        tool, technology, or product.  When the answer is 'no', produce a
+        copy of the book 'XML For Dummies' and tell them it's a good read,
+        not too complex for beginners.  When the answer is 'yes', ask
+        whether they use a SGML engine, or actually wrote the XML interface
+        by hand.  Whatever the answer is, do the head-shaking-tut-tutting
+        thing.  Remember these key arguments: SGML is way too complex for
+        normal people.  SGML is the only really generic approach to mark-up
+        languages.
+
+    4.  Make sure you have installed Linux on a PC, and never switch it off.
+        Then you can boast that you have had Linux running for X months at
+        your place, and never needed to reboot it.
+
+    5.  Keep track of which companies have brought-out a Linux package
+        recently, or are promising one.  All references to IBM, Compaq, Sun,
+        Oracle, and HP score bonus points.  All references to Microsoft with
+        respect to Linux score double bonus points.  References to Windows
+        2000 except in the past-tense score triple negative points.
+
+    6.  When anyone refers to a product or technology running on NT, ask
+        whether it runs on Linux.  If the answer is 'no', do the shake-tut.
+        If 'yes', ask whether it runs on all distributions.  Again, if
+        'yes', ask whether it also runs on the Macintosh.  With a little
+        luck, the victim will hesitate, in which case you can demand to
+        know whether it's really portable or not.
+
+    7.  Complain that your old 30Gb hard disk is almost full, and that your
+        Pentium II 650 is just too slow for compressing MP3 music tracks.
+        Multiply these figures by 50% every 6 months to stay current.
+
+    8.  Complain that your ADSL connection or cable-modem is too slow for
+        the number of visitors to your personal site (see point 1).  When
+        people ask what you have on your site, raise one eyebrow and say
+        cryptically that if they don't know what it is, they don't want it.
+        On your web site, make a sign-on page that demands a password and
+        lets no-one past.
+
+    9.  When people mention the Y2K problem, sigh and say that if only folk
+        would dare to implement Y2KVP (see Liberetto IV/3), there would be
+        no need for everyone to go back to learning how to make fires by
+        rubbing two floppy disks together.
+
+    10. When asked for an opinion on the purchase or use of a large Unix
+        system (like Sun, HP, Digital or IBM), say that you could group
+        twenty PCs with a 100Mhz network, put Beowulf Linux onto them, and
+        thus create a supercomputer that would be as fast as a ten-million
+        dollar Cray, let alone their puny minicomputer.  In an afternoon.
+        Heck, if IBM could do it, so could you!!
+        
+    11. Never forget the three principal rules for trouble-shooting a
+        malfunctioning device: (1) is it plugged in? (2) is it switched on?
+        (3) is it running Windows? (4) did you reboot it recently?
+
+    12. A Computer Guru does not get computer viruses, being immune to such
+        common indiscretions.  However, screaming disk crashes, exploding
+        power supplies, meteorites, experimental Linux kernel modules, and
+        repulsed Internet attacks are all good reasons to explain why your
+        agenda was wiped, and hence you were late for the meeting.
+
+    13. Remember that clothes make the guru.  Keep a supply of impeccable
+        suits for occasions where you don't feel like working.  People will
+        inevitably invite you to meetings (see next point).  When you want
+        to work, wear old jeans and an unwashed t-shirt, and eat lots of
+        humus the day before (see Liberetto III/1).  You'll get a room all
+        to yourself.
+
+    14. Do not try to save money on gadgets.  Gadgets are an essential part
+        of the Guru image.  The current hot item is a mini-disc player for
+        recording meetings.  Of course, you can then upload meetings onto
+        your PC, distort the voices to sound like Pinky and Perky, compress
+        them into MP3 formats, publish them on your website, and distribute
+        them to your colleagues on CD-ROM.  One CD should hold about 35
+        hours, or a month's worth of meetings.
+    
+    15. Whenever anyone says anything smart, say: "Oh, did you read that in
+        Liberetto too?"
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To be removed from this mailing list, e-mail us.  All major credit cards
+    are accepted.  The editors of Liberetto assume no responsibility for
+    wars, earthquakes, hurricanes, satellite explosions, corrupt government
+    officials, Windows 2000 Enterprise Edition, the internal combustion
+    engine, Y2K, instant whisky, spontaneous abdominal implosions, instant
+    coffee, the movie "Very Bad Things", other people's children, other
+    drivers, or Mondays.  Please do not try to drive and read Liberetto at
+    the same time.  Caution: Contents may be Hot.
+

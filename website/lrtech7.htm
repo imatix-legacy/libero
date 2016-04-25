@@ -1,0 +1,169 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Extra Variables In A :do Loop</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech6.htm">&lt;</A>
+ | <A href="lrtech8.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC12">Extra Variables In A :do Loop</A></H2>
+
+<P>Within the different types of :do loop, various extra variables are
+available.  Usually you'll need these to construct tables or lists of
+names.
+
+<H3><A NAME="TOC13"><TT>:do while</TT> <I>condition</I></A></H3>
+<P>Repeats the block of code while <I>condition</I> is true.  The condition
+is a logical condition as described above.  The loop is executed 0..n
+times.
+<UL>
+<LI><TT>$number</TT> - loop iteration 0..n-1, added to $array_base.
+</UL>
+
+<H3><A NAME="TOC14"><TT>:do event</TT></A></H3>
+<P>Builds a list of events.  Outputs the block for each event in the
+dialog.
+<UL>
+<LI><TT>$name</TT> - event name, with <TT>_event</TT> stuck onto the end, and
+formatted using the current -style setting.
+<LI><TT>$number</TT> - event number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+</UL>
+
+<H3><A NAME="TOC15"><TT>:do event local</TT></A></H3>
+<P>Builds a list of events.  Outputs the block for each event in the
+current state, within a :do state loop.  Provides the same variables
+as :do event, and also:
+<UL>
+<LI><TT>$next_state</TT> - name of next state, for this event.
+</UL>
+
+<H3><A NAME="TOC16"><TT>:do state</TT></A></H3>
+<P>Builds a list of states.  Outputs the block for each state in the
+dialog.
+<UL>
+<LI><TT>$name</TT> - state name, formatted using the current -style
+setting.
+<LI><TT>$number</TT> - state number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+</UL>
+
+<H3><A NAME="TOC17"><TT>:do module</TT></A></H3>
+<P>Builds list of modules.  Outputs the block for each module in the
+dialog.
+<UL>
+<LI><TT>$name</TT> - module name, formatted using the current -style
+setting.
+<LI><TT>$number</TT> - module number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+</UL>
+
+<H3><A NAME="TOC18"><TT>:do action</TT></A></H3>
+<P>Builds table containing one row per state, with one item per row for each
+event transition.  Each item is the number of an action vector.  Invalid
+state/event transitions are filled by the value of <TT>$row_null</TT>.
+<UL>
+<LI><TT>$row</TT> - value of row, formatted according to <TT>$row_first</TT>,
+<TT>$row_after</TT>, and <TT>$row_null</TT>.
+<LI><TT>$number</TT> - state number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+<LI><TT>$offset</TT> - offset of start of current row, added to
+<TT>$array_base</TT>.  The offset is counted up by 1 for each item in a
+row.
+<LI><TT>$tally</TT> - number of items in <TT>$row</TT>.
+</UL>
+
+<H3><A NAME="TOC19"><TT>:do nextst</TT></A></H3>
+<P>Builds table containing one row per state, with one item per row for each
+event transition.  Each item is the number of the next state.  Invalid
+state/event transitions are marked by the value of <TT>$row_null</TT>.
+<UL>
+<LI><TT>$row</TT> - value of row, formatted according to <TT>$row_first</TT>,
+<TT>$row_after</TT>, and <TT>$row_null</TT>.
+<LI><TT>$number</TT> - state number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+<LI><TT>$offset</TT> - offset of start of current row, added to
+<TT>$array_base</TT>.  The offset is counted up by 1 for each item in a
+row.
+<LI><TT>$tally</TT> - number of items in <TT>$row</TT>.
+</UL>
+
+<H3><A NAME="TOC20"><TT>:do vector</TT></A></H3>
+<P>Builds table of action vectors.  An action vector is a list of modules
+executed in series for a state/event transition.  Duplicate vectors are
+collapsed.
+<UL>
+<LI><TT>$row</TT> - action vector, formatted according to
+<TT>$row_first</TT>, <TT>$row_after</TT>, and <TT>$row_null</TT>.
+<LI><TT>$number</TT> - vector number 0..n-1, added to <TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+<LI><TT>$offset</TT> - offset of start of current row, added to
+<TT>$array_base</TT>.  The offset is counted up by 1 for each item in a
+row, including an assumed terminator value (0xFFFF).
+<LI><TT>$tally</TT> - number of items in <TT>$row</TT>, including one
+terminator value.
+</UL>
+
+<H3><A NAME="TOC21"><TT>:do overflow</TT></A></H3>
+<P>Used to build source code that has to be output over several lines.  The
+block is output until the overflow row is empty.
+<UL>
+<LI><TT>$row</TT> - overflow row, ie. part of main <TT>$row</TT> that did not
+fit onto first line.
+<LI><TT>$number</TT> - iteration number 0..n-1, added to
+<TT>$array_base</TT>.
+<LI><TT>$comma</TT> - the value of <TT>$comma_before</TT> until the last
+iteration; then <TT>$comma_last</TT>.
+<LI><TT>$tally</TT> - number of items in <TT>$row</TT>.
+</UL>
+
+<H3><A NAME="TOC22"><TT>:do stubs</TT> [<I>filename</I>]...</A></H3>
+<P>Builds a set of module stubs at the end of the filename.  If no filename
+is specified, assumes you mean the $source file.  You can specify a list of
+filenames; then Libero will scan each file in the list for existing modules,
+and build stubs for any undefined modules at the end of the first filename.
+This is useful if you define standard modules in generated code (e.g. an
+include file).
+
+<P>If you use the -nostubs option, Libero ignores the :stubs command.  If you
+use the -noidle option, Libero does not check the source for idle (ie.
+unused) modules.
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech6.htm">&lt;</A>
+ | <A href="lrtech8.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <EM>Extra Variables In A :do Loop</EM>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

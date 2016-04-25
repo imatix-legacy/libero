@@ -1,0 +1,169 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The Perl Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang8.htm">&lt;</A>
+ | <A href="lrlang10.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="perl">&nbsp;</A>
+<H2><A NAME="TOC12">The Perl Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Perl?</DT>
+<DD>Perl is the mutant four-headed child of Awk, C, Sed, and the
+UNIX shells, plus just about every other language and feature
+that its creator, Larry Wall, could think of.  I like this
+language.</DD>
+<DT>Portability</DT>
+<DD>Perl is fundamentally portable to UNIX boxes, and has also
+been ported to many other systems.  Perl scripts are highly
+portable so long as you stay away from system-specific
+functions.  This is pretty much as you would expect.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: powerful and flexible; freely available; interpreted
+language. Cons: if you can't handle type-free languages where
+just about anything goes, return to Pascal.  Perl is (IMHO) not
+a good place to start programming.</DD>
+<DT>How To Get It</DT>
+<DD>By Internet from ftp.uu.net and many other places.</DD>
+<DT>Libero Supports</DT>
+<DD>Libero supports Perl 5.x</DD>
+</DL>
+
+<H3>Working With Perl</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.pl.</LI>
+<LI><B>Program model:</B> Perl program.</LI>
+<LI><B>Good for:</B> complex Perl programs.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.pl</TT>;
+generates an include file <TT>mydialog.d</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>sub module_function_name</TT>.</LI>
+<LI><B>Private functions:</B>
+<TT>sub private_function_name {</TT>.</LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> normal Libero limits.  All tables are defined
+dynamically, at runtime.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+sub module_function_name
+{
+                                   #  Empty module needs no code
+}
+
+function private_function_name {
+    $the_next_event = $ok_event;
+    &\raise_exception ($error_event);
+}
+</PRE>
+
+<P><A HREF="doc/htmlpp.pl">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<UL>
+<LI>If you add your own 'require'd files, place them before the
+dialog manager file.  Otherwise you may find that the code they
+contain is not executed.</LI>
+<LI>You can rename the generate program from <TT>xxxxx.pl</TT>
+to just <TT>xxxxx</TT>, if you prefer.  Libero is quite okay
+with this.</LI>
+</UL>
+
+<P>If you have used Perl, you will appreciate the way it
+combines the best of all the UNIX text processing and
+programming tools.  For example, you need only a few lines of
+Perl to read and parse a parameter file ('ini file') like
+this:</P>
+
+<PRE>
+#============================================================
+#  Parameters for program
+#============================================================
+
+[General]
+    OutBox=outbox             # Subdirectory for sent faxes
+
+[Connect]
+    HostName=Badoit           # For Telnet
+    UserName=autofax
+    Password=autofax
+
+[FaxDriver]
+    PauseChar="~"             # Substitute for commas
+
+[Station]
+    Id=Station1               # Name of this local system
+
+    open (INI, "autofax.ini") || die "Can't open autofax.ini: $!\n";
+    while (&lt;INI&gt;) {
+        chop;                           #   Remove trailing newline
+        #   [SectionName] followed by optional comment
+        if (/^\s*\[(\w+)\]\W*(#.*)?$/) {
+            ($section = $1) =~ tr/A-Z/a-z/;
+        }
+        #   Keyword=Value followed by optional comment
+        if (/^\W*(\w+)=("[^"*]"|\w+)\W*(#.*)?$/) {
+            ($keyword = $1) =~ tr/A-Z/a-z/;
+            ($value = $2) =~ s/"//g;    #   Remove any quotes
+            $initial {$section, $keyword} = $value;
+        }
+    }
+    close (INI);
+</PRE>
+
+<P>Similar code in C is several pages.  This applies to many
+aspects of Perl, so that a complex program may be only a few
+hundred lines long.</P>
+
+<P>Perl is also fast, and works well with Libero.  The 'require'
+statement lets me hide the generated code in a separate
+file.</P>
+
+<P>The Perl development cycle is simple: when you change your
+dialog, re-run Libero.  When you change the Perl program, re-run
+it.  Hint: get your hands on the 'Programming Perl' Nutshell
+Handbook.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang8.htm">&lt;</A>
+ | <A href="lrlang10.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <EM>The Perl Language</EM>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,160 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Libero's Languages</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | &lt;
+ | <A href="lrlang1.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<H1>Libero's Languages</H1>
+
+<P>
+<MENU>
+<LI><A HREF="#TOC1">Choosing A Language</A></LI>
+<LI><A HREF="#TOC2">Standard Public Names</A></LI>
+<LI><A HREF="#TOC3">Contributed Schemas</A></LI>
+<LI><A HREF="lrlang1.htm#TOC4">The Awk Language</A></LI>
+<LI><A HREF="lrlang2.htm#TOC5">The C Language</A></LI>
+<LI><A HREF="lrlang3.htm#TOC6">The C++ Language</A></LI>
+<LI><A HREF="lrlang4.htm#TOC7">The COBOL Language</A></LI>
+<LI><A HREF="lrlang5.htm#TOC8">The GNU Borne-Again Shell Language</A></LI>
+<LI><A HREF="lrlang6.htm#TOC9">The Java Language</A></LI>
+<LI><A HREF="lrlang7.htm#TOC10">The Microsoft Setup Basic Language</A></LI>
+<LI><A HREF="lrlang8.htm#TOC11">The MS Visual Basic Language</A></LI>
+<LI><A HREF="lrlang9.htm#TOC12">The Perl Language</A></LI>
+<LI><A HREF="lrlang10.htm#TOC13">The Rexx Language</A></LI>
+<LI><A HREF="lrlang11.htm#TOC14">The UNIX C Shell Language</A></LI>
+<LI><A HREF="lrlang12.htm#TOC15">The UNIX Bourne Shell Language</A></LI>
+<LI><A HREF="lrlang13.htm#TOC16">The UNIX Korn Shell Language</A></LI>
+<LI><A HREF="lrlang14.htm#TOC17">The 80x86 Assembler Language</A></LI>
+</MENU>
+</P>
+<HR>
+
+<H2><A NAME="TOC1">Choosing A Language</A></H2>
+
+<P>Libero gives you the freedom you get to choose the language
+that suits your purpose.  The way I add support for a particular
+language is to write a new schema file.  This is a kind of
+script that tells Libero how to generate code for that
+particular language.  Inevitably, the solution I choose for a
+language tends to vary.  For example, the C schema generates a
+couple of include files to hold the generated code.  The UNIX
+shell schemas in contrast take a source 'module' file and
+generate the final script (which you don't work on directly).
+</P>
+
+<P>This section documents the special aspects of each language
+(ie. schema). Some aspects that apply to all languages:
+<UL>
+<LI>All the schemas separate the generated code from the
+hand-written code.  This means either a strict division into
+hand-written files and generated files, or some sleight-of-hand
+to get a similar result.  The mechanism varies from language to
+language since I use the mechanisms that each language offers
+(if any). You should understand which files you get when you
+work in a particular language.</LI>
+
+<LI>Most languages provide some form of function or subroutine.
+I define one such for each module in the dialog, and you are
+free to define your own 'private' functions in the code.  Libero
+provides the facility to detect unused ('idle') modules, but for
+this the syntax for the module functions must be different to
+that for your private functions.  (Otherwise Libero can't tell
+the difference, and issues loads of incorrect warning messages.)
+In a few languages I did not find an acceptable way of making
+the distinction, so the -idle options is disabled.  In the
+remaining languages you must take care to follow the recommended
+syntax for your private functions.</LI>
+
+<LI>The generated code provides a number of public data items
+and functions.  These have the same name in each language, as
+far as possible.  Reserved names start with '_LR_' or something
+similar.  Never use or refer to these names.</LI>
+</UL></P>
+
+<H2><A NAME="TOC2">Standard Public Names</A></H2>
+
+<P>All schemas should support these names, which change syntax
+according to the -style option:
+<UL>
+<LI><TT>xxxx_event</TT> - defined for each event in the dialog,
+where 'xxxx' is the name used in the dialog.  Use these event
+names whenever you need to set the value of the_next_event.</LI>
+<LI><TT>the_next_event</TT> - the event for the next state.  Set
+this event in one of the action modules, before entering a new
+state.</LI>
+<LI><TT>terminate_event</TT> - when you assign this to
+the_next_event, the state machine halts.  Normally you will do
+this in the terminate_the_program module.</LI>
+<LI><TT>exception_raised</TT> - if you set this to TRUE, the
+dialog engine stops executing the current action list, and goes
+into exception handling.  Exceptions are described later.</LI>
+<LI><TT>the_exception_event</TT> - before you raise an
+exception, set this to the event you want to use as exception
+event.  This event must be defined in the current state you are
+in, or in the Defaults state.</LI>
+<LI><TT>initialise_the_program</TT> - this standard module is
+called when the dialog engine starts; here you can access and
+check parameters, and set a suitable next event like ok_event.
+</LI>
+<LI><TT>get_external_event</TT> - this standard module is called
+when the dialog needs an event, i.e. when none of the action
+modules put anything in the_next_event.</LI>
+<LI><TT>raise_exception </TT> - this standard function sets
+exception_raised and places the specified event into
+the_exception_event.</LI>
+</UL></P>
+
+
+<H2><A NAME="TOC3">Contributed Schemas</A></H2>
+
+<P>These schemas were contributed by Libero users, and are not
+documented in detail here.  You will need to read the schemas and
+try them out to see how they work.
+
+<UL>
+<LI>The Oracle PL/SQL Language<BR>
+<A NAME="plsql">&nbsp;</A>
+    PL/SQL is a scripting language used in the Oracle database
+    system.  The PL/SQL schema was written by Claude Philippo and
+    Xavier Vermaut of Sema Group Belgium, and was kindly contributed
+    by Sema Group Belgium.
+<LI>The PHP Language<BR>
+<A NAME="php">&nbsp;</A>
+    PHP is an Open Source scripting language used for web development.
+    system.  The PHP schema was written and kindly contributed by
+    Attilio &lt;glen@ats.it&gt;.
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | &lt;
+ | <A href="lrlang1.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <EM>Libero's Languages</EM>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

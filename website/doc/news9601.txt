@@ -1,0 +1,304 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/1
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   MARCH 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 1
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                                        http://www.imatix.com
+                                              Comments to: editors@imatix.com
+                                                Insults to: flames@imatix.com
+
+ == EDITORIAL --.-.----...-.-....-.-.--..-.-.-..-.--....-.-.-..-.---..-.-..-.
+
+    Welcome to LIBERETTO volume 1 issue 1.  Until we get comp.tools.libero
+    set up, this is the horse's mouth for Libero trivia, news, and reader's
+    letters.  [How about alt.fan.libero? - Ed.]
+
+    Since we put Libero on-line at the start of February, we've had a great
+    and heart-warming response.  Thank you all for your letters and comments.
+
+    Libero is free software, and will always be free software.  You can use
+    this tool in any project, without risk or charge.  When you hand-over
+    your work to your colleagues or clients, you can give them Libero at no
+    cost or risk.  Libero is a key part of our toolkit: we will support and
+    and improve Libero as long as we are here.  And when we have news about
+    fixes and extensions, you'll be the first to know about it.
+
+    Pieter Hintjens
+    Antwerpen, March 5th, 1996
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Libero site at www.imatix.com takes off...
+        Some 5000 requests per week, 400 distinct hosts served, 35 countries.
+        Coming to a screen near you soon!  If you haven't taken a look, surf
+        to http://www.imatix.com now.
+
+    Shock Horror Probe at iMatix Website...
+        Server implicated in affair with barmaid!  'I was just a moment's
+        diversion', sobbed gorgeous Mandy, 23.  More news at six!
+
+    Documentation coming online...
+        The gnomes are taking extra caffeine, and working double-time to get
+        the whole Libero documentation on-line fast!  Yes, we've even put
+        lovely Pearl (aged 5) to work on the links and tables of contents.
+        Should be ready by the time the chicken has crossed the road.
+
+    Libero 2.12 platinum beta out now...
+        The version Microsaft(tm) refused to purchase!  Yes, they did *not*
+        buy the license for this!  'It's not for sale at any price!', iMatix
+        guru and chief coffee-maker Pieter told our brave reporter.  Turn to
+        the business section for more news.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Extracts from some of the kind and generous mail we have been getting.
+    This is not irony.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Jan paimo <paimo@qinette.se>
+    >Subject: Libero
+    >Hi Pieter
+    >Are you planning to provide the documentation file in any other format?
+    >I would be happy about a plain textfile...
+    >Best regards
+    >Jan Paimo
+
+    Since Jan wrote me, we offer the documentation in various formats.  But,
+    these are all water in the wind.  Yes, I have seen the future, and it's
+    spelt "double-u ee bee".  (That's "way-ey-bey" for you Europeans, except
+    the Dutch who can try "vey-ey-bey".)  Be that as it may, I've decided to
+    maintain the documentation as HTML from now on.  When finished, there
+    will be 60 or so files, interlinked into a nice little package.  You can
+    browse on-line if your daddy's rich, or download the whole package from:
+    http://www.imatix.com/pub/libero/doc/lrhtml.zip.  Nice stuff: you unzip
+    it onto your hard disk (don't tell me you can't find unzip - go look for
+    it!), point your browser at the index file, and off you go!  You can use
+    Lynx, or a graphical browser.  We will also provide an 'exploded' version
+    of the entire documentation in one file, for easy printouts.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: bdwheele@indiana.edu
+    >Subject: Libero v2.10
+    >I have to admit that this is one of the coolest tools I've used in
+    >a very long time.  I have a few questions, however:
+    >    1) This is more of a bug report.  Print & related functions don't
+    >       seem to be implemented in the windows version
+    >    2) Will there be an X based editor?
+    >    3) How does one pronounce "libero"?  This has caused a bit of
+    >       confusion around here
+    >Even though I've only been playing with it for a few hours, I can see
+    >where this tool would be amazing in creating web based applications.
+    >I've taken the structure of one of my web programs and I'm re-writing
+    >it using Libero as the skeleton.
+    >Again, this is a very cool tool, and I'm very glad to see it under GPL!
+    >Brian wheeler
+
+    Yes, the latest Windows version prints like it should.  So much to do,
+    so little time...  Hey, Brian, this is a cool letter.  I'm very glad
+    that you can see the potential for web-based applications.  Send me an
+    example when you get something running.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: michal@ellpspace.math.ualberta.ca (Michal Jaegermann)
+    >Subject: Re: iMatix Website is Back Again
+    >Hi Pieter,
+    >I was disappointed a bit that you decided to cut-off an access to
+    >ftp site.  Instead of getting everything in one scoop I had to
+    >point-click-wait, point-click-wait,...  On the top of it you decided
+    >to separate examples archive.  Sigh!  No big deal.
+    >I had a bigger problem with your documentation.  When I tried to feed
+    >your supposedly Postscript file into a rather picky but very conforming
+    >Postscript interpreter supplied by NeXT I got immediately 350k of
+    >error messages in my log and not a single page which would not be
+    >empty.
+    >One more thing I noticed in your docs.  Contrary to what you maintain
+    >ksh is not so popular that you can expect it on every Unix machine
+    >around.  For some 15 I am dealing with quite regularly only three
+    >have ksh installed.  This would be not so important if not the fact
+    >that your install scripts are ksh based.  Most likely bash will accept
+    >them as well, but this is not on every machine either.  You can
+    >safely assume a presence of /bin/sh (Bourne), but this is it.
+    >Best regards,
+    >Michal
+
+    In a few month's time the iMatix site should get an upgrade to a T1
+    line, which will let us support ftp accesses again.  Right now this is
+    simply too heavy.  Hey, contributions for a larger system are welcome!
+    Dollars preferred, VISA/MC also accepted.  [Is this true? - Ed.]
+
+    Point taken about the examples: by the time you read this you can get
+    either the individual example archives, or the whole set in one go, by
+    downloading http://www.imatix.com/pub/libero/example/complete.zip.  I
+    intend to add to the example set as time goes on.
+
+    If you had trouble with the ksh install script, you'll be happy to know
+    that I made a Bourne sh version (install.sh) which is now part of the
+    UNIX binary and source kits.  I used a UNIX script a bit like this:
+
+        echo Generating install.sh...
+        awk '/^function/ { print $2 " ()"; next }
+        { print $0 }' < install.mod > install.sh.mod
+        lr install -schema=lrschema.sh -source=install.sh.mod
+        chmod +x install.sh
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: p.varn@genie.com (Paul R. Varn)
+    >Subject: Thank you for Libero
+    >I've downloaded your Libero materials for Windows. I was delighted by
+    >your explanations and look forward to learning about your tool.
+    >Learning to program has always been a tripping rock for me though Perl
+    >has given me hope that some day I may get something out of it.
+    >My first impression is that you and Larry Wall have a lot in common.
+    >The world became a nicer place to live today.
+    >-Pv-
+
+    I'll let you into a wee secret, Paul: Perl is maybe not the ideal place
+    to start.  It's a great place to end-up, but a little rich for an intro.
+    Why don't you look at Awk?  This is a clean, small, and useful language
+    that you'll be happy you learnt anyway.  Libero works with Awk, and Perl
+    contains most of Awk.  I like GNU Gawk myself.  There's a good example
+    at http://www.imatix.com/pub/libero/example/erbot.zip.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: john.zahniser@gsfc.nasa.gov (John Zahniser)
+    >Subject: Invalid Property Value
+    >Peter,
+    >Downloaded Libero 2.11 for windows and I get an Invalid Property Value
+    >error when I try to execute the program. Am I doing something wrong? I
+    >downloaded the two files to a temp dir then unzipped them to a home dir
+    >and added it to the path statment in the autoexec.bat file. Should there
+    >be an ini file for the windows version as there is in the dos version?
+    >John Zahniser
+
+    Libero for Windows seems to have problems on some PCs.  I don't have a
+    fix, except to try another PC.  The problem may be:
+        - not enough free resources (Libero/Windows is *greedy*);
+        - weird graphics cards (try using 256-colour mode);
+        - version problems (are there older versions of the .VBX or .DLL
+          files lying around on the PC, perhaps in /win or /win/system?)
+    If in doubt, reformat the hard disk, re-install DOS and Windows, then
+    try again.  [I think he is joking - Ed.]
+
+
+ == COMMMENT ---.-.-..--....-.---....-.-.-..-...-.-.....---.-.-..-.-.--..-.-.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Libero site at www.imatix.com takes off...  These are the server
+    statistics for February:
+
+    Analysed requests from Thu-01-Feb-1996 01:14 to Sat-24-Feb-1996 23:46
+    (23.9 days).  Figures in parentheses refer to the last 7 days.
+
+    Total completed requests: 9,657 (4,829)
+    Total failed requests: 242 (154)
+    Average requests per day: 413 (712)
+    Number of distinct files requested: 59 (45)
+    Number of distinct hosts served: 967 (408)
+    Number of new hosts served in last 7 days: 334
+    Total data transferred (in bytes): 175.0Mb (125,5Mb)
+    Average data transferred per day (in bytes): 7.3Mb (17,9Mb)
+
+    Daily Summary
+        day: #reqs  '+' represents 50 requests
+        Sun:   731: +++++++++++++++
+        Mon:  1331: +++++++++++++++++++++++++++
+        Tue:  1176: ++++++++++++++++++++++++
+        Wed:  1272: ++++++++++++++++++++++++++
+        Thu:  2203: +++++++++++++++++++++++++++++++++++++++++++++
+        Fri:  1973: ++++++++++++++++++++++++++++++++++++++++
+        Sat:   971: ++++++++++++++++++++
+
+    Hourly Summary  [Universal Time (GMT), as far as I can see - Ed.]
+        hr: #reqs '+' represents 15 requests
+         0:   502: ++++++++++++++++++++++++++++++++++
+         1:   552: +++++++++++++++++++++++++++++++++++++
+         2:   558: ++++++++++++++++++++++++++++++++++++++
+         3:   495: +++++++++++++++++++++++++++++++++
+         4:   432: +++++++++++++++++++++++++++++
+         5:   412: ++++++++++++++++++++++++++++
+         6:   487: +++++++++++++++++++++++++++++++++
+         7:   515: +++++++++++++++++++++++++++++++++++
+         8:   392: +++++++++++++++++++++++++++
+         9:   392: +++++++++++++++++++++++++++
+        10:   345: +++++++++++++++++++++++
+        11:   212: +++++++++++++++
+        12:   269: ++++++++++++++++++
+        13:   331: +++++++++++++++++++++++
+        14:   194: +++++++++++++
+        15:   192: +++++++++++++
+        16:   301: +++++++++++++++++++++
+        17:   477: ++++++++++++++++++++++++++++++++
+        18:   349: ++++++++++++++++++++++++
+        19:   334: +++++++++++++++++++++++
+        20:   339: +++++++++++++++++++++++
+        21:   476: ++++++++++++++++++++++++++++++++
+        22:   585: +++++++++++++++++++++++++++++++++++++++
+        23:   516: +++++++++++++++++++++++++++++++++++
+
+    Domain Report
+        #reqs: %bytes: domain
+         2933: 28.43%: .com (USA Commercial)
+          694: 10.23%: .net (Network)
+         1053:  9.12%: .edu (USA Educational)
+          669:  7.85%: .uk (United Kingdom)
+          887:  7.66%: [unresolved numerical addresses]
+          560:  5.82%: .de (Germany)
+          368:  5.32%: .ca (Canada)
+          240:  3.03%: .nl (Netherlands)
+          182:  2.61%: .au (Australia)
+          282:  2.28%: .gov (USA Government)
+          207:  2.11%: .it (Italy)
+          185:  1.80%: .se (Sweden)
+          121:  1.78%: .org (Non-Profit Making Organisations)
+          192:  1.71%: .fr (France)
+          132:  1.33%: .fi (Finland)
+          106:  1.24%: .at (Austria)
+          125:  1.08%: .be (Belgium)
+          144:  1.06%: .jp (Japan)
+           95:  0.79%: .no (Norway)
+           46:  0.71%: .za (South Africa)
+           27:  0.51%: .mil (USA Military)
+           14:  0.44%: .hk (Hong Kong)
+           25:  0.43%: .es (Spain)
+           34:  0.40%: .nz (New Zealand)
+            7:  0.38%: .ru (Russian Federation)
+           29:  0.34%: .br (Brazil)
+           69:  0.33%: .ch (Switzerland)
+           25:  0.30%: .dk (Denmark)
+           21:  0.20%: .su (Former USSR)
+           39:  0.19%: .il (Israel)
+           12:  0.18%: .ar (Argentina)
+           28:  0.06%: .sg (Singapore)
+           16:  0.06%: .hu (Hungary)
+            4:  0.06%: .tw (Taiwan)
+           23:  0.04%: .ie (Ireland)
+           15:  0.04%: .us (United States)
+           12:  0.04%: .pl (Poland)
+           12:  0.02%: .cz (Czech Republic)
+            7:  0.02%: .int (International)
+           10:  0.02%: .ee (Estonia)
+            3:  0.01%: .ro (Romania)
+            4:  0.01%: .gr (Greece)
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Libero 2.12 platinum beta out now...  If you have had trouble compiling
+    Libero 2.11 on your system (especially Sparc with GNU gcc), try this new
+    archive: http://www.imatix.com/pub/libero/src/lrsrc212.zip or .tgz.
+    We've improved the 'universal include file' prelude.h.  Functionally it
+    is identical to 2.11.  This beta will not be accessible from the Web
+    pages until it's been well tested.
+
+
+ == IN THE NEXT ISSUE ..-.-...-.-.....-.-.-..-....---.-.--..---.--.----...-.-
+
+    Multithreading...  Seem's it's simple.  We present a new way to write
+    portable multithreaded programs, with an example TCP/IP server in C.
+
+    OS/2...?  Ewen McNeill reports on his port of Libero to this system.

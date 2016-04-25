@@ -1,0 +1,191 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Schema Commands</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech1.htm">&lt;</A>
+ | <A href="lrtech3.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC4">Schema Commands</A></H2>
+
+<P>You can use the following commands in a schema:
+<DL> <DT>:output <I>filename</I></DT>
+<DD>Sends output to <I>filename</I>.  Any existing data in the
+file is lost.</DD>
+<DT>:extend <I>filename</I></DT>
+<DD>Appends output to <I>filename</I>.  Creates the file if it
+does not already exist.</DD>
+<DT>:close</DT>
+<DD>Closes an output file opened by a previous <TT>:output</TT>
+or <TT>:extend</TT>.  This command is never required, since
+Libero does an implicit <TT>:close</TT> before any
+<TT>:output</TT> or <TT>:extend</TT>, and at the end of the
+schema.  If you use <TT>:close</TT> when no file is open you'll
+get a warning message.</DD>
+<DT>:copy <I>fromfile</I> <I>tofile</I></DT>
+<DD>Copies one file to another.  The <I>tofile</I> is silently
+overwritten if it already exists.</DD>
+<DT>:rename <I>fromfile</I> <I>tofile</I></DT>
+<DD>Renames one file to another.  The <I>tofile</I> may not
+already exist.</DD>
+<DT>:delete <I>filename</I></DT>
+<DD>Deletes <I>filename</I> without any error if the file does
+not exist.</DD>
+<DT>:include [optional] <I>filename</I> [<I>from</I>
+[<I>to</I>]]</DT>
+<DD>Includes <I>filename</I> in the generated output code.  If
+you specify <I>from</I>, Libero searches the file for a line
+containing this text by itself, and starts copying from that
+point on.  If you specify <I>to</I>, Libero ends copying when it
+finds a line containing just this text.  You can put quotes
+around from and to if these contain embedded spaces.  If you
+use the optional keyword, Libero ignores the <TT>:include</TT>
+command if it can't find the specified file.  The included file
+can be anywhere on the path value.</DD>
+<DT>:echo <I>text</I></DT>
+<DD>Echoes <I>text</I> to the standard output, followed by a
+newline.  If the text is enclosed in quotes, leading spaces are
+not discarded.</DD>
+<DT>:declare [int | string] [$]<I>name</I>
+[=<I>expression</I>]</DT>
+<DD>Defines a variable for later use in the schema.  Except for
+those that Libero supplies as standard, you have to declare any
+variables that you want to use. You can specify the variable
+name with or without a '$' in the name.<BR> Variables are
+either integers, strings, or variants (either type depending on
+mood).  You cannot assign a string expression to an integer.
+Otherwise Libero is pretty relaxed about how you mix variable
+types.  The expression provides a default initial value for the
+variable.  If you do not provide an initial value, strings are
+empty and numbers are zero.  You can override any initial value
+using an <TT>-option</TT> on the command-line or in the dialog.
+Use: <TT>-opt:var="string"</TT> or <TT>
+opt:var=expression</TT>.<BR> The name of a variable cannot be
+<TT>int</TT> or <TT>string</TT>.  Variable names are
+case-independent; <TT>:declare $drink</TT> and <TT>:declare
+$DRINK</TT> refer to the same variable. If you declare an
+existing variable, you'll get an error message.</DD>
+<DT>:set [$]<I>name</I> = <I>expression</I></DT>
+<DD>Assigns a new value to the variable specified.  You can use
+a '$' before the variable name if you want to.  You cannot set a
+read-only variable.</DD>
+<DT>:push [$]<I>variable</I> [=<I>expression</I>]</DT>
+<DD>Creates a new instance of the variable.  If you give an
+expression the new variable gets this value.  The variable must
+then be a read-write variable.  You can push a read-only
+variable but not specify an expression.  This may sound
+pointless, but can be useful: you can set some read-only
+variables using the <TT>:option</TT> command, e.g. <TT>:option
+-style=xxxx.</TT></DD>
+<DT>:pop [$]<I>variable</I></DT>
+<DD>Removes the last instance of a variable.  Use with
+<TT>:push</TT> to change a variable within a block, then reset
+it to its previous value.</DD>
+<DT>:do <I>condition</I></DT>
+<DD>Starts a code block that is output repeatedly depending on
+condition.  Libero defines a standard set of conditions like
+<TT>:do event</TT>.  You can also define your own conditions
+using <TT>:do while</TT>  The do block ends with a matching
+<TT>:enddo</TT>.</DD>
+<DT>:do while <I>logical-condition</I></DT>
+<DD>Repeats the code block while the logical_condition is
+true.</DD>
+<DT>:enddo [<I>condition</I>]</DT>
+<DD>Ends the closest previous <TT>:do</TT> block.  If you
+specify condition, the <TT>:do</TT> and <TT>:enddo</TT>
+conditions must match; this makes your schemas more robust
+against errors, but is not required.</DD>
+<DT>:if <I>logical-condition</I></DT>
+<DD>Starts a code block that is output if
+<I>logical_condition</I> is true.  The <TT>:if</TT> block ends
+with a matching <TT>:endif</TT>.</DD>
+<DT>:else</DT>
+<DD>Outputs the following block of code if the previous
+<TT>:if</TT> condition was false.</DD>
+<DT>:endif [all]</DT>
+<DD>Ends the closest previous <TT>:if</TT> block.  If you
+specify <TT>all</TT>, all open <TT>:if</TT>blocks are
+closed.</DD>
+<DT>:exit [<I>level</I>]</DT>
+<DD>Aborts code generation.  Use levels 0 for okay, 1 for
+errors.</DD>
+<DT>:option -<I>name</I>[=<I>value</I>]</DT>
+<DD>Enforces a Libero option For example: <TT>:option
+-style=cobol</TT>.</DD>
+<DT>:internal <I>module</I></DT>
+<DD>Tells the code-generator that <I>module</I> is required by
+the generated dialog code, but not by the dialog.  A typical
+case is <TT>initialise_the_program</TT>.  This lets Libero
+correctly indicate unused modules in the source code.</DD>
+<DT>:substr <I>from</I> [<I>size</I>]</DT>
+<DD>Specifies a substring for the next <TT>$name</TT> or
+<TT>$row</TT> insertion.  <I>From</I> must be from 1 upwards.
+If <I>size</I> is not specified, the remainder of the variable's
+value is used.</DD>
+</DL>
+
+<H3><A NAME="TOC5">Notes</A></H3>
+
+<UL>
+<LI>All commands can contain variables anywhere in the line that makes
+sense.
+
+<LI>You can use '#' to start a comment in a command line.  Any text following
+the '#' is ignored.  When a '#' is inside a string, or escaped by '\', it is
+treated as the '#' character, not a comment.  You can change the comment
+character by setting <TT>$comment_ind</TT>.
+
+<LI>A line containing just ':' by itself is ignored.  This lets you separate
+blocks of commands without outputting extra blank lines in the code.  For
+instance:
+<PRE>
+  :if $index &gt; 0
+  :  set $counter = $counter + 1
+  :endif
+  :
+  :echo "\ncounter is $counter\n"
+</PRE>
+
+<LI>In a <TT>:set</TT> or <TT>:declare</TT> you can give the variable name
+with or without the $.  Your preference will depend on the other languages
+you use.  When I've used Perl a while, I want to stick a '$' everywhere.
+When I've programmed in a UNIX shell, I want the $ only on the right.  When
+I've been working in any other language I can't understand what all the fuss
+is about, I just want something that works like I expect it to.  So, since
+the meaning is unambiguous, Libero accepts both.
+
+<LI>One or more spaces can come between the ':' and the command name.  This
+is often a nice way to indent commands to show structure.
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech1.htm">&lt;</A>
+ | <A href="lrtech3.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <EM>Schema Commands</EM>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

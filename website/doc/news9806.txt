@@ -1,0 +1,548 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    June 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 6
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Some time ago I wrote a little program who's only purpose was to
+    calculate its own remaining useful life-span.  I ran it today.  It
+    still works.  This is what it said:
+
+        Fri, 1998-May-31 22:20:17
+        580 days before 2000 A.D.
+        82 weeks
+        390 business days
+        359 working days
+
+    Twenty-four Liberettos of varying quality and size have come and gone
+    since we raised the issue of the Millenium Bug in Liberetto I/6.  We've
+    seen the last two years develop much as predicted: amusement, denial,
+    apathy, shock, and now the onset of panic.
+
+    In many countries it is starting to be difficult to recruit new software
+    developers.  Companies are taking young developers from universities and
+    colleges as fast as they can graduate, and sucking older developers back
+    out of retirement.  Every week or so I get an e-mail from someone asking
+    if I don't happen to know a couple of available developers.  I don't, so
+    you guys can stop asking.
+
+    Every computer consulting company I know is booked solid for the next
+    couple of years as a tidal wave of work hits.  Rather than the steady
+    rate of change we're used to (with large systems being replaced or
+    overhauled every 5-10 years), we're seeing a peak as companies decide to
+    replace their old systems now rather than wait another three or four
+    years and risk catastrophe.  Smiles all round in the consulting companies,
+    until the personnel manager reports that 'no, we did not manage to fill
+    those positions'.
+    
+    The irony is that to compensate for the last two wasted years, projects
+    need to be shortened, and that means employing more people (a fallacious
+    proposition in itself, but that's another discussion).
+
+    If you still think this will not affect you, think again.  We're seeing
+    the start of a period of chaos that will last until at least mid-2000,
+    with secondary effects lasting for several years longer.  Let me get
+    out my crystal ball...
+
+      - Anything in this sector that is not critical to the year 2000
+        deadline will find itself progressively starved of people and money.
+        
+      - The rapid rate of change that we've come to depend on will halt for
+        at least a couple of years.  Yes, even C++ experts will work in
+        Cobol if the pay is good enough.
+        
+      - Many of the large projects now being started will never complete.
+        For the companies involved (on both sides of the contract), this is
+        a potentially fatal situation.
+
+    I'll just mention the storm clouds that are building over our global
+    economy, with the triple jeopardy of an over-inflated US stock market,
+    the European Union's monetary adventurism, and the beckoning collapse of
+    Japan.  Okay, I mentioned this.  Now add a little popular Millenium
+    Fever, some serious doubts about the computer infrastructure of a number
+    of prominent corporations (about this time in 1999), and what d'ya have?
+
+    Let's assume for the sake of sanity that the stock markets do not crash,
+    that people keep their faith in the economy, and that we can spend our
+    way out of whatever minor crisis happens by.  One thing is certain, and
+    that's that the post-2000 era will see a glut of software developers
+    (depending on how many get burnt in the town square, of course).  Oh yes,
+    that army of undertrained kids, survivors of a desperate war against the
+    clock.  They all want your job.  Ho-ho.
+
+    Pieter Hintjens
+    Antwerpen
+    1 June 1998
+
+
+ == NEWS -..--.-.-.-..--.-.-....----.-.---...---..-.-.-----...-.---.-.-.-.---
+
+    Liberetto Electronic Binders now available!!
+        The ideal gift for any serious Liberatti.  Comes in superb black
+        plastic with unique removable identifying tags.  Each binder holds
+        more than a year's worth of Liberettos!  Designed exclusively to fit
+        into a shirt pocket!  Order your binders direct from iMatix HQ, or
+        buy them in boxes of 10 in your local PC shop.
+
+    iMatix Corporation pushes for 'One On Every Desktop'
+        In a packed news conference today, iMatix explained their plans to
+        get the Xitami web server running on every desktop.  "Today's PCs
+        have more than enough grunt to run Xitami and not notice," said
+        iMatix spokesperson Mandy.  Rumour has it that iMatix will release
+        a 'Universal Web Server' CD-ROM which will include Xitami versions
+        for most operating systems on the planet.
+
+    iMatix Wins OpenSource Certification!!
+        OpenSource is Eric S. Raymond's excellent initiative to promote the
+        principles of making software source code available as part of the
+        business model.  Of course, iMatix is a pioneer in this field, and
+        we'll be proud to show the forthcoming OpenSource logo on our home
+        page.  See http://www.opensource.org for more details.
+
+    Xitami hits 3rd place in Web Servers Top 10!!
+        Check-out http://serverwatch.internet.com/top10.html for the current
+        Web Server Top 10...  Yes, our little Xitami server is still going
+        strong in third place.
+    
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    The LRWP Persistent CGI Protocol...
+
+    From:             "J. Scott McKellar"  <mck9@swbell.net>
+    Subject:          Re: Liberetto III/5 -- LWRP
+    -----------------------------------------------------------------------
+    Your article on LRWP piqued my interest.  I don't foresee any use
+    for it myself, but others in my company may.
+    Unfortunately Liberetto didn't include any pointers to more detailed
+    information.  Is there a URL somewhere for information about LRWP,
+    or do we have to download Xitami?  
+    I'm wondering about security.  If an LRWP asks to take over a set of
+    URLs, does the server (e.g. Xitami) comply mindlessly, or does it use
+    discretion?  For example, does it consult a list of trusted LWRPs?
+    Without some such precaution, a rogue LRWP could hijack URLs
+    illegitimately.
+    Up to now, Xitami has presumably been of particular interest to homebrew
+    sites operating on a shoestring.  After all, it's free.  These users
+    can mostly tolerate security holes and occasionally erratic
+    distributions.
+    LRWP is more relevant to professionally run commercial sites, and to
+    in-house applications within large companies.  These customers will be
+    more concerned about security, stability, and robustness -- and more
+    willing to pay for support contracts.  I hope LRWP gives you an entree
+    into this more lucrative market.
+
+    From:             Eric Chisholm <tceeng@sprynet.com>
+    Subject:          Kudos for Xitami
+    -----------------------------------------------------------------------    
+    Congratulations on an excellent product that works !
+    The LRWP capability is great.  It has allowed me to quickly
+    create a system that allows control via a serial port of
+    custom hardware.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Liberetto's Editorial on Microsoft...
+    
+    From:             "Richard Storey" <ncfrs@msn.com>
+    Subject:          Re: Liberetto III/5
+    -----------------------------------------------------------------------    
+    A flawless analysis and aptly put.  I would append it with the facts
+    of IBM's rise to domination being primarily due to government's desire
+    to have a strong contractor to rely upon for computing technology
+    (during the 50's) and therefore, by government contracts, IBM rose to
+    extra-ordinary market presence.  Further, regarding MS, software
+    developers and retailers of PCs are very much responsible for MS's
+    success and domination due to their desire for a standard to lessen
+    development costs and a market place that is less complex to compete in.
+    Nature hates a monopoly.  MS's dominance will come down one way or
+    another.
+
+    From:             John Levy <John.Levy@qntm.com>
+    Subject:          RE: Liberetto III/5
+    -----------------------------------------------------------------------    
+    Bravo, Pieter.  Perhaps the proper strategy in dealing with Microsoft is
+    to encourage them to take on more and more markets, leading (sooner) to
+    their demise by excessive executive & bureaucratic overhead (Bill can't
+    follow 59 markets simultaneously).  I remember the '60s when we proposed
+    to send the Red Chinese astray by air-dropping the circuit diagrams of
+    the IBM System/360 on them...
+
+
+ == FOCUS ON TECHNOLOGY -.--.--.-...----.-.---....--.---.---....-.-...--.-.--
+
+    Data Sleuthing, or "How many beers did I miss?"
+
+    One of the national sports for tourists in Belgium is to try to drink at
+    least one of each brand of beer produced in the country.  The difficulty
+    with this sport is that it's hard to get a notion of progress, due to
+    the large and generally quantum nature of the beer market.  For instance,
+    there are some brands so rare that it is impossible to both observe and
+    drink the beer at the same time.  There are also, in Belgium, some
+    brands so strong that it is difficult to drink and do anything at all
+    afterwards.
+
+    It's a little-known fact, but the number of beers still waiting to be
+    drunk can actually be estimated.  Let's say that the new pub you are
+    visiting boasts 200 brands of bottled beer.  Now, you've 100 different
+    brands on in your little black book (a vital accessory for the serious
+    participant, almost as important as the small jar of Dijon mustard).
+    By comparing your list with the pub's menu, you see that half of the
+    beers you've tried are provided in this pub.  This tells you that
+    statistically, you've tried about 25% of all known beers.  So, there
+    are perhaps 400 beers in total, and thus 300 more to try.
+
+    Of course, the answer gets better the more pubs you visit.
+
+    We can apply this important lesson to more sober subjects.  When we at
+    iMatix World HQ are producing a public release of a product, X, we like
+    to be able to make a continuous estimate how many bugs there are in it.
+    This is useful to know, since the technical support effort depends largely
+    on this.
+
+    Let's say that during the first month of testing a product, we found B
+    bugs ourselves.  Our helpful beta tester users found R bugs, of which S
+    were among those we also found.  The number of remaining unknown bugs,
+    U can be estimated as:
+
+        U = ((R / S) x B) - B - (R - S)
+
+    which can be simplified to
+
+        U = (R / S - 1) x B + S - R.
+
+    So there.  Now you may have that beer.
+
+
+ == RANTS AND RAVES --..-..----...-..---.-.-.-.-----....-.-..-..-.---...-..---
+
+    Yes, introducing a new section where we let you take the soap-box, walk
+    the plank, burn your bridges and get flame mail from the other side of
+    the world...  This month, Rob Judd explains his opinions about the GNU
+    General Public License, which iMatix uses for its Libero product.
+    
+    "The main objections I have [to the GNU General Public License] are:
+
+    1) In order to distribute any version of GNU software which has been
+       made useful for another system by correct porting (and let's face it,
+       these tools *require* that you think as though you're programming in
+       a Unix environment), one then has include the whole original
+       distribution complete with a morass of confusing and irrelevant
+       documentation. This is what some call the "licence virus" effect.
+
+    2) The FSF "manifesto" reads like something from fifties Russia.
+
+    3) There are better ways to distribute free software if that's what you
+       want to do, as you have discovered.
+
+    I have nothing against software being free, far from it.  However, if I
+    spend three months debugging and reworking a half-baked and unsupported
+    piece of code - including finishing the port properly - to the point
+    where it hardly resembles the original work either in function or
+    usefulness, then I feel it fairly unreasonable that I am *required* to
+    make my version free and distribute the junk with it. This only cripples
+    my version, aligns me with dodgy philosophies which I'd rather not
+    associated with, and reduces the likelihood that the new version will
+    see daylight. If that's the way to make better free software available,
+    I'm a jackass."
+
+
+ == WEBSITE STATISTICS -..-...---.-.--...-.-.-..---..-..--.-----...-...--.-..
+
+    Edited highlights from this month's iMatix Corp.'s own Statistics
+    Report Robot... woof woof!
+
+
+    Program started at Sun-May-31-1998 03:32 local time.
+    Analyzed requests from Thu-Apr-30-1998 23:59 to
+                           Sat-May-30-1998 23:53 (30.0 days).
+
+    Total successful requests: 316,799 (76,155)
+    Average successful requests per day: 10,561 (10,879)
+    Total successful requests for pages: 60,316 (13,931)
+    Average successful requests for pages per day: 2,011 (1,990)
+    Total failed requests: 1,449 (300)
+    Total redirected requests: 134 (27)
+    Number of distinct files requested: 908 (824)
+    Number of distinct hosts served: 16,675 (4,422)
+    Number of new hosts served in last 7 days: 3,634
+    Total data transferred (in bytes): 8,117,243,557 bytes (1,990,633,921 bytes)
+    Total data transferred (in Megabytes): 7741.207 Megabytes (1898.416 Megabytes)
+    Average data transferred per day: 270,606,105 bytes (284,376,274 bytes)
+    (Figures in parentheses refer to the last 7 days).
+
+    Weekly Report
+
+    week beg.: #reqs:  %reqs:      bytes: %bytes: 
+    ---------  -----  ------  ----------  ------  
+    Apr/26/98: 17313:  5.46%:  444726559:  5.48%: 
+    May/ 3/98: 71771: 22.66%: 1710558968: 21.07%: 
+    May/10/98: 77978: 24.61%: 2098466911: 25.85%: 
+    May/17/98: 72744: 22.96%: 1855719484: 22.86%: 
+    May/24/98: 76993: 24.30%: 2007771635: 24.73%: 
+
+    Daily Summary
+
+    day: #reqs:  %reqs:      bytes: %bytes: 
+    ---  -----  ------  ----------  ------  
+    Sun: 32785: 10.35%:  869775230: 10.72%: 
+    Mon: 48838: 15.42%: 1321593128: 16.28%: 
+    Tue: 52803: 16.67%: 1300076806: 16.02%: 
+    Wed: 49715: 15.69%: 1185314256: 14.60%: 
+    Thu: 44997: 14.20%: 1151962657: 14.19%: 
+    Fri: 51013: 16.10%: 1240525608: 15.28%: 
+    Sat: 36648: 11.57%: 1047995872: 12.91%: 
+
+    Daily Report
+
+         date: #reqs:  %reqs:     bytes: %bytes: 
+    ---------  -----  ------  ---------  ------  
+    Apr/30/98:     6:       :     26939:       : 
+    May/ 1/98: 10071:  3.18%: 237369785:  2.92%: 
+    May/ 2/98:  7236:  2.28%: 207329835:  2.55%: 
+
+    May/ 3/98:  8208:  2.59%: 200007000:  2.46%: 
+    May/ 4/98: 10873:  3.43%: 259152161:  3.19%: 
+    May/ 5/98: 10554:  3.33%: 241089054:  2.97%: 
+    May/ 6/98: 10623:  3.35%: 255463912:  3.15%: 
+    May/ 7/98: 11861:  3.74%: 257275737:  3.17%: 
+    May/ 8/98: 10463:  3.30%: 238014334:  2.93%: 
+    May/ 9/98:  9189:  2.90%: 259556770:  3.20%: 
+
+    May/10/98:  9033:  2.85%: 259685578:  3.20%: 
+    May/11/98: 12064:  3.81%: 356200693:  4.39%: 
+    May/12/98: 13731:  4.33%: 338732706:  4.17%: 
+    May/13/98: 13716:  4.33%: 348628545:  4.29%: 
+    May/14/98: 12130:  3.83%: 324239117:  3.99%: 
+    May/15/98:  9865:  3.11%: 258101794:  3.18%: 
+    May/16/98:  7439:  2.35%: 212878478:  2.62%: 
+
+    May/17/98:  8080:  2.55%: 208472716:  2.57%: 
+    May/18/98: 14194:  4.48%: 404904979:  4.99%: 
+    May/19/98: 12952:  4.09%: 332946700:  4.10%: 
+    May/20/98: 11860:  3.74%: 263286661:  3.24%: 
+    May/21/98: 10012:  3.16%: 239611475:  2.95%: 
+    May/22/98:  9684:  3.06%: 235226627:  2.90%: 
+    May/23/98:  5962:  1.88%: 171270326:  2.11%: 
+
+    May/24/98:  7464:  2.36%: 201609936:  2.48%: 
+    May/25/98: 11707:  3.70%: 301335295:  3.71%: 
+    May/26/98: 15566:  4.91%: 387308346:  4.77%: 
+    May/27/98: 13516:  4.27%: 317935138:  3.92%: 
+    May/28/98: 10988:  3.47%: 330809389:  4.08%: 
+    May/29/98: 10930:  3.45%: 271813068:  3.35%: 
+    May/30/98:  6822:  2.15%: 196960463:  2.43%: 
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes: 
+    --  -----  ------  ---------  ------  
+     0: 10647:  3.36%: 302135385:  3.72%: 
+     1: 11676:  3.69%: 308405423:  3.80%: 
+     2: 10947:  3.46%: 276974730:  3.41%: 
+     3: 12529:  3.95%: 327927433:  4.04%: 
+     4: 11635:  3.67%: 319952789:  3.94%: 
+     5: 13127:  4.14%: 349056337:  4.30%: 
+     6: 14640:  4.62%: 365802664:  4.51%: 
+     7: 16055:  5.07%: 391683028:  4.83%: 
+     8: 16362:  5.16%: 425673358:  5.24%: 
+     9: 16053:  5.07%: 365173496:  4.50%: 
+    10: 16567:  5.23%: 377646257:  4.65%: 
+    11: 15653:  4.94%: 388473366:  4.79%: 
+    12: 15337:  4.84%: 412277507:  5.08%: 
+    13: 15485:  4.89%: 396235064:  4.88%: 
+    14: 15338:  4.84%: 367078360:  4.52%: 
+    15: 12758:  4.03%: 335007962:  4.13%: 
+    16: 13725:  4.33%: 333824686:  4.11%: 
+    17: 12694:  4.01%: 336485130:  4.15%: 
+    18: 11677:  3.69%: 312221463:  3.85%: 
+    19: 12016:  3.79%: 305362530:  3.76%: 
+    20: 11833:  3.74%: 273299123:  3.37%: 
+    21: 10147:  3.20%: 287923987:  3.55%: 
+    22:  9852:  3.11%: 281239674:  3.46%: 
+    23: 10046:  3.17%: 277383805:  3.42%: 
+
+
+    Domain Report
+
+    Printing all domains, sorted by number of requests.
+    #reqs:  %reqs:      bytes: %bytes: domain
+    -----  ------  ----------  ------  ------
+    71231: 22.48%: 2024072454: 24.94%: [unresolved numerical addresses]
+    63851: 20.16%: 1465655098: 18.06%: .com (Commercial, mainly USA)
+    54660: 17.25%: 1272907200: 15.68%: .net (Network)
+    17660:  5.57%:  587077702:  7.23%: .de (Germany)
+    12814:  4.04%:  217986275:  2.69%: .edu (USA Educational)
+     9509:  3.00%:  211108609:  2.60%: .ca (Canada)
+     7243:  2.29%:  151992520:  1.87%: .uk (United Kingdom)
+     6697:  2.11%:  364996393:  4.50%: .br (Brazil)
+     5852:  1.85%:  149614512:  1.84%: .nl (Netherlands)
+     5516:  1.74%:  129783306:  1.60%: .au (Australia)
+     5114:  1.61%:  120797890:  1.49%: .it (Italy)
+     4610:  1.46%:  106442103:  1.31%: .se (Sweden)
+     4432:  1.40%:  152802341:  1.88%: .kr (South Korea)
+     3397:  1.07%:   63657862:  0.78%: .no (Norway)
+     3199:  1.01%:   69457199:  0.86%: .fr (France)
+     2899:  0.92%:   69773277:  0.86%: .at (Austria)
+     2601:  0.82%:   52425054:  0.65%: .be (Belgium)
+     2461:  0.78%:   64268193:  0.79%: .jp (Japan)
+     2438:  0.77%:   53646654:  0.66%: .es (Spain)
+     2329:  0.74%:   45704591:  0.56%: .dk (Denmark)
+     2109:  0.67%:   61998980:  0.76%: .ru (Russian Federation)
+     2079:  0.66%:   36155344:  0.45%: .fi (Finland)
+     1849:  0.58%:   43767550:  0.54%: .ch (Switzerland)
+     1753:  0.55%:   41690542:  0.51%: .pl (Poland)
+     1441:  0.45%:   32186369:  0.40%: .my (Malaysia)
+     1101:  0.35%:   40870902:  0.50%: .za (South Africa)
+     1033:  0.33%:   16666979:  0.21%: .il (Israel)
+     1000:  0.32%:   23193473:  0.29%: .mil (USA Military)
+      987:  0.31%:   19912665:  0.25%: .us (United States)
+      971:  0.31%:   29914102:  0.37%: .cz (Czech Republic)
+      954:  0.30%:   24179819:  0.30%: .org (Non-Profit Making Organisations)
+      927:  0.29%:   20455319:  0.25%: .nz (New Zealand)
+      926:  0.29%:   20123674:  0.25%: .sg (Singapore)
+      865:  0.27%:   22532931:  0.28%: .pt (Portugal)
+      819:  0.26%:   21095827:  0.26%: .gov (USA Government)
+      748:  0.24%:   16636962:  0.20%: .hu (Hungary)
+      705:  0.22%:   35042375:  0.43%: .mx (Mexico)
+      615:  0.19%:   11375605:  0.14%: .hk (Hong Kong)
+      593:  0.19%:   16916355:  0.21%: .ie (Ireland)
+      489:  0.15%:    8969062:  0.11%: .gr (Greece)
+      462:  0.15%:   16110723:  0.20%: .th (Thailand)
+      401:  0.13%:   10126103:  0.12%: .id (Indonesia)
+      390:  0.12%:   19710951:  0.24%: .tw (Taiwan)
+      380:  0.12%:    4014487:  0.05%: .cr (Costa Rica)
+      351:  0.11%:   15389012:  0.19%: .ua (Ukraine)
+      312:  0.10%:   12209315:  0.15%: .sk (Slovak Republic)
+      311:  0.10%:   12167074:  0.15%: .arpa (Old style Arpanet)
+      256:  0.08%:    9805799:  0.12%: .ar (Argentina)
+      243:  0.08%:    9877304:  0.12%: .ro (Romania)
+      230:  0.07%:    5329344:  0.07%: .tr (Turkey)
+      220:  0.07%:    3938294:  0.05%: .is (Iceland)
+      211:  0.07%:    4017885:  0.05%: .hr (Croatia)
+      191:  0.06%:    3854492:  0.05%: .lv (Latvia)
+      189:  0.06%:    3645874:  0.04%: .cn (China)
+      174:  0.05%:    4302705:  0.05%: .lu (Luxembourg)
+      173:  0.05%:    4149952:  0.05%: .si (Slovenia)
+      150:  0.05%:   10073848:  0.12%: .su (Former USSR)
+      141:  0.04%:    2899787:  0.04%: .ee (Estonia)
+      137:  0.04%:    3822336:  0.05%: .in (India)
+      117:  0.04%:    3490604:  0.04%: .ke (Kenya)
+      103:  0.03%:    1029746:  0.01%: .om (Oman)
+       92:  0.03%:    1364867:  0.02%: .bg (Bulgaria)
+       92:  0.03%:    4410079:  0.05%: .by (Belarus)
+       90:  0.03%:     964130:  0.01%: .pe (Peru)
+       88:  0.03%:    2508122:  0.03%: .co (Colombia)
+       86:  0.03%:    1659962:  0.02%: .cl (Chile)
+       79:  0.02%:    6225115:  0.08%: .bh (Bahrain)
+       71:  0.02%:    1334034:  0.02%: .cy (Cyprus)
+       64:  0.02%:    2882971:  0.04%: .lt (Lithuania)
+       63:  0.02%:    2124998:  0.03%: .yu (Yugoslavia)
+       62:  0.02%:    1313802:  0.02%: .nu (Niue)
+       40:  0.01%:     126595:       : .py (Paraguay)
+       30:  0.01%:     104163:       : [unknown]
+       30:  0.01%:    1154413:  0.01%: .pk (Pakistan)
+       29:  0.01%:     116117:       : .sv (El Salvador)
+       28:  0.01%:     752368:  0.01%: .ba (Bosnia-Herzegovina)
+       26:  0.01%:     924106:  0.01%: .ni (Nicaragua)
+       26:  0.01%:     756799:  0.01%: .pf (Polynesia (French))
+       24:  0.01%:     675689:  0.01%: .ge (Georgia)
+       24:  0.01%:      99009:       : .sa (Saudi Arabia)
+       21:  0.01%:     643303:  0.01%: .do (Dominican Republic)
+       20:  0.01%:      64127:       : .eg (Egypt)
+       19:  0.01%:      77216:       : .bn (Brunei Darussalam)
+       18:  0.01%:    1639740:  0.02%: .uy (Uruguay)
+       13:       :     445117:  0.01%: .vn (Vietnam)
+       11:       :      39336:       : .ae (United Arab Emirates)
+       11:       :     420076:  0.01%: .mt (Malta)
+        9:       :    2408742:  0.03%: .ph (Philippines)
+        3:       :      37107:       : .jm (Jamaica)
+        2:       :       6784:       : .bo (Bolivia)
+        2:       :     596634:  0.01%: .hn (Honduras)
+        2:       :     598986:  0.01%: .ky (Cayman Islands)
+        1:       :     595579:  0.01%: .ad (Andorra)
+        1:       :     588442:  0.01%: .fo (Faroe Islands)
+        1:       :     588442:  0.01%: .gt (Guatemala)
+        1:       :     588442:  0.01%: .gy (Guyana)
+        1:       :     588442:  0.01%: .int (International)
+
+    File Type Report
+
+     #reqs:  %reqs:      bytes: %bytes: extension
+    ------  ------  ----------  ------  ---------
+    224895: 70.99%:  594541704:  7.32%: .gif
+     45834: 14.47%:  791908921:  9.76%: .htm
+     14482:  4.57%:   72107004:  0.89%: (directories)
+     10516:  3.32%:   23951389:  0.30%: (no extension)
+     10141:  3.20%: 4037801593: 49.74%: .exe
+      8434:  2.66%: 2311861592: 28.48%: .zip
+      1246:  0.39%:   20263054:  0.25%: .txt
+       921:  0.29%:  260848461:  3.21%: .tgz
+       146:  0.05%:     375231:       : .class
+        36:  0.01%:     876261:  0.01%: .pl
+        34:  0.01%:    1160580:  0.01%: .cob
+        30:  0.01%:     439219:  0.01%: .cpp
+        28:  0.01%:     361681:       : .c
+        25:  0.01%:     317037:       : .mod
+        21:  0.01%:     237090:       : .bas
+        10:       :     192740:       : .asm
+
+    Browser Report
+
+    Printing the first 30 browsers, sorted by number of requests.
+    #reqs:  %reqs:     bytes: %bytes: browser
+    -----  ------  ---------  ------  -------
+    34608: 10.92%: 761880497:  9.46%: Mozilla/4.0 (compatible; MSIE 4.01; Windows 95)
+    24706:  7.79%: 547032200:  6.79%: Mozilla/4.05 [en] (Win95; I)
+    23378:  7.38%: 539766909:  6.70%: Mozilla/4.04 [en] (Win95; I)
+    16731:  5.28%: 393108103:  4.88%: Mozilla/4.0 (compatible; MSIE 4.01; Windows NT)
+    15684:  4.95%: 446336700:  5.54%: Mozilla/4.0 (compatible; MSIE 4.0; Windows 95)
+    12116:  3.82%: 270464524:  3.36%: Mozilla/4.0 (compatible; MSIE 4.01; Windows 98)
+     8768:  2.77%: 166176366:  2.06%: Mozilla/4.04 [en] (WinNT; I)
+     7493:  2.36%: 168409233:  2.09%: Mozilla/4.05 [en] (WinNT; I)
+     5293:  1.67%: 136922267:  1.70%: Mozilla/4.03 [en] (Win95; I)
+     4735:  1.49%:  88123028:  1.09%: Mozilla/4.05 [en] (Win95; I ;Nav)
+     4562:  1.44%: 129226369:  1.60%: Mozilla/2.0 (compatible; MSIE 3.01; Windows 95)
+     4264:  1.35%:  87334319:  1.08%: Mozilla/4.04 [en] (Win95; U)
+     3846:  1.21%:  94556575:  1.17%: Mozilla/3.0 (OS/2; I)
+     3820:  1.21%:  71176011:  0.88%: Mozilla/4.05 [en] (Win95; U)
+     3708:  1.17%: 112011159:  1.39%: Mozilla/2.0 (compatible; MSIE 3.0; Windows 95)
+     3691:  1.16%:  85491052:  1.06%: Mozilla/4.04 [en] (Win95; I ;Nav)
+     3428:  1.08%:  82283981:  1.02%: Mozilla/3.04 (Win95; I)
+     3327:  1.05%:  89377914:  1.11%: Mozilla/3.01Gold (Win95; I)
+     3185:  1.00%:  64933733:  0.81%: Mozilla/2.0 (compatible; MSIE 3.02; Update a; Windows 95)
+     3091:  0.98%: 102913115:  1.28%: Mozilla/4.01 [en] (Win95; I)
+     3005:  0.95%:  84035616:  1.04%: Mozilla/3.0 (Win95; I)
+     2987:  0.94%:  62946704:  0.78%: Mozilla/3.01 (Win95; I)
+     2775:  0.88%:  63710865:  0.79%: Mozilla/2.0 (compatible; MSIE 3.02; Windows 95)
+     2736:  0.86%:  69208762:  0.86%: Mozilla/2.02 (OS/2; I)
+     2725:  0.86%:  80347322:  1.00%: Mozilla/4.0 (compatible; MSIE 4.0; Windows NT)
+     2712:  0.86%:  55751620:  0.69%: Mozilla/3.04Gold (Win95; I)
+     2672:  0.84%:  76878859:  0.95%: Mozilla/4.03 [de] (Win95; I)
+     2640:  0.83%:  61524001:  0.76%: Mozilla/4.03 [ko] (Win95; I)
+     2152:  0.68%:  44812832:  0.56%: Mozilla/3.0 (compatible; Opera/3.0; Windows 95/NT4) 3.21
+     2077:  0.66%:  52168196:  0.65%: Mozilla/4.05 [de] (Win95; I)
+
+
+ == QUOTE OF THE MONTH -..-.--..-.--.-...----..-..-----.-..-.-.-.-.-.-----...
+
+    From: Jimi Joergensen <jimi@joergensen.net>
+    "Some mornings, it's just not worth chewing through the leather straps."
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    if (liberetto.contents == "TOO MUCH") then
+        reply.to ('editors@imatix.com')
+            using subject = "please, no more!!!";
+
+    All requests will be given a fair trial before being executed.

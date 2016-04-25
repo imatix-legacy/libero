@@ -1,0 +1,87 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Configuring and Testing Libero</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst8.htm">&lt;</A>
+ | &gt; | <A href="lrinst9.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC13">Configuring and Testing Libero</A></H2>
+
+<P>When you have installed Libero, run the <TT><B>lr</B></TT> command without
+arguments.  This should show a page of help.
+
+<P>Try this from the installation directory, then from a different directory.
+If Libero cannot find its message file, you'll get an error like this:
+
+<PRE>
+C:\CTOOLS\LIBERO&gt;lr
+LIBERO v2.32 (c) 1991-97 iMatix <http://www.imatix.com>
+Options file 'lr.ini' not found.
+Cannot find message file lrmesg on 'PATH' path.
+</PRE>
+
+<P>Type 'path' if you're working on MS-DOS, 'echo $PATH' if you're on UNIX,
+or 'show log path' if you're on VMS.  Check that the installation directory
+is on the path.
+
+<P>Next, type the command 'lr -settings' to see what settings Libero is
+using:
+
+<PRE>
+C:\CTOOLS\LIBERO&gt;lr -settings
+LIBERO v2.32 (c) 1991-97 iMatix <http://www.imatix.com>
+  Option settings for command:
+    animate  . . .: No
+    author . . . .: Your Name
+    check  . . . .: Yes
+    compress . . .: No
+    defaults . . .: defaults
+    dpath  . . . .: -
+    generate . . .: Yes
+    help . . . . .: No
+    idle . . . . .: Yes
+    initial  . . .: lr.ini
+    option . . . .: -
+    path . . . . .: PATH
+    plusd  . . . .: No
+    pretty . . . .: No
+    schema . . . .: lrschema.c
+    settings . . .: Yes
+    sort . . . . .: Yes
+    source . . . .: -
+    stats  . . . .: No
+    stubs  . . . .: Yes
+    style  . . . .: plain
+    trace  . . . .: No
+</PRE>
+
+<P>You can change any of these default option settings by editing the lr.ini
+file, or by placing the settings you want in your dialog file.
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst8.htm">&lt;</A>
+ | &gt; | <A href="lrinst9.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrinst.htm">Installing Libero</A>
+| <A href="lrinst1.htm">What You Will Need</A>
+| <A href="lrinst2.htm">Installing Libero for UNIX</A>
+| <A href="lrinst3.htm">Installing the MS Windows Kit</A>
+| <A href="lrinst4.htm">Installing the MS-DOS Kit</A>
+| <A href="lrinst5.htm">Installing the 32-bit MS-DOS Kit</A>
+| <A href="lrinst6.htm">Installing the OS/2 Kit</A>
+| <A href="lrinst7.htm">Installing the VAX/VMS Kit</A>
+| <A href="lrinst8.htm">Installing the Examples</A>
+| <EM>Configuring and Testing Libero</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

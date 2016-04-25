@@ -1,0 +1,194 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Example of Controlling a Telephone</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr2.htm">&lt;</A>
+ | <A href="lrintr4.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="rover">&nbsp;</A>
+<H2><A NAME="TOC9">Example of Controlling a Telephone</A></H2>
+
+<P>This next example is one that a correspondent at a telephone company
+proposed. It's a design for a simple but dedicated subprogram (we'll call it
+'Rover') that hangs-around on the corner of our telephone central.  Rover
+springs into action (presumably woofing and waggling a shaggy tail) when we
+pick-up the handset, or when a call comes in for us.  The dialog loops around
+and around, each time driven by an 'incoming message'.  This message is one
+of these events:
+<UL>
+<LI><B>Offhook</B> - we picked-up the handset.  Presumably this affects the
+current on the line, which the central can detect.</LI>
+<LI><B>Onhook</B> - we put the phone down.</LI>
+<LI><B>Request</B> - another person is calling us from a 'remote' phone.</LI>
+<LI><B>Digit</B> - we pressed a digit on the touchpad.</LI>
+<LI><B>Whole Number</B> - we pressed enough digits to form a recognised
+number.</LI>
+<LI><B>Accept</B> - the remote phone accepted the call - ie. the remote Rover
+gets a Request event of its own.</LI>
+<LI><B>Busy</B> - the remote phone was busy.</LI>
+<LI><B>Reject</B> - the remote phone number was rejected - we made a mistake
+with the number, or (if dialing into Britain) the British changed their
+dialing prefixes again.</LI>
+<LI><B>Answer</B> - finally, contact.  I hope it was worth it.</LI>
+<LI><B>Release</B> - the remote phone cut the Talking.  At our end we hear
+a tone that signals this.  (This is how my telephone central works.)</LI>
+</UL></P>
+
+<P>Here is the dialog.  Rover waits for anything to happen, then leaps:</P>
+
+<PRE>
+After-Init:
+    (--) Ok                           -&gt; Idle
+          + Wait-For-Incoming-Message
+    (--) Error                        -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The two possible events at this stage are <TT>Offhook</TT> (coming from
+the local phone), and <TT>Request</TT> (from a remote phone).  We call this
+state 'Idle'.  Some people get confused at this point, and point out that
+Rover is exactly <I>not</I> idle, so why the name.  Why not call the very
+first state 'Idle'?  I answer so: the name of a state reflects the state we
+were in when the event happened.  Thus, when Rover was idle, the only two
+events that could happen were <TT>Offhook</TT> and <TT>Request</TT>.</P>
+
+<PRE>
+Idle:
+    (--) Offhook                      -&gt; Dialing-First
+          + Start-Dial-Tone
+          + Reset-Dialed-Number
+          + Wait-For-Incoming-Message
+    (--) Request                      -&gt; Ringing
+          + Start-Ringing-Local
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The next two states show what happens when we dial the first digit. Rover
+stops with the dial tone, and slurps up the digits we press, one by one. I
+distinguish <TT>Dialing-First</TT> from <TT>Dialing-Next</TT> to ensure that
+Rover does a <TT>Stop-Local-Tones</TT> the first time only:</P>
+
+<PRE>
+Dialing-First:
+    (--) Digit                        -&gt; Dialing-Next
+          + Stop-Local-Tones
+          + Have-Dialed-Digit
+          + Wait-For-Incoming-Message
+    (--) Whole-Number                 -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+          + Wait-For-Incoming-Message
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>Rover doesn't bother handling the <TT>Onhook</TT> event here, since the
+<TT>Defaults</TT> state handles it just fine:</P>
+
+<PRE>
+Dialing-Next:
+    (--) Digit                        -&gt; Dialing-Next
+          + Have-Dialed-Digit
+          + Wait-For-Incoming-Message
+    (--) Whole-Number                 -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>Okay, we just tried to 'seize' the remote phone.  This is either accepted
+(and the remote phone starts ringing) or rejected for various reasons:</P>
+
+<PRE>
+Seizing:
+    (--) Accept                       -&gt; Ringing
+          + Start-Ringing-Remote
+          + Wait-For-Incoming-Message
+    (--) Busy                         -&gt; Seize-Failed
+          + Start-Busy-Tone
+          + Wait-For-Incoming-Message
+    (--) Reject                       -&gt; Seize-Failed
+          + Start-Reject-Tone
+          + Wait-For-Incoming-Message
+
+Seize-Failed:
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The next three states show how Rover handles a ringing phone (at either
+end) and the eventual Talking, if any.  I combined the handling for the local
+and remote phones into two states; I could also write this more clearly but
+verbosely as four states (<TT>Ringing-Local</TT>, <TT>Ringing-Remote</TT>,
+<TT>Talking-Local</TT>, <TT>Talking-Remote</TT>).</P>
+
+<PRE>
+Ringing:
+    !  Events from local phone
+    (--) Offhook                      -&gt; Talking
+          + Stop-Ringing-Local
+          + Wait-For-Incoming-Message
+    (--) Onhook                       -&gt; Idle
+          + Stop-Ringing-Remote
+          + Wait-For-Incoming-Message
+    !  Event from remote phone
+    (--) Answer                       -&gt; Talking
+          + Stop-Ringing-Remote
+          + Wait-For-Incoming-Message
+
+Talking:
+    !  Event from local phone
+    (--) Onhook                       -&gt; Idle
+          + Send-Outgoing-Release
+          + Wait-For-Incoming-Message
+    !  Event from remote phone
+    (--) Release                      -&gt; Released
+          + Start-Released-Tone
+          + Wait-For-Incoming-Message
+
+Released:
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The <TT>Defaults</TT> state handles the <TT>Onhook</TT> event in those
+states where there is no local tone.  In those states (like
+<TT>Released</TT>), Rover silences the local phone, then loops back to the
+<TT>Idle</TT> state:</P>
+
+<PRE>
+Defaults:
+    (--) Onhook                       -&gt; Idle
+          + Wait-For-Incoming-Message
+</PRE>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr2.htm">&lt;</A>
+ | <A href="lrintr4.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <EM>Example of Controlling a Telephone</EM>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

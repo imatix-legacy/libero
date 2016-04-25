@@ -1,0 +1,467 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    JUNE 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 6
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    So, the world watched with a horrified fascination as the best (and
+    maybe last great) human chess player in the world was defeated by the
+    best (and certainly not the last) electronic chess player, Deep Blue. 
+    IBM's shares jumped, and humanity's shares fell sharply.  The last
+    bastion of human supremacy, intelligence, has fallen to the advance of
+    technology.  Soon the machines will rule the world and -- if the way we
+    treat other species is any guideline -- we are going to be in for a
+    rough time.
+
+    Well, this was what I heard on the radio, and read in the paper, but
+    there are fallacies in the analyses, to coin a phrase.  Deep (or do we
+    call it 'Blue') is not intelligent, even if Kasparov thinks he saw the
+    stirrings of AI in Blue's processes.  This box of chips is a chess
+    player like a digital tape recorder is a opera singer.  It's just a tool
+    whereby a large group of very, good Master chess players (the
+    programmers and their colleagues) can combine their skills against a
+    single very, very, very good Grand Master.
+
+    True artificial intelligence, like fusion power, world peace, and
+    reliable software, is as far off as it was in the 60's when the great AI
+    race began.  The only thing we've really learnt is how difficult and
+    strange the road will be.
+
+    I'm not going to try to define intelligence (though one thing is clear,
+    chess playing it ain't) or predict the course of AI research (though I'm
+    sure it's more likely to evolve in the information sewers than in the
+    shining laboratories); there are much more concrete consequences of Deep
+    Blue's victory.  We're moving from the steam engine to the internal
+    combustion engine: computing power is starting to become a tool that can
+    do tasks that previously required a chess Grand Master.  A car moves
+    faster than I can run, but there is no doubt about who is in charge.
+
+    When the first cars were produced, people raced against them.  When an
+    automobile first beat a world-class runner, it was a time of crisis and
+    anguish, but also the start of a new era of cheap and reliable
+    mechanical power.  In the same way, this moment marks the start of a new
+    age when people will use the power of computers as a natural extension
+    to their own mental capabilities.  Right now, Mr Blue's inevitable
+    victory will add some spice to the millenium angst.  In a decade we'll
+    be using lots of little offspring Blues to plan economies, beat business
+    rivals, organise weddings, and perhaps even write better software.
+
+    And I don't think that we need thinking computers to turn the human race
+    into a subjugated species.  We do a pretty good job of this ourselves.
+
+    Pieter Hintjens
+    Antwerpen
+    1 June 1997
+
+    Ps. what has this to do with state machines?  Nothing.  Everything.
+
+
+ == NEWS ---..-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    New Software Releases Hit The iMatix Site!
+        Under working conditions that would appal the civilised world, our
+        slaving crew has produced yet another flotilla of updates to the
+        iMatix software collection.  Download SFL 1.5, SMT 2.23, Htmlpp 2.2,
+        or even Xitami 1.2d!!  If this is meaningless to you, join the club. 
+        We're confused too.  One proposal is just to call everything "The
+        New Version".  Typical exchange between puzzled user and the iMatix
+        hotline...  User: "Hey, my version of Taximi does not handle
+        multiple identities!  What am I doing wrong?!"  Hotline: "D'ya have
+        The New Version?"  [Scenario A... User: "Yes".  Hotline: "Aha!".]  
+        [Scenario B... User: "No".  Hotline: "Aha!  Then you need The New
+        Version!"].
+
+    SFL Ready For The New Millenium
+        Our core library, SFL, now handles dates past midnight on 31 Dec
+        1999, when a fair chunk of the world's software will start to take
+        its horrible revenge on a generation of cost-cutting middle
+        managers.  At least your faithful iMatix software (including The New
+        Version of Taximi) will continue to reject multiple identies as
+        usual.  However, we have to warn our SFL users that some problems
+        may occur in 2038, when all the bits get used-up.  Unless we start
+        saving and recycling bits RIGHT NOW, we will be in trouble!
+
+    Shock Horror Probe! SFL Gets Perl'd
+        Last month, a new hybrid program crawled out of the iMatix AI
+        research labs and escaped into the wild before it could be shot and
+        gassed.  Yes, a fluke mating between a three-tailed SFL and the rare
+        Amazonian Perl produced viable offspring in the form of a Perl
+        sfldate package.  We don't yet know if it's fertile, but it's been
+        seen hanging around The New Version of htmlpp in the iMatix jungle.
+        Htmlpp is reportedly now able to format dates in a blistering
+        variety of ways.  Approach with care, and use force if necessary.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >Date sent:        Sun, 01 Jun 1997 10:24:59 -0600
+    >To:               info@imatix.com
+    >From:             twf <twf@Paula-Formby.tenet.edu>
+    >Subject:          THANKS! ....... htmlpp is asking for this file ???
+    >Hello,
+    >First thanks for all the really GREAT software that makes development a
+    >lot easier. I do a lot of java programming and the Libero development
+    >tool is a great help.  I even test apps using the Xitami web server on
+    >my local machine.  At any rate, I am now trying to use your html
+    >preprocessor and when I run htmlpp.bat on htmlpp template.txt to check
+    >my install I receive the following message taken from my monitor's
+    >command line output:
+    >C:\perl>htmlpp .\template.txt
+    >DOS/4GW Professional Protected Mode Run-time  Version 1.97
+    >Copyright (c) Rational Systems, Inc. 1990-1994
+    >Can't locate sflcvdp.pl in @INC at c:/perl/htmlpp line 26.
+    >C:\perl>
+    >It seems to want the file sflcvdp.pl. Where can I get this file or is
+    >it something I need to write? It was not included in the htmlpp.zip
+    >file. Thanks!
+    >Terry Funk
+
+    Ahem, download The New Version of htmlpp again, and the missing files
+    shall be magically made available.  We have taken the guilty parties
+    outside, shot-stabbed-garrotted-and-drowned them, and given them a
+    severe lecture about quality control and testing.  Won't happen again
+    soon.
+
+    -----------------------------------------------------------------------
+    >Date sent:        Mon, 28 Apr 1997 14:52:21 -0300
+    >From:             Bernard Dominic Tremblay <btrembla@is2.dal.ca>
+    >To:               ph@imatix.com
+    >Subject:          htmlpp
+    >I just ran htmlpp on template.txt ...
+    >hahahahahaha!
+    >Grok eGrok fGrok!
+    >grokkingly yours
+    >ben
+
+    As any serious Grok user knows, "Grok should never be used in
+    combination with Grool", and this is perhaps what Ben is referring to.
+    We can't be responsible for the consequences.
+
+    -----------------------------------------------------------------------
+    >Date sent:        Tue, 8 Apr 1997 17:16:11 +0200 (MET DST)
+    >From:             Torben Dam Jensen <tdj@dds.nl>
+    >To:               ph@imatix.com;
+    >Subject:          All OK (almost)  
+    >Idea : I think it would be great to have more freedom with dates. As of
+    >now, I have to edit the script to change date formats. I compile HTML
+    >files to both US and European format, and would like to see something
+    >like $(DATE : "mmm dd yyyy, hh:mm") - or whatever. Much like Ms-Access
+    >"format".  Sorry to be bugging you with all those ideas, but hey -
+    >that's the only way ahead for you - and HtmlPP. Use them, or discard
+    >them.
+    >Thanks for the support.
+    >Torben D. Jensen.
+    
+    This was a great idea, and we implemented it in The New Version of
+    htmlpp.  Something like this: &date("mmm dd yyyy").
+    
+    -----------------------------------------------------------------------
+    >Date sent:        Sat, 24 May 1997 14:07:28 -0500
+    >From:             David Haertzen <dhaertzen@infogoal.com>
+    >Organization:     First Place Software, Inc.
+    >To:               info@imatix.com
+    >Subject:          We have added a link to your site
+    >Hello:
+    >We have added links to your site from our site (The COBOL Center).
+    >The url is http://www.infogoal.com/cbd/cbdhome.htm.
+    >Keep up the good work on your site.
+    >Regards,
+    >David Haertzen
+    
+    Thanks. :-)
+    
+    -----------------------------------------------------------------------
+    >Date sent:        Wed, 28 May 97 22:51:00 -0100
+    >From:             christoph.rasim@argon.jaconnect.com (Christoph Rasim)
+    >Subject:          OS/2 version not downloadable
+    >To:               Support@imatix.com
+    >Send reply to:    christoph.rasim@argon.jaconnect.com
+    >Dear sir or madam,
+    >I was very glad to see that you put out a new version of Xitami, but
+    >unfortunably the OS/2 version is currently not downloadable (NOT
+    >FOUND) :-( Could you please fix it?
+    >Ciao,
+    >Christoph
+
+    :-(  We always do extra-intensive tests on the OS/2 version, to make
+    sure that our precious OS/2 users get the highest possible quality. 
+    This causes a small delay in some cases.  [Lies, all lies.  They just
+    forgot the file! - Ed.]
+
+    -----------------------------------------------------------------------
+    >Date sent:        Wed, 28 May 1997 23:23:11 +0100
+    >From:             "Hakan Hjelmstrom" <hawk@mail.algonet.se>
+    >Organization:     iTiTi - IT i Tibro HB
+    >To:               ph@imatix.com
+    >Subject:          Wow! (Re: Xitami Newletter - June 1997)
+    >> This is the irregular Xitami newsletter.  To unsubscribe, send a mail
+    >> to xitami@imatix.com with 'unsubscribe' in the subject or body.
+    >Well, I didn't subscribe, but thanks for adding me to the list :-)
+    >>   * Windows installation slightly smaller (335K instead of 380k for
+    >>     normal 32-bit kit).
+    >My God! A program that actually shrinks when features are added ! 8-O
+    >You sure aren't aiming for a career at Microsoft ;-)
+    >Thank you !
+    >Hakan Hjelmstrom
+    >Hawk@Algonet.se
+    >(still trying to convince my friend to install Perl as well)
+    
+    We're fairly liberal about adding people to our mailing lists.  If you
+    even appear to show interest in The New Version of Taximi, for example,
+    you get whacked onto the Taximi mailing list.  Then, you get long boring
+    mails about the details of each new release.  This is to discourage
+    people from using Technical Support too much.
+
+
+ == IMATIX WEBSITE STATISTICS --...-.-.--..-.-..-.-.-.-.-...-.----..-..---..
+
+    Program started at Sun-01-Jun-1997 01:09 local time.
+    Analysed requests from Thu-01-May-1997 00:01 to Sat-31-May-1997 23:58
+      (31.0 days).
+    Figures in parentheses refer to the last 7 days.
+
+    Total completed requests: 49,868 (13,463)
+    Total failed requests: 343 (191)
+    Average requests per day: 1,620 (1,952)
+    Number of distinct files requested: 658 (655)
+    Number of distinct hosts served: 3,478 (1,078)
+    Number of new hosts served in last 7 days: 933
+    Total data transferred (in bytes): 1,214,450,472 (473,755,724)
+    Total data transferred (in Megabytes): 1158.190
+    Average data transferred per day (in bytes): 39,177,576 (67,679,389)
+    
+    Daily Summary
+    
+    day: #reqs
+    ---  -----
+    Sun:  4894: +++++++++++++++++++++++++
+    Mon:  6490: +++++++++++++++++++++++++++++++++
+    Tue:  7419: ++++++++++++++++++++++++++++++++++++++
+    Wed:  6422: +++++++++++++++++++++++++++++++++
+    Thu: 10076: +++++++++++++++++++++++++++++++++++++++++++++++++++
+    Fri:  8413: +++++++++++++++++++++++++++++++++++++++++++
+    Sat:  6154: +++++++++++++++++++++++++++++++
+    
+    Hourly Summary
+    
+    hr: #reqs
+    --  -----
+     0:  1655: +++++++++++++++++++++
+     1:  1433: ++++++++++++++++++
+     2:  1917: ++++++++++++++++++++++++
+     3:  1707: ++++++++++++++++++++++
+     4:  2204: ++++++++++++++++++++++++++++
+     5:  2236: ++++++++++++++++++++++++++++
+     6:  3314: ++++++++++++++++++++++++++++++++++++++++++
+     7:  2534: ++++++++++++++++++++++++++++++++
+     8:  2512: ++++++++++++++++++++++++++++++++
+     9:  1996: +++++++++++++++++++++++++
+    10:  2123: +++++++++++++++++++++++++++
+    11:  2868: ++++++++++++++++++++++++++++++++++++
+    12:  2906: +++++++++++++++++++++++++++++++++++++
+    13:  2819: ++++++++++++++++++++++++++++++++++++
+    14:  2218: ++++++++++++++++++++++++++++
+    15:  1945: +++++++++++++++++++++++++
+    16:  1738: ++++++++++++++++++++++
+    17:  1942: +++++++++++++++++++++++++
+    18:  1957: +++++++++++++++++++++++++
+    19:  1723: ++++++++++++++++++++++
+    20:  1383: ++++++++++++++++++
+    21:  1372: ++++++++++++++++++
+    22:  1446: +++++++++++++++++++
+    23:  1920: ++++++++++++++++++++++++
+    
+    Domain Report
+    
+    Printing all domains with any traffic, sorted by amount of traffic.
+    
+    #reqs: %bytes: domain
+    -----  ------  ------
+    11157: 18.61%: .com (Commercial (mainly USA))
+     2082: 17.19%: .dk (Denmark)
+     9828: 15.89%: .net (Network)
+     8236: 14.80%: [unresolved numerical addresses]
+     1445:  3.35%: .it (Italy)
+     2024:  3.12%: .edu (USA Educational)
+     1590:  2.68%: .uk (United Kingdom)
+     1308:  2.52%: .de (Germany)
+     1045:  2.04%: .au (Australia)
+     1449:  1.99%: .ca (Canada)
+     1001:  1.80%: .se (Sweden)
+      892:  1.64%: .nl (Netherlands)
+      596:  0.99%: .fr (France)
+      362:  0.86%: .br (Brazil)
+      364:  0.77%: .ch (Switzerland)
+      317:  0.74%: .no (Norway)
+      451:  0.70%: .jp (Japan)
+      313:  0.68%: .es (Spain)
+      388:  0.68%: .mil (USA Military)
+      389:  0.63%: .nz (New Zealand)
+      288:  0.51%: .at (Austria)
+      202:  0.51%: .kr (South Korea)
+      225:  0.47%: .il (Israel)
+      477:  0.45%: .fi (Finland)
+      156:  0.44%: .za (South Africa)
+      171:  0.42%: .ee (Estonia)
+      117:  0.40%: .tw (Taiwan)
+      157:  0.39%: .ru (Russian Federation)
+      130:  0.34%: .cz (Czech Republic)
+      348:  0.34%: .org (Non-Profit Making Organisations)
+      456:  0.33%: .be (Belgium)
+      231:  0.33%: .pt (Portugal)
+       96:  0.33%: .th (Thailand)
+      172:  0.33%: .gov (USA Government)
+      205:  0.33%: .us (United States)
+      110:  0.27%: .lu (Luxembourg)
+      157:  0.25%: .sg (Singapore)
+       90:  0.23%: .hr (Croatia)
+       48:  0.18%: .pl (Poland)
+       84:  0.14%: .hk (Hong Kong)
+       73:  0.13%: .su (Former USSR)
+       56:  0.11%: .id (Indonesia)
+       13:  0.10%: .ph (Philippines)
+       45:  0.09%: .mx (Mexico)
+       30:  0.09%: .my (Malaysia)
+      104:  0.09%: .gr (Greece)
+       20:  0.08%: .cn (China)
+       62:  0.08%: .hu (Hungary)
+       37:  0.08%: .ie (Ireland)
+       16:  0.07%: .in (India)
+       31:  0.07%: .ar (Argentina)
+       35:  0.05%: .co (Colombia)
+       56:  0.05%: .cl (Chile)
+       19:  0.04%: .eg (Egypt)
+        7:  0.04%: .sk (Slovak Republic)
+        2:  0.03%: .lv (Latvia)
+       16:  0.03%: .bg (Bulgaria)
+       17:  0.02%: .ro (Romania)
+        1:  0.02%: .uy (Uruguay)
+       30:  0.01%: .si (Slovenia)
+        9:       : .zw (Zimbabwe)
+        9:       : .ae (United Arab Emirates)
+        7:       : .tr (Turkey)
+        6:       : .cr (Costa Rica)
+        5:       : .fj (Fiji)
+        4:       : .li (Liechtenstein)
+        1:       : [unknown]
+    
+    Request Report
+    
+    Printing all files with at least 10 requests, sorted by number of
+    requests.  (Filtered to show only installation archive files -- Ed.)
+    
+    #reqs: %bytes: filename
+    -----  ------  --------
+      657: 14.20%: /pub/xitami/xiw3212b.exe
+      273:  5.45%: /pub/xitami/xiw3212c.exe
+      237:  4.47%: /pub/xitami/xic3212b.exe
+      199:  3.55%: /pub/libero/bin/lrmswin.zip
+      179:  3.52%: /pub/libero/bin/lrmswins.zip
+      154:  2.95%: /pub/libero/doc/lrhtml.zip
+      136:  0.15%: /pub/tools/srcdoc.zip
+      131:  0.73%: /pub/libero/doc/lrfull.zip
+      131:  2.43%: /pub/libero/example/complete.zip
+      128:  3.38%: /pub/xitami/xis3212b.exe
+      128:  2.77%: /pub/xitami/xiw1612b.exe
+      110:  0.44%: /pub/tools/htmlpp.zip
+      109:  1.86%: /pub/sfl/src/sflsrc15.zip
+      100:  2.67%: /pub/libero/bin/lrmswinx.zip
+      100:  2.62%: /pub/xitami/xiuni12c.tgz
+       85:  2.06%: /pub/xitami/xiuni12c.zip
+       84:  1.80%: /pub/sfl/doc/sfldoc15.zip
+       81:  0.82%: /pub/libero/src/lrsrc222.tgz
+       76:  0.09%: /pub/tools/otto.zip
+       76:  0.06%: /pub/tools/framer.zip
+       74:  1.27%: /pub/xitami/xic3212c.exe
+       74:  1.54%: /pub/xitami/xis3212c.exe
+       64:  0.83%: /pub/libero/src/lrsrc222.zip
+       63:  2.06%: /pub/xitami/xiuni12b.tgz
+       60:  0.96%: /pub/libero/src/lrwinsrc.zip
+       60:  0.71%: /pub/smt/src/smtsrc22.zip
+       54:  0.92%: /pub/xitami/xiw1612c.exe
+       54:  0.43%: /pub/libero/bin/lrdos32.zip
+       52:  0.69%: /pub/sfl/src/sflsrc15.tgz
+       52:  0.73%: /pub/xitami/xiw3212b.zip
+       49:  0.74%: /pub/smt/doc/smtdoc22.zip
+       48:  0.38%: /pub/libero/bin/lrmsdos.zip
+       45:  1.25%: /pub/xitami/xiuni12b.zip
+       40:  0.05%: /pub/libero/example/tcpip.zip
+       36:  0.02%: /pub/libero/example/stripper.zip
+       35:  0.15%: /pub/libero/example/htmlpp.zip
+       32:  0.11%: /pub/libero/example/acms.zip
+       32:  0.73%: /pub/xitami/xiw3212d.exe
+       32:  0.05%: /pub/libero/example/erbot.zip
+       29:  0.29%: /pub/smt/src/smtsrc22.tgz
+       28:  0.34%: /pub/xitami/xiw1612b.zip
+       25:  0.18%: /pub/libero/example/expr.zip
+       24:  0.06%: /pub/libero/example/picture.zip
+       23:  0.02%: /pub/libero/example/install.zip
+       23:  0.21%: /pub/sfl/doc/sfldoc15.tgz
+       22:  0.28%: /pub/xitami/xiw3212c.zip
+       21:  0.20%: /pub/sfl/doc/sflbig15.zip
+       21:  0.02%: /pub/libero/example/config.zip
+       20:  0.10%: /pub/smt/doc/smtbig22.zip
+       19:  0.28%: /pub/xitami/xios212b.zip
+       19:  0.32%: /pub/xitami/xis3212b.zip
+       17:  0.27%: /pub/xitami/xic3212d.exe
+       17:  0.09%: /pub/tools/lrdoc.zip
+       16:  0.12%: /pub/libero/bin/lros2.zip
+       15:  0.14%: /pub/smt/doc/smtdoc22.tgz
+       15:  0.16%: /pub/xitami/xic3212b.zip
+       15:  0.15%: /pub/libero/src/lrsrc221.tgz
+       13:  0.04%: /pub/libero/bin/unzip.exe
+       12:  0.19%: /pub/xitami/xiw1612d.exe
+       12:  0.10%: /pub/sfl/doc/sflbig15.tgz
+       11:  0.14%: /pub/libero/src/lrsrc221.zip
+       10:  0.05%: /pub/smt/doc/smtbig22.tgz
+    
+    Which makes a total of 2134 downloads for Xitami, and 780 for Libero.
+    Now, the US$64 question... What the heck is Denmark up to?
+
+
+ == BUG BOX -...--.---.--.-....-..--.-.---..-..---.-.-..--.----..-..---.-..-
+
+    Yes, introducing that tiny section of Liberetto where we admit that
+    even we are human.  Perhaps that is a True Sign of Intelligence, 
+    screwing up?
+
+    *  Xitami won't let you access a plain drive - say 'M:' as a webpages
+       directory.
+
+    *  Xitami 1.2c was released with a security hole larger than the 
+       Channel Tunnel deficit, and was downloaded 273 times (according to
+       the above chart) before we could plug the damn with version 1.2d.
+
+    *  Taximi still does not handle multiple identities.  We've tried 
+       asking it what is wrong, but it just keeps saying: "Cannot boot 
+       from ROM Basic".  This is perhaps a sign of youth trauma.  We are
+       going to attempt a total reboot... Xj$Dave you really don't want to
+       do that$%S %^I'm sorry Dave&^%%S!!!
+
+
+ == T-SHIRT SLOGANS OF THE MONTH .---..-..---.-.-..---.-.-...-.-....---..-..
+
+    "Optimisation Hinders Evolution"
+    "A computer can crash, but it takes True Intelligence to really screw
+     things up!"
+    "Love thy neighbour - tune thy piano"
+    "Hackers do it with fewer instructions"
+
+    Thanks, perhaps, to Alex McGregor for these.  Send in your favourite
+    pousse-cafe's now!
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    Packing your bags for the millenium meltdown?  No email in the bunker?
+    Take plenty of books and drinking water and send an unsubscribe to
+    liberetto@imatix.com.  We won't tell anyone.  Promise.

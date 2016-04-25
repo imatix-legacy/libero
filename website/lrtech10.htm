@@ -1,0 +1,58 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Generating COBOL Code</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech9.htm">&lt;</A>
+ | <A href="lrtech11.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC25">Generating COBOL Code</A></H2>
+
+<P>Libero has some built-in knowledge about the COBOL source format that
+makes it a little easier to generate COBOL code.  The COBOL format is
+80-column text, where the first six columns are a numeric sequence number.
+The last eight columns are a comment.
+<UL>
+<LI>If the schema looks like COBOL, Libero generates COBOL as a result.  It
+ignores anything in the first 6 or last 8 columns of the schema.
+
+<LI>When the -style option is <TT>-style=cobol</TT>, Libero checks that data
+names are not longer than 30 characters, which is the standard ANSI maximum
+for data names.
+
+<LI>You can set <TT>$cob_comment</TT> to control what Libero places in
+columns 73-80 of the output source.  Normally this is the date, e.g.
+<TT>96/01/31</TT>.
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech9.htm">&lt;</A>
+ | <A href="lrtech11.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <EM>Generating COBOL Code</EM>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

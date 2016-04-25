@@ -1,0 +1,246 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Libero Options</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser1.htm">&lt;</A>
+ | <A href="lruser3.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC3">Libero Options</A></H2>
+
+<P>Like most command-line programs, lr accepts various options. These control
+things such as the language that Libero generates, the filenames it uses,
+etc.</P>
+
+<P>You can supply an option in various ways:
+<UL>
+<LI>Type the option when you run lr.  This is good for options that you use
+now and then.</LI>
+
+<LI>Place the option in the dialog file itself (at the start of the file,
+anywhere before the first state).  This is good for options that are specific
+to that dialog file.</LI>
+
+<LI>Place the option in a global initialisation file, usually called lr.ini,
+somewhere on the path.  This is good for options that you want for all your
+work.</LI>
+</UL></P>
+
+<P>It sometimes gets a little complex to remember which option is active,
+especially if you put the same option in various places. For instance you
+could put '-nocheck' in lr.ini, then run the <TT>lr</TT> command with the '
+check' option.  Which takes precedence?  The answer is: it works like it
+should.  This is a somewhat arrogant statement, so I'll explain:
+<UL>
+<LI>Each option has a default value, as explained below.  When Libero starts
+up, this is the value.</LI>
+
+<LI>Libero reads the <TT>lr.ini</TT> file and uses the options in that file.
+These can change the default values.</LI>
+
+<LI>Libero then looks at any options in the dialog file.</LI>
+
+<LI>Libero looks at the lr command line and processes any options you typed
+there.  Libero picks-up a -help option right away, as well as a -initial or
+-path, since these affect which lr.ini file it reads.</LI>
+</UL></P>
+
+<P>If you are unsure of the options in effect for your dialog, run
+<TT>lr</TT> with the -settings option.  This displays the current options.
+You can specify a Libero option in various forms:<BR>
+
+<DL>
+<DT>-option</DT>
+<DD>Normal usage.</DD>
+<DT>-option=value</DT>
+<DD>Option takes value.</DD>
+<DT>-option:value</DT>
+<DD>Also okay.</DD>
+<DT>-option="value"</DT>
+<DD>Don't convert value to lowercase.</DD>
+<DT>-option:'value'</DT>
+<DD>The same as above.</DD>
+<DT>-nooption</DT>
+<DD>switch off true/false option.</DD>
+<DT>-option=no</DT>
+<DT>-option=false</DT>
+<DD>The same as above.</DD>
+</DL>
+
+<P>You can abbreviate an option name to 3 or more characters.
+Option values are converted to lower-case unless you place them
+in single or double quotes. Some options take values; others are
+true/false options.  These is a summary of the options that lr
+accepts:</P>
+
+<PRE>
+Option            Explanation                        Default
+
+-animate          include animation code             -noanimate
+-author=name      include animation code             ="My Name"
+-check            generate full runtime checks       -check
+-compress         compress generated tables          -compress
+-defaults=state   name of defaults state             =defaults
+-dpath=variable   path for dialog and ini files      ="PATH"
+-generate         generate output code               -generate
+-help             show this information              -nohelp
+-idle             indicate idle modules              -noidle
+-initial=file     read options from file             =lr.ini
+-option=list      define generation options          none
+-path=variable    path variable for schema files     ="PATH"
+-plusd            enforce 'source+D' naming rule     -noplusd
+-pretty           pretty-print dialog file           -nopretty
+-schema=file      schema for code generation         =lrschema.c
+-settings         show option settings per file      -nosettings
+-sort             add module stubs alphabetically    -sort
+-source=file      program for dialog                 name of dialog
+-stats            show dialog statistics             -nostubs
+-stubs            generate stubs for new modules     -stubs
+-style=plain      naming style: some_module_name     -style=plain
+-style=caps       naming style: SomeModuleName
+-style=headline   naming style: Some_Module_Name
+-style=title      naming style: Some_module_name
+-style=normal     naming style: Some-Module-Name
+-style=cobol      naming style: SOME-MODULE-NAME
+-trace            trace code generation to list file
+</PRE>
+
+<P>And now in detail:
+<UL>
+<LI><B>-[no]animate</B> - include or exclude animation code.  If
+you use this option, the schema will generate code that displays
+each new state, event, and action as the dialog runs.  This is
+useful for debugging.  The default is -noanimate.</LI>
+
+<LI><B>-author</B> - Libero uses this value when it creates a
+new file for you.  Put the string in quotes to include spaces:
+-author='My Name'.  On the MS-DOS command line, you must type
+this (two sets of quotes): "-author='My name'".  The default is
+"Your Name".</LI>
+
+<LI><B>-[no]check</B> - generate full runtime checks.  If you
+use this option, the schema will generate code that checks for
+invalid or missing events while the program runs.  Keep this
+option unless you are sure it is slowing down a crucial dialog.
+The default is -check.</LI>
+
+<LI><B>-[no]compress</B> - compress the generated tables.
+Currently, this means:removing unused states.  You can disable
+this using the nocompress option.  The default is
+-compress.</LI>
+
+<LI><B>-defaults=state</B> - the name of the Defaults state.
+This state serves to collect events that can happen in any other
+state; you can make the dialog smaller and simpler by placing
+these into the Defaults state.  The default is "Defaults".</LI>
+
+<LI><B>-dpath=variable</B> - Libero uses this path to search for
+the lr.ini file and the dialog file.  You can use the name of an
+environment variable (a logical variable under VMS) or a literal
+path.  If the case is important, enclose it in quotes.  For
+example, under MS-DOS: -dpath='LRPATH'.  Libero always searches
+the current directory first.  The default is empty, in which
+case Libero uses the -path value.</LI>
+
+<LI><B>-[no]generate</B> - generate output code.  If you want to
+check the dialog but not generate any output, use -nogen.  The
+default is -generate.</LI>
+
+<LI><B>-[no]idle</B> - indicate idle modules.  Libero lists any
+modules in your program that are not referenced in the dialog.
+This can happen when you change a dialog.  The default is
+-noidle.</LI>
+
+<LI><B>-initial=file</B> - tells Libero to read options from
+some specific file instead of lr.ini.  You can use this option
+on the command line only. The default is "lr.ini".</LI>
+
+<LI><B>-option:name=value</B> - supply a specific option value
+to a schema. This allows the schema to generate code
+conditionally, or fill-in specific values.  The 'name' is a
+variable defined in the schema; the 'value' overrides any
+default that the schema specifies.  The 'value' can be a full
+expression, including references to other schema variables.</LI>
+
+<LI><B>-path=name</B> - Libero uses this path to search for its
+message file and the schema used to generate code.  You can use
+the name of an environment variable (a logical variable under
+VMS) or a literal path.  If the case is important, enclose it in
+quotes.  For example, under MS-DOS: -path='LRPATH'.  Libero
+always searches the current directory first.  The default is
+"PATH" (in uppercase).  See also -dpath.</LI>
+
+<LI><B>-[no]plusd</B> - enforce the "source+D" naming rule.  The
+default is -noplusd.</LI>
+
+<LI><B>-[no]pretty</B> - rewrite the dialog, aligning it using
+the standard Libero conventions.  This can work nicely.  Your
+original dialog is saved with the extension .bak.  Does not
+generate any code.  The default is -nopretty.</LI>
+
+<LI><B>-schema=file</B> - schema for code generation.  If you
+override this default, be sure to specify the file extension.
+The default is "lrschema.c".</LI>
+
+<LI><B>-[no]settings</B> - show option settings for each file
+processed.  The default is -nosettings.</LI>
+
+<LI><B>-[no]sort</B> - output new module stubs in sorted order.
+Depending on your preferences, you may want to keep modules in
+sorted order or natural order.  The default is -nosort.</LI>
+
+<LI><B>-source=file</B> - program that uses the dialog.  By
+default the name of the dialog, unless you use -plusd option, in
+which case it is the name of the dialog minus an obligatory
+'D'.</LI>
+
+<LI><B>-[no]stats</B> - report the number of states, events, and
+modules in the dialog.  The default is -nostats.</LI>
+
+<LI><B>-[no]stubs</B> - generate stubs for modules which are
+referenced in the dialog but do not (yet) exist in the program.
+The default value for this option is -stubs.  If you use
+-nostubs, you will have to make new module stubs by hand.  So
+leave -stubs on.</LI>
+
+<LI><B>-style={plain|caps|heading|title|normal|cobol}</B> -
+style for module and event names.  The default is 'plain'.  You
+can use this to adapt Libero's output to your preferred
+programming style; do not change halfway through a project
+unless you like doing major cleanups.</LI>
+
+<LI><B>-[no]trace</B> - create a report file that traces the
+code generator's output.  This is useful if you are writing or
+changing a schema, and cannot get it to work.  The trace file is
+called <EM>dialog</EM>.lst.  The default is -notrace.</LI>
+</UL></P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser1.htm">&lt;</A>
+ | <A href="lruser3.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <EM>Libero Options</EM>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

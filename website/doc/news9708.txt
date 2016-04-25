@@ -1,0 +1,571 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                  AUGUST 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 8
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming - Finite State Machines - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Scientific American wrote recently that the computer industry in its
+    short history had made no significant contribution to the productivity
+    of its customers.  We went from DOS to Windows to the Internet for
+    nothing.  All those hours perfecting and tuning our double-clicks were
+    wasted.  This is no news to anyone who watched people hammering out
+    documents using Word Perfect 5.1 for DOS.  I could never learn this
+    product, yet millions of people did, and loved it.  What surprise, then,
+    that moving to Word for Windows did not make them work any faster.  They
+    could already produce at top speed.
+
+    What applies to our customers applies to us as well.  Are we really
+    going to produce better software faster because we throw away everything
+    we know and start from scratch every few years - only several gigabytes
+    and many bucks poorer?
+
+    In my work as a technical consultant for large firms, I've seen many
+    teams working on large and small projects.  Sometimes they had no tools,
+    and invented stuff along the way.  Bad choice - developers can't often
+    build tools.  Sometimes they chose tools, and paid the price of the
+    learning curve.  Sometimes tools were imposed.
+
+    The teams that prospered, that got the work done on time and under
+    budget were those who - apart from getting the human aspects right - had
+    good tools, and were at the top of the learning curve.  It's a wonder to
+    watch such a team develop and produce a solution that works right the
+    first time.  It's also the exception, rather than the rule.
+
+    What's the rule?  Tools thrown together by people who can't recognise
+    the general from the specific; tools that take six months to get into
+    shape and two years to master; tools that throw-up unexpected problems
+    well into the middle of a project; tools that build walls rather than
+    open doors.  I could go on, and probably will, after a glass of wine
+    sometime.
+
+    Okay, I'm coming to the point.  It's admirable to improve things.  But
+    just as a social revolution that kills all the intellectuals kills the
+    society, a technical revolution that is measured in chopped heads is a
+    step backwards.  Progress must recognise that the best is not to come,
+    but already exists, and must be reused.  All we can do is tweak, tune,
+    and reapply.
+
+    Many of the fundamental problems in making and using software have been
+    understood.  Read a book like Steve McConnell's 'Code Complete' from
+    Microsoft Press and you'll see what I mean.  Sadly, many people would
+    prefer to invent yet one more layer of complexity rather than get down
+    to doing the boring work.  The proof is in the pudding, as my Mum used
+    to (probably still does) say.  If we're so smart, how come we still
+    can't deliver any measurable gains in productivity to ourselves and our
+    clients?
+
+    iMatix's success is based on this simple principle: master the
+    technology.  We leave nothing to chance, and we waste nothing that's
+    worth reusing.  Libero is the application of a technique developed
+    thirty years ago.  Okay, we stretched it somewhat, but Peter Naur would
+    recognise it and be producing great code in a few hours.
+
+    I predict that in 30 years' time, someone will still be using Libero to
+    develop programs, profitably and successfully.  And that's productivity.
+
+    Pieter Hintjens
+    Antwerpen
+    1 August 1997
+
+
+ == CONTRIBUTIONS .-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    *  Mathias Weidner has put together a couple of interesting Libero
+       schemas.  One generates C++ state patterns.  Another generates
+       nice documentation from a dialog.  Check-out the iMatix Archives at
+       http://www.imatix.com/archives.htm.
+
+    *  Martyn Drake has created a mailing list for Xitami.  Messages: 30;
+       spams: 0, "it's driving me crazy" cancellation requests: 1.  Good on
+       you, Martyn.  Offers of a Libero mailing list, anyone?
+
+    *  Ben Tremblay has kindly created a HyperNews forum that puts the
+       Xitami mailing list onto the Web.  http://is.dal.ca/~canid/xitami
+       will direct you to the spot.
+
+    *  Coming soon... our first mirrored Web and FTP sites.  Stay tuned.
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-..
+
+    BULGARIAN CONAGENT SHOCK PROBE!
+        Does Windows 95 OSR2 really have code saying 'If Xitami AND Bulgaria
+        THEN do nothing"?  Even paranoiacs have enemies!  The full shocking
+        story on page 1.  (Yes, thanks to the miracle of e-mail and HTML, all
+        pages are equal, though some are more equal than others.)
+
+    IMATIX WEBSITE HITS 2GIGS!
+        Get your free webservers before the rush hits!  In July, the
+        www.imatix.com site served up 2.001 Gigabytes of data to over 75
+        countries.  We're stunned, actually.  Hmmm.  We counted some 7500
+        downloads of various packages.  Happy to say, only about one in ten
+        people actually send us an e-mail, and only about one in fifty have
+        some kind of bug report or question.  To spread the load a little we
+        are starting to build a network of mirror sites.  If you'd like to
+        help, drop us a line!
+
+    FOUR AND A HALF COWS... IT'S NOT ENOUGH SAYS PIETER!
+        Our chief egghead, also known as "That Bloody Perfectionist",
+        addressed the iMatix HQ research staff this week and said that "Four
+        and a half cows are simply not enough!  We want SIX!"  When we know
+        what he meant, we'll let you know.  Promised.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >To:               support@imatix.com
+    >From:             Ian Salkind <ians@mlnk.com>
+    >Subject:          SMT/SFL change question
+    >Greetings from Seattle, WA USA.
+    >My company, MediaLink Technologies, has been investigating Libero and
+    >SMT. We are in the telecommunications business. We are currently using
+    >them for some prototyping work.
+    >We are quite impressed with the work you have done with Libero and SMT.
+    >Great stuff!
+
+    Ian went on to describe a horrible bug in SMT, which we tracked-down,
+    cornered in... a corner, and exposed to repeated episodes of a TV soap
+    series called 'Neighbours' until it imploded in a violent green and
+    purple SQWATCH!  My cousin is a film producer, and once he's explained
+    how those things are made, all the junk that goes into them, you don't
+    want to touch them for weeks.
+
+    -----------------------------------------------------------------------
+
+    >From:             Emil Totev <emilt@unacs.bg>
+    >To:               <support@imatix.com>
+    >Subject:          Xitami problem
+    >Date sent:        Thu, 19 Jun 1997 15:41:56 +0300
+    >Hi
+    >I began getting 'Service Temporarily overloaded' or 'Internal error:
+    >Cannot create stdin stream for CGI' when I try to use CGI programs
+    >(including testcgi.exe). My machine is P120 with 24 MB RAM, Win95 OSR 2
+    >and xitami 1.2d, and no one else is accesing it.  What could be causing
+    >this?
+    >Thanks in advance:
+    >Emil Totev
+
+    ... this was the first innocent enquiry into what would later be known
+    as the 'Bulgarian Conagent Massacre Mystery'.  Why should a CGI program
+    not work under Win95 OSR2?  And only in Bulgaria?  Works perfectly well
+    here in downtown Antwerpen!  After more than a month of detective work,
+    sweaty e-mails, and dark ceremonies at iMatix HQ under the full moon
+    involving decapitated squorns, udderwort, tongue of snart and virgin
+    frogs, it was Emil who (having not participated in these debugging
+    rituals, and thus still awake during the day) finally figured-out what
+    was going on:
+
+    >Now I almost know what's going on.  To cut the long story short:
+    >I am from Bulgaria; We write with Cyrillic letters, as the Russians do
+    >(but the alphabet is invented by Bulgarians!)  This has been causing us
+    >many problems with computer codepages, keyboards and fonts.  Especially
+    >the DOS codepage we use has never been approved by Microsoft, they
+    >still think that we use CP855, while in fact we use a codepage very
+    >similar (but not exactly like) the Russian CP867.  So I have made up
+    >several files and changed some registry keys in order to be able to
+    >use my DOS codepage with Win95.  It worked very well with my first
+    >release of Win95, but that was Pan-European.  The OSR2 I have is not
+    >Pan-European, and still it seems to work OK except for those 32-bit
+    >console applications.
+    >
+    >For your information, console applications [this includes CGI programs]
+    >are started by Win95 with the help of a small program, called
+    >conagent.exe, which resides in the windows/system directory.  When in
+    >Win95 you try to start a 32-bit application (console or GUI) from a
+    >command prompt either directly or with the START command, Windows
+    >actually does something inside itself and then starts conagent.exe with
+    >a specific command line parameter...  If it is started with any other
+    >parameter, conagent.exe just says "This program may only be started by
+    >Microsoft Windows" and exits.  That specific parameter is just one
+    >byte, and it is different between the two versions I have.  It is 08h
+    >in the Pan-European original release, and 098h in the OSR2
+
+    Emil continues:
+
+    >Anyway, in our DOS codepage 098h is a capital letter.  And as such it
+    >is subject to OEM-to-ANSI translation.  There is a line oemansi.bin= in
+    >the [Keyboard] section of the System.Ini file which should point to a
+    >translation table file for OEM-to-ANSI and vice versa translation.
+    >That was there in Windows 3, and it is still there in Windows 95,
+    >though only 16-bit applications use it now.  What I did was change the
+    >mapping only for this specific character 098h to no-mapping and - IT
+    >WORKED!
+    >
+    >ANSI 098h is not a letter, so it doesn't actually matter whether you
+    >translate it or not.  This makes it possible to go around the problem
+    >by simply changing that single byte (at offset 3Ch in the corresponding
+    >XLATnnn.BIN file) from whatever it is to 98h.  And reboot the system,
+    >of course.  That's final.
+    >
+    >And of course I don't mind you using my letters and my name, as long as
+    >it is made clear enough what the problem was in fact, because I don't
+    >like people truly believing that computers may be haunted by evil
+    >spirits.  Computers can't, but it seems to me that programs can...
+    >Bye
+    >EmilT
+
+
+ == IMATIX WEBSITE GETS BUSY -..---.-.-.---.-.---.-.-..--.-.-..--.-.-.-..---
+
+    Program started at Sun-27-Jul-1997 03:06 local time.
+    Analysed requests from Wed-02-Jul-1997 02:33 to
+    Sat-26-Jul-1997 23:55 (24.9 days).
+
+    Total successful requests: 81,406 (34,082)
+    Average successful requests per day: 3,271 (4,868)
+    Total successful requests for pages: 81,406 (34,082)
+    Average successful requests for pages per day: 3,271 (4,868)
+    Total failed requests: 682 (294)
+    Total redirected requests: 32 (13)
+    Number of distinct files requested: 712 (696)
+    Number of distinct hosts served: 5,367 (2,171)
+    Number of new hosts served in last 7 days: 1,874
+    Total data transferred : 1676.859 Mb (737.191 Mb)
+    Average data transferred per day: 70,640,657 bytes (110,428,621 bytes)
+    (Figures in parentheses refer to the last 7 days).
+
+    Weekly Report
+
+    week beg.: pages:
+    ---------  -----
+    29/Jun/97:  8349: ++++++++
+     6/Jul/97: 12207: ++++++++++++
+    13/Jul/97: 26516: ++++++++++++++++++++++++
+    20/Jul/97: 34334: ++++++++++++++++++++++++++++++++
+
+    Daily Summary
+
+    day: pages:
+    ---  -----
+    Sun:  7733: +++++++
+    Mon: 13384: +++++++++++++
+    Tue: 12499: ++++++++++++
+    Wed: 14897: ++++++++++++++
+    Thu: 13173: +++++++++++++
+    Fri: 10960: ++++++++++
+    Sat:  8760: ++++++++
+
+    Daily Report
+
+    date: pages:
+    ---------  -----
+     2/Jul/97:  2842: ++++++++++++++
+     3/Jul/97:  2080: ++++++++++
+     4/Jul/97:  1647: ++++++++
+     5/Jul/97:  1780: ++++++++
+
+     6/Jul/97:  1413: +++++++
+     7/Jul/97:  1727: ++++++++
+     8/Jul/97:  2174: ++++++++++
+     9/Jul/97:  1907: +++++++++
+    10/Jul/97:  2000: ++++++++++
+    11/Jul/97:  1775: ++++++++
+    12/Jul/97:  1211: ++++++
+
+    13/Jul/97:  1228: ++++++
+    14/Jul/97:  7218: +++++++++++++++++++++++++++++++++++
+    15/Jul/97:  3714: ++++++++++++++++++
+    16/Jul/97:  4511: ++++++++++++++++++++++
+    17/Jul/97:  4248: +++++++++++++++++++++
+    18/Jul/97:  2959: +++++++++++++++
+    19/Jul/97:  2638: +++++++++++++
+
+    20/Jul/97:  5092: +++++++++++++++++++++++++
+    21/Jul/97:  4439: ++++++++++++++++++++++
+    22/Jul/97:  6611: +++++++++++++++++++++++++++++++++
+    23/Jul/97:  5637: ++++++++++++++++++++++++++++
+    24/Jul/97:  4845: ++++++++++++++++++++++++
+    25/Jul/97:  4579: ++++++++++++++++++++++
+    26/Jul/97:  3131: +++++++++++++++
+
+    Hourly Summary
+
+    hr: pages:
+    --  -----
+     0:  4037: ++++++++++++++++++++
+     1:  5015: +++++++++++++++++++++++++
+     2:  3325: ++++++++++++++++
+     3:  3237: ++++++++++++++++
+     4:  2778: +++++++++++++
+     5:  3953: +++++++++++++++++++
+     6:  3714: ++++++++++++++++++
+     7:  4013: ++++++++++++++++++++
+     8:  3417: +++++++++++++++++
+     9:  4318: +++++++++++++++++++++
+    10:  3242: ++++++++++++++++
+    11:  3367: ++++++++++++++++
+    12:  3829: +++++++++++++++++++
+    13:  4516: ++++++++++++++++++++++
+    14:  3913: +++++++++++++++++++
+    15:  3390: ++++++++++++++++
+    16:  2720: +++++++++++++
+    17:  2718: +++++++++++++
+    18:  2955: +++++++++++++++
+    19:  2206: +++++++++++
+    20:  2777: +++++++++++++
+    21:  2857: ++++++++++++++
+    22:  2836: ++++++++++++++
+    23:  2273: +++++++++++
+
+    Domain Report
+
+    Printing all domains, sorted by amount of traffic.
+    #reqs: %bytes: domain
+    -----  ------  ------
+    16696: 20.43%: .com (Commercial, mainly USA)
+    19369: 19.37%: .net (Network)
+    14588: 18.66%: [unresolved numerical addresses]
+     5358:  8.59%: .de (Germany)
+     2810:  3.10%: .edu (USA Educational)
+     2779:  3.01%: .uk (United Kingdom)
+     2047:  2.40%: .ca (Canada)
+     1786:  2.38%: .au (Australia)
+     1506:  2.13%: .nl (Netherlands)
+     1254:  1.85%: .it (Italy)
+     1297:  1.77%: .fr (France)
+     1065:  1.27%: .se (Sweden)
+      623:  1.13%: .ch (Switzerland)
+      480:  0.90%: .br (Brazil)
+      678:  0.80%: .org (Non-Profit Making Organisations)
+      699:  0.79%: .jp (Japan)
+     1005:  0.72%: .be (Belgium)
+      422:  0.63%: .es (Spain)
+      310:  0.57%: .at (Austria)
+      272:  0.56%: .gov (USA Government)
+      320:  0.54%: .kr (South Korea)
+      435:  0.48%: .nz (New Zealand)
+      217:  0.44%: .ru (Russian Federation)
+      301:  0.44%: .sg (Singapore)
+      278:  0.39%: .fi (Finland)
+      292:  0.38%: .dk (Denmark)
+      298:  0.38%: .pl (Poland)
+      201:  0.35%: .id (Indonesia)
+      461:  0.35%: .mil (USA Military)
+      191:  0.34%: .za (South Africa)
+      271:  0.33%: .no (Norway)
+      167:  0.31%: .cz (Czech Republic)
+      163:  0.30%: .my (Malaysia)
+      103:  0.30%: .in (India)
+      199:  0.29%: .us (United States)
+      462:  0.29%: .pt (Portugal)
+      294:  0.27%: .il (Israel)
+      129:  0.25%: .mx (Mexico)
+      164:  0.23%: .si (Slovenia)
+      130:  0.22%: .hk (Hong Kong)
+      139:  0.20%: .gr (Greece)
+       50:  0.20%: .ar (Argentina)
+      162:  0.19%: .hu (Hungary)
+      112:  0.15%: .th (Thailand)
+      105:  0.15%: .ie (Ireland)
+       40:  0.12%: .sk (Slovak Republic)
+       34:  0.12%: .tw (Taiwan)
+       93:  0.09%: .cl (Chile)
+       60:  0.09%: .su (Former USSR)
+       23:  0.07%: .uy (Uruguay)
+       38:  0.06%: .ph (Philippines)
+       25:  0.06%: .lv (Latvia)
+       26:  0.06%: .hr (Croatia)
+       50:  0.06%: .ua (Ukraine)
+       32:  0.04%: .lu (Luxembourg)
+        4:  0.04%: .lb (Lebanon)
+       19:  0.03%: [unknown]
+       12:  0.03%: .ee (Estonia)
+       13:  0.03%: .zw (Zimbabwe)
+       13:  0.02%: .do (Dominican Republic)
+       15:  0.02%: .ro (Romania)
+       14:  0.02%: .arpa (Old style Arpanet)
+       12:  0.02%: .int (International)
+        2:  0.02%: .pk (Pakistan)
+        1:  0.02%: .cy (Cyprus)
+       20:  0.02%: .pr (Puerto Rico)
+       23:  0.02%: .is (Iceland)
+       20:  0.02%: .bg (Bulgaria)
+       12:  0.01%: .yu (Yugoslavia)
+       21:  0.01%: .co (Colombia)
+       12:  0.01%: .tr (Turkey)
+        1:  0.01%: .gu (Guam (USA))
+        2:  0.01%: .qa (Qatar)
+       37:  0.01%: .jm (Jamaica)
+       36:  0.01%: .cr (Costa Rica)
+        4:       : .cn (China)
+        3:       : .bs (Bahamas)
+        1:       : .eg (Egypt)
+
+    File Type Report
+
+    Printing all extensions with at least 0.1% of the traffic,
+    sorted by amount of traffic.
+    #reqs: %bytes: extension
+    -----  ------  ---------
+     3652: 49.54%: .exe
+     3483: 26.36%: .zip
+    21990: 11.88%: .htm
+    43272:  6.39%: .gif
+      460:  3.82%: .tgz
+     4616:  1.07%: (directories)
+     3214:  0.43%: (no extension)
+      485:  0.40%: .txt
+
+
+    Request Report
+
+    Printing all requests for installation kits.
+
+    #reqs: %bytes: file
+    -----  ------  ----
+    1326: 19.13%: /pub/xitami/xiw3213a.exe
+    1082:  9.11%: /pub/xitami/xis3212e.zip
+     764: 10.01%: /pub/xitami/xiw3212e.exe
+     499:  7.06%: /pub/xitami/xiw3213b.exe
+     219:  0.79%: /pub/tools/htmlpp.zip
+     194:  2.16%: /pub/xitami/xic3212e.exe
+     176:  1.89%: /pub/libero/bin/lrmswin.zip
+     155:  1.78%: /pub/xitami/xic3213a.exe
+     148:  2.04%: /pub/libero/bin/lrmswins.zip
+     119:  1.71%: /pub/libero/doc/lrhtml.zip
+     119:  1.57%: /pub/xitami/xic3213b.exe
+     112:  1.47%: /pub/xitami/xis3212e.exe
+     108:  1.64%: /pub/xitami/xis3213b.exe
+     106:  0.40%: /pub/libero/doc/lrfull.zip
+      97:  1.45%: /pub/xitami/xis3213a.exe
+      91:  1.07%: /pub/sfl/src/sflsrc16.zip
+      80:  0.93%: /pub/libero/example/complete.zip
+      78:  0.05%: /pub/tools/srcdoc.zip
+      78:  1.13%: /pub/xitami/xiw1613a.exe
+      72:  0.98%: /pub/xitami/xiw1612e.exe
+      69:  0.16%: /html/htmlpp/doc/htmlpp.txt
+      67:  0.46%: /pub/libero/src/lrsrc230.tgz
+      61:  0.44%: /pub/xitami/xiw3212e.zip
+      59:  0.90%: /pub/sfl/doc/sfldoc16.zip
+      58:  0.04%: /pub/tools/otto.zip
+      55:  0.03%: /pub/tools/framer.zip
+      55:  0.75%: /pub/xitami/xiw1613b.exe
+      52:  0.48%: /pub/sfl/src/sflsrc16.tgz
+      51:  0.23%: /pub/libero/bin/lrdos32.zip
+      44:  0.36%: /pub/xitami/xiw3213a.zip
+      43:  0.20%: /pub/libero/bin/lrmsdos.zip
+      43:  0.37%: /pub/libero/src/lrsrc230.zip
+      43:  0.93%: /pub/xitami/xiuni13a.zip
+
+    Referrer Report
+
+    Printing all foreign referring URLs with at least 10 requests.
+
+    #reqs: URL
+    -----  ---
+    2075: http://www.windows95.com/apps/servers-websrv.html
+     109: http://www.tazzone.com/software.html
+      80: http://www.download.com/PC/Result/Download/0,21,0-31379,00.html
+      77: http://nng.simplenet.com/servd32.html
+      65: http://www.softseek.com/Internet/Web_Publishing_Tools/
+                 Servers/Review_12419_index.html
+      61: http://www.skaneateles.com/nonags/servd32.html
+      49: http://www.download.com/PC/Result/Download/0,21,0-30492,00.html
+      49: http://www.xnet.com/~blatura/linapp6.html
+      49: http://users.southeast.net/~itsvicki/nonags/servd32.html
+      46: http://windows95.com/apps/servers-websrv.html
+      43: http://www.yahoo.com/Business_and_Economy/Companies/
+                 Computers/Software/Internet/Shareware/HTML_Converters/
+      40: http://www.infogoal.com/cbd/cbdtol.htm
+      40: http://www.microsoft.com/ntserver/tools/new.htm
+      39: http://adam-stone.sc.tds.com/
+      31: http://members.aol.com/nonags2/servd32.html
+      31: http://magnaworld.com/nonags/servd32.html
+      31: http://www.netzwelt.com/selfhtml/teba.htm
+      29: http://stealth.dynip.com/
+      27: http://www.ozemail.com.au/~dpb/tazzone/software.html
+      27: http://www.linkline.com/personal/cyberhack/tazzone/software.html
+      27: http://www.pingweb.de/space/tazzone/software.html
+      27: http://www.teb.upm.es/~jantonio/sfl/sfl1.htm
+      25: http://tucows.tierranet.com/server95.html
+      25: http://www.davecentral.com/2426.html
+      25: http://vestmon.duc.auburn.edu:8088/
+      24: http://tucows.lauderdale.net/server95.html
+      24: http://tucows.phoenix.net/server95.html
+      23: http://www.txk.com/nonags/servd32.html
+      23: http://tucows.cableinet.net/server95.html
+      23: http://cham.master.com/mirror/www.imatix.com/html/libero/index.htm
+      21: http://www.sully.net/nonags/servd32.html
+      21: http://www.microsoft.com/ntserver/tools/web.htm
+      21: http://c331b.sma.usna.navy.mil/server.htm
+      20: http://www.imd.it/nonags/servd32.html
+      20: http://sal.kachinatech.com/F/2/LIBERO.html
+      19: http://www.mindspring.com/~mattyc/tazzone/software.html
+      19: http://hem1.passagen.se/dalen1/tazzone/software.html
+      18: http://nonags.oncomdis.on.ca/servd32.html
+      17: http://ftp.sunet.se/nonags/servd32.html
+      16: http://sal.kachinatech.com/F/2/SFL.html
+      16: http://www.starnet.com.au/nonags/servd32.html
+      15: http://www2.windows95.com/apps/servers-websrv.html
+      15: http://www.flexus.com/tools.html
+      14: http://nonags.infinitefish.com/servd32.html
+      14: http://users.aol.com/nonags2/servd32.html
+      14: http://www.tazzone.com/softwar1.html
+      13: http://pages.infinit.net/musicman/tazzone/software.html
+      13: http://tucows.pdnt.com/server95.html
+      13: http://vestmon.duc.auburn.edu:8088/xitami/index1.htm
+      13: http://www.softseek.com/Internet/Web_Publishing_Tools/
+                 Servers/Review_12420_index.html
+      12: http://tucows.mcp.com/server95.html
+      12: http://cham.master.com/mirror/www.imatix.com
+      12: http://www.bravo.net/laredo/tazzone/software.html
+      12: http://tucows.wau.nl/server95.html
+      12: http://www.w3.org/pub/WWW/Tools/htmlpp.html
+      11: http://www.eunet.fi/tucows/server95.html
+      11: http://www.teamone.de/selfhtml/teba.htm
+      11: http://idirect.tucows.com/server95.html
+      11: http://www.toptown.com/INNERCIRCLE/reds/tazzone/software.html
+      11: http://www.pcwin.com/software/commo/servers.asp
+      11: http://tucows.netis.com/server95.html
+      11: http://home.inreach.com/wiseman/tazzone/software.html
+      11: http://www-sor.inria.fr/~pierre/LaSCoWtrace.html
+      10: http://www.fh-reutlingen.de/tucows/server95.html
+      10: http://www.texoma.net/mirror/tucows/server95.html
+      10: http://www.phidani.be/partners.html
+
+    Browser Summary
+
+    Printing the first 20 browsers, sorted by number of requests.
+    #reqs: browser
+    -----  -------
+    51158: Netscape
+    22368: Netscape (compatible)
+     5120: Wget
+      356: Lynx
+      233: Teleport Pro
+      168: Microsoft_Site_Analyst
+      130: WWWC
+      100: I'm coming with Peace
+       90: Microsoft Internet Explorer
+       73: OmniWeb
+       68: Surfbot
+       59: ArchitextSpider
+       59: Symantec Notify Internet Session
+       41: IBM-WebExplorer-DLL
+       40: Redbaron
+       35: IBrowse
+       35: Java1.0.2
+       33: Mosaic
+       28: Lotus-Notes
+       27: MSIE 4.01 ( Windows 97)
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    This month, it's too late - if you're reading this you not only got
+    Liberetto'ed, but you also made it all the way to the end.  You're
+    probably unique and rare in this sense.  Possibly in others too, but
+    that's entirely your business.  Back to the point!  Yes, anything is
+    possible and a subscription to Liberetto is easier to uninstall than...
+    [Gotta stop being unkind to our friends in Redmond - they put a link to
+    the iMatix site - http://www.microsoft.com/ntserver/tools/web.htm!]
+

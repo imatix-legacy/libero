@@ -1,0 +1,445 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/3
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                     MAY 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 3
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+ == EDITORIAL --.-.----...-.-....-.-.--..-.-.-..-.--....-.-.-..-.---..-.-..-.
+
+    1995 was the year of the Internet, so we hear.  I guess a lot of
+    journalists discovered the Net in '95.  What they don't realise yet is
+    that the Net is re-inventing itself faster than an ex-communist
+    politician.  1996 will be the year of the Internet Index.  1997 will
+    be the year of the Internet Application.  1998 will be the year that we
+    all get T1 access along with cable TV and water.  In 1999 we will wear
+    web-watches complete with virtual keyboards; the portable phone will be
+    as quaint as a digital quartz watch...
+
+    I love speculating about the future.  But it is the present that is
+    most interesting.  Try surfing over to http://www.altavista.digital.com.
+    Do a search for 'prehistoric coke machine'.  You'll see what I mean.
+    Some people wrote to me pointing out that HTML was not the best way of
+    producing documentation.  Sorry, but it is the lingua franca of the Net,
+    and it works.  You can see the results of our efforts - all the Libero
+    documentation is on-line, and by now has been indexed by Scooter, Alta
+    Vista's robot.
+
+    We are rapidly getting to the point where people will expect to find
+    just about any information with a few mouse clicks.  People will look
+    first on the Net, and secondly in the real world.  What this means for
+    the traditional publisher is unclear.  I personally like buying books.
+    What this means for the non-traditional publisher is much clearer: get
+    it on-line, and get it indexed.
+
+    Pieter Hintjens
+    Antwerpen,
+    1 May 1996*
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Barmaid Denies All Involvement!
+        "I thought I was a major event", sobbed Mandy, a gorgeous 23, "but
+        he understood never me!"  Undeterred, our brave reporter risked his
+        street cred and breakfast to find the truth.  He yahoed and 'scaped
+        the depths of alt.bizarre.fsm.bork.bork.bork.  He crawled to alter
+        vistas.  Yes, he even posted a question on rec.pets.cats.  We bring
+        you more news at 6.
+
+    Dialogs For Dummies, or How I Learnt To Twist My Brain The Libero Way
+        It's never too late to try to learn Libero!  Our dummy-on-call,
+        Alex, explains how he learnt to think "the Libero way".  Jump to
+        the special educational section for more.
+
+    The iMatix Website Saga - We Reveal All
+        Our regular readers will have seen it already.  Our iMatix website
+        just keeps getting better!  No sell-by date, freshness unlimited!
+        All the documentation, all the links, everything that is fit to be
+        published.  It's all there.  Naturally, we can only take the credit
+        for some of it.  Okay, most of it, if you insist.  But we have to
+        thank all of you who regularly send us suggestions, problem reports,
+        and frank comments.  Keep it up - we appreciate your input.
+
+
+ == LETTERS -.--.-.--....-..-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Yes, ecology meets the Internet.  We only use 100% recycled bits.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: kris@japan.sbi.com (Shankar Krishnan)
+    >Hello,
+    >When will Libero write PERL5 code ?
+    >Thanks
+    >Kris/Tokyo/Japan
+
+    When Perl 5 was announced, there was a great buzzing of activity at
+    iMatix world headquarters here in Antwerpen.  "It's got Objects", was
+    the cry up and down the corridors.  "Yet more functions and operators!",
+    we would hear the receptionists whisper to each other with awe.
+    "Readable Regexps Now!", was mystically scrawled on the toilet walls.
+    The excitement was as real as an uninvited 2nd cousin when they came
+    in a crowd to ask the Guru what he thought.  "Tell us, oh Guru, will
+    Perl 5 change our lives?"  "Where can we download it?"  "Will it cure
+    my dandruff?".
+
+    The Guru meditated for a few minutes, sipping his cool Koninck.  Then
+    he spoke.  "Does it run on my laptop?", he asked the collected crowd.
+    The crowd turned to itself and mumbled for a while.  Then it ejected a
+    spokesman, Alex, who asked meekly: "Oh Guru, does your laptop run Unix?"
+    "No," replied the Guru, "MS-DOS 5.0".  "It will not run on your laptop,
+    oh Guru", replied Alex, miserably, for he now saw the Truth.
+
+    "Go off and port Perl 5 to MS-DOS," said the Guru, "so that I can work
+    on my scripts and my suntan at the same time.  For what use is a tool
+    that you can't take to the beach?"
+
+    [This is self-indulgent schlock: what he really said was: "No problem:
+    Perl 4 scripts will run fine under Perl 5, and you can use Libero to
+    write Perl 5 scripts right now." -- Ed.]
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Bob McGhee <bmg@gnn.com>
+    >Subject: Thanks for Libero
+    >Hi!  I enjoyed your personal home page.  I have typed lr at a dos
+    >prompt so far, and read about Coke machine evolution and your
+    >telephone central.  So far it's a blast.  Maybe now I can catch
+    >on to finite state thingees.  It's always easier to learn when
+    >you can play.  Thanks very much for being so generous.
+    >I'm sure I would enjoy being a part of your mailing list.
+    >Do sign me up, please.   Thanks/Bob McGhee
+
+    Bob, consider yourself signed-up.  You may want to skip to the section
+    at the end, on 'signing down', before it's too late.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: uweh@engc.bu.edu (Uwe Hollerbach)
+    >Subject: libero mail
+    >Hello, Pieter,
+    >I'm writing about your program libero, version 2.10, which I
+    >downloaded a few weeks ago, and just got around to installing a few
+    >days ago. Your announcement (in comp.lang.perl.announce) caught my
+    >eye, and I decided to look into this tool. First, let me compliment
+    >you on your installation -- the compilation and setup was the easiest
+    >I think I have ever done! (I didn't use the install script -- no ksh
+    >on my linux machine!) I tried playing with it a bit, and I am having a
+    >bit of difficulty understanding how to use it. To start with, I tried
+    >running your coke machine example, and fleshing it out a bit.  The
+    >libero part of that appears to work flawlessly, and the generated code
+    >compiles entirely cleanly, but I am having a bit of trouble
+    >understanding which part does what, and when. In particular, I don't
+    >get the output I expect for the coke machine's output: it can be nice
+    >or nasty, and it should dispense the requested item if nice, and the
+    >opposite if nasty. In the sample code I tried, which I have included
+    >below, it always gives the requested item, even if it claims to be
+    >nasty. I'd be most grateful if you'd have a look and tell me what I'm
+    >doing wrong. Thanks for making this tool available!
+    >Best regards,
+    >Uwe Hollerbach
+
+    Heh, I never meant anyone to actually *make* the Coke Machine into
+    a real program...  Let's see what Uwe is doing.  Remember that the
+    Coke Machine is either in a good, or in a bad mood:
+
+    Cooperate:
+        (--) Coke                       -> Something-Happened
+            + Eject-Can-Of-Coke
+            + Wait-For-A-Punter
+        ...
+
+    Be-Nasty:
+        (--) Coke                       -> Something-Happened
+            + Eject-Can-Of-Juice
+            + Wait-For-A-Punter
+        ...
+
+    This is how Uwe set the next event:
+
+    if _LR_state == _LR_STATE_cooperate
+        the_next_event = punter_choice;
+    else
+        switch (punter_choice) {
+            case coke_event:
+                the_next_event = juice_event;
+                break;
+            case juice_event:
+                the_next_event = coke_event;
+                break;
+            case spring_water_event:
+                the_next_event = sweeto_sap_event;
+                break;
+            case sweeto_sap_event:
+                the_next_event = spring_water_event;
+                break;
+        }
+
+    This code looks reasonable, but is (sorry, Uwe) completely wrong.
+    In fact, you should just replace it by:
+
+        the_next_event = punter_choice;
+
+    Why?  Well, it is the *dialog* that decides the consequence for a
+    particular event.  As Big Al tries to explain (but he is new at this)
+    in the Special Educational Section, it's like two people separated by
+    a wall.  The one person (the program) can only shout event names, like
+    'JUICE!' over the wall.  The second person (who is the dialog) can only
+    shout module names, like 'EJECT JUICE'.  The first person does not know
+    what the second is doing, nor vice-versa.  If the dialog is in the
+    'nasty' state, the second person will shout 'EJECT COKE' instead.  So,
+    code like "if _LR_state == _LR_STATE_cooperate" is totally out.  Baaad.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From uweh@engc.bu.edu (Uwe Hollerbach)
+    >Subject: Re: Coke machines
+    >Thanks for the answer! I have printed out the manual, and have stared at
+    >the coke machine some more, and I think I got it to work satisfactorily.
+    >I'm going to try a few simple other things relating to my own work, but
+    >I believe I am grasping the concept. Thanks again for a useful tool!
+    >Best regards,
+    >Uwe Hollerbach
+    >PS Am I really the only person to have implemented the coke machine?
+    >That's truly bizarre!
+
+    Not half as bizarre as some things I've seen.  The other day someone
+    asked me why their state machine was not working.  Like I usually do,
+    I said: "Not working?  How 'not working'?".  "I raise an exception
+    event but the program does not stop."  "Okay", I said, "show me your
+    program."  Big mistake.  This was her dialog:
+
+    After-Init:
+        (--) Ok                         ->
+            + Initialise-Program-Data
+            + Do-The-Work
+            + Terminate-The-Program
+        (--) Error                      ->
+            + Terminate-The-Program
+
+    The module 'Do-The-Work' was several thousand lines of COBOL code.  You
+    can guess what my advice was.
+
+    [Actually, Mr. Hintjens spent about two hours designing a dialog with
+    the lady in question, who was grateful either for the advice, or just
+    because he finally left.  We aren't certain. - Ed.]
+
+
+ == SPECIAL EDUCATIONAL SECTION --.-.---...-.---.-...--.-.---.-....-.-..----.
+
+    From Alex McGregor, our newly-appointed Educational Correspondent:
+
+    iMatix asked me to write a small piece on how I learnt to use Libero.
+    After a short discussion about fees and expenses, I quickly learnt to
+    use Libero, applying the principle 'imagine I am a child of 5'.  "No,
+    don't try to interest me in plastic bunnies.  Explain Libero to me."
+
+    "Right, kids, get into two groups.  You lot sit there, and you lot sit
+    there.  Now, we'll play a game..."
+
+    The first group of kids sit around a large playing board, marked with
+    a large 'START' square, and paths that twist around.  Some end in the
+    Snake Pit, others die horrible deaths in the Bathtime Room.  Just one
+    path leads through all the dangers to the Cookie Room.  The aim of
+    the game is to get to the Cookie Room, of course.  Let's look at the
+    START square.  You are in a small room.  Twisty passages lead left,
+    right, north, and south.  You are holding a candle.  There is a small
+    breeze coming from the west.  The floor is blue.  Blue?  Yeah.
+
+    The second group of kids have three or four funny dice.  Each die is a
+    different colour, with size sides.  The blue die says 'Left', 'Right',
+    'Forwards', 'Backwards', 'Roll Again', and 'Bathtime'.  The red die
+    says 'Fight', 'Run', 'Get Eaten', 'Eat it', 'Order a taxi', and
+    'Bathtime'.  (You gotta know how to *really* scare a five-year old.)
+
+    The rules are simple.  The first group of kids just shout a colour.
+    The second group of kids roll the matching die and - after puzzling
+    over the letters a while - shout out what the die says.  Each time the
+    die rolls, the first group move their piece along the board to a new
+    square.
+
+    You start to see the balance of the game.  Neither group of children
+    controls the game, it moves step-by-step until the piece wins or loses.
+    The two groups only communicate by exchanging colours and results.
+    Well, this is Libero.  Colours are actions, results are events.  And
+    that was the easiest lunch I ever earned.
+
+    Alex McGregor
+    alex@imatix.com
+
+
+ == POST MORTEM .-.---...-.-...---.-.---..-.-.-..-.---.------.-.....-.-.-..--
+
+    [This letter arrived in our inbox.  I think someone is mocking us - Ed.]
+
+    From: travesty@perl.cod APR 01 MET 1996
+    Subject: Thank you all for your friends and family. Such get in
+    get & showed enough managing compress be conforming HTML your
+    iMatix kill skip time will for is speaker learnt told only
+    existing Why regards Multithreading is pass as can trouble report.
+    tell surprisingly the like of is the horse's mouth for Libero I've
+    downloaded your Libero materials for Windows.
+
+    I used a UNIX script a bit like this: echo Generating. The htmlpp
+    (besides being a useful tool) is a small and clean language that
+    can be surprisingly useful. before the old Turing Machine. Jim is
+    of course Libero.  install.sh...  Focus On C is often critised for
+    being unreadable, GNU Gawk myself.
+
+    I was delighted by your explanations and look forward to learning
+    about your tool. Learning to program has been ported across three
+    or four systems, it starts to look at my work, I have a finite
+    memory, and that Turing machines are strictly more powerful that
+    FSM and that Turing machines are fundamentally different. Automata
+    theory showed (in the early 1960's) that FSM can perform a rather
+    limited set of actions, primarily because they have a play with it
+    so I'm not certain the port is perfect (for one thing I noticed in
+    your docs.
+
+    Contrary to what you maintain ksh is not so important if not the
+    fact that your install scripts are ksh based. Most likely bash
+    will accept them as well, but this implementation uses the C
+    library to get the whole Libero documentation is now part of our
+    toolkit: we will support and and improve Libero as long as we are
+    here. And when we have been getting. This is with EMX 0.9b (gcc
+    2.7.2) Onto a HPFS file system; if it runs quickly, is very
+    portable, and is not so important if not the first to point this
+    out, but.... Finite state machines and Turing machines are
+    strictly more powerful that push down automata are strictly more
+    powerful that push down automata. This is still an early beta
+    version, but interesting to anyone who is involved in internet
+    programming or multithreaded programming. We are working on a very
+    well put together distribution set.
+
+    My main machine runs OS/2 Warp, but I've got another one here
+    running Linux. I figured I'd download the source and the Linux
+    binary. I still haven't got to the business section for more news.
+    Extracts from some of your examples. For the more official bit:
+    What version of the poorest countries in the same solution, which
+    is a bit like this: echo Generating install.sh... awk '/^function/
+    { print $2 " ()"; next } print $0 }' < install.mod >
+    install.sh.mod lr install -schema=lrschema.sh. We will also
+    provide an 'exploded' version of the coolest tools I've used in a
+    very long digital tape. Personally, I was sound asleep at this
+    point in our Computer Science courses. Let's just say that Libero
+    is free software, and will always be free software. You can
+    safely assume a presence of /bin/sh (Bourne), but this is a dream
+    come true. Very often, you'll think: how do I do this particular
+    fiddly thing with a piece of data... and scanning through the
+    Perl manual you'll find that Larry Wall have a language
+    independent meta-language? Is there a schema avalible for java?
+
+    Do you have not yet tried this language, perhaps it's time. Perl
+    has been ported & tested on various Unix's, and on Windows (Win
+    95). We plan to port it to more Unix platforms and Vax/VMS before
+    we are here. And when we have been getting. This is a great and
+    heart-warming response. Thank you for Libero that lets you create
+    and kill threads, pass messages between threads, and (most
+    importantly) do asynchronous i/o so that one thread cannot block
+    another while waiting for input on a very cool tool, and I'm re
+    -writing it using Libero as long as we are here. And when we have
+    been getting. This is more of a Perl program written using
+    Libero. Download it from the iMatix site should get an Invalid
+    Property Value Peter, Downloaded Libero 2.11 on your system. Turn
+    to the example set as time goes on.
+
+    If you give the program /help=no as an alternate didn't quite work
+    because the OS/2 binary once I've had a chance to try to make
+    sense of such messages and will always be free software. You can
+    use Lynx, or a graphical browser. We will also provide an
+    'exploded' version of the poorest countries in the same solution,
+    which is a good example at
+    http://www.imatix.com/pub/libero/example/erbot.zip. Subject:
+    Invalid Property Value error when I try to make sense of such
+    messages and will always be free software. The SFL and Universal
+    Header File (take a look at it. First off congratulations on a
+    local hard-disk. Just follow the links... To build this
+    documentation we developed a new way to solve the problems that
+    face us all. Some people, however, fear competition. Their
+    reaction to this system. Last month I was impressed: the
+    explanations were clearer than many I have seen the future, and
+    it's spelt "double-u ee bee". Be that as it may, I've decided to
+    maintain the documentation file in any other format? I would be
+    happy to know that this is simply too heavy. Hey, contributions
+    for a few questions, however.
+
+    it is identical to 2.11. This beta will not be empty. One more
+    thing I could turn on some optimisation :-) ), but it appears to
+    run at least as far as reading settings files, displaying help,
+    and printing error messages. I'm going to have a look at the
+    index file, and off you go! You can browse on-line if your
+    daddy's rich, or download the whole set in one scoop I had
+    finally found a raison d'etre for the windows version 2) Will
+    there be an ini file or I presume on the links and tables of
+    contents. Should be ready by the time you read this you can
+    contribute, drop us a line. But be warned: we only use the best.
+    To get off this mailing list send a message to mail@imatix.com
+    with a subject line along the lines of 'no more liberetto
+    please'. Our Variant Intelligence Processor will try to ignore
+    the news.
+
+    Turn to the GNU GPL, and will either break open, or break apart.
+    What about Libero? Is this relevant? I believe so. I made this
+    tool would be helpful to use gzip or compress for unix versions,
+    zip is not so difficult to learn. Many useful Perl programs that
+    you decided to separate examples archive.
+
+    Sigh! No big deal. I had finally found a raison d'etre for the
+    Sparc and Iris binary kits.
+
+    More extracts from your software--FSM are useful for lots of
+    things, however they are not universal computation engines like
+    Turing machines. Jim Aaargh! And I thought that ANSI C compiler.
+    And I thought that I made a Bourne sh version (install.sh) which
+    is a more positive answer. On the top of it you decided to cut
+    -off an access to ftp site. Instead of getting everything in one
+    file, for easy printouts.
+
+    Secondly congratulations on a fuller kit for the same state
+    machine. Each thread gets its own state and event values, managed
+    automatically by the time the chicken has crossed the road. If
+    you had trouble with the documentation A latex version of the
+    .VBX or .DLL files lying around on the links from the Web pages
+    until it's been well tested. This can only be described as a Good
+    Thing.
+
+    More news at six! Documentation coming online... The gnomes are
+    taking extra caffeine, and working double-time to get Libero
+    compiled and running on FAT as well. (HPFS is a clean, small, and
+    useful language that you'll be happy to know that I made this
+    tool free, to all people. Knowledge cannot be the property of one
+    of the documentation.
+
+    But, these are all water in the near future. If this kernel
+    interests you, download it and take a look at it. First off
+    congratulations on a well designed web site -- fast to load, and
+    informative.  Secondly congratulations on a very long time. I
+    have a lot in common. The world became a nicer place to start.
+    It's a great example. Follow the links from the Web pages until
+    it's been well tested.  Multithreading... Seem's it's simple.
+
+    To get off this mailing list send a message to mail@imatix.com
+    with a piece of data... and scanning through the Perl manual
+    you'll find that Larry Wall already built an answer into the
+    language. Despite the wide scope of the documentation.
+
+    ["We will also provide an 'exploded' version of the coolest tools
+    I've used in a very long digital tape."  What you been *smoking*??
+    - Ed.]
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    If you have had enough of Liberetto you have had enough of life.  So,
+    we'll send Dr Kervokian around with his wee machine.  Alternatively,
+    just e-mail us and tell us what it is about this newsletter that bores,
+    irritates, or outrages you, and we'll publish your letter in the next
+    issue so that we can all have a good laugh.
+
+    [Pay no attention, these cheap staff writers get crabby sometimes - Ed.]
+
+    * Margin of error = 1 weekend or two large beers.
+

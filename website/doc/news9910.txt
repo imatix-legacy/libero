@@ -1,0 +1,358 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 October 1999
+ =========
+  =======    The iMatix Newsletter                         Volume IV Issue 10
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    This month is Xitami's 3rd birthday.  We've been through 55 releases
+    and something like 500 documented changes. If you don't know or care
+    about Xitami, I'll just say that this has been a hectic period both
+    for ourselves and our users.  Trying to follow Xitami's evolution from 
+    little toy web server to industrial-sized machine has been an up and
+    down ride for the many people who have installed and often tested each
+    and every one of these releases.  Thanks to you all.
+
+    iMatix Corporation's World Empire Headquarters has also been expanding,
+    from the back half of a garage shared with three grannies who make a
+    really nice orange marmalade, to a building in the center of Brussels.
+    Our building is an old goods depot in the aptly named 'Workhouse street'
+    (in French, 'rue des Ateliers' sounds nicer) in Brussels, complete with
+    a majestic goods lift capable of carrying two tons, more than the
+    combined weight of the entire iMatix team, even after lunch.
+
+    We expect to spend the next year or so renovating this building,
+    putting in spaces to work and live.  Our contractor has already started
+    working on part of it, removing old plaster and floorboards, windows
+    and ceilings.  This has left a large, but clean, hole, and lots of
+    bricks, stone, and wood neatly stacked up.
+
+    This is akin to a style of writing software called 'Samurai Programming'
+    by Leif Svalgaard.  It involves rapid and ruthless removal of
+    everything that looks even slightly dubious, followed by a masterly
+    reconstruction into what the client really wanted.  I'm left hoping
+    that the contractor can handle the 'masterly reconstruction' part.
+
+    There are other parallels between software programming and building
+    construction.  "Oh, your IIS4 server isn't compatible with Java 2.2,
+    so we'll have to redevelop the DCOM components in C++" is not so far
+    from "Ah, but these roof beams are rotten, so we have to install a new
+    double grutch under the ceiling there, and replace those windows".
+    If the client dares to ask for an explanation, the expert will launch
+    into jargon-vomit mode until the client's head explodes.  The only
+    safe recourse is to say "Of course" and reach for the checkbook.
+
+    The good news is that both the architect and constructor agree that the
+    goods lift is not rotten.  It works nicely, in fact, even though it's
+    been in service for at least 30 years, and was second-hand when it was
+    installed then, as far as we know.
+
+    Which brings me to my wish for Xitami: may it last as long, and be as
+    solid.
+
+    Pieter Hintjens
+    Antwerpen, for now
+    10 October 1999
+
+
+ == HEADLINES --.-...---.-.-..--.-.-...--.-.-.-...--.-.-...-.-..---.-.-...--.
+
+    iMatix Celebrates Xitami's Birthday - Liberetto Delayed!!
+        A party-dazed iMatix Corp. executive told our reporter today that
+        "October's Liberetto is always late - it's a tradition".  Following
+        riots in Jakarta, and a direct appeal from the Pope, the Liberetto
+        editorial team finally assembled to try to reach an accord over the
+        contents of October's issue.  The UN Security Council voted by 5 to
+        2 to mandate a peace-keeping force if Liberetto was not published
+        by the 12th.
+
+    Hiroshima On Every Desktop!!
+        In a near-legal experiment last month, iMatix technicians attempted
+        to transfer the stock prices page from a Wall Street Journal from
+        2005 by passing several million volts through a stack of old MSDN
+        CD-ROMs.  This opened a temporary digital singularity (a 'black
+        finger' in the jargon), but due to a computer error, we just got
+        one page ripped from a computer magazine, but readable... we
+        reprint this in the hope that it may change the future.
+
+    New: Libero Schema for Delphi
+        Thanks to Nyimbi Odero for developing a Delphi schema for Libero.
+        In 1999, Libero also saw contributions of a PHP schema for web
+        programming, and a PL/SQL schema for Oracle programming.
+
+    Liberetto.com... could it really happen?
+        After many years of speculation, the rumors appear to be true.
+        The famed academic (as in 'the question is academic') journal,
+        Liberetto, will finally have its own website.  Liberetto.com will
+        be a major Internet portal, and we plan to go public in 2000!!*
+        * 'public' as in 'available to the general', rather than as in
+        'share offering'.
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:       Stephane Lavergne <mail@imars.com>
+    Subject:    Multi-platform development
+    -----------------------------------------------------------------------
+    Hi.
+       My name is Stephane Lavergne, and I operate a very small software
+    development (and web design) company in Quebec, Canada. I am personally
+    involved in most of the programming, always in ANSI C, with high
+    performance in mind from start to finish (optimization is my obsession).
+    Despite low budgets, we are currently struggling to develop several
+    multi-threaded client/server applications that have been on our drawing
+    boards for some time.
+       Recently, I have come across your company's website. My HTML designer
+    immediately showed interest in trying out Htmlpp, while I started to
+    seriously look at Libero/SMT/SFL (and Otto?).
+       We are currently getting higher and higher demands requiring more
+    software portability than we can offer. We currently develop only under
+    the Linux operating system, in a clean, portable manner, however.
+    Considering the nature of our work, we will most likely migrate our
+    development to Libero/SMT/SFL (and Otto?) to avoid re-inventing the
+    wheel again, with multi-threading and the like.
+       This leads me to the actual points of this message. (Please forgive
+    its length.) First of all, I want to thank you for such high-quality
+    Open Source Software. People like you help make a significant difference
+    in today's software development. (Less wheel re-inventing, more actual
+    progress as an industry.)
+       Secondly, I would ask for your advice regarding multi-platform
+    development using your above-mentioned tools. I currently have one
+    Windows 95 system and one Linux 2.x system. I am using GCC under Linux,
+    and gave up with "lcc" under Win32 last year. I would really appreciate
+    your take on what I should obtain (cross-compilers or OS+compilers?,
+    free, commercial, any idea would be much appreciated) in order to make
+    my applications available for all the major environments: OS/2, Win32
+    (all flavours), VMS, BSD flavours, Solaris, NeXT?...
+    -- 
+    Stephane Lavergne     | iMars, CEO
+    EMail: mail@imars.com | WWW: http://www.imars.com/
+
+    >>>>>>>>>>>>>>>
+    Thanks for the positive feedback, and for the question.  Since we're
+    just a bunch of hack journalists, burnt-out from too many segfault
+    articles, we asked someone who is supposed to know...
+
+    Liberetto: Hey Pieter, got a second?
+    Pieter: Yo, Liberetto done yet?  Late again?
+
+    Liberetto: Haha.  Listen, we got a question on portability.  What's the
+    deal?  The guy's asking if he needs cross compilers...
+    Pieter: Cross compilers, lazy subeditors, whatever.  We always put the
+    portability into our code at the start.  It's written on the door:
+    "Those Who Use Native Calls Will Burn In Hell".  And we're not talking
+    about wild ethnic screams, either.
+
+    Liberetto: Right, but isn't this just an excuse for not really knowing
+    a thing about Windows or Unix?  How can you write a decent program if
+    you don't make the most of the operating system?
+    Pieter: Sturgeon's Law states that 90% of everything is crud, and this
+    applies to operating systems too, except Linux, hallowed be its name.
+    You can safely junk 90% of everything an OS or compiler has to offer,
+    package the remaining 10% in a nice portable abstracted library, and
+    voila!  Your apps are portable.
+
+    Liberetto: Okay, and the point is...?
+    Pieter: Portable programs last longer, that's all.  You get more for
+    the time you spend.  Heck, a seriously lazy programmer will go to
+    enormous lengths to avoid unnecessary work!
+
+    Liberetto: So what advice would you give Stephane, then?
+    Pieter: Use SFL whenever doing anything even remotely non-portable, and
+    regularly test his work on every platform he can get his hands on.  All
+    he needs is a basic ANSI C compiler on each platform, although on
+    Windows I like the MSVC package best.  If he can use Libero and SMT in
+    specific cases, so much the better.
+
+    Liberetto: Thanks, have a nice weekend!
+    Pieter: Thanks.
+
+
+    From:       Wai-Sun Chia <waisun.chia@msa.dec.com>
+    Subject:    Timeout and Retry Functionality
+    -----------------------------------------------------------------------
+    Hello,
+    I'm a newbie Libero user and am trying to design a simple protocol for
+    between a shopfloor tester device and a central host.
+    I've it all down to pat with the exception of a "timeout" functionality.
+    What I wanna do is, during any "waiting-for-host-response" or
+    "waiting-for-tester-ack", I wanna set a timeout period, and when it
+    timeouts, whichever the last operation the FSM was in, it should try for
+    N times before "Terminate-the-Program".
+    Question is, how do I depict the above in a Libero dialog, especially
+    the part about "retry the last operation". Currently I have "Timeout" in
+    the defaults: state...How the heck do I know which was the last
+    operation it was doing?!
+    TIA.
+    -- 
+    Wai-Sun "squidster" Chia
+    Web/Unix Developer
+    Network & System Integration Services
+
+    >>>>>>>>>>>>>>>
+    You can handle timeouts in two ways.  Either do blocking i/o calls, or
+    do non-blocking i/o calls.  A blocking call will wait for an operation
+    for a certain time (e.g. wait to read on a socket for ten seconds).
+    When the blocking call finishes, it sets a timeout event if no i/o was
+    done, or another event if i/o did occur before the timeout.  In this
+    scenario, your program actually blocks during the blocking call.  This
+    is why we call it 'blocking i/o'.
+
+    A non-blocking i/o model is more subtle.  Basically you send-off a
+    request to do some i/o, and when the i/o has finished, you get back an
+    event telling you what happened.
+
+    A simple Libero program can do blocking i/o calls easily.  To do
+    blocking socket i/o, use the select() function.  (sock_select() if
+    you're using SFL.)  A Libero program that uses the SMT kernel can do
+    non-blocking i/o's.  SMT works by managing event queues and control
+    threads, and switching between these threads to provide a type of
+    multithreading.
+
+    If you want to do non-blocking i/o, but don't need the power of SMT,
+    you can add simple event queues to any language with a few changes
+    to the schema.  You can then pump events coming from non-blocking i/o,
+    timers, and other places into these queues.  People have done this for
+    C++ and Visual Basic.
+
+
+    From:       "CSYAP" <csyap@pd.jaring.my>
+    Subject:    a few suggestions
+    -----------------------------------------------------------------------
+    Dear Developers of XITAMI,
+    firstly, i like to express my appreciation to your awesome products,
+    SFL, SMT, Xitami and GSL.  Since 1996, i've tried many Internet/Intranet
+    developing enviroment, from C + CGI ,Delphi+Jaadu+BDE, Webhub, ASP,
+    PHP + MYSQL , METAHTML, and now i stop my step at XITAMI + Berkeley DB
+    + GSL + my own extension (a chinese (double byte) indexing engine i've
+    worked for years).  i use Berkeley DB to store XML data , GSL as a
+    server-side scripting tool, some extra code to support browsing session,
+    plus my own chinese index file, now i have a very nice internet/intranet
+    developing enviroment. which is fast , small footprint (all together
+    <700K standalone exectuable).  i could run the whole system on CDROM,
+    no installation is needed.
+    i do have few suggestions on this combination:   
+    GSL is really fast, and i feel that by combining XML data model, it has
+    become a very powerful server-side scripting language,  i'm quite happy
+    working in this way. 
+    several improvement could be made, firstly, a better interface between
+    the GSL parser and user-defined functions,  currently i have to modify
+    evaluate_function_node() in ggeval.c in order to make the GSL parser to
+    work with my own code ,  i feel that METAHTML (www.metahtml.com) has a
+    very good way to let users define their own language extensions.  PHP
+    is quite easy too.
+    secondly, GSLGEN should have mod ( % in C language) operator, though i
+    could modify the code to support the operation, but i hope you could
+    add it to the next release of GSL, it is very useful in many cases,
+    especially generating tables with different color in odd and even rows.
+    thirdly, a?b:c (a three operand operation) is helpful too , this could
+    save a lot of .if .else .endif statements.
+    XITAMI / GSL is such a good piece of software , i do hope you could
+    further upgrade it to a total solution for Internet/Intranet developing
+    enviroment.
+    a friend from Taiwan
+    Yap
+
+    
+ == SOFTWARE REVIEW .-.---...-.---.-.-.----....-.-.-.---...----...-.-.----.--
+
+    Hiroshima On Every Desktop!
+    
+    Beta 6 of the Microsoft Visual Active Linux Server (VALS), code-named
+    "Hiroshima", is moving towards public release - and it looks good!
+
+    We recently received a shrink-wrap beta 6 version of VALS to play with,
+    and we bring you a quick review. An in-depth description of VALS' many
+    new features is online at hmtp://www.vals.ms/features.hmml. VALS6, which
+    everyone is already affectionately calling "Hiroshima" is scheduled for
+    official release in July, retailing at US$650.
+
+    As we've come to expect from Microsoft, the VALS6 install box is
+    lavishly decorated with plascreen rollouts that double as a wall TV. A
+    unique twist is the satellite receiver printed on the back of the
+    rollouts - you can catch MS-SATTV live on this baby! Retailers will
+    love the built-in autoseller function that makes the VALS6 box a real
+    show on any shop shelf.
+
+    We installed VALS6 on a modest PVI/2200, with a gig of RAM and a single
+    512Gb hard disk. VALS6 fits easily into this configuration, taking only
+    70Gb for a standard installation. We took this to be a good sign, and
+    we weren't disappointed!
+
+    VALS6 comes on a ten-DVD set, and when we inserted the first DVD, the
+    install wizard automatically saved our briefcase to the network server,
+    wiped our hard disk, and detected all our hardware, including the
+    fairly esoteric Sapphire Fanatic 4DX HoloVdio chipset, and OptiConX
+    device bus. We especially liked the install wizard's range of antique
+    arcade games. During the three-hour install, I tried several of these,
+    like "Doom", "Quake", and "Windows 95", and enjoyed myself thoroughly.
+    Of course, the install wizard also comes with a standard set of modern
+    games to get you through those first hours. One amusing easter egg: set
+    the culture option to "Soussou" for some great ethnic rhythms during
+    the install simulation.
+
+    The big new features in the VALS6 shrink-wrap beta are:
+
+    * New "Freddy" package manager. "Freddy" replaces the old package
+      manager and contains the new Pentium VI Dynamic Tuning technology.
+      As the VALS6 blurb says, "Freddy basically de-compiles every package
+      into Visual Jasic, then recompiles it, optimizing for the PVI
+      processor. This is great fun, and the graphics are way powerful
+      too!" The Freddy package manager also checks and removes all viruses
+      including the nasty GPL virus that still infects much Net software
+      and many Net sites.
+
+    * Over 400 new themes, including 150 from the Microsoft "Authentic
+      Warzones" series. VALS6 is worth getting just for the theme
+      collection!
+
+    * Two hundred hours of original MPX music, signed and authorized for
+      one user. The MPX collection was played by the Bill Gates Memorial
+      Orchestra, and was inspired by late 1999's elevator music. To use
+      the MPX collection on a network, you'll need to get the VALS6 Network
+      Music upgrade (US$300 list price).
+
+    * MS Visual Office 2005, including the "Commizard" Office agent which
+      will helpfully validate your documents in the background as you work.
+      We found that the Commizard agent was a great help in ensuring a
+      consistent writing style and content in documents. Although we did
+      smile when it suggested replacing "a great help" by "a green hat".
+      Companies will appreciate the Commizard Jasic Language (COJL). Some
+      examples of the provided COJL macros: one will check and improve all
+      outgoing company mail, another will scan the network server for
+      unauthorised phrases or politically-incorrect references.
+
+    * MS Visual Rooms, based on the Asymetrix "Walls 'n Things" room
+      manager.  Microsoft Corporation has been under pressure to deliver a
+      reliable room manager, and Visual Rooms is everything we'd hoped for.
+      With full support for MS Themes, your house will become a feast of
+      music and images. The MS Visual Rooms Network protocol lets you
+      share rooms with your friends and family.
+
+    * Many new plug-ins, including integrated GPS navigation, 3D
+      architectural design, family history, and the "Famous Cookie Recipe"
+      series, and "Playing Footsie with Randolf", both based on the popular
+      MS-SATTV series. All sixty-four of the Randolf episodes are here,
+      up to the last one where Randy gets poisoned by an evil hacker.
+
+    According to netcraft.ms, over 90% of all computers run VALS5, or
+    "Dresden" as it's popularly called. With its major new range of
+    features, and easy installation process, VALS6/Hiroshima is sure to
+    be a great hit this summer! We can't help but say nice things about
+    VALS6. Actually, we have no choice.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.  Liberetto is a non-profit,
+    non-polluting, year-2000 compatible journal.  We believe in recycling,
+    and often steal other people's ideas and jokes.
+   

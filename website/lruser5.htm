@@ -1,0 +1,60 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Sub-Dialogs</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser4.htm">&lt;</A>
+ | <A href="lruser6.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC6">Using Sub-Dialogs</A></H2>
+
+<P>Libero supports a simple state call/return mechanism.  This lets you build
+sub-dialogs that are called from other places in the dialog.  In the
+'calling' state, use the action Dialog-Call to call the sub-dialog state:</P>
+
+<PRE>
+Calling-State:
+    (--) Ok                         -&gt; Sub-State
+          + Do-Some-Normal-Work
+          + Dialog-Call
+    (--) Return                     -&gt; Next-State
+          + Continue-After-Call
+</PRE>
+
+<P>The Return event controls what happens when the sub-state returns.  The
+Return event can be in the same state, or in the Defaults state.</P>
+
+<P>The sub-dialog can consist of one or many states.  You should probably use
+some kind of naming convention to indicate that these states go together.  At
+some point, the sub-dialog uses the action Dialog-Return.  This ends the
+sub-dialog and continues in the calling state with the Return event.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser4.htm">&lt;</A>
+ | <A href="lruser6.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <EM>Using Sub-Dialogs</EM>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

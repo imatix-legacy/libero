@@ -1,0 +1,222 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Exceptions</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser2.htm">&lt;</A>
+ | <A href="lruser4.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC4">Using Exceptions</A></H2>
+
+Exceptions are basically a tool to reduce the size of a dialog.
+Instead of defining an extra state to handle a decision (typically
+the Ok/Error outcome of some work), you assume it's Ok, and carry on
+with the next action module directly.  If it's Error, you raise an
+exception, which is like a jump to that event in the same state.  Any
+module in progress is completed, but any further modules are not
+executed by the dialog manager.
+
+It's often useful to put exception events into the Defaults state,
+since certain kinds errors can occur in any state.  So you can raise
+an exception in any code, and know that it will be handled the same
+way, in the Defaults state.  Sometimes we override such central
+handling by defining specific handling for an exception event in a
+specific state.
+
+Exceptions are thus used to make small control steps within a state
+(error handling is just one specific example).  Such control steps
+can be used for any purpose.
+
+Overusing exceptions leads to impenetrable dialogs.
+
+<P>Exceptions are a powerful technique that make your dialog leaner and
+meaner.  In a typical dialog many actions do some work that may result in an
+error condition.  For instance, an action that reads some data from a file
+may discover that the file is no longer accessible due to a 'hard' error
+(protection, disk crash, insufficient memory,...).  Without exceptions, the
+only way to handle such possibilities is to define additional states - for
+instance, 'after-reading-data', that check the outcome of each action with a
+questionable outcome.</P>
+
+<P>This quickly leads to dialogs with dozens of states that serve only to
+keep track of these minority cases.  In the majority of cases, the errors
+never happen.  This means that the main logic of the dialog can get diluted
+by all the extraneous states.  With exceptions, you write the dialog as
+though errors were incidental. When an error happens, you treat it as a
+special case, as an 'exception'.  Otherwise, the dialog carries on
+normally.</P>
+
+<P>Most real dialogs use exceptions, sometimes heavily, for two reasons:
+<OL>
+<LI>Exceptions are a good way to handle errors.</LI>
+<LI>Exceptions can make a complex dialog simpler.</LI>
+</OL></P>
+
+<P>A module raises an exception by setting the variable Exception-Raised to a
+'true' value.  The module then supplies an event in The-Exception-Event.
+Quite often I use an event called 'Exception' when I use an exception event
+to handle fatal errors. This is how we raise an exception using an event
+called Exception-Event in various languages:</P>
+
+<P>C and C++:</P>
+<PRE>
+    exception_raised = TRUE;
+    the_exception_event = exception_event;
+</PRE>
+
+<P>80x86 assembler:</P>
+<PRE>
+    mov exception_raised,1
+    mov the_exception_event,exception_event
+</PRE>
+
+<P>Korn Shell:</P>
+<PRE>
+    exception_raised=TRUE
+    the_exception_event=$exception_event
+</PRE>
+
+<P>COBOL:</P>
+<PRE>
+    MOVE "YES" TO EXCEPTION-RAISED
+    MOVE EXCEPTION-EVENT TO THE-EXCEPTION-EVENT
+</PRE>
+
+<P>Visual Basic:</P>
+<PRE>
+    exception_raised = True
+    the_exception_event = exception_event
+</PRE>
+
+<P>In most languages (except COBOL) Libero provides a function or macro
+'Raise-Exception' that does the above.  See the later sections on using
+Libero in each language for details.</P>
+
+<P>The dialog normally executes all the action modules for an event-in-state,
+one by one, then switches to the next state for the event.  An exception
+interrupts this flow. The dialog handles exceptions in two steps:
+<OL>
+<LI>It checks Exception-Raised after executing each module.  It this variable
+has become 'true', it stops and checks the value of The-Exception-Event.</LI>
+<LI>It looks for The-Exception-Event in the current state (or Defaults), then
+executes the action modules for that event.  These modules can in turn raise
+an exception.</LI>
+</OL></P>
+
+<P>When a module raises an exception, the dialog does not care what the next
+state was supposed to be.  This is no longer important, since the exception
+event will determine its own next state.</P>
+
+<P>Libero also allows a short-cut: if the exception event is the same as the
+current event, you don't need to supply it.  If you just set Exception-Raised
+but not the event, the dialog loops back to the same event in the same state.
+Honestly, I don't use this very often.  I prefer to separate exception events
+from 'normal' events.</P>
+
+<P>Take the example of three actions which the dialog executes in series.
+First, it reads some data from a file.  Then it parses and converts the data.
+Lastly, it writes the data to another file.  Each of these actions has a
+normal outcome, and possible exceptional outcomes (error during reading,
+invalid data, error during writing, etc.).  If we write the dialog without
+exceptions, we need these three states:</P>
+
+<PRE>
+Before-Reading:
+    (--) Ok                         -&gt; After-Reading
+          + Read-Data-From-Input
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+After-Reading:
+    (--) Ok                         -&gt; After-Parsing
+          + Parse-and-Convert-Data
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+After-Parsing:
+    (--) Ok                         -&gt; Another-State
+          + Write-Data-To-Output
+          + ...
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>In this case, Read-Data-From-Input does something like this (I use C as
+the language):</P>
+
+<PRE>
+MODULE read_data_from_input (void)
+{
+    if (read_from_file (file, input) != NULL)
+        the_next_event = ok_event;
+    else
+        the_next_event = error_event;
+}
+</PRE>
+
+<P>By using an exception event (here, Error), we can collapse the three
+states into a single state:</P>
+
+<PRE>
+Before-Reading:
+    (--) Ok                         -&gt; Another-State
+          + Read-Data-From-Input
+          + Parse-and-Convert-Data
+          + Write-Data-To-Output
+          + ...
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>Read-Data-From-Input now does this:</P>
+
+<PRE>
+MODULE read_data_from_input (void)
+{
+    if (read_from_file (file, input) == NULL)
+        raise_exception (error_event);
+}
+</PRE>
+
+<P>Some hints about using exception events:
+<OL>
+<LI>Don't over-use exceptions.  What you gain from a more compact dialog you
+can loose in unclear logic.  Remember that exceptions should be used for
+error handling and special cases, not for primary logic.</LI>
+<LI>Choose good names, and use one exception event for the same purpose
+everywhere.  For instance, use an exception event Fatal-Error to indicate a
+fatal i/o error that causes the dialog to halt.</LI>
+<LI>The Defaults state is an ideal place to handle exceptions which may occur
+in many places.  However, do place specific exception handling in any state
+where it is useful.</LI>
+</OL></P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser2.htm">&lt;</A>
+ | <A href="lruser4.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <EM>Using Exceptions</EM>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

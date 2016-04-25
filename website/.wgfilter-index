@@ -1,0 +1,14 @@
+Deny \.gif$
+Deny \.jpeg$
+Deny \.mpeg$
+Deny \.jpg$
+Deny \.au$
+Deny \.wav$
+Deny \.mov$
+Deny \.gz$
+Deny \.Z$
+Deny \.tgz$
+Deny \.zip$
+Deny \.ps$
+Deny \.exe$
+Deny \?

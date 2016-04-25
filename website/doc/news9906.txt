@@ -1,0 +1,250 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    June 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 6
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    A special issue this month on template-based code generation.  If you're
+    looking for the humour, you can skip right on to the section "Mad Cows
+    and Maggie Thatcher - The Exclusive Story".  This part of Liberetto is
+    going to be completely serious.  Except for one or two small, even
+    innocent jokes.  So, what is template-based code generation, where can
+    you buy it, and does it get rid of moths?
+
+    I'll take the last question first, since it's the most critical.  (You
+    should see our moths, they are huge, and vicious.)  So, copy this
+    paragraph into your favourite word processor (MS Word will do nicely),
+    then repeat 100 times.  Print the result, roll it up, and use to beat
+    the moths to little pieces.  For those of you who feel that arbitrary
+    violence is not a good thing, select those moths who look suspicious,
+    and beat just them, while inciting the phrase "please be careful going
+    down those stairs, young sir" (or 'miss' if you can tell the difference).
+    Please note that we cannot be held responsible for anything you break.
+
+    Like mosquitos, which splat when hit, a well-hit moth will show you
+    what it was eating.  In the case of moths that's usually carpet, which
+    is not exciting.  It's like hitting small dry bundles of dust.  Our
+    moths, reared on a diet of old mutated floppy disks and magazine-cover
+    CD-ROMs, are pretty much unbreakable, and after they ping-pong around
+    the room a while, they tend to seek shelter by diving inside our
+    computers' floppy disk drives, whereupon they auto-install into Windows,
+    and start to breed in the "My Documents" folder.  When we say that next
+    month's Liberetto was eaten by bugs, we mean it literally.
+
+    Before you can try your hand at template-based code generation, you need
+    to know what a 'template' is.  This is a hard question, so I'll ignore
+    it.  Instead, let's look again at the connection between time and space.
+    Word used to install in 2 megabytes, and used to work.  Now it installs
+    in 500 megabytes, and won't number the headers in my document.  This is
+    not much use if people are to use it for serious moth-fighting.
+    Reminder for New Year's wish list: please, Santa, let Star Office *not*
+    emulate Word 100%.  Once is enough in human history.
+
+    Code generation in general means being lazy enough to be *really*
+    motivated to find ways to avoid doing work without people finding out.
+    At iMatix, we have one guy who is so incredibly lazy that he spent years
+    of his life writing a super cool program to do part of his job for him.
+    "Super cool" is a technical term meaning that the program runs so
+    quickly that the computer must be cooled using liquid helium.  Instead
+    of painfully writing a boring program, he just has to show one example
+    to the super cool program.  He then says 'okay, now make me a hundred
+    copies, but change that and that and this'.  The program, feeling
+    comfortably close to absolute zero in its bath of liquid helium (tastes
+    are relative), works quietly but efficiently and churns-out the
+    requested hundred copies.  When we want the program to produce something
+    different, we show it a different example to start from.
+
+    We call these examples 'templates', mainly because all the short, catchy
+    words we wanted to use (like 'dog', 'food', and 'extrapolatory') were
+    already used.  Some people like the word 'template' because they think
+    of code generation as a cookie cutter (biscuit cutter for you Brits)
+    (and no, we're not going to translate for everyone else.)
+
+    I think of code generation more as a Frankensteinian process in which
+    the heavens open up and Nature shrieks Her Energies into the soul of an
+    inanimate lump of diverse pieces of meat.  Or maybe I'm confusing it
+    with 'barbeque'.  I once lived in Scotland, a country where last year
+    there were exactly ten days without rainfall (in the capital, Edinburgh,
+    one of the drier parts of Scotland).  Barbequeues are alien to the Scots.
+    This is why so many of them went to Canada, a country where barbeques
+    are often confused with waffle irons.  But I digress.  Scotland and
+    Canada are both wonderful countries.  Heck, who needs barbeques?
+
+    Last month I saw a prototype of a web application, intended for Internet
+    use.  The prototype looked nice, running in a browser.  The first page
+    had a small text at the bottom: "to run this prototype you must have
+    MSIE 4.01/SP1 running in 1024x768 and Java enabled".   This is not a
+    joke.  Well, in some senses it is, I guess.  I'm glad I was not paying
+    for the work.
+
+    Personally, I don't believe the rumour that Nato is enthusiastically
+    throwing cruise missiles at Serbia because they all have Y2K bugs (the
+    missiles, not the Serbs) so this is a good occasion to get rid of them
+    (again, the missiles) and replace them with Y2K compatible bombs.  It
+    reminds me too much of the Y2K novel I was writing, in which a group of
+    accented terrorists have planted a huge bomb under Times Square in New
+    York, timed to go off at the tick of Y2K.  Of course the timer has a Y2K
+    fault and resets itself to 1900:00:00 instead of blowing up.
+
+    When I explain code generation to people, and then gently wake them up
+    with the glass of cold water I always bring to such occasions, the
+    reaction is often "sure, but we don't need that".  It is quite bizarre
+    that people do not like to be shown ways to work faster and better.  We
+    give our code generators away for free, so it's not even a question of
+    cost (nor profit, but that's another issue).  I think it's because many
+    people are not lazy enough.  Some people actually like to work, and
+    what's worse, they actually enjoy doing a bad job of it.  "Honey, I'm
+    just going down to the rock pile to chip me a new knife!"
+
+    Humanity evolved, and evolved itself, by inventing lazy technologies
+    like stone cutting blades, fires, gardens, and microwave popcorn.  I'd
+    hesitate to put our tools alongside such fundamental inventions as
+    microwave popcorn, but code generation is at least as important as fire
+    and the wheel.  Get yours now from www.iMatix.com while stocks last!
+
+    Pieter Hintjens
+    Antwerpen
+    1 June 1999
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    Since we started iMatix in 1995, we've been largely a virtual company.
+    Our shopfront is on the Internet, and we've met hardly any of our users,
+    although there are tens of thousands of them, enthusiastically using
+    Xitami and to a smaller extent, Libero and the other tools we make.
+
+    Last week one of our unseen-but-often-heard collaborators, Enrique, came
+    to visit, and was quite surprised to find that iMatix World Empire Head
+    Quarters is actually a normal house in a normal street.  'This is it?!'
+    I would add 'filled with normal people' but that's perhaps pushing it.
+    
+    The iMatix mailbag moves mysteriously and spits-out some text...
+
+
+    From:           	ab006@chebucto.ns.ca
+    To:             	editors@imatix.com
+    Subject:        	Re: Liberetto IV/5 .... huh huh huh.
+    -----------------------------------------------------------------------
+    ... huh huh huh  *Ooooops*
+    Pieter Hintjens wrote:
+
+    > [ ... ].  Some architects, like Madame V, are into 'formal methods'.
+
+    Thus have I heard: The original PERT (which, as I learned as a li'l
+    tadpole, was created to manage the Polaris submarine project) was vapour-
+    ware. The (devilishly clehver) Pentagon general in charge wanted it
+    _visible_. As for it actually working; pfffffffffftt! That the theory
+    actually came to be fleshed-out was entirely surplus to requirement. Ha!
+    What a world!!
+    ben
+    p.s. congrats on the new building. I suggest a tasty breakfast cereal as
+    freebie munchies in the lobby and staff lounges.
+
+    >>>>>>>>>>>>>>>
+    We liked the tasty breakfast cereal idea.  We've been testing muesli
+    (the mouse droppings look too much like raisins), chocopops (melts in
+    the intense Belgian heat), bran chunks (no-one can swallow, and the lobby
+    gets full of embarrased people looking for an innocent potted plant in
+    which to spit), and lastly ricepops (whenever anyone opens front door,
+    the tropical Belgian winds blow the rice pops all over the
+    receptionist).  So, we're back to offering our guests the traditional
+    humus and flat-bread dip.  It's a tough world.
+
+
+    To:             	ph@imatix.com
+    Subject:        	Re: Liberetto IV/5
+    -----------------------------------------------------------------------
+    I admit I don't use, and didn't ever seriously use Libero, as of yet.
+    But I enjoy your newsletter too much to even consider unsubscribing.
+
+    And after your most recent edition I feel there's something I should
+    share (also) with you, rather than acting as a mental consumer all 
+    the time. Despite of the fact that we don't know each other.
+    
+    The thing is, I was really delighted to see this paragraph ...
+
+    > The parallels with software development are amusing.  In both cases
+    > we're trying to build an environment that will support our work. There
+    > is the Big Bang approach: make plans, give full artistic control to
+    > Madame V, wait for two years, and hope the results are what we need.
+    > Then there is the organic approach: start with a bag of cement and a
+    > discussion with Monsieur B, and spend the next two years learning and
+    > building at the same time.
+
+    ... just after having been deeply inspired and moved for some days by
+    reading about the brand-new, heretic, human-centered, learning-oriented,
+    evolutionary, in your words: "organic", software development ?methodology?
+    called "eXtreme Programming". Did you already hear about that beast? See:
+    - http://c2.com/cgi/wiki?ExtremeProgramming
+
+    [ This site has an unusual, but again, "organic" format stemming from
+    the use of WikiWikiWeb, a tool to "grow" webs of concepts in a
+    distributed, discursive fashion (something like "Usenet with a long-term
+    memory"). ]
+
+    - Kent Beck's article in C++ Report May 1999, pp. 26-29, 44
+
+    You happen to know Ed Yourdon's "Death March" book? His diagnosis is
+    that almost the entire IT industry works in "death march" mode now.
+    Surprisingly he doesn't even really ask WHY it has to be that way.
+    Almost sarcastically (although I don't think this was on intent), his
+    overall message is: "If you have a family, or some other serious
+    personal life, better stay away from death march projects... but wait,
+    unfortunately there aren't any other projects these days." 
+
+    Now to my delight, XP does answer this "why" question and shoots not
+    at the symptoms but straight at the causes. Which are that the "big
+    bang methodologies", although widely used, largely don't work, because
+    they are way too slow and inflexible to support learning, adaptation,
+    evolution to any useful extent. 
+
+    Seems like something interesting is going on. Perhaps you, too, like it.
+    Best regards from Berlin,
+    -
+    Xxxxx (name withheld by request)
+
+    >>>>>>>>>>>>>>>
+    An interesting letter.  The problem of big-bang projects is one we know
+    well, since we're often called in to help with technical aspects in
+    projects, and too often, as firemen, to put out fires in large projects
+    that are going wrong.
+
+
+    From:           	"Kovacs Istvan" <kofa@alarmix.net>
+    To:             	<ph@imatix.com>
+    Subject:        	Re: Liberetto IV/1
+    -----------------------------------------------------------------------
+    Hi Pieter!
+    Once upon a time, in a galaxy... what? Uh, sorry. So in the January
+    issue of Liberetto you wrote:
+    > * The Ultimate Gadget
+    >
+    >Arriving some time in late 2000: a credit-card computer that has a
+    >couple of hundred megabytes of RAM and a fast CPU, probably running
+    >Linux...
+    Check out this URL: http://wearables.stanford.edu/
+    :-)
+    Kofa
+
+    >>>>>>>>>>>>>>>
+    Yes, Liberetto strikes the head on the nail as usual.  We mailed the
+    Wearable Computing Laboratory project and told them about Xitami.  A
+    nice gentleman called Vaughan Pratt replied "Thanks for letting us know
+    about Xitami.  We'll look into it when we get a moment."  What more can
+    one ask for?  Please resist mailing Mr Pratt (<pratt@CS.Stanford.EDU>)
+    with enthusiastic descriptions of how great Xitami is.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.

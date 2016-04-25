@@ -1,0 +1,1694 @@
+.---------------------------------------------------------------------
+.-   lrintr.txt   Libero introduction
+.-
+.define BASE      lrintr
+.define author    Pieter Hintjens
+.define written   24 Feb 1996
+.define revised   28 Dec 1996
+.---------------------------------------------------------------------
+.include prelude.def
+
+.page Introduction to Libero
+.ignore header $(ignore)
+<H1>$(TITLE)</H1>
+
+.include contents.def
+
+<H2>Summary</H2>
+
+<UL>
+<LI>Libero is a Programmer's Tool and Code Generator.  You
+define the high-level logic of a problem as a diagram: Libero
+generates the code to implement this logic.  Your applications
+are easier to write, more robust, easier to understand. Libero
+uses a finite-state machine as the underlying model.</LI>
+<LI>Libero generates code in these languages: C, C++, Java,
+Perl, Awk, 80x86 assembler, COBOL, MS Visual Basic, MS Test
+Basic, UNIX C Shell, UNIX Korn Shell, UNIX Bourne Shell, GNU
+Bash Shell, Rexx, PL/SQL, and PHP.  You can extend Libero support
+to other languages via external <EM>schema</EM> files.</LI>
+<LI>Libero runs on: UNIX (tested on Linux, HP/UX, SunOS, Irix,
+AIX, Solaris), MS-DOS, MS-Windows, Digital Open-VMS, OS/2.  It
+is in theory portable to any ANSI C compiler; the Libero sources
+are part of the package.</LI>
+</UL>
+
+<H2>Terms and Disclaimer</H2>
+
+<P>This program is free software; you can redistribute it and/or modify it
+under the terms of the $(*gnugpl=GNU General Public License) as published by
+the Free Software Foundation; either version 2 of the License, or (at your
+option) any later version. This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</P>
+
+<H2>Introduction</H2>
+
+<BLOCKQUOTE><P>&quot;Laziness</P>
+
+<P>The quality that makes you go to great effort to reduce
+overall energy expenditure.  It makes you write labour-saving
+programs that other people will find useful, and document what
+you wrote so you don't have to answer so many questions about
+it.  Hence the first great virtue of a programmer.&quot;</P>
+
+<P>Larry Wall [Programming Perl, Larry Wall and Randal. L.
+Schwartz, 1992 O'Reilly &amp; Associates, Inc., page
+426.]</P></BLOCKQUOTE>
+
+<H3>How It All Started</H3>
+
+<P>In 1982, as a student, I got into games programming as a way
+of making some money.  I skipped the build-it-yourself-from-an-
+old-TV-screen-and-a-hex-keypad phase of people computers, and
+jumped straight into the world of ready-to-go colour and sound.
+My first PC had 5K of RAM, and 25x22 colour video.  It could
+beep in three-part harmony.  My first published work was an
+article that explained how to tweak the video output to 30x33
+(hi-resolution!).  Soon I was writing sprite painters, assembly
+libraries for sound and graphics, even languages to replace the
+built-in Basic.  Anything to let me write my games faster and
+better.  Before I knew what had hit me, I was hooked into the
+cycle of writing tools to improve the world I lived in.</P>
+
+<P>I haven't written a game for a long time, but I've continued
+writing tools. Libero is one of the best - it's simple, clean,
+portable, and has hit the mark so often that I feel it's unfair
+to keep it for myself.</P>
+
+<P>The ideas behind Libero evolved in Brussels, Belgium during
+the 1980's and 90's.  I worked with $(*leif=Leif Svalgaard), on
+what we would now call a CASE tool - $(*etk=ETK) - that let
+COBOL programmers produce clean, portable code instead of the
+mess we generally saw.  One of the key techniques we used was a
+programming method based on finite state machines. Historically,
+the first real programs that used finite state machines were
+compilers.  In 1967, Peter Naur describes a new way of using
+FSMs (which he refers to as a Turing machine approach) in a
+compiler, and shows how they simplify error checking.  He goes
+on to say:</P>
+
+<BLOCKQUOTE>
+<P>&quot;The above description has stressed the checking aspect
+of the Turing machine approach.  However, an equally important
+aspect is the ease with which arbitrary actions may be
+specified.  By using this approach it is usually possible to
+avoid tests in individual actions to a surprisingly high degree.
+This in our experience is a very effective way of reducing the
+bulk and execution time of the translator algorithm.&quot; </P>
+<P>[Annual Review in Automatic Programming, &quot;Design Of The
+Gier Algol Compiler&quot;, Ed. Richard Goodman; 1964 Pergamon
+Press, page 77.]</P>
+</BLOCKQUOTE>
+
+<P>ETK provides an interactive editor that you use to describe
+the logic of the program as a FSM.  This approach encourages you
+to think about the complete problem.  You describe everything
+that can happen, and how the program should react.  The end-
+result looks a little like a flow-chart, but has more arrows,
+and fewer different kinds of boxes.  The value of this approach
+is that you can abstract a complex problem using the restricted
+semantics of a FSM.  In the same way that a <B>While</B>
+statement is less powerful but more useful than a <B>Goto</B>, a
+FSM is less powerful but more useful than a structured
+programming approach for describing complex problems.  Leif
+Svalgaard once said: &quot;the issue is not one of power, but
+coping with the human difficulty in understanding complex
+structures&quot;.
+</P>
+
+<P>Now, in a conventional state machine, these boxes are given
+numbers, and the programmer builds some tables that encode the
+arrows.  To make such a table by hand - or, just as bad, encode
+the table directly in the logic of the program, using GOTOs - is
+a Bad Thing, since the result is near to impossible to maintain.
+The neat part of our solution was that we took the textual
+description (called a 'dialog'), and generated the mystical
+tables directly as COBOL code.  This is a Good Thing, since the
+original dialog is easy to change, and suddenly becomes
+excellent (and always accurate) documentation.  In 1992 I began
+working as a consultant, and found that I wanted to use these
+techniques in my work.  I was writing in C, so I threw together
+a code generator that could output C code using the same dialog
+methodology I was used to.  I called this tool 'Libero' after
+the guy who runs around the sidelines at the football/soccer
+pitch doing all the dirty work.  My first serious job was a
+bunch of TCP/IP clients and servers.  It was nice to come back
+to the place three years later and find that the guy maintaining
+my work had only found one bug, and was happy to go into the
+programs.  He said that the dialogs made them easy to understand
+and modify.</P>
+
+<P>This kind of experience convinced me that there was real
+value in this tool. I've written lots of cute programs that are
+useful for my own needs, but that just don't hack it in the real
+world.  Libero is different.</P>
+
+<P>The first public release of Libero (1.7) generated C code
+using an external model, a kind of script called a 'schema'.  I
+had a couple of schemas; one for ANSI C code, and one for
+multithreaded DEC/VMS code.  I released version 2.0 onto the Net
+after adding schemas for UNIX scripts. This release gave me a
+lot of feedback, and I rewrote the code-generator again to make
+it much more generic.  The current version 2.11 has a lot more
+language schemas and a lot fewer bugs, plus a front-end for MS-
+Windows.</P>
+
+<P>I hope to continue in both these directions.  Libero has
+become a tool that lets you switch between languages at ease.
+The first step is to accept the state-machine as a valid method
+for program development.  This takes a little effort, but I hope
+that the examples which follow will help convince you.  The
+second step is to see that this method is language-independent.
+You can write a program in C, then recode it in Perl without
+changing its design.</P>
+
+<P>A hypothetical development team might write mainframe
+business applications in COBOL, tools in Perl, servers in C,
+batch scripts in Korn shell, Web clients in Java.  Yet instead
+of a team fragmented into  specialists in each domain, you would
+have a team that enjoys a common design  technique and who can
+quickly take on each other's work.  In practice, you also get a
+certain communality of programming style, which disturbs
+language  purists.  However, I like it when - say - a COBOL
+programmer that knows only  Libero take a C program written with
+Libero and says: &quot;But it looks like  COBOL!&quot;.  Of
+course neither the Libero+C nor Libero+COBOL programs look
+anything like 'COBOL'.</P>
+
+<H3>Learning To Use Libero</H3>
+
+<P>I've not found a quick way to convey the true nature of state
+machine programming.  In my experience, it invariably takes a
+few days of practice. After three or four days' exposure to the
+idea there is a near-audible 'click!' and something in the brain
+connects all the pieces together and you go 'Oh, it's like
+THAT!'.  Maybe people cultured on event-driven programming will
+get it faster.</P>
+
+.---------------------------------------------------------------------
+.page The Coke Machine Example
+
+<H2>$(TITLE)</H2>
+
+<P>The coke machine (once awake and gently humming) sits against the wall,
+waiting.  There is a theory about this humming business, notably that coke
+machines have terrible memories, and can't remember the words.  A second
+school of thought says that the coke machines are humming because they're
+thinking about all the terrible things they're going to do to humans with
+crow bars.  A third school of thought reckons that the coke machines have
+already done something, and are humming because they thought it was really
+funny.  Like all coke machines, it's very good at waiting, due to Natural
+Selection.  All the impatient proto-coke machines ran off screaming 'I can't
+take it anymore' and were crunched underfoot by brontosaurii back in the
+mists of prehistory.</P>
+
+<P>A punter arrives with a handful of loose change.  The coke-machine
+(covered by the modern and tasteful metal grid that serves both as a
+defensive covering and as an attraction for coke machines of the opposite
+sex) moves into 'attention' mode.  When it hears the clink of tasty cash,
+rather that the ominous clunk of a heavy crow-bar, it relaxes into 'ready
+mode'.  The machine is now ready to handle any eventuality, so long as it
+includes coinage.</P>
+
+<P>As the last coin falls and the punter presses the button labelled
+'healthie waye sparkling spring water', the machine considers the
+possibilities.  Should it play dead, and just take the punter's money?
+Or maybe it can substitute a can of 30% sucrose 'sweeto-sap'?  Finally
+it rumbles once, then again for added effect, then excretes a can of water.
+It munches the coins, then settles back against the wall, quietly humming
+again.</P>
+
+<P>Just to prove that you can describe <I>any</I> sequence of events, however
+improbable, with a state machine, here goes.  (The observant reader will have
+skipped to the next section by now, realising that this one is not worth the
+paper it's printed on.  If you're reading this on-line, then this section is
+not worth the phosphor it's been digitised, rasterised, and sprayed by an
+electronic beam gun onto.)  Act 1, scene 1 has our protagonist against the
+wall, trying to remember the words of the song.  Our coke-machine hero is
+normally OK; if something went terribly wrong with the rehearsals (e.g. a
+dinosaur got sucked through a five-dimensional space-time vortex stretched
+between the middle terrasic to five minutes into rehersals; the dinosaur a
+little off balance after the trip puts down its left foot, and 'crunch'...),
+it might be Dead, in which case we have to call the whole thing off.  We'll
+call this scene 'Should Be Gently Humming'...</P>
+
+<PRE>
+Should-Be-Gently-Humming:
+    (--) Ok                         -&gt; Something-Happened
+          + Wait-For-A-Punter
+    (--) Dead                       -&gt;
+          + Stop-The-Programme
+</PRE>
+
+<P>The coke machine has been waiting, perhaps for days, for a punter to come
+along.  When the footprints fade in from the distance (a coke machine's ears
+are always against the ground, which explains why you rarely find coke
+machines on wet or dirty surfaces), the machine hears either a cashy 'clink'
+or a more sinister 'clunk':</P>
+
+<PRE>
+Something-Happened:
+    (--) Clink                      -&gt; Before-Cooperating
+          + Accept-Punter's-Cash
+          + Wait-For-Punter's-Choice
+          + Shall-We-Cooperate?
+    (--) Clunk                      -&gt;
+          + Exit-Stage-Left-Running
+          + Stop-The-Programme
+</PRE>
+
+<P>The advent of a 'Clunk' tells the machine to beat it, smartly.  If a
+'Clink' happened, the machine goes on to think about a game plan for the
+coming few minutes.  It accepts whatever spare change the punter has to
+spare, then pounces, metaphorically:</P>
+
+<PRE>
+Before-Cooperating:
+    (--) Ok                         -&gt; Cooperate
+          + Consider-Punter's-Choice
+    (--) Nasty                      -&gt; Let's-Be-Nasty
+          + Consider-Punter's-Choice
+    (--) Play-Dead                  -&gt; Something-Happened
+          + Switch-Off-All-Lights
+          + Wait-Until-Punter-Has-Left
+          + Switch-On-The-Lights
+          + Wait-For-A-Punter
+</PRE>
+
+<P>If it's in a good mood, the machine ejects more or less the drink that the
+punter chose:</P>
+
+<PRE>
+Cooperate:
+    (--) Coke                       -&gt; Something-Happened
+          + Eject-Can-Of-Coke
+          + Wait-For-A-Punter
+    (--) Spring-Water               -&gt; Something-Happened
+          + Eject-Can-Of-Spring-Water
+          + Wait-For-A-Punter
+    (--) Juice                      -&gt; Something-Happened
+          + Eject-Can-Of-Juice
+          + Wait-For-A-Punter
+    (--) Sweeto-Sap                 -&gt; Something-Happened
+          + Eject-Can-Of-Sweeto-Sap
+          + Wait-For-A-Punter
+    (--) Empty                      -&gt;
+          + Switch-Off-All-Lights
+          + Stop-The-Programme
+</PRE>
+
+<P>If the coke machine's pretty weak internal moral system failed, it
+supplies the opposite of whatever the punter wanted:</P>
+
+<PRE>
+Let's-Be-Nasty:
+    (--) Coke                       -&gt; Something-Happened
+          + Eject-Can-Of-Juice
+          + Wait-For-A-Punter
+    (--) Spring-Water               -&gt; Something-Happened
+          + Eject-Can-Of-Sweeto-Sap
+          + Wait-For-A-Punter
+    (--) Juice                      -&gt; Something-Happened
+          + Eject-Can-Of-Coke
+          + Wait-For-A-Punter
+    (--) Sweeto-Sap                 -&gt; Something-Happened
+          + Eject-Can-Of-Spring-Water
+          + Wait-For-A-Punter
+    (--) Empty                      -&gt;
+          + Switch-Off-All-Lights
+          + Stop-The-Programme
+</PRE>
+
+<P>This diagram is a little complex for a first example.  Remember however,
+that we are modelling a rich behaviour pattern that took several hundreds of
+millions of years to evolve.  Real software is usually developed much faster,
+and should therefore be much simpler, only it isn't.</P>
+
+.---------------------------------------------------------------------
+.page Example of Using a Telephone
+
+<H2>$(TITLE)</H2>
+
+<P>In a more technical example, we'll model the steps we take in using making
+a telephone call.  By convention, the first state is <TT>After-Init</TT>.
+Another convention is to use <TT>Terminate-The-Program</TT> to halt the
+dialog.</P>
+
+<P>After initialisation (I would recommend a good coffee or a decent beer,
+depending on the time of day), we pick-up the handset, and listen to the
+dialing tone.</P>
+
+<PRE>
+After-Init:
+    (--) Ok                          -&gt; Want-Dialing-Tone
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Error                       -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>This leads us to the state <TT>Want-Dialing-Tone</TT>.  Here we handle
+each of the possible events produced by <TT>Listen-For-Dialing-Tone</TT>.
+Let's look at these in detail:
+<UL>
+<LI><B>Ok</B> We have a dialing tone, so we can dial the number.  This
+is the normal, expected event.</LI>
+<LI><B>Silent, no tone</B> The telephone exchange is having a hard day, or
+someone unplugged the phone.  Or maybe a ninja attack team has cut the phone
+cables and is at this moment sneaking up the stairs and AAAARGH...  In this
+simple example we loop forever; in a real program we would allow a limited
+number of attempts.</LI>
+<LI><B>Voices on the line</B> Some other member of the household is making
+the phone company richer.  We apologise and forget it.</LI>
+<LI><B>Modem noise</B> - the young bro' is downloading some more bootleg
+GIF's.</LI>
+</UL></P>
+
+<P>We give each of these events a short snappy name and list them in a
+reasonable order.  Like a 'case' statement, the actual order makes no
+difference to the machine, but helps the person reading the dialog.
+Typically we put the most frequent or expected events first, with the more
+bizarre ones at the end.  Each event provokes one or more <I>actions</I> that
+correspond to <I>modules</I> of code.  A module can be a <I>function</I>,
+<I>procedure</I>, <I>subroutine</I>, <I>paragraph</I>, etc., depending on the
+programming language.  A module is where you do the real work.</P>
+
+<PRE>
+Want-Dialing-Tone:
+    (--) Ok                          -&gt; Want-Ringing-Tone
+          + Dial-Required-Number
+          + Listen-For-Ringing-Tone
+    (--) Silent                      -&gt; Want-Dialing-Tone
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Voices                      -&gt;
+          + Apologise-Telephone-Busy
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Modem                       -&gt;
+          + Put-Down-Telephone-Handset
+          + Apologise-Cutting-Modem
+          + Terminate-The-Program
+</PRE>
+
+<P>Here we are waiting for a ringing tone.  We can reuse some of the event
+names - <TT>Ok</TT>, <TT>Silence</TT>, <TT>Voices</TT> - from the previous
+state.  This makes the generated code smaller, and is nice for the reader,
+since there are fewer names to remember:</P>
+
+<PRE>
+Want-Ringing-Tone:
+    (--) Ok                          -&gt; Want-Answer
+          + Listen-For-Answer
+    (--) Silence                     -&gt; Want-Dialing-Tone
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+    (--) Engaged                     -&gt; After-Engaged
+          + Put-Down-Telephone-Handset
+          + Consider-Trying-Again
+    (--) Voices                      -&gt; Want-Dialing-Tone
+          + Complain-Crossed-Connection
+          + Put-Down-Telephone-Handset
+          + Pick-Up-Telephone-Handset
+          + Listen-For-Dialing-Tone
+</PRE>
+
+<P>You get the picture.  The remaining states map out the rest of the
+conversation.  The next state has an event, <TT>Doorbell</TT>, that is not
+produced by any previous module, but that can happen at any time.  We call
+this an <I>exception event</I>, and we add the handling for it in the state
+where it can happen:</P>
+
+<PRE>
+Want-Answer:
+    (--) Ok                          -&gt;
+          + Have-Conversation
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Wrong-Number                -&gt;
+          + Apologise-Wrong-Number
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Answering-Machine           -&gt; Have-Answering-Machine
+          + Consider-Leaving-Message
+    (--) Modem-Or-Fax
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Doorbell                    -&gt;
+          + End-Conversation-Quickly
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+
+After-Engaged:
+    (--) Ok                          -&gt; Want-Ringing-Tone
+          + Dial-Required-Number
+          + Listen-For-Ringing-Tone
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+
+Have-Answering-Machine:
+    (--) Message                     -&gt;
+          + Leave-The-Message
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+    (--) Impatient                   -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+</PRE>
+
+<P>The <TT>Defaults</TT> state is special; we never come here explicitly.
+Rather, the state holds events that are implicitly valid in any other state.
+Here we say that whenever the <TT>Doorbell</TT> event strikes, we put the
+phone down and beat it doorwards.  Note that the <TT>Doorbell</TT> event is
+handled explicitly in <TT>Want-Answer</TT> - the action in that state is a
+little different from the other states.</P>
+
+<PRE>
+Defaults:
+    (--) Doorbell                    -&gt;
+          + Put-Down-Telephone-Handset
+          + Terminate-The-Program
+</PRE>
+
+<H3>Serious Stuff: Events and Names</H3>
+
+<P>Now I want to show how an action module 'produces' an event.  Libero
+provides a standard variable called <TT>The-Next-Event</TT>.  An event like
+'Ok' is actually called <TT>Ok-Event</TT> in the program (Libero tacks-on
+'-Event' for you).  This is how you would set <TT>The-Next-Event</TT> in
+various languages:
+<UL>
+<LI>C/C++: <TT>the_next_event = ok_event;</TT></LI>
+<LI>80x86 assembler: <TT>mov the_next_event,ok_event</TT></LI>
+<LI>UNIX Korn Shell: <TT>the_next_event=$ok_event</TT></LI>
+<LI>Perl: <TT>the_next_event = $ok_event;</TT></LI>
+<LI>COBOL: <TT>MOVE OK-EVENT TO THE-NEXT-EVENT</TT></LI>
+<LI>Visual Basic: <TT>the_next_event = ok_event</TT></LI>
+</UL></P>
+
+<P>Libero applies this rule: <I>at least </I>one of the action modules for an
+event must supply a value for <TT>The-Next-Event</TT>.  If no value for
+<TT>The-Next-Event</TT> is supplied, the dialog halts with some kind of error
+message.</P>
+
+<P>The names of events and action modules can take various forms, depending
+on the language and your preferences.  For example, the C/C++ code could take
+any of these forms:
+<UL>
+<LI>Plain style: <TT>the_next_event = ok_event;</TT></LI>
+<LI>Caps style: <TT>TheNextEvent = OkEvent;</TT></LI>
+<LI>Headline style: <TT>The_Next_Event = Ok_Event;</TT></LI>
+<LI>Title style: <TT>The_next_event = Ok_event;</TT></LI>
+</UL></P>
+
+<P>Personally I prefer the first style, which is why it's the default.</P>
+
+.---------------------------------------------------------------------
+.page Example of Controlling a Telephone
+
+.build anchor rover
+<H2>$(TITLE)</H2>
+
+<P>This next example is one that a correspondent at a telephone company
+proposed. It's a design for a simple but dedicated subprogram (we'll call it
+'Rover') that hangs-around on the corner of our telephone central.  Rover
+springs into action (presumably woofing and waggling a shaggy tail) when we
+pick-up the handset, or when a call comes in for us.  The dialog loops around
+and around, each time driven by an 'incoming message'.  This message is one
+of these events:
+<UL>
+<LI><B>Offhook</B> - we picked-up the handset.  Presumably this affects the
+current on the line, which the central can detect.</LI>
+<LI><B>Onhook</B> - we put the phone down.</LI>
+<LI><B>Request</B> - another person is calling us from a 'remote' phone.</LI>
+<LI><B>Digit</B> - we pressed a digit on the touchpad.</LI>
+<LI><B>Whole Number</B> - we pressed enough digits to form a recognised
+number.</LI>
+<LI><B>Accept</B> - the remote phone accepted the call - ie. the remote Rover
+gets a Request event of its own.</LI>
+<LI><B>Busy</B> - the remote phone was busy.</LI>
+<LI><B>Reject</B> - the remote phone number was rejected - we made a mistake
+with the number, or (if dialing into Britain) the British changed their
+dialing prefixes again.</LI>
+<LI><B>Answer</B> - finally, contact.  I hope it was worth it.</LI>
+<LI><B>Release</B> - the remote phone cut the Talking.  At our end we hear
+a tone that signals this.  (This is how my telephone central works.)</LI>
+</UL></P>
+
+<P>Here is the dialog.  Rover waits for anything to happen, then leaps:</P>
+
+<PRE>
+After-Init:
+    (--) Ok                           -&gt; Idle
+          + Wait-For-Incoming-Message
+    (--) Error                        -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The two possible events at this stage are <TT>Offhook</TT> (coming from
+the local phone), and <TT>Request</TT> (from a remote phone).  We call this
+state 'Idle'.  Some people get confused at this point, and point out that
+Rover is exactly <I>not</I> idle, so why the name.  Why not call the very
+first state 'Idle'?  I answer so: the name of a state reflects the state we
+were in when the event happened.  Thus, when Rover was idle, the only two
+events that could happen were <TT>Offhook</TT> and <TT>Request</TT>.</P>
+
+<PRE>
+Idle:
+    (--) Offhook                      -&gt; Dialing-First
+          + Start-Dial-Tone
+          + Reset-Dialed-Number
+          + Wait-For-Incoming-Message
+    (--) Request                      -&gt; Ringing
+          + Start-Ringing-Local
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The next two states show what happens when we dial the first digit. Rover
+stops with the dial tone, and slurps up the digits we press, one by one. I
+distinguish <TT>Dialing-First</TT> from <TT>Dialing-Next</TT> to ensure that
+Rover does a <TT>Stop-Local-Tones</TT> the first time only:</P>
+
+<PRE>
+Dialing-First:
+    (--) Digit                        -&gt; Dialing-Next
+          + Stop-Local-Tones
+          + Have-Dialed-Digit
+          + Wait-For-Incoming-Message
+    (--) Whole-Number                 -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+          + Wait-For-Incoming-Message
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>Rover doesn't bother handling the <TT>Onhook</TT> event here, since the
+<TT>Defaults</TT> state handles it just fine:</P>
+
+<PRE>
+Dialing-Next:
+    (--) Digit                        -&gt; Dialing-Next
+          + Have-Dialed-Digit
+          + Wait-For-Incoming-Message
+    (--) Whole-Number                 -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>Okay, we just tried to 'seize' the remote phone.  This is either accepted
+(and the remote phone starts ringing) or rejected for various reasons:</P>
+
+<PRE>
+Seizing:
+    (--) Accept                       -&gt; Ringing
+          + Start-Ringing-Remote
+          + Wait-For-Incoming-Message
+    (--) Busy                         -&gt; Seize-Failed
+          + Start-Busy-Tone
+          + Wait-For-Incoming-Message
+    (--) Reject                       -&gt; Seize-Failed
+          + Start-Reject-Tone
+          + Wait-For-Incoming-Message
+
+Seize-Failed:
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The next three states show how Rover handles a ringing phone (at either
+end) and the eventual Talking, if any.  I combined the handling for the local
+and remote phones into two states; I could also write this more clearly but
+verbosely as four states (<TT>Ringing-Local</TT>, <TT>Ringing-Remote</TT>,
+<TT>Talking-Local</TT>, <TT>Talking-Remote</TT>).</P>
+
+<PRE>
+Ringing:
+    !  Events from local phone
+    (--) Offhook                      -&gt; Talking
+          + Stop-Ringing-Local
+          + Wait-For-Incoming-Message
+    (--) Onhook                       -&gt; Idle
+          + Stop-Ringing-Remote
+          + Wait-For-Incoming-Message
+    !  Event from remote phone
+    (--) Answer                       -&gt; Talking
+          + Stop-Ringing-Remote
+          + Wait-For-Incoming-Message
+
+Talking:
+    !  Event from local phone
+    (--) Onhook                       -&gt; Idle
+          + Send-Outgoing-Release
+          + Wait-For-Incoming-Message
+    !  Event from remote phone
+    (--) Release                      -&gt; Released
+          + Start-Released-Tone
+          + Wait-For-Incoming-Message
+
+Released:
+    (--) Onhook                       -&gt; Idle
+          + Stop-Local-Tones
+          + Wait-For-Incoming-Message
+</PRE>
+
+<P>The <TT>Defaults</TT> state handles the <TT>Onhook</TT> event in those
+states where there is no local tone.  In those states (like
+<TT>Released</TT>), Rover silences the local phone, then loops back to the
+<TT>Idle</TT> state:</P>
+
+<PRE>
+Defaults:
+    (--) Onhook                       -&gt; Idle
+          + Wait-For-Incoming-Message
+</PRE>
+
+.---------------------------------------------------------------------
+.page Source Code For Phone.c
+
+<H2>$(TITLE)</H2>
+
+<P>When I take the above dialog (called phone.l), and give it to
+Libero, this is what happens:</P>
+
+<PRE>
+ C:\CTOOLS\LIBERO&gt;<B>lr phone</B>
+ LIBERO v2.11 (c) 1991-96 by Pieter A. Hintjens
+ lr I: processing 'phone.l'...
+ lr I: creating skeleton program phone.c...
+ lr I: building phone.d...
+ lr I: building phone.i...
+ lr I: Building stub for have dialed digit
+ lr I: Building stub for reset dialed number
+ lr I: Building stub for send outgoing release
+ lr I: Building stub for send outgoing request
+ lr I: Building stub for start busy tone
+ lr I: Building stub for start dial tone
+ lr I: Building stub for start released tone
+ lr I: Building stub for start ringing local
+ lr I: Building stub for start ringing remote
+ lr I: Building stub for stop local tones
+ lr I: Building stub for stop ringing local
+ lr I: Building stub for stop ringing remote
+ lr I: Building stub for wait for incoming message
+ C:\CTOOLS\LIBERO&gt;
+</PRE>
+
+<P>Libero assumes that I want to make a program called phone.c.  Since this
+file does not exist, it creates a skeleton program for me.  This only happens
+the first time.  Once the program is created, Libero will add missing pieces
+to it, at the end, but will never change it again otherwise.</P>
+
+<P>I get two other files as well, phone.d and phone.i.  These are the data
+and interpreter for my dialog.  I need these files to compile phone.c.  Each
+time I run Libero, it recreates these two files.  If I was working in another
+language, I would get different files, with different extensions.  The
+default language is C.  Here is the skeleton program that Libero gave me,
+more or less:</P>
+
+<PRE>
+/*=========================================================================*
+ *                                                                         *
+ *  phone.c     description...                                             *
+ *                                                                         *
+ *  Written:    95/07/29    Your Name                                      *
+ *  Revised:    95/07/29                                                   *
+ *                                                                         *
+ *  Skeleton generated by LIBERO 2.10 on 29 Jul, 1995, 11:50.              *
+ *                                                                         *
+ *=========================================================================*/
+
+#include "prelude.h"                    /*  Public definitions             */
+#include "phone.d"                      /*  Include dialog data            */
+
+/*- Function prototypes ---------------------------------------------------*/
+
+/*- Global variables used in this source file only ------------------------*/
+
+static int
+    feedback;                           /*  Feedback for calling program   */
+
+static char
+    *some_param;                        /*  Example of parameter           */
+
+/********************************   M A I N   ******************************/
+
+int my_funct (char *p_some_param)
+{
+    feedback = 0;                       /*  No errors so far               */
+    some_param = p_some_param;          /*  Local copy of parameters       */
+
+#   include "phone.i"                   /*  Include dialog interpreter     */
+}
+
+/************************   INITIALISE THE PROGRAM   ***********************/
+
+MODULE initialise_the_program (void)
+{
+    the_next_event = ok_event;
+}
+
+/**************************   GET EXTERNAL EVENT   *************************/
+
+MODULE get_external_event (void)
+{
+}
+
+/************************   TERMINATE THE PROGRAM   ***********************/
+
+MODULE terminate_the_program (void)
+{
+    the_next_event = terminate_event;
+}
+
+/**************************   HAVE DIALED DIGIT   **************************/
+
+MODULE have_dialed_digit (void)
+{
+}
+
+/************************   RESET DIALED NUMBER   ************************/
+
+MODULE reset_dialed_number (void)
+{
+}
+ ... etc.
+</PRE>
+
+<P>I discuss the details of Libero+C programming elsewhere.  Some rules
+apply whatever language you use:
+<UL>
+<LI>Libero creates a program that is ready to compile and run. The dialog
+will halt with an error message since we don't supply any events beyond the
+initial Ok.</LI>
+<LI>There are some standard modules: a main entry point of some kind,
+Initialise-The-Program, Get-external-event, and Terminate-The-Program.</LI>
+<LI>Libero adds a module stub for each action that you use in your
+dialog.</LI>
+<LI>The program relies heavily on source-local variables.  I.e. variables
+that are global to all functions in the source file, but not visible to other
+source files.  This can be disturbing to some people, but is a natural
+consequence of the way Libero restructures your program.  It actually works
+quite well, as we'll see later.</LI>
+</UL></P>
+
+<P>The basic C program consists of a number of standard pieces:
+<UL>
+<LI><TT>Main</TT> - passes control to the Libero generated code.  In some
+languages, such as the C program above, it must also copy any arguments into
+variables that can be accessed by other modules.</LI>
+<LI><TT>Initialise-The-Program</TT> - initial sanity checks, then usually
+passes an Ok event to the dialog.  We do this with the line:<BR>
+<PRE>the_next_event = ok_event;</PRE></LI>
+
+<LI><TT>Terminate-The-Program</TT> - halts the dialog by passing it a
+Terminate event.  Generally this is the last action that the dialog executes,
+so it is also a convenient place to shut log files, etc.</LI>
+<LI><TT>Get-External-Event</TT> - the dialog calls this implicitly if it
+didn't get an event from any of the modules it executed.</LI>
+</UL></P>
+
+.---------------------------------------------------------------------
+.page Example of a C/C++ Comment Stripper
+
+<H2>$(TITLE)</H2>
+
+<P>One of the classic uses for state machines is in scanning and parsing text
+- e.g. source programs.  People usually do this with tools like lex and yacc,
+or using languages like Awk and Perl that are good at pattern matching.  When
+I explain that Libero uses a state-machine model, some people think that I am
+asking them to use Libero in place of the honoured tools I just mentioned.
+The next example shows why this is not the case.</P>
+
+<P>Here I present a C/C++ comment stripper based on an example by Robert
+Martin (who makes a finite-state machine code generator for C++).  In C and
+C++, comments are either enclosed between '/*' and '*/', or begin with '//'
+until the end of the line.  This program removes all comments from a C or C++
+source program, with some checking for errors like an unmatched '/*':</P>
+
+<PRE>
+!
+!   C/C++ comment stripper dialog
+!
+!   Written:    95/03/30  Pieter Hintjens &lt;ph@imatix.com&gt;
+!   Revised:    96/05/15  Frans Janssens &lt;frans@sebb.bel.alcatel.be&gt;
+!
+-source=stripper.c
+-schema=lrschema.c
+
+After-Init:
+    (--) Ok                         -&gt; Outside-Comment
+          + Get-Char-From-Input
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Outside-Comment:
+    (--) Quote                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; After-Slash
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+Skip-Quote:
+    (--) Quote                      -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+After-Slash:
+    (--) Quote                      -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Comment
+          + Start-New-Comment
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+Skip-Eoln:
+    (--) Quote                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+
+Skip-Comment:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; After-Comment-Slash
+          + Get-Char-From-Input
+    (--) Star                       -&gt; After-Comment-Star
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+After-Comment-Star:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Outside-Comment
+          + Other-If-Nested-Comment
+          + Get-Char-From-Input
+    (--) Star                       -&gt; After-Comment-Star
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+After-Comment-Slash:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Comment
+          + Start-New-Comment
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+Defaults:
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+    (--) End-Of-File                -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>This is what Libero generates when I compile the dialog:</P>
+<PRE>
+/*===========================================================================*
+ *                                                                           *
+ *  stripper.c  description...                                               *
+ *                                                                           *
+ *  Written:    96/12/31    Pieter Hintjens <ph@imatix.com>                  *
+ *  Revised:    96/12/31                                                     *
+ *                                                                           *
+ *  Skeleton generated by LIBERO 2.20 on 31 Dec, 1996, 14:00.                *
+ *===========================================================================*/
+
+#include "prelude.h"                    /*  Universal include file           */
+#include "stripper.d"                   /*  Include dialog data              */
+
+/*- Function prototypes -----------------------------------------------------*/
+
+/*- Global variables used in this source file only --------------------------*/
+
+static int
+    feedback;                           /*  Feedback for calling program     */
+
+static char
+    *some_param;                        /*  Example of parameter             */
+
+/********************************   M A I N   ********************************/
+
+int my_funct (char *p_some_param)
+{
+    feedback = 0;                       /*  No errors so far                 */
+    some_param = p_some_param;          /*  Local copy of parameters         */
+
+#   include "stripper.i"                /*  Include dialog interpreter       */
+}
+
+/*************************   INITIALISE THE PROGRAM   ************************/
+
+MODULE initialise_the_program (void)
+{
+    the_next_event = ok_event;
+}
+
+/***************************   GET EXTERNAL EVENT   **************************/
+
+MODULE get_external_event (void)
+{
+}
+
+/*************************   TERMINATE THE PROGRAM    ************************/
+
+MODULE terminate_the_program (void)
+{
+    the_next_event = terminate_event;
+}
+
+/**************************   GET CHAR FROM INPUT   **************************/
+
+MODULE get_char_from_input (void)
+{
+}
+
+/***************************   PUT CHAR TO OUTPUT   **************************/
+
+MODULE put_char_to_output (void)
+{
+}
+
+/**************************   PUT SLASH TO OUTPUT   **************************/
+
+MODULE put_slash_to_output (void)
+{
+}
+
+/***************************   START NEW COMMENT   ***************************/
+
+MODULE start_new_comment (void)
+{
+}
+
+/**********************   SIGNAL UNTERMINATED COMMENT   **********************/
+
+MODULE signal_unterminated_comment (void)
+{
+}
+
+/************************   OTHER IF NESTED COMMENT   ************************/
+
+MODULE other_if_nested_comment (void)
+{
+}
+</PRE>
+
+<P>This is the completed comment-stripper program:</P>
+<PRE>
+/*=========================================================================*
+ *                                                                         *
+ *  stripper.c  C/C++ comment stripper                                     *
+ *                                                                         *
+ *  Written:    96/12/31    Pieter Hintjens <ph@imatix.com>                  *
+ *  Revised:    96/12/31                                                   *
+ *                                                                         *
+ *=========================================================================*/
+
+#include "prelude.h"                    /*  Standard include file          */
+#include "stripper.d"                   /*  Include dialog data            */
+
+
+/*- Global variables used in this source file only ------------------------*/
+
+static int
+    thisch,                             /*  Current character              */
+    comment_level,                      /*  Comment nesting level          */
+    feedback;                           /*  Feedback for calling program   */
+
+int main (void)
+{
+    feedback = 0;                       /*  No errors so far               */
+#   include "stripper.i"                /*  Include dialog interpreter     */
+}
+
+/************************   INITIALISE THE PROGRAM   ***********************/
+
+MODULE initialise_the_program (void)
+{
+    the_next_event = ok_event;
+}
+
+/*************************   GET CHAR FROM INPUT   *************************/
+
+MODULE get_char_from_input (void)
+{
+    thisch = getchar ();
+    switch (thisch)
+      {
+        case '"':   the_next_event = quote_event;         break;
+        case '/':   the_next_event = slash_event;         break;
+        case '*':   the_next_event = star_event;          break;
+        case '\n':  the_next_event = newline_event;       break;
+        case EOF:   the_next_event = end_of_file_event;   break;
+        default:    the_next_event = other_event;
+      }
+}
+
+/**************************   PUT CHAR TO OUTPUT   *************************/
+
+MODULE put_char_to_output (void)
+{
+    putchar (thisch);
+}
+
+/*************************   PUT SLASH TO OUTPUT   *************************/
+
+MODULE put_slash_to_output (void)
+{
+    putchar ('/');
+}
+
+/**************************   START NEW COMMENT   **************************/
+
+MODULE start_new_comment (void)
+{
+    comment_level++;                    /*  We have a new comment          */
+}
+
+/***********************   OTHER IF NESTED COMMENT   ***********************/
+
+MODULE other_if_nested_comment (void)
+{
+    comment_level--;                    /*  We've finished a comment       */
+    if (comment_level &gt; 0)              /*    but maybe it was nested...   */
+        raise_exception (other_event);
+}
+
+/*********************   SIGNAL UNTERMINATED COMMENT   *********************/
+
+MODULE signal_unterminated_comment (void)
+{
+    fprintf (stderr, "stripper: unterminated comment\n");
+    feedback = 1;                       /*  Return code for main program   */
+}
+
+/***************************   GET EXTERNAL EVENT   ************************/
+
+MODULE get_external_event (void)
+{
+}
+
+/************************   TERMINATE THE PROGRAM   ************************/
+
+MODULE terminate_the_program (void)
+{
+    the_next_event = terminate_event;
+}
+</PRE>
+
+<P>The program works and is easily understood.  However, because the dialog
+is really too low-level, it makes the problem seem more complex than it
+actually is.  In fact, this is a good example of the kind of problem that I
+would never use Libero for.  I would write this as a straight C program.</P>
+
+<P>Moral: Libero is not worth the overhead on trivial problems.  By contrast,
+when you are wrestling with a really complex problem, Libero lets you break
+it down into smaller, simpler pieces, and keep the central logic in a single
+place.</P>
+
+<P>Second moral: simplicity can be deceptive.  It often happens that the
+first stab at a problem produces a simple solution, as here.  However, when
+the solution meets reality, reality often gets its own way and imposes all
+kind of nasty complexities that mess-up the clean solution.  A dialog is very
+good at handling such things.  So, it can be better to start-out on the right
+footing and use a dialog from the start.</P>
+
+.---------------------------------------------------------------------
+.page Example of Parsing An Arithmetic Expression
+
+<H2>$(TITLE)</H2>
+
+<P>The next example is for an arithmetic expression evaluator that was
+originally proposed by $(*leif=Leif Svalgaard).  The program works out the
+value of a string like '2-SQR(2)*1.414'.  The program translates easily into
+most of the languages I've worked with so far, from assembler to Basic to C
+and COBOL.</P>
+
+<P>Here I describe the program <TT>lrcalc.c</TT>, which is a subroutine that
+I use in Libero.  You can find the source for this program along with the
+other sources for Libero in the $(*lrsrc.zip) archive.  There are also
+versions of this program in various languages in the
+$(*expr.zip=examples archive).</P>
+
+<P>Lrcalc chops the expression into tokens, each representing an operand
+(numbers) or operator.  The operators are classified as:
+<UL>
+<LI>term operator: '+' and '-'</LI>
+<LI>factor operator: '*' and '/'</LI>
+<LI>left-parenthesis: '('</LI>
+<LI>right-parenthesis: ')'</LI>
+<LI>end-mark: indicates the end of the expression.</LI>
+</UL></P>
+
+<P>There are various ways of parsing an expression like this; <TT>lrcalc</TT>
+combines two basic techniques: push-down stacks for the operands and
+operators, and states to indicate how tokens are handled.  Each state accepts
+specific tokens and rejects others. For instance, at the start of the
+expression, an operator like '*' is not valid.  When a state accepts an
+operand or operator, it adds it to the appropriate stack.  When a state
+stacks an operator, it evaluates any previous operators that have the same,
+or higher priority.  '*' and '/' have a higher priority than '+' and '-'.</P>
+
+<P>Operators like '(' and ')' are placeholders that group parts of the
+expression together with a higher priority.  Operators like '*', '/', '+',
+and '-' are binary operators that take two values off the operand stack, do
+their work, and place the result back on the stack.</P>
+
+<P>The program basically takes tokens one by one, stacks and evaluates them
+according to the priority rules, until it reaches the end of the expression.
+To make this clean, the program places a special end-mark token at the end of
+the expression when it starts.  When it reaches the end-mark, it evaluates
+any remaining operators, which leaves the result of the expression sitting on
+the stack.</P>
+
+<PRE>
+After-Init:
+    (--) Ok                         -&gt; Expecting-Initial
+          + Get-Next-Token
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The two states Expecting-Initial and Expecting-Operand are similar, except
+that the first allows End-Mark while the latter does not.  I.e. we accept an
+empty expression (End-Mark in Expecting-Initial), but don't accept an
+expression that ends when we expect an operand:</P>
+
+<PRE>
+Expecting-Initial:
+    (--) Term-Op                    -&gt;
+          + Allow-Signed-Number
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Number                     -&gt; Expecting-Operator
+          + Stack-The-Number
+          + Get-Next-Token
+    (--) Left-Par                   -&gt; Expecting-Operand
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) End-Mark                   -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>These two states handle signed numbers (e.g.. -12, +100) by accepting
+Term-Op tokens (ie. '+' or '-') so long as these are stuck to a following
+number.  The module Allow-Signed-Number gets the next token, and if this is a
+number, it kicks the dialog into accepting a number in the same state.  It
+does this using an exception event called Number:</P>
+
+<PRE>
+Expecting-Operand:
+    (--) Term-Op                    -&gt;
+          + Allow-Signed-Number
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Number                     -&gt; Expecting-Operator
+          + Stack-The-Number
+          + Get-Next-Token
+    (--) Left-Par                   -&gt; Expecting-Operand
+          + Stack-The-Operator
+          + Get-Next-Token
+</PRE>
+
+<P>After stacking an operand, the dialog expects an operator:</P>
+
+<PRE>
+Expecting-Operator:
+    (--) Term-Op                    -&gt; Expecting-Operand
+          + Unstack-Ge-Operators
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) Factor-Op                  -&gt; Expecting-Operand
+          + Unstack-Ge-Operators
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) End-Mark                   -&gt;
+          + Unstack-All-Operators
+          + Unstack-If-End-Mark
+          + Terminate-The-Program
+   (--) Right-Par                  -&gt; Expecting-Operator
+          + Unstack-All-Operators
+          + Unstack-If-Left-Par
+          + Get-Next-Token
+</PRE>
+
+<P>The Defaults state lists all tokens.  If a state does not explicitly
+accept some token, the Defaults state handles it: it issues an error message
+and terminates the program:</P>
+
+<PRE>
+Defaults:
+    (--) Number                     -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Term-Op                    -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Factor-Op                  -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) End-Mark                   -&gt;
+          + Signal-Token-Missing
+          + Terminate-The-Program
+    (--) Left-Par                   -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Right-Par                  -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The expression parsing technique shown here is easy to elaborate to
+support variables, functions, other operators, strings, etc.  It is true that
+some languages have easier ways of evaluating expressions, but this technique
+is easily applied to languages like assembler and COBOL that do not have
+support from tools like lex and yacc.</P>
+
+.---------------------------------------------------------------------
+.page Dialogs For Dummies
+
+<H2>$(TITLE)</H2>
+
+<H3>Explain It Like I'm 5 Years Old</H3>
+
+<P>You've gone through all the examples and still you can't
+quite get your mind around the concepts?  Don't worry, this is
+normal.  It's like anything new -- it takes a while for your
+brain to change shape.</P>
+
+<P>So far, we have seen fairly realistic examples - depending on
+how much booze was consumed for lunch, admittedly.  Sometimes it
+helps to look at the entire issue from other angles.  So, here
+is a small piece extracted from our Liberzine
+<EM>$(*liberetto=Liberetto I/3)</EM>.  Our correspondent, Big
+Al, writes...</P>
+
+<BLOCKQUOTE>
+<P>iMatix asked me to write a small piece on how I learnt to use
+Libero. After a short discussion about fees and expenses, I
+quickly learnt to use Libero, applying the principle 'imagine I
+am a child of 5'.  "No, don't try to interest me in plastic
+bunnies.  Explain Libero to me." "Right, kids, get into two
+groups.  You lot sit there, and you lot sit there.  Now, we'll
+play a game..."</P>
+
+<P>The first group of kids sit around a large playing board,
+marked with a large 'START' square, and paths that twist around.
+Some end in the Snake Pit, others die horrible deaths in the
+Bathtime Room.  Just one path leads through all the dangers to
+the Cookie Room.  The aim of the game is to get to the Cookie
+Room, of course.  Let's look at the START square.  You are in a
+small room.  Twisty passages lead left, right, north, and south.
+You are holding a candle.  There is a small breeze coming from
+the west.  The floor is blue.  Blue?  Yeah.</P>
+
+<P>The second group of kids have three or four funny dice.  Each
+die is a different colour, with size sides.  The blue die says
+'Left', 'Right', 'Forwards', 'Backwards', 'Roll Again', and
+'Bathtime'.  The red die says 'Fight', 'Run', 'Get Eaten', 'Eat
+it', 'Order a taxi', and 'Bathtime'.  (You gotta know how to
+*really* scare a five-year old.)</P>
+
+<P>The rules are simple.  The first group of kids just shout a
+colour. The second group of kids roll the matching die and -
+after puzzling over the letters a while - shout out what the die
+says.  Each time the die rolls, the first group move their piece
+along the board to a new square.</P>  <P>You start to see the
+balance of the game.  Neither group of children controls the
+game, it moves step-by-step until the piece wins or loses. The
+two groups only communicate by exchanging colours and results.
+Well, this is Libero.  Colours are actions, results are events.
+And that was the easiest lunch I ever earned.</P>
+</BLOCKQUOTE>
+
+<H3>A Bit Of Animation</H3>
+
+<P>Sometimes it's hard to mentally connect the dialog to the
+running program.  On the one hand you have the dry, pedantic
+dialog with its events and states; on the other hand you have a
+real live program that is actually <EM>doing</EM> something.  A
+good way to join these two concepts is the <TT>-animate</TT>
+option.  Use this when you generate code, and you get a display
+of the dialog steps a program runs through.</P>
+
+<P>The examples archive has a set of programs that work out the
+value of arithmetic expressions.  This is what one of these
+looks like as it works out the value of '1 + 1':</P>
+
+<PRE>
+After-Init:
+    (--) Ok-Event                       We just started
+          + Get-Next-Token                so we collect the next token
+
+Expecting-Operand:
+    (--) Number-Event                   We got the first '1'
+          + Stack-The-Number            Stick it on the operand stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operator:
+    (--) Term-Op-Event                  We got the '+'
+          + Unstack-Ge-Operators        Do any higher-priority operators
+          + Stack-The-Operator            then stick the '+' on the stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operand:
+    (--) Number-Event                   We got the second '1'
+          + Stack-The-Number            Stick it on the operand stack
+          + Get-Next-Token                and get the next token
+
+Expecting-Operator:
+    (--) End-Mark-Event                 We hit the end of the expression
+          + Unstack-All-Operators       Do all operators on the stack
+          + Unstack-If-End-Mark         The operand stack holds the result
+2                                       This is displayed by the program
+          + Terminate-The-Program       End and return to the caller
+</PRE>
+
+.---------------------------------------------------------------
+.page Frequently Asked Questions
+
+<H2>$(TITLE)</H2>
+
+<P><EM>Why is the documentation in HTML format?</EM></P>
+
+<P>We originally wrote the documentation using Microsoft Word
+5.0 for MS-DOS, a fine word-processor that satisfied our
+minimalist preferences for a long time.  Our target was
+PostScript on paper.  Since those old days, we have changed our
+minds a little about the best way of moving information from our
+brains to yours.  We like the idea of keeping the help 'on-line'
+in the literal sense.  Effectively, this means using HTML.  Now,
+our approach is two-fold.  Firstly, we use HTML as the basic
+language.  It's excellent for the job.  Secondly, we have
+structured the documentation to suit.  This means that the
+Libero documentation is less of a traditional paper book, and
+more of a hyper-linked text database. Our guiding principle is
+that you can take the entire HTML kit and put it on a local hard
+disk, then browse, print, and copy that.  There are HTML
+browsers available for all of our target platforms, and the
+market is competitive and generally free.</P>
+
+<P><EM>Why do you not supply binary kits for UNIX (any
+longer)?</EM></P>
+
+<P>We used to do this...  It just does not work very well, and
+takes a lot of work.  It is generally not a good idea to use an
+executable built under one version of an operating system on an
+other.  Sometimes, but not always, you can go from an earlier
+version of <EM>Brandix</EM> to a later version, but never
+contrarywise.  With some exceptions (see next question) it's a
+snap to install Libero by compiling the source kit.  At iMatix
+we tend to do this for all our products today.</P>
+
+<P><EM>I get compile errors on Sun Sparc</EM></P>
+
+<P>For some bizarre reason, possibly related to the struggle of
+commercialism over utility, this system does not come with an
+ANSI C compiler as standard.  People often install GNU C, which
+works well, but there can be conflicts between the Sun header
+files and GNU runtime library. In theory we fixed these in
+version 2.11 (by changing prelude.h).  If you still get compile
+errors, send us a listing and we will see what is wrong.  On
+some Sparc systems, the ANSI C compiler is called acc.</P>
+
+<P><EM>I get compile and link errors and then <TT>lr</TT>
+dies</EM></P>
+
+<P>If you get compile errors (not warnings), or link errors,
+don't try to run the resulting executable.  Or if you do, don't
+expect reasonable behaviour, unless one can describe a dump as
+'reasonable'.</P>
+
+<P><EM>Does Libero support language </EM>X<EM>?</EM></P>
+
+<P>If it is not on the list, the answer is 'not yet'.  There are
+several possible reasons why we have not yet built a schema for
+a particular languages:
+<UL>
+<LI>We hate the language and would not touch it with a 10 ft
+pole.</LI>
+<LI>We don't have a compiler or interpreter for that language;
+</LI>
+<LI>We don't consider the language to be worth it;</LI>
+<LI>We don't see a good way to implement dialogs in the
+language;</LI>
+<LI>We have not had time yet.</LI>
+</UL>
+<P>So far no language has fallen into the first category, while
+many have fallen into the last.</P>
+
+<P><EM>How do I add support for language </EM>X<EM>?</EM></P>
+
+<P>If it is a language that we can easily get hold of, we'll add
+support more or less on demand.  For instance, if anyone
+actually comes and asks for an Ada implementation, we could
+install GNU Ada and get an Ada schema up and running in a few
+days.  The bizarre thing is we don't even ask for money for the
+whole business.  Whatever.</P>
+
+<P>If the language is one that we cannot get freely -- and we're
+not in the habit of buying expensive compilers just for fun --
+then we can try to build a schema 'by remote control'.  In this
+scenario, you provide us with the specifications of the
+language, sample programs, etc.  We'll do the schema and send
+you programs to test.  Eventually we get a solid version.  This
+can work surprisingly well.</P>
+
+<P>Finally, you can bite the bullet (more like a 10mm shell) and
+learn how Libero's schema language works.  You can then write
+the schema yourself.  Honestly, if you need to write a schema
+from scratch, this is probably the hard way.</P>
+
+<P><EM>I want to customise a schema</EM></P>
+
+<P>Firstly, be sure that you can't get what you need by adding
+code to the template file.  Then, drop us a line to tell us what
+you want so we can try to figure-out a way of supporting it in
+the standard schemas. As a last resort, copy the schema and
+change it.  If your changes are cosmetic, we'd try to convince
+you to accept our cosmetics.  Some projects have such unusual
+needs that a new schema is the only practical answer.  Be
+warned, however: if you make your own version of a schema, you
+lose the benefits of any future improvements or fixes to the
+schema.</P>
+
+<P><EM>I don't understand Libero</EM></P>
+
+<P>This is quite normal.  Anyone who understands Libero the
+first time is either lying, has a serious mental problem, or is
+not a real programmer. The concept is simple, and easy to
+explain to a lay-person.  But if you have spent long enough
+coercing computers to do your bidding, you get a certain
+world-view of how things work.  Libero does things differently.
+Keep trying, and after a week or so you will suddenly see it.
+</P>
+
+<P><EM>How do I print-out the documentation?</EM></P>
+
+<P>Probably the best approach is to download the
+$(*lrfull.zip=big file) that contains the entire documentation
+kit.  Load this into your favourite browser and press 'Print'.
+Alternatively you can try to convert the HTML file into a word
+processor format, load it up and print it like that.  This is a
+field that is changing rapidly, for the better.</P>
+
+<P><EM>Why is there no UNIX Makefile?</EM></P>
+
+<P>There are several reasons for this: Libero is a portable
+product, and makefiles are specific to UNIX; we don't really
+like makefiles; we prefer to try a more 'intelligent' approach
+when possible; we don't have the time to make and maintain
+makefiles for all the possible UNIX platforms.  Ok, none of
+these reasons is enough by itself, but you get the idea.  Libero
+is simple to build and install, so the lack of a makefile is not
+a serious handicap.</P>
+
+<P><EM>Libero for Windows crashes</EM></P>
+
+<P>There was a bug in previous releases of Libero for Windows.
+It was caused by a missing Windows font.  Install the latest
+version.</P>
+
+<P><EM>Why can't I get the files by ftp?</EM></P>
+
+<P>Our site does not provide anonymous ftp for reasons of speed
+and of security.  If you do not have http access, send us an
+e-mail telling us what system you work with, or which files you
+want, and we'll send them by e-mail back to you.</P>
+
+<P><EM>Is there a mirror site?</EM></P>
+
+<P>Not to our knowledge, though we have seen a few older
+versions of Libero floating around.</P>
+
+<P><EM>How do I build a mirror site?</EM></P>
+
+<P>Our website does not (currently) support anonymous ftp, nor
+other protocols for automatic mirror-site replication.  If you
+want to set-up a mirror site for Libero, $(*info=contact us) and
+we'll work-out the principles.</P>
+
+<P><EM>I want to repackage Libero for a CD-ROM</EM></P>
+
+<P>You do not need our permission, but you must respect our
+license terms. If your CD-ROM is for a specific platform, e.g.
+Linux, we suggest that you include the binary kit for that
+platform, the source kit, and the HTML kit. If you have space on
+the CD-ROM, supply the HTML tree uncompressed: then people can
+follow the links through their Internet connection to pick-up
+other files such as examples.</P>
+
+<P>If your CD-ROM is a source collection, you may want to
+provide the Windows version of Libero, the source kit, and the
+HTML kit.</P>
+
+<P><EM>Why is </EM>Liberetto<EM> so silly?</EM></P>
+
+<P>Everything is relative.  When the first issue of
+<EM>Libermanga</EM> comes out, you'll see what we mean.
+Seriously, though, we try to maintain a harmonious balance
+between education, entertainment, humour, and subtle irony.
+When that fails, we just go for silly.</P>
+
+<P><EM>Is there a 'pretty printer' for my dialogs?</EM></P>
+
+<P>Yes, since version 2.20 - use the -pretty option.</P>
+
+<P><EM>How is a Libero FSM different from a 'classic'
+FSM?</EM></P>
+<UL>
+<LI>Libero lets you specify several actions in a transition; a
+classic FSM usually only lets you specify one action.</LI>
+<LI>Some FSMs allow an 'entry action', a 'transition action',
+and an 'exit action'.  These are all equivalent, as far as we
+can see, and since Libero allows multiple actions, you can do
+the same in Libero.</LI>
+<LI>You describe your FSM as a textual diagram, not as a
+numbered graph, as is usually the case.</LI>
+<LI>Libero stores the FSM in a table and interprets this.  This
+is one of several approaches; some classic FSMs use goto's;
+others use a large switch statement.  The table + interpreter
+approach is a reasonable compromise between space and speed and
+simplicity.</LI>
+<LI>Libero has the concept of an <EM>exception event</EM>.</LI>
+<LI>Libero has the concepts of <EM>super-states</EM> and
+<EM>default</EM> states</EM>.</LI>
+</UL>
+
+<P><EM>I want my FSM to handle an event queue in realtime</EM>
+</P>
+
+<P>Use our SMT kernel; this is our solution for event-handling
+in realtime programs, multi-FSM constructions, communications
+servers, internet servers, etc.</P>
+
+<P><EM>Are Libero FSMs good for writing parsers?</EM></P>
+
+<P>Well, in principle yes, but in practice there are better
+tools.  For instance, Perl is great for writing ad-hoc parsers.
+If you are working with formal grammars, there are tools that
+will generate parsers for such grammars.  It is usually
+pointless to re-invent the wheel by hand.  There are exceptions.
+For instance, sometimes the grammar cannot be formalised enough
+to work with a parser generator.  Sometimes a generated parser
+is too slow.  In these cases, a Libero FSM may produce excellent
+results.</P>
+
+<P><EM>I downloaded a Libero .zip file to my UNIX, then ftp'd
+it to my PC - now PKUNZIP won't extract it</EM></P>
+
+<P>When you ftp a binary file like a .zip file, always set ftp
+to binary mode (use the command 'bin').  Sometimes ftp is
+configured like this by default, but more often it assumes you
+want to transfer text files.  So, it expands tabs, converts
+line-ending, and such, generally turning a .zip file into
+garbage along the way.</P>
+
+<P><EM>Is there a Libero mailing list?</EM></P>
+<P>No, not yet.  Each month we send out Liberetto, our fanzine.
+We include the most interesting mail we get, news about changes
+to Libero, forthcoming releases, etc.  This is the closest thing
+to a discussion group so far.  We intend one day to create a
+usenet news group.  A public mailing list may be one step on the
+way.  We welcome any suggestions.</P>
+
+<P><EM>Libero for Windows complains 'ASSOC.VBX Not Found'</EM>
+</P>
+
+<P>To use Libero for Windows you need to download TWO .zip
+files; <TT>lrmswin.zip</TT> and <TT>lrmswins.zip</TT>.  The
+second contains 'system files' including various .vbx files.  To
+download an update you only take the first .zip file. This saves
+download time.</P>

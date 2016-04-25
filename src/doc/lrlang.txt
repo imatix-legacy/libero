@@ -1,0 +1,1549 @@
+.----------------------------------------------------------------
+.-   lrlang.txt   Libero's Languages
+.-
+.define BASE      lrlang
+.define author    Pieter Hintjens
+.define written   24 Feb 1996
+.define revised   28 Dec 1996
+.---------------------------------------------------------------
+.include prelude.def
+
+.page Libero's Languages
+.ignore header $(ignore)
+<H1>$(TITLE)</H1>
+
+.include contents.def
+.ignore header 3
+
+<H2>Choosing A Language</H2>
+
+<P>Libero gives you the freedom you get to choose the language
+that suits your purpose.  The way I add support for a particular
+language is to write a new schema file.  This is a kind of
+script that tells Libero how to generate code for that
+particular language.  Inevitably, the solution I choose for a
+language tends to vary.  For example, the C schema generates a
+couple of include files to hold the generated code.  The UNIX
+shell schemas in contrast take a source 'module' file and
+generate the final script (which you don't work on directly).
+</P>
+
+<P>This section documents the special aspects of each language
+(ie. schema). Some aspects that apply to all languages:
+<UL>
+<LI>All the schemas separate the generated code from the
+hand-written code.  This means either a strict division into
+hand-written files and generated files, or some sleight-of-hand
+to get a similar result.  The mechanism varies from language to
+language since I use the mechanisms that each language offers
+(if any). You should understand which files you get when you
+work in a particular language.</LI>
+
+<LI>Most languages provide some form of function or subroutine.
+I define one such for each module in the dialog, and you are
+free to define your own 'private' functions in the code.  Libero
+provides the facility to detect unused ('idle') modules, but for
+this the syntax for the module functions must be different to
+that for your private functions.  (Otherwise Libero can't tell
+the difference, and issues loads of incorrect warning messages.)
+In a few languages I did not find an acceptable way of making
+the distinction, so the -idle options is disabled.  In the
+remaining languages you must take care to follow the recommended
+syntax for your private functions.</LI>
+
+<LI>The generated code provides a number of public data items
+and functions.  These have the same name in each language, as
+far as possible.  Reserved names start with '_LR_' or something
+similar.  Never use or refer to these names.</LI>
+</UL></P>
+
+<H2>Standard Public Names</H2>
+
+<P>All schemas should support these names, which change syntax
+according to the -style option:
+<UL>
+<LI><TT>xxxx_event</TT> - defined for each event in the dialog,
+where 'xxxx' is the name used in the dialog.  Use these event
+names whenever you need to set the value of the_next_event.</LI>
+<LI><TT>the_next_event</TT> - the event for the next state.  Set
+this event in one of the action modules, before entering a new
+state.</LI>
+<LI><TT>terminate_event</TT> - when you assign this to
+the_next_event, the state machine halts.  Normally you will do
+this in the terminate_the_program module.</LI>
+<LI><TT>exception_raised</TT> - if you set this to TRUE, the
+dialog engine stops executing the current action list, and goes
+into exception handling.  Exceptions are described later.</LI>
+<LI><TT>the_exception_event</TT> - before you raise an
+exception, set this to the event you want to use as exception
+event.  This event must be defined in the current state you are
+in, or in the Defaults state.</LI>
+<LI><TT>initialise_the_program</TT> - this standard module is
+called when the dialog engine starts; here you can access and
+check parameters, and set a suitable next event like ok_event.
+</LI>
+<LI><TT>get_external_event</TT> - this standard module is called
+when the dialog needs an event, i.e. when none of the action
+modules put anything in the_next_event.</LI>
+<LI><TT>raise_exception </TT> - this standard function sets
+exception_raised and places the specified event into
+the_exception_event.</LI>
+</UL></P>
+
+
+<H2>Contributed Schemas</H2>
+
+<P>These schemas were contributed by Libero users, and are not
+documented in detail here.  You will need to read the schemas and
+try them out to see how they work.
+
+<UL>
+<LI>The Oracle PL/SQL Language<BR>
+.build anchor plsql
+    PL/SQL is a scripting language used in the Oracle database
+    system.  The PL/SQL schema was written by Claude Philippo and
+    Xavier Vermaut of Sema Group Belgium, and was kindly contributed
+    by Sema Group Belgium.
+<LI>The PHP Language<BR>
+.build anchor php
+    PHP is an Open Source scripting language used for web development.
+    system.  The PHP schema was written and kindly contributed by
+    Attilio &lt;glen@ats.it&gt;.
+</UL>
+
+.---------------------------------------------------------------
+.page The Awk Language
+.build anchor awk
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Awk?</DT>
+<DD>Awk is a standard UNIX tool that comes in several flavours -
+'old' awk (/bin/awk), new awk (/bin/nawk), GNU gawk (/bin/gawk).
+It is a small interpreted language that looks a bit like C, with
+a strong flavour of sed pattern matching.  Awk is mostly used to
+manipulate text files, but is also fun as a general-purpose
+programming language.</DD>
+<DT>Portability</DT>
+<DD>GNU gawk is available on many platforms. Awk scripts are
+highly portable if you don't rely on (UNIX) system-dependent
+commands.  GNU Gawk and new awk share most functions.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: Awk is versatile and easy to learn; GNU gawk is freely
+available; Awk is an interpreted language and looks a bit like
+C.  Cons: Awk is a simple language, not powerful enough for
+industrial-strength work; it's interpreted - slower than C but
+faster than a shell; it looks a bit like C.</DD>
+<DT>How To Get It</DT>
+<DD>On UNIX boxes, <TT>awk</TT> or <TT>nawk</TT>. On other
+systems, get GNU gawk.</DD>
+<DT>Libero Supports</DT>
+<DD>Libero supports new awk and gawk, but not old awk.</DD>
+</DL>
+
+<H3>Working With Awk</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.awk.</LI>
+<LI><B>Program model:</B> shell-wrapped awk script; directly
+executable.  All processing is done in the BEGIN block.</LI>
+<LI><B>Good for:</B> large awk scripts that handle multiple
+files.</LI>
+<LI><B>Files used/made:</B> Own work in <TT>myprog.mod</TT>;
+generates program called myprog.</LI>
+<LI><B>Module functions:</B>
+<TT>function module_function_name \</TT></LI>
+<LI><B>Private functions:</B>
+<TT>function private_function_name () {</TT></LI>
+<LI><B>Naming style:</B> Any except -style=cobol.</LI>
+<LI><B>Limits:</B> Standard Libero limits, and system memory.
+All tables are defined dynamically at runtime.</LI>
+<LI><B>Development cycle:</B> Run <TT>lr</TT> after you change
+the dialog or <TT>.mod</TT> file.  When you add a new module,
+run lr, then edit the <TT>.mod</TT> file, then run <TT>lr</TT>
+again.  Don't change the generated awk script except for tests -
+you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name \
+ ( local_var,... ) {            # Place local variables here
+    return                      # Empty module needs 'return'
+}
+function private_function_name (argument,...) {
+    the_next_event = ok_event
+    raise_exception (error_event)
+}
+</PRE>
+<P><A HREF="doc/erbot.mod">A fuller example.</A></P>
+
+<H4>Notes</H4>
+<P>My awk programs fall between two extremes.  At the one end is
+a 'filter', to process text according to patterns in each line.
+This is excellent for smallish problems.  As the problem grows,
+I need to read other files 'on the side', and the logic of my
+awk program grows until a large part of it is sitting in the
+BEGIN or END blocks.  Eventually I find that I am perhaps
+reading and writing several files, so I take the plunge and
+rewrite the program to handle all files with explicit 'getline'
+calls.  The awk program is no longer a filter, but a stand-alone
+program that resembles a classic procedural program.  Of course
+at this point my Libero hindbrain wakes up and starts muttering
+'an' whaddabout Libero, eh?'.</P>
+
+<P>When I wrote the awk schema, I started with the Visual Basic
+schema. Bizzarely enough this language resembles awk most in
+terms of structure and possibilities.  I've started thinking of
+awk as a kind of 'Basic for UNIX'.</P>
+
+<P>Awk presents some of the same difficulties as Visual Basic.
+There is no 'include' statement to take an external file as part
+of the program.  The UNIX shells have the same problem.</P>
+
+<P>&lt;GRIPE&gt;Since awk is tokenised, then executed, messieurs
+A, W, and K had no real excuse for omitting an 'include'
+facility.&lt;/GRIPE&gt;</P>
+
+<P>I really don't want to look at the chunk of code that Libero
+generates, so I always try to find a way to separate this from
+the hand-written code I am working on.  If the language provides
+an 'include' statement, I place the generated code in an include
+file.  This works great in serious compiled languages which all
+have something like this.  You change the dialog, regenerate
+the code, and recompile.  At any time you can change the
+program and recompile without having to run Libero again.</P>
+
+<P>For the awk schema I used another technique: you work in a
+separate 'module' file (<TT>myprog.mod</TT>).  Libero combines
+the module file with the generated program to create a final
+program, which you don't change. This effectively hides the
+generated code, but introduces an extra step: each time you
+change the .mod file you must re-run Libero to create the final
+script.  In effect, Libero acting as a preprocessor in place of
+the missing 'include' statement.</P>
+
+<P>Notice the slightly unusual format of a generated module
+header:</P>
+
+<PRE>
+function module_function_name \
+ ( local_var,... ) {
+    ...
+}</PRE>
+
+<P>I break the function header over two lines so that you can
+add local variables easily if you need to.  Libero recognises
+the first line as a module header, and does not look at the next
+line with the local variables. The unusual format also
+distinguishes module functions from private functions, so
+ensures that the -idle option works correctly.</P>
+
+.---------------------------------------------------------------
+.page The C Language
+
+.build anchor ansic
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is C?</DT>
+<DD>C is part of UNIX originally, now almost a universal language. It is a
+very general purpose language, and typically used for systems programming.
+ANSI C is a widely supported standard.</DD>
+<DT>Portability</DT>
+<DD>ANSI C compilers are available on (almost) all platforms. ANSI C programs
+can be highly portable if you eschew compiler extensions, and don't rely on
+libraries that are not portable.  Some UNIX vendors include non-ANSI
+compilers but charge extra for ANSI C compilers.  Luckily the GNU gcc
+compiler is excellent and ported to most UNIX systems.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: C is flexible and widely known; it is a small and clean language.
+C compilers are generally well-tuned and sometimes exceptionally good.  Cons:
+no easy string handling; sloppy programmers write horrendous C code.</DD>
+<DT>How To Get It</DT>
+<DD>How to get it On UNIX boxes, 'cc', or 'gcc'. GNU gcc is widely available
+and well-regarded.  Commercial C compilers are available for almost all
+platforms from mainframes to embedded systems.</DD>
+<DT>Libero Supports</DT>
+<DD>ANSI C, though you can freely use any extensions you need to. Libero
+generates ANSI C code, so your compiler must be happy with things like
+prototypes.</DD>
+</DL>
+
+<H3>Working With C</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.c.</LI>
+<LI><B>Program model:</B> function with arguments; you can change the
+function name and arguments in the proposed program.</LI>
+<LI><B>Good for:</B> large C programs; complex functions; batch
+programs.</LI>
+<LI><B>Files used/made:</B> own work in myprog.c; generates include files
+<TT>mydialog.d</TT> and <TT>mydialog.i</TT>.  You also need the
+<TT>prelude.h</TT> header file at compile time.</LI>
+<LI><B>Module functions:</B> <TT>MODULE module_function_name (void)</TT></LI>
+<LI><B>Private functions:</B> <TT>static type private_function_name
+()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+statically in the <TT>myprog.i</TT> file.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after changing the dialog.  If
+you add new modules, update the <TT>.c</TT> program.  Compile, link, and run.
+You need the <TT>.i</TT> and <TT>.d</TT> files at compile time.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+/****************   MODULE FUNCTION NAME   *****************/
+
+MODULE module_function_name (void)
+{
+                             /* Empty module needs no code */
+}
+
+static type private_function_name (argument,...) {
+    the_next_event = ok_event;
+    raise_exception (error_event);
+}
+</PRE>
+
+<P><A HREF="doc/calcul.c">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<P>I've used Libero to help me write C programs for a few years.  It would be
+false to say I used Libero all the time; this is simply not the case.  For
+example, I wrote Libero in C: there are 12 separate source files, and four of
+these have dialogs.  I used a dialog whenever I had a single function that
+got rather complex. In Libero, this happens to be in:
+<OL>
+<LI>the module that parses and loads a dialog (<TT>lrload</TT>);</LI>
+<LI>the code generator module, which scans the schema and interprets the
+simple language embedded in the schema (<TT>lrcode</TT>);</LI>
+<LI>the two modules that evaluate expressions (<TT>lrcalc</TT> and
+<TT>lreval</TT>).</LI>
+</OL></P>
+
+<P>It's probably no coincidence that all these modules do some kind of
+parsing.  Libero is a code generator, so it's normal that the most complex
+modules are parsers.  As a consultant, I've written some profoundly complex C
+programs using Libero.  In at least one case I still don't see any other way
+that I could have done the project.</P>
+
+<P>When you write a C program using Libero, you tend to use a lot of
+source-local variables.  This is disturbing to some programmers, who reckon
+that a program must consist of lots of internested modules that hide data
+from each other.  Sure, this is one way of managing complexity.  Still,
+modules in a Liberated program aren't nested; they all sit at the same level
+below the dialog.  They all share (mostly) a common set of data objects.  In
+real programs this seems to work nicely, so if you have problems with it,
+just close your eyes the first few times.</P>
+
+.---------------------------------------------------------------
+.page The C++ Language
+
+.build anchor cpp
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is C++?</DT>
+<DD>C++ is a recent mutation of C, generally known as 'assembler with
+objects'.  Okay, perhaps a bit unkind.  C++ is widely used, combines
+the generality of C with solid object-orientation.  It's the language
+of choice for Windows GUI programming.</DD>
+<DT>Portability</DT>
+<DD>C++ is pretty portable.  C++ compilers are available for most
+platforms, but you may find that the main reasons for using C++ -
+class libraries - are not portable.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: C++ is powerful and widely known; it is object oriented.
+Cons: it's a large language to learn.</DD>
+<DT>How To Get It</DT>
+<DD>I guess most C++ users know the answers to this.</DD>
+<DT>Libero Supports</DT>
+<DD>Standard C++.</DD>
+</DL>
+
+<H3>Working With C++</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.cpp.</LI>
+<LI><B>Program model:</B> Class named after the program: entry point
+is a member function called 'execute'; you can change this.</LI>
+<LI><B>Good for:</B> not really sure.  We'll see.</LI>
+<LI><B>Files used/made:</B> own work in myprog.cpp; generates include
+files <TT>mydialog.h</TT> and <TT>mydialog.i</TT>.  You also need the
+<TT>prelude.h</TT> header file at compile time.</LI>
+<LI><B>Module functions:</B>
+<TT>MODULE Cprogram::module_function_name (void)</TT></LI>
+<LI><B>Private functions:</B>
+<TT>type Cprogram::private_function_name ()</TT></LI>
+()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+statically in the <TT>myprog.i</TT> file.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after changing the dialog.  If
+you add new modules, update the <TT>.cpp</TT> program. Compile, link, and
+run.  You need the <TT>.h</TT> and <TT>.i</TT> files at compile time.
+You can freely change the <TT>.h</TT> file to add private data and
+functions.  Follow the guidelines in the generated code which indicate
+where you can change code.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+/////////////////   MODULE FUNCTION NAME   //////////////////
+
+MODULE Cprogram::module_function_name (void)
+{
+                             //  Empty module needs no code
+}
+
+Cprogram::private_function_name (argument,...) {
+    the_next_event = ok_event;
+    raise_exception (error_event);
+}
+</PRE>
+
+<P><A HREF="doc/calcul.cpp">A fuller example.</A></P>
+
+<H4>Specific Schema Options</H4>
+<UL>
+<LI><B>-opt:class='xxx'</B> <TT>xxx</TT> is class name.  Default value is <TT>C$
+</UL>
+
+.---------------------------------------------------------------------
+.page The COBOL Language
+
+.build anchor cobol
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is COBOL?</DT>
+<DD>COBOL is a standard language for business software, a job that it does
+well.  It is heavily used in the mainframe world.  COBOL has an undeserved
+reputation for inefficiency, and a deserved reputation for verbosity.  Today,
+many COBOL applications are being moved from mainframes to UNIX boxes.</DD>
+<DT>Portability</DT>
+<DD>Deaf, dumb, blind COBOL programs can be very portable. Otherwise you can
+use external libraries to achieve 100% portability (catch: you may have to
+write these libraries yourself).</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: easy to use and teach. An excellent language for mediocre
+developers, which includes me at least two days of the week.  Cons: Tends to
+encourage large, monolithic programs.  Like unreadable C code, this is a
+question of discipline.  COBOL provides no way to define data types directly,
+and has a verbose and over-rich syntax.  COBOL compilers are often
+unimpressive.  This is actually putting it mildly: on several systems that
+I've worked on, a simple loop in COBOL runs from 100 to 1000 times slower
+than the same loop coded in assembler.  I've seen just one COBOL compiler
+(Versions 2 and 3 of Realia) that could produce truly excellent code.</DD>
+<DT>How To Get It</DT>
+<DD>No free implementations exist, despite various attempts -- including one
+by me: if a COBOL compiler is Mt. Everest, I got as far as London Heathrow
+airport.  You need to find a commercial COBOL vendor for your system.</DD>
+<DT>Libero Supports</DT>
+<DD>ANSI 74 COBOL and ANSI 85 COBOL.</DD>
+</DL>
+
+<H3>Working With COBOL</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.cob.</LI>
+<LI><B>Program model:</B> main program without linkage or called program with
+linkage.</LI>
+<LI><B>Good for:</B> COBOL batch programs and subroutines.</LI>
+<LI><B>Files used/made:</B> own work in <TT>MYPROG.cob</TT>; generates a copy
+book <TT>MYDIALOG.cbl</TT>.</LI>
+<LI><B>Module functions:</B> <TT>MODULE-FUNCTION-NAME</TT>.</LI>
+<LI><B>Private functions:</B> <TT>PRIVATE-FUNCTION-NAME</TT>.</LI>
+<LI><B>Naming style:</B> schema sets -style=cobol automatically</LI>
+<LI><B>Limits:</B> 999 states, events, modules.  (Libero allows 1000 of
+anything.)  All tables are defined statically.  Some compilers restrict any
+one 01-level item to 32K bytes.</LI>
+<LI><B>Development cycle:</B> run lr after you change the dialog.  Edit
+the source program, then recompile and link.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+*****************   MODULE FUNCTION NAME   *****************
+
+ MODULE-FUNCTION-NAME.
+     EXIT
+     .
+
+ PRIVATE-FUNCTION-NAME.
+     MOVE OK-EVENT TO THE-NEXT-EVENT
+
+     MOVE ERROR-EVENT TO THE-EXCEPTION-EVENT
+     MOVE    "YES"    TO EXCEPTION-RAISED
+     .
+</PRE>
+
+<P><A HREF="doc/calcpk.cob">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<UL>
+<LI>The dialog file can't have same name as the program (on some systems the
+extension for a program and a copy book is the same); the schema gives an
+error message in this case.  I suggest you use the <TT>-plusd</TT> option in
+your dialog.</LI>
+<LI>Since there is no way to distinguish the dialog paragraphs ('modules')
+from private paragraphs, the schema turns-off idle module checking.</LI>
+<LI>With some compilers (typically on IBM systems) you need to add a QUOTES
+option to compile the generated code.  The generated code uses quotes, not
+apostrophes - this is more portable, though maybe unusual for IBM'ers.</LI>
+<LI>There is no FEEDBACK variable or RAISE-EXCEPTION function, in contrast
+with most other schemas.</LI>
+<LI>Assumes the old-fashioned 80-column format with 6-digit sequence number
+and 8-character comment at right-hand side. Generates upper-case text.</LI>
+</UL>
+
+<P>COBOL has a reputation for encouraging large unwieldy programs.  This is
+justified to the extent that the language is verbose.  I think it's more due
+to the fact that COBOL programs tend to be written and maintained under
+particular pressures: get it working, now, and who cares if it is a little
+unwieldy.  You don't often see COBOL code competing on the open market for
+software where program size and speed are important.</P>
+
+<P>People working in COBOL expect monsters, so often get them. Now, I've
+spent a lot of my life writing COBOL - perhaps half a million lines or so,
+and I know that this unnecessary suffering. Of course it is possible to write
+clean, organised, commented code without Libero.  It is just a lot more
+effort, and I'm lazy.</P>
+
+<P>This schema is for batch programs and subroutines.  Batch programs are
+often the largest and most complex COBOL programs, and often benefit from a
+dialog.  I've not seen a lot of subroutines that really needed a a dialog;
+the expression calculator is one example.  Also, if you split a large batch
+program into smaller subroutines, these can be complex enough to warrant a
+dialog.  Very roughly, I would reckon that a COBOL program of more than 1000
+lines is worth building around a dialog.</P>
+
+<H4>Specific Schema Options</H4>
+<UL>
+<LI><B>-opt:ext=xxx</B> <TT>xxx</TT> is extension for copybook.  Default
+value is <TT>cbl</TT>.  Recommended values are: <TT>cob</TT> for MS-DOS
+Realia, <TT>cbl</TT> for UNIX, <TT>lib</TT> for VAX/VMS.</LI>
+
+<LI><B>-opt:model=main</B>  The generated code does not define any linkage
+section.  This is the default model.</LI>
+
+<LI><B>-opt:model=called</B>  The generated code defines a linkage section
+that contains a single 01-level data item.  You must detail this data item in
+a copybook called MYPROGR.  The copybook must follow this general format,
+with a 01-level header, then a comment line containing the text '*CONTENTS',
+then the details of the linkage section.  For example:<BR>
+
+<PRE>
+000100 01  CALCPK-CONTROL.
+000200*CONTENTS
+000300     02  CALCPK-OPERATION        PIC X.
+000400     02  CALCPK-FEEDBACK         PIC X.
+000500     02  CALCPK-POINT-CHAR       PIC X.
+000600     02  CALCPK-ERROR-RETURN.
+000700         03  CALCPK-ERROR-CODE   PIC X(2).
+000800         03  CALCPK-ERROR-MESG   PIC X(30).
+000900     02  CALCPK-ERROR-POSN       PIC 9(2).
+001000     02  CALCPK-EXPRESSION.
+001100         03  EXPR-CHAR           PIC X          OCCURS 80 TIMES.
+001200     02  CALCPK-RESULT           PIC S9(9)V9(9).
+001300     02  CALCPK-VARIABLE         PIC S9(9)V9(9) OCCURS 5 TIMES.
+</PRE></LI>
+
+<LI><B>-opt:level=ansi74</B>  Generate ANSI 74 COBOL.  Some heritage COBOL
+compilers don't support ANSI 85 COBOL.  This is the default level.</LI>
+
+<LI><B>-opt:level=ansi85</B>  Generate ANSI 85 COBOL.  The ANSI 85 code runs
+a little faster, since it uses an EVALUATE statement against a series of IF
+statements in the ANSI 74 code.</LI>
+
+<LI><B>-opt:console=name</B>  Display trace output and error messages on
+specified device.  By default blank.  Some systems do not like DISPLAY by
+itself, and require an output device name.  For example, to generate
+statements DISPLAY ... UPON CONSOLE, use 'opt:console="UPON CONSOLE"'.  Note
+that you must place quotes around the value for two reasons: it contains a
+space, and you want to keep it in uppercase.</LI>
+</UL>
+
+.---------------------------------------------------------------------
+.page The GNU Borne-Again Shell Language
+
+.build anchor bash
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is The GNU BASH?</DT>
+<DD>GNU BASH is the GNU project's UNIX shell. It replaces the (not really)
+standard UNIX Bourne and Korn shells.</DD>
+<DT>Portability</DT>
+<DD>BASH (<TT>/bin/bash</TT>) is available for all UNIX systems that I know
+of.  BASH scripts can be ported to other UNIX shell languages: the closest is
+the Korn shell.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: freely available and standardised. Follows the POSIX standard; has
+the best of all the UNIX shells in one package.  Cons: not necessarily
+installed on your UNIX box.</DD>
+<DT>How To Get It</DT>
+<DD>Get it from your local GNU shoppe. BASH and the other GNU tools are part
+of all Linux distributions.</DD>
+</DL>
+
+<H3>Working With The GNU Borne-Again Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.bsh.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts; portable to GNU systems.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates a
+script called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+function module_function_name
+{
+</PRE></LI>
+<LI><B>Private functions:</B> <TT>function private_function_name {</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name
+{
+    return                      # Empty module needs 'return'
+}
+
+function private_function_name {
+    the_next_event=$ok_event
+    raise_exception $error_event
+}
+</PRE>
+
+.build anchor unix_shells
+<H3>Programming with UNIX Shells</H3>
+
+<OL>
+<LI>You must remember to assign events and other variables as follows:
+<TT>the_next_event=$some_event</TT>.  If you make the common mistake of
+forgetting the '$', the results are interesting but not useful.  The schema
+checks against this error, at a slight cost in runtime.  You can skip these
+checks by using the -nocheck option. The BASH language lets you declare
+numeric variables explicitly, so this check is not required in the
+lrschema.bsh schema.</LI>
+
+<LI>Your <TT>.mod</TT> file is not copied entirely, but in sections. The
+script schemas extract three sections marked with the keywords &lt;HELP&gt;
+to &lt;END&gt;, &lt;DATA&gt; to &lt;END&gt;, and &lt;CODE&gt; to
+&lt;END&gt;.  You will see :include commands in the schemas that do this.
+The final &lt;END&gt; is optional, and probably best to ignore.</LI>
+
+<LI>The &lt;HELP&gt; section is copied to the header of the script. Each line
+in this section should start with '#'.  Some of my scripts are
+self-anotating: if run with '-h' as argument, they do something like
+this:
+
+<PRE>
+    expand $0 | egrep "^# |^#$" | cut -c 4-80 | more
+</PRE></LI>
+
+<LI>The module <TT>Initialise_the_program</TT> gets the command-line
+arguments; ie. it can refer to $1, $2, in the normal way.</LI>
+
+<LI>The <TT>script_name</TT> variable contains the command-line variable $0.
+You could put something like this in initialise_the_program:
+
+<PRE>
+    if test "$1" = "-h"; then
+       expand $script_name | egrep "^# |^#$" | \
+       cut -c 4-80 | more
+       exit
+   fi
+</PRE></LI>
+</OL>
+
+<P>Also note that:
+<OL>
+<LI>It is sometimes useful to start a script using the <TT>.</TT> operator.
+For instance, to trace a script you could use these commands:<BR>
+<TT>set -x; . scriptname</TT><BR>
+If such a script ends with <TT>exit</TT> (and the generated ones do), you
+exit the current shell. If it's your main shell, you are logged-out.  To
+avoid this, enclose the entire command in parentheses:<BR>
+<TT>(set -x; . scriptname)</TT>
+or run a sub-shell first.</LI>
+
+<LI>The auto-annotating function explained above won't work if you run the
+script using the <TT>.</TT> operator ($0 becomes the name of the
+shell...).</LI>
+
+<LI>These shell script schemas are somewhat slow.  I optimised the code to
+use as many internal commands as possible in place of external commands.
+This cut the time spent in the dialog manager code by 60% over the first
+version.  The bash and ksh versions are the most efficient; bsh does not have
+a <TT>let</TT> command, so I need to use the clumsy <TT>a = `expr 1 + 1`</TT>
+to increment a variable.  The bash shell version is the cleanest, since I can
+use <TT>declare</TT> to define numeric variables.  Any attempt to assign text
+to a numeric variable gives an explict shell error message.</LI>
+
+<LI>I use a function <TT>LR_idx</TT> to access arrays of numbers by shifting
+and returning a numeric value.  This is the fastest method I could find, and
+it works in all three shell languages. As a consequence, there is a limit of
+254 events (255 is the terminate_event).</LI>
+
+<LI>If you are doing heavy shell-type programming, consider using Perl.</LI>
+</OL></P>
+
+.---------------------------------------------------------------
+.page The Java Language
+
+.build anchor java
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Java?</DT>
+<DD>If you've been living in a cave for the last few years you
+might have missed the news that Java (also called 'Basic for
+Toasters') is going to replace every other language out there.
+This is perhaps a little exaggerated, but Java is a very
+interesting language all the same.  Java is not too complex,
+though you need to learn quite a lot about various 'class
+libraries' before you can do anything useful with it.  The best
+use for Java right now is to write portable 'plug-ins' that work
+with any recent web browser on many platforms.</DD>
+
+<DT>Portability</DT>
+<DD>Java is in principle 100% portable, but this claim may be
+qualified as Java gets implemented on more systems.</DD>
+
+<DT>Pros and Cons</DT>
+<DD>Pros: Java is similar to C++, though cleaner.  It's portable
+and works well with post-1996 Internet browsers.
+Cons: it's interpreted, so slowish.  You will spend some time
+learning to do anything useful with it.</DD>
+
+<DT>How To Get It</DT>
+<DD>You can download Java kits from Sun; you can buy various
+Java development environments.</DD>
+
+<DT>Libero Supports</DT>
+<DD>Java objects, console applications, and applets.</DD>
+</DL>
+
+<H3>Working With Java</H3>
+
+<P>The README.DOC file included in the beta kit explains how to
+develop Java programs using Libero.</P>
+
+<P><A HREF="doc/calcexpr.htm">A fuller example.</A></P>
+
+
+.---------------------------------------------------------------------
+.page The Microsoft Setup Basic Language
+
+.build anchor setup_basic
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Setup Basic?</DT>
+<DD>Setup Basic is the Scripting language used and pushed by Microsoft for MS
+Windows 3.x setup procedures.  It is identical to the MS-Test Basic language,
+version 1.0.</DD>
+<DT>Portability</DT>
+<DD>Zero. Unless you are heavily into MS-Test.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: standard for setup procedures, easily available. Cons: you have to
+be an experienced Windows developer, and have other visual development tools,
+such as dialog editors, to use it.</DD>
+<DT>How To Get It</DT>
+<DD>It is part of the Windows SDK.</DD>
+<DT>Libero Supports</DT>
+<DD>MS Setup BASIC / Test Basic 1.0.</DD>
+</DL>
+
+<H3>Working With Microsoft Setup Basic</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.mst.</LI>
+<LI><B>Program model:</B> main <TT>.mst</TT> program, run using
+<TT>_mssetup.exe</TT> driver. </LI>
+<LI><B>Good for:</B> Win 3.x setup programs, as alternative to writing
+complex logic directly into program code.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mst</TT>; generates
+include file <TT>mydialog.inc</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>Static Sub module_function_name ()</TT></LI>
+<LI><B>Private functions:</B>
+<TT>Sub private_function_name Static (...)</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+dynamically at runtime.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+'****************   MODULE FUNCTION NAME   *****************
+
+Static Sub module_function_name ()
+
+End Sub
+
+Sub private_function_name Static (argument,...)
+    the_next_event = ok_event
+    raise_exception (error_event)
+}
+</PRE>
+
+<H4>Notes</H4>
+<P>This schema is still in a beta state; I've not used it in any real
+program. However, if I ever have to write a setup script in this language,
+this is the way to go.</P>
+
+<P>When I started writing a setup program for 'Libero for Windows', I got
+hold of the Microsoft Setup Toolkit, and discovered the joys of writing a
+setup script.  The language is the cut-down Basic that was used in the MS
+Test product: TestBasic version 1.0.  I call this almost-language MST.  At
+least, unlike Visual Basic, MST supports an include statement.  So, the MST
+schema puts the generated code into an .inc file.</P>
+
+<P>The setup toolkit documentation suggests that you draw a flowchart of the
+various stages of your install procedure, then code this into an MST program.
+Hmm.  :-(  I hate flowcharts, for one thing.  For another, I have a much
+simpler and useful technique up my sleeve, so some quick work on a schema,
+and 'wallop!'.  MST, please meet Mr. Turing.</P>
+
+<P>As it happens, I then decided that I did not want to use an MST setup
+program, did not want to start designing dialog boxes and resources.  Now the
+Libero for Windows installation package is a .zip file that you expand into
+the directory of your choice, full stop.  Still, the MST schema is there and
+it works, barring the odd lazy bug.</P>
+
+.---------------------------------------------------------------------
+.page The MS Visual Basic Language
+
+.build anchor vb
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Visual Basic?</DT>
+<DD>Visual Basic (VB) is Microsoft's rapid application development language.
+It is the standard scripting language for MS applications such as Word and
+Excel.</DD>
+<DT>Portability</DT>
+<DD>None.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: easy to use and widely used; lots of support from third-party
+add-ons; interpreted language.  Cons: slow screen updates; interpreted
+language.</DD>
+<DT>How To Get It</DT>
+<DD>Buy it from your local software shoppe.</DD>
+<DT>Libero Supports</DT>
+<DD>MS Visual Basic 3.0. Not tested with 4.0, but probably will work
+unchanged.</DD>
+</DL>
+
+<H3>Working With Visual Basic</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.vb.</LI>
+<LI><B>Program model:</B> subroutine with arbitrary name and arguments.</LI>
+<LI><B>Good for:</B> complex VB subroutines; batch programs.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.bas</TT>; generates a
+program called <TT>myprog.int</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>Private Sub module_function_name ()</TT></LI>
+<LI><B>Private functions:</B>
+<TT>Private Sub private_function_name ()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 999 states, events, modules.  (Libero allows 1000 of
+anything.)  All tables are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> when you change the <TT>.bas</TT> source file,
+you can run the VB application right away.  When you change the dialog, you
+must regenerate the <TT>.int</TT> and <TT>.bas</TT> files, and either stop
+and restart VB, or remove and re-insert the two files from your project</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+'
+'****************   MODULE FUNCTION NAME   *****************
+'
+Private Sub module_function_name ()
+
+End Sub
+
+Private Sub private_function_name (argument,...)
+    the_next_event = ok_event
+    exception_raised = True
+    the_exception_event = error_event
+}
+</PRE>
+
+<P><A HREF="doc/vbcalc.bas">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<OL>
+<LI>Since there is no way to distinguish module functions from private
+functions, the schema turns-off idle module checking.</LI>
+<LI>The <TT>.int</TT> code file is the dialog interpreter.  You have to
+include both the <TT>.bas</TT> and <TT>.int</TT> files in your project.  I
+make the split into two files so that you are not faced with the generated
+code when you edit the <TT>.bas</TT> source file.</LI>
+<LI>The <TT>.int</TT> interpreter calls the <TT>.bas</TT> source file via a
+dispatcher function.  This function (which is generated) calls a particular
+module and returns event information.  This is not particularly fast, but
+works okay.</LI>
+<LI>All functions are private; this allows several Liberated programs in the
+same VB application.</LI>
+<LI>VB sorts functions in a source file into alphabetical order; I called the
+dispatcher 'ZzDis_...' to ensure that it comes at the end.  This is just for
+cosmetic reasons.  If for some reason the dispatcher function comes somewhere
+in the middle of the source, everything will still work okay.  (I have at
+least one source file where VB did not arrange the functions correctly.)</LI>
+</OL>
+
+<H3>Specific Schema Options</H3>
+
+<UL>
+<LI><B>-opt:slice=shared</B> - the program will periodically calls DoEvents()
+to allow other Windows applications to run at the same time.</LI>
+<LI><B>-opt:slice=exclusive</B> - the program does not cooperate with Windows
+multitasking.  This is the default option.</LI>
+</UL>
+
+.---------------------------------------------------------------
+.page The Perl Language
+
+.build anchor perl
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Perl?</DT>
+<DD>Perl is the mutant four-headed child of Awk, C, Sed, and the
+UNIX shells, plus just about every other language and feature
+that its creator, Larry Wall, could think of.  I like this
+language.</DD>
+<DT>Portability</DT>
+<DD>Perl is fundamentally portable to UNIX boxes, and has also
+been ported to many other systems.  Perl scripts are highly
+portable so long as you stay away from system-specific
+functions.  This is pretty much as you would expect.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: powerful and flexible; freely available; interpreted
+language. Cons: if you can't handle type-free languages where
+just about anything goes, return to Pascal.  Perl is (IMHO) not
+a good place to start programming.</DD>
+<DT>How To Get It</DT>
+<DD>By Internet from ftp.uu.net and many other places.</DD>
+<DT>Libero Supports</DT>
+<DD>Libero supports Perl 5.x</DD>
+</DL>
+
+<H3>Working With Perl</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.pl.</LI>
+<LI><B>Program model:</B> Perl program.</LI>
+<LI><B>Good for:</B> complex Perl programs.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.pl</TT>;
+generates an include file <TT>mydialog.d</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>sub module_function_name</TT>.</LI>
+<LI><B>Private functions:</B>
+<TT>sub private_function_name {</TT>.</LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> normal Libero limits.  All tables are defined
+dynamically, at runtime.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+sub module_function_name
+{
+                                   #  Empty module needs no code
+}
+
+function private_function_name {
+    $the_next_event = $ok_event;
+    &\raise_exception ($error_event);
+}
+</PRE>
+
+<P><A HREF="doc/htmlpp.pl">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<UL>
+<LI>If you add your own 'require'd files, place them before the
+dialog manager file.  Otherwise you may find that the code they
+contain is not executed.</LI>
+<LI>You can rename the generate program from <TT>xxxxx.pl</TT>
+to just <TT>xxxxx</TT>, if you prefer.  Libero is quite okay
+with this.</LI>
+</UL>
+
+<P>If you have used Perl, you will appreciate the way it
+combines the best of all the UNIX text processing and
+programming tools.  For example, you need only a few lines of
+Perl to read and parse a parameter file ('ini file') like
+this:</P>
+
+<PRE>
+#============================================================
+#  Parameters for program
+#============================================================
+
+[General]
+    OutBox=outbox             # Subdirectory for sent faxes
+
+[Connect]
+    HostName=Badoit           # For Telnet
+    UserName=autofax
+    Password=autofax
+
+[FaxDriver]
+    PauseChar="~"             # Substitute for commas
+
+[Station]
+    Id=Station1               # Name of this local system
+
+    open (INI, "autofax.ini") || die "Can't open autofax.ini: $!\n";
+    while (&lt;INI&gt;) {
+        chop;                           #   Remove trailing newline
+        #   [SectionName] followed by optional comment
+        if (/^\s*\[(\w+)\]\W*(#.*)?$/) {
+            ($section = $1) =~ tr/A-Z/a-z/;
+        }
+        #   Keyword=Value followed by optional comment
+        if (/^\W*(\w+)=("[^"*]"|\w+)\W*(#.*)?$/) {
+            ($keyword = $1) =~ tr/A-Z/a-z/;
+            ($value = $2) =~ s/"//g;    #   Remove any quotes
+            $initial {$section, $keyword} = $value;
+        }
+    }
+    close (INI);
+</PRE>
+
+<P>Similar code in C is several pages.  This applies to many
+aspects of Perl, so that a complex program may be only a few
+hundred lines long.</P>
+
+<P>Perl is also fast, and works well with Libero.  The 'require'
+statement lets me hide the generated code in a separate
+file.</P>
+
+<P>The Perl development cycle is simple: when you change your
+dialog, re-run Libero.  When you change the Perl program, re-run
+it.  Hint: get your hands on the 'Programming Perl' Nutshell
+Handbook.</P>
+
+.---------------------------------------------------------------
+.page The Rexx Language
+
+.build anchor rexx
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Rexx?</DT>
+<DD>Rexx is scripting language that originated on the IBM VM/CMS
+operating system.  You'll find it on most IBM operating systems,
+including PC-DOS 7 and OS/2.  It also comes in free and
+commercial versions for many systems including MS-DOS and Unix.
+</DD>
+<DT>Portability</DT>
+<DD>Rexx is available on many platforms. Rexx scripts are
+fairly portable if you don't rely on system-dependent commands.
+There is an ANSI standard for Rexx (X3J18) based on the book
+"The Rexx Language" by Mike Cowlishaw (who designed Rexx).</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: Rexx is pretty portable from PC's up to big
+mainframes.  Cons: it's an IBM-ish language, almost unknown in
+the UNIX and Microsoft worlds.</DD>
+<DT>How To Get It</DT>
+<DD>It comes as part of most IBM operating systems (PC-DOS 7,
+OS/2.)  You can get free versions from the Internet.</DD>
+<DT>Libero Supports</DT>
+<DD>Libero supports a portable Rexx syntax.</DD>
+</DL>
+
+<H3>Working With Rexx</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.Rex.</LI>
+<LI><B>Program model:</B> Rexx program.</LI>
+<LI><B>Good for:</B> large Rexx programs.</LI>
+<LI><B>Files used/made:</B> Own work in <TT>myprog.mod</TT>;
+generates program called myprog.rx.</LI>
+<LI><B>Module functions:</B>
+<TT>module_function_name:</TT></LI>
+<LI><B>Private functions:</B>
+<TT>private_function_name :</TT>  (note the space before ':')</LI>
+<LI><B>Naming style:</B> Any except -style=cobol.</LI>
+<LI><B>Limits:</B> Standard Libero limits, and system memory.
+All tables are defined dynamically at runtime.</LI>
+<LI><B>Development cycle:</B> Run <TT>lr</TT> after you change
+the dialog or <TT>.mod</TT> file.  When you add a new module,
+run lr, then edit the <TT>.mod</TT> file, then run <TT>lr</TT>
+again.  Don't change the generated Rexx script except for tests
+- you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+/******************   MODULE FUNCTION NAME   ******************/
+
+module_function_name:
+    Return                     /*  All modules end in Return  */
+
+private_function_name :
+    the_next_event = ok_event
+    Call raise_exception (error_event)
+    Return
+</PRE>
+<P><A HREF="doc/exprrex.mod">A fuller example.</A></P>
+
+.---------------------------------------------------------------------
+.page The UNIX C Shell Language
+
+.build anchor csh
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is C Shell?</DT>
+<DD>The C shell (/bin/csh) is a UNIX shell 'for C programmers'.</DD>
+<DT>Portability</DT>
+<DD>The C shell is very standard across UNIX boxes, as far as I know.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: standard. Your scripts will run on most if not all UNIX boxes.
+Looks a bit like C. Cons: limited and out-dated.  No functions. Looks a bit
+like C.</DD>
+<DT>How To Get It</DT>
+<DD>Should be part of your UNIX system.</DD>
+</DL>
+
+<H3>Working With The UNIX C Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.c.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates script
+called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B> <TT>module_function_name: #</TT></LI>
+<LI><B>Private functions:</B> <TT>private_function_name:</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+module_function_name: #
+    return                      # All modules end in 'return'
+
+private_function_name:          # Actually, not possible
+    set the_next_event=$ok_event
+    raise_exception $error_event
+
+</PRE>
+
+<P>The C shell has no functions (unless I missed something), so I use
+labelled blocks of code.  Each such block must end with 'return'.  The schema
+defines this alias to do a goto back to the dialog engine code.  Frankly, I
+can't understand who would write or use this shell.  Get Perl, and use that
+instead.  Flames welcome. Nuff sed.</P>
+
+<P>See also: $(*unix_shells=Note on UNIX shells).</P>
+
+.---------------------------------------------------------------------
+.page The UNIX Bourne Shell Language
+
+.build anchor bsh
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Bourne Shell?</DT>
+<DD>The Bourne shell (/bin/sh) is the original UNIX shell. It is basic and
+slow.  Most systems provided an extended version that supports functions.</DD>
+<DT>Portability</DT>
+<DD>There are at least two flavours of Bourne shell; with and without
+functions.  The simplest is portable to probably all UNIX systems; the
+extended Bourne shell to most UNIX systems (I know only one that does not
+provide it: NeXT.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: Most standard shell. Cons: functionally poor; like all shells,
+slower than Awk or Perl or C.</DD>
+<DT>How To Get It</DT>
+<DD>Should be installed on your UNIX system.</DD>
+</DL>
+
+<H3>Working With The UNIX Bourne Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.sh.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts; portable to GNU systems.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates a
+script called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B> <TT>module_function_name ()</TT></LI>
+<LI><B>Private functions:</B> <TT>private_function_name ()</TT>.  Since there
+is no way to distinguish module functions from private functions, the schema
+turns-off idle module checking.</LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+module_function_name ()
+{
+    return                      # Empty module needs 'return'
+}
+
+private_function_name ()
+{
+    the_next_event=$ok_event
+    raise_exception $error_event
+}
+</PRE>
+
+<P>See also: $(*unix_shells=Note on UNIX shells).</P>
+
+.---------------------------------------------------------------------
+.page The UNIX Korn Shell Language
+
+.build anchor ksh
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Korn Shell?</DT>
+<DD>The Korn shell (/bin/ksh) is the most advanced 'standard' UNIX shell. It
+extends the Bourne shell with lots of nice features, and is a lot faster.</DD>
+<DT>Portability</DT>
+<DD>The Korn shell is standard when available, but is not supplied on all UNIX
+boxes.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: supplied on most UNIXes; your scripts will run quickly. Cons: like
+all shells, slower than Awk or Perl or C.</DD>
+<DT>How To Get It</DT>
+<DD>Korn shell is available in a public-domain version (by Eric Baalberger)
+for Linux.</DD>
+</DL>
+
+<H3>Working With The UNIX Korn Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.ksh.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts; portable to GNU systems.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates a
+script called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+function module_function_name
+{
+</PRE></LI>
+<LI><B>Private functions:</B> <TT>function private_function_name {</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name
+{
+    return                      # Empty module needs 'return'
+}
+
+function private_function_name {
+    the_next_event=$ok_event
+    raise_exception $error_event
+}
+</PRE>
+
+<P><A HREF="doc/install.mod">A fuller example.</A></P>
+<P>See also: $(*unix_shells=Note on UNIX shells).</P>
+
+.---------------------------------------------------------------------
+.page The 80x86 Assembler Language
+
+.build anchor 80x86
+<H2>$(TITLE)</H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is 80x86 Assembler?</DT>
+<DD>This is the native language for most of the world's PCs. It is fast and
+dangerous.  It gives you a 5-to-10 performance improvement over the best C
+compilers.</DD>
+<DT>Portability</DT>
+<DD>Very portable to all compatible CPU's. Comes in various varieties,
+following the evolution in 80x86 CPU's.  The lowest-common denominator is the
+16-bit 8086.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros - can't get it faster; can't make it smaller. Cons: multiply your
+development and maintenance costs by ten.</DD>
+<DT>How To Get It</DT>
+<DD>There are various free and shareware assemblers around, which are not all
+compatible in terms of syntax.  The 'standards' are the Borland TASM and
+Microsoft MASM products.</DD>
+<DT>Libero Supports</DT>
+<DD>MS MASM 5.0: .com files, .exe files, and subroutines.</DD>
+</DL>
+
+<H3>Working With 80x86 Assembler</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.asm.</LI>
+<LI><B>Program model:</B> .EXE file, .COM file, or large-model C
+subroutine.</LI>
+<LI><B>Good for:</B> anything complex in assembler.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.asm</TT>; generates an
+include file <TT>mydialog.d</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+MODULE module_function_name
+ ...
+ENDMODULE
+</PRE></LI>
+<LI><B>Private functions:</B>
+<PRE>
+private_function_name PROC NEAR
+  ...
+ENDP
+</PRE></LI>
+<LI><B>Naming style:</B> schema sets -style=plain automatically.</LI>
+<LI><B>Limits:</B> 255 states, 254 modules, 253 events.  The schema checks at
+generate-time that the dialog does not exceed these limits. All tables are
+defined statically, at assembly time.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+;****************   MODULE FUNCTION NAME   *****************
+
+MODULE module_function_name
+       ret                        ; All modules end in 'ret'
+ENDMODULE
+
+private_function_name proc near
+    mov the_next_event,ok_event
+    raise_exception error_event
+endp
+</PRE>
+
+<P><A HREF="doc/exprcom.asm">A fuller example.</A></P>
+
+<H4>Specific Schema Options</H4>
+
+<UL>
+<LI><B>-opt:model=com</B> - generate code for a .COM program.  This is the
+default model.</LI>
+<LI><B>-opt:model=exe</B> - generate code for an .EXE program.</LI>
+<LI><B>-opt:stack_size=nnnn</B> - size of stack for .EXE program; default is
+1024.</LI>
+<LI><B>-opt:model=lsub</B> - generate code for a large-model subroutine using
+the Microsoft/Borland C calling convention.</LI>
+</UL>
+
+<P>The schema provides these data items, macros, and functions (above the
+standard ones provided by all schemas):</P>
+
+<UL>
+<LI><TT>msg_helptext</TT> - example of help message; change to suit (COM, EXE
+only).</LI>
+<LI><TT>arg_text db 128 dup(0)</TT> - command line arguments, null-terminated
+(COM, EXE only).</LI>
+<LI><TT>arg_size db 0</TT> - size of arguments (0 = none) (COM, EXE
+only).</LI>
+<LI><TT>arg_help db 0</TT> - 1 if /? was specified on command line, else 0
+(COM, EXE only).</LI>
+<LI><TT>newline db '\n',0</TT> - newline as null-terminated string.</LI>
+<LI><TT>the_next_event dw 0</TT> - next event from module.</LI>
+<LI><TT>the_exception_event dw 0</TT> - exception event from module.</LI>
+<LI><TT>exception_raised db 0</TT> - 1 if exception raised.</LI>
+<LI><TT>feedback db 0</TT> - return code to system.</LI>
+<LI><TT>xxxx_event</TT> - macro: defined for each event in the dialog, where
+'xxxx' is the name used in the dialog.</LI>
+<LI><TT>terminate_event</TT> - macro: when you move this to the_next_event,
+the state machine halts.</LI>
+<LI><TT>raise_exception</TT> - macro: raises an exception and sets
+the_exception_event to the event specified.</LI>
+<LI><TT>pushr</TT> -  macro: push one or more registers onto stack.</LI>
+<LI><TT>popr</TT> - macro: pop one or more registers from stack.</LI>
+<LI><TT>jmps</TT> - macro: short jump.</LI>
+<LI><TT>echo</TT> - function: prints null-terminated message at DS:SI.  The
+sequence \n is treated as newline.  All registers are safe except flags.</LI>
+<LI><TT>echoch</TT> - function: prints character in AL using BIOS tty
+function.  Does not change any registers except the flags.</LI>
+<LI><TT>echonum</TT> - function: displays the value in AX as a signed decimal
+number with one leading space, and optional sign.  Does not change any
+registers except the flags.  Number is in range 32768..32767</LI>
+<LI><TT>pause</TT> - function: waits for a keystroke; if [Esc] pressed, exits
+program.  Does not change any registers except the flags.</LI>
+</UL>
+
+<H4>Programming with the COM model</H4>
+
+<UL>
+<LI>Assemble and link as a .COM file:
+<PRE>
+    masm $source;
+    link $source;
+    exe2bin $source.exe $source.com
+    del $source.exe
+</PRE></LI>
+<LI>Code, data, and stack are in same segment: <TT>CS</TT>, <TT>DS</TT>,
+<TT>ES</TT>, and <TT>SS</TT> point to the one segment, and never change.</LI>
+</UL>
+
+<H4>Programming with the EXE model</H4>
+
+<UL>
+<LI>Assemble and link as an .EXE file:
+<PRE>
+    masm $source;
+    link $source;
+</PRE></LI>
+<LI>Code, data, and stack each have their own segment.  <TT>DS</TT> and
+<TT>ES</TT> both point to the data segment.  Default stack size is 1024; you
+can ask for a larger stack using '-opt:stack_size=nnnn'.</LI>
+</UL>
+
+<H4>Programming with the LSUB model</H4>
+
+<UL>
+<LI>Assemble and link with a large-model calling program
+<PRE>
+    masm $source;
+    link caller+$source;
+</PRE></LI>
+<LI>Code, data, and stack each have their own segment.  <TT>DS</TT> and
+<TT>ES</TT> both point to the data segment.  Stack is provided by calling
+program.</LI>
+
+<LI>The <TT>FUNCTION_OPEN</TT> macro defines the interface between your
+function and calling programs.  The default is for C programming. In the
+generated skeleton program, change the definition of <TT>function</TT> to
+suit the name of your function.  Note that it must start with '_' for C
+programming.  Define any parameters following the example param1 shown.  The
+parameters to a function are passed on the stack starting at &lt;6[BP]&gt;.
+Don't make these changes to the skeleton, but to the program that Libero
+generates for you the first time.</LI>
+</UL>
+
+<H4>Programming with all models</H4>
+
+<UL>
+<LI>Do not rely on registers being safe between modules.  The dialog code
+uses these freely without saving them.</LI>
+<LI>You can freely use any of the working registers (AX, BX, CX, DX, ES, DS,
+DI, SI) in a module function.</LI>
+<LI>In a LSUB model program, do not change BP.</LI>
+<LI>In an EXE or LSUB model program, ES is initialised to be equal to
+DS.</LI>
+</UL>
+
+.- ignore header 99
+
+
+
+
+

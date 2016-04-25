@@ -1,0 +1,42 @@
+.---------------------------------------------------------------------
+.-   lrdoc.txt    Libero documentation in single file
+.-
+.-   Written:     96/02/31  Pieter Hintjens
+.-   Revised:     97/01/15  Pieter Hintjens
+.---------------------------------------------------------------------
+
+.include prelude.def
+.define BASE lrdoc
+
+.block header
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD Libero//EN">
+<HTML><HEAD><!--Built: $(DATE) Pieter Hintjens-->
+<TITLE>$(TITLE)</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<P><IMG SRC="lr_tiny.gif" ALT="Libero"> Libero $(version)</P>
+<HR>
+.end
+
+.block footer
+<HR>
+<P><A HREF="../index.htm"><IMG SRC="im0096c.gif" ALT="iMatix"></A>
+Designed by <A HREF="people/pieter.htm">Pieter Hintjens</A>
+&#169; 1996 iMatix</P>
+</BODY></HTML>
+.end
+
+.page Libero Documentation
+.ignore header
+<H1>$(TITLE)</H1>
+.include contents.def
+.ignore pages
+.define ignore 99
+.define superdoc 1
+.include lrintr.txt
+.include lrinst.txt
+.include lruser.txt
+.include lrexam.txt
+.include lrlang.txt
+.include lrtech.txt
+.define BASE lrdoc
+

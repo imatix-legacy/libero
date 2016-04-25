@@ -1,0 +1,1061 @@
+.---------------------------------------------------------------------
+.-   lruser.txt   Using Libero
+.-
+.define BASE      lruser
+.define author    Pieter Hintjens
+.define written   24 Feb 1996
+.define revised   28 Dec 1996
+.---------------------------------------------------------------------
+.include prelude.def
+
+.page Using Libero
+.ignore header $(ignore)
+<H1>$(TITLE)</H1>
+
+.include contents.def
+
+<H2>Running The lr Program</H2>
+
+<P>To run Libero, type the 'lr' command like this:</P>
+
+<PRE>
+    $ lr [options] dialogname...
+</PRE>
+
+<P>Libero is a code generator.  It works as follows: you write a dialog
+description, and Libero generates (by default) C code to execute the dialog.
+This C code contains (a) various tables and definitions, and (b) the FSM
+engine.  If necessary, Libero also generates (c) a skeleton C program to wrap
+the whole thing together.  When you change your dialog (many times during
+program development), Libero re-generates (a) and (b) and any new bits
+needed in (c).</P>
+
+<P>When you run the lr command, Libero goes through these steps:
+<UL>
+<LI>It displays a start-up message and checks that it can find its message
+file.  If this fails, there is a problem with the PATH definition.</LI>
+<LI>It reads the dialog file(s) you specified.</LI>
+<LI>For each dialog file, it run the language-specific schema file.  The
+schema generates code, the exact mechanics depending on the language in
+question:<BR>
+1. If necessary, the schema creates a skeleton program.<BR>
+2. If necessary, the schema adds empty module 'stubs' to the end of the
+program for each module in the dialog.  You will often want to rearrange
+these in a meaningful order.<BR>
+3. The schema generates the tables and code required to run your dialog
+program.  These go into include files or other code modules.</LI>
+</UL></P>
+
+<P>The standard C schema is LRSCHEMA.C.  This schema creates two include
+files, with the dialog's name, but extensions '.D' and '.I'.  The first of
+these contains the DATA, the second the INTERPRETER.  Other schemas (for
+other programming languages) have different conventions.</P>
+
+<P>Dialogs have the extension .l, though you can be bloody-minded and use
+other extensions.  On systems that support long filenames, the name can be up
+to 128 characters long, including the extension.  I seriously recommend that
+you stick to eight-character filenames for anything that is remotely useful.
+When I were a lad, filenames were one hex digit.  To create a new dialog,
+take skeleton.l and copy it.  I recommend that you give a dialog the same
+name as the program it drives.  For instance, a source file myprog.c would
+use a dialog  myprog.l.  Sometimes I append a 'd' to the name to make the
+filename (without extension) unique.  Then, for instance, the .bak files that
+my editor creates carry different names.</P>
+
+.---------------------------------------------------------------------
+.page The Dialog File Syntax
+
+<H2>$(TITLE)</H2>
+
+<P>This is the skeleton.l file - it is a useful starting point for new
+dialogs:</P>
+
+<PRE>
+!
+!   myprogd.l   Dialog description for myprog.c
+!
+!   Written:    yy/mm/dd  My name
+!   Revised:    yy/mm/dd
+!
+!   Syntax:  '!' comment header
+!            -option[=value]
+!            [ state-name ':' [ '&lt;'Superstate-Name'&gt;' ]...
+!                  [ '(' event-nbr ')' event-name [ '-&gt;' next-
+state ]
+!                  [ '+' module-name ]... ]... ]...
+!
+-source=myprog
+
+After-Init:
+    (--) Ok                         -&gt;
+          +
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Defaults:
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The dialog file defines a series of <EM>states</EM>: the first state in
+the dialog is the starting state, and the remaining states can come in any
+order.  You cannot define the same state twice.  A state carries a name,
+which is purely for your (the reader's) information.  A state allows one or
+more <EM>events</EM>.  The ordering of events within a state is not
+important.  Each event looks like this:
+<PRE>
+    (--) Event-Name                 -&gt; Next-State-Name
+          + Module-To-Execute
+          + Module-To-Execute
+          ...
+</PRE>
+The module list is executed when that event occurs in the state.  The module
+list can be empty.  The next state name can be
+blank, meaning 'the current state'.  Otherwise the next state name refers to
+another state within the dialog, excluding the initial starting state.</P>
+
+<P>The module names correspond to functions, blocks, procedures, etc. in the
+program.  Since various languages and individuals like different conventions
+for naming modules, Libero always uses Names-Like-This, which may refer to
+pieces of code labelled 'NamesLikeThis', 'names_like_this', 'NAMES-LIKE-
+THIS', etc.</P>
+
+<P>The program always refers to events by adding the suffix '-Event'.  Thus,
+if a dialog refers to an event 'Ok', the program will refer to 'Ok-Event',
+allowing for whatever name-mashing the language imposes.</P>
+
+<P>A program never refers to state/next-state names.  These are there only to
+make the dialog more readable, and useful.  You could, if you wanted to,
+refer to states as 'S1', 'S2', 'S3', instead of 'Expecting-Token', 'Have-
+Number', 'Have-String'.   Hahaha.  I've seen people doing this.</P>
+
+<P>An event name '$other' is taken to mean 'all other events'.   This
+is shorthand for typing all other events in the dialog: any event you
+did not already handle in the state gets the '$other' handling.</P>
+
+<P>Note that:
+<UL>
+<LI>You can put a comment anywhere, starting with '!' until the end of the
+line.  I advise you to put comments on lines of their own; the pretty
+printing function in Libero will then work better.</LI>
+<LI>You can put options before the first state, several per line or one per
+line.  If you put several on one line, separate them by spaces as you do on
+the command line.</LI>
+<LI>You need one or more spaces between words.  Libero is not fussy about the
+amount of blank space or line breaks between words.  However, I recommend the
+layout above as it is easy to read, and if you use Libero for Windows, it
+will rewrite the dialog in this format in any case.</LI>
+<LI>Use an editor that lets you cut and paste lines easily, and that works in
+overwrite mode.  This is the easiest way to write dialogs.</LI>
+<LI>If you intend to move dialog files between systems (MS-DOS, UNIX,
+VMS,...) don't use tabs.  These don't align the same on different
+systems.</LI>
+<LI>It is quite okay to make a sloppy dialog; the -pretty option in Libero
+will straighten things out.  However, a good programmer should need this.
+</LI>
+</UL></P>
+
+.---------------------------------------------------------------------
+.page Libero Options
+
+<H2>$(TITLE)</H2>
+
+<P>Like most command-line programs, lr accepts various options. These control
+things such as the language that Libero generates, the filenames it uses,
+etc.</P>
+
+<P>You can supply an option in various ways:
+<UL>
+<LI>Type the option when you run lr.  This is good for options that you use
+now and then.</LI>
+
+<LI>Place the option in the dialog file itself (at the start of the file,
+anywhere before the first state).  This is good for options that are specific
+to that dialog file.</LI>
+
+<LI>Place the option in a global initialisation file, usually called lr.ini,
+somewhere on the path.  This is good for options that you want for all your
+work.</LI>
+</UL></P>
+
+<P>It sometimes gets a little complex to remember which option is active,
+especially if you put the same option in various places. For instance you
+could put '-nocheck' in lr.ini, then run the <TT>lr</TT> command with the '
+check' option.  Which takes precedence?  The answer is: it works like it
+should.  This is a somewhat arrogant statement, so I'll explain:
+<UL>
+<LI>Each option has a default value, as explained below.  When Libero starts
+up, this is the value.</LI>
+
+<LI>Libero reads the <TT>lr.ini</TT> file and uses the options in that file.
+These can change the default values.</LI>
+
+<LI>Libero then looks at any options in the dialog file.</LI>
+
+<LI>Libero looks at the lr command line and processes any options you typed
+there.  Libero picks-up a -help option right away, as well as a -initial or
+-path, since these affect which lr.ini file it reads.</LI>
+</UL></P>
+
+<P>If you are unsure of the options in effect for your dialog, run
+<TT>lr</TT> with the -settings option.  This displays the current options.
+You can specify a Libero option in various forms:<BR>
+
+<DL>
+<DT>-option</DT>
+<DD>Normal usage.</DD>
+<DT>-option=value</DT>
+<DD>Option takes value.</DD>
+<DT>-option:value</DT>
+<DD>Also okay.</DD>
+<DT>-option="value"</DT>
+<DD>Don't convert value to lowercase.</DD>
+<DT>-option:'value'</DT>
+<DD>The same as above.</DD>
+<DT>-nooption</DT>
+<DD>switch off true/false option.</DD>
+<DT>-option=no</DT>
+<DT>-option=false</DT>
+<DD>The same as above.</DD>
+</DL>
+
+<P>You can abbreviate an option name to 3 or more characters.
+Option values are converted to lower-case unless you place them
+in single or double quotes. Some options take values; others are
+true/false options.  These is a summary of the options that lr
+accepts:</P>
+
+<PRE>
+Option            Explanation                        Default
+
+-animate          include animation code             -noanimate
+-author=name      include animation code             ="My Name"
+-check            generate full runtime checks       -check
+-compress         compress generated tables          -compress
+-defaults=state   name of defaults state             =defaults
+-dpath=variable   path for dialog and ini files      ="PATH"
+-generate         generate output code               -generate
+-help             show this information              -nohelp
+-idle             indicate idle modules              -noidle
+-initial=file     read options from file             =lr.ini
+-option=list      define generation options          none
+-path=variable    path variable for schema files     ="PATH"
+-plusd            enforce 'source+D' naming rule     -noplusd
+-pretty           pretty-print dialog file           -nopretty
+-schema=file      schema for code generation         =lrschema.c
+-settings         show option settings per file      -nosettings
+-sort             add module stubs alphabetically    -sort
+-source=file      program for dialog                 name of dialog
+-stats            show dialog statistics             -nostubs
+-stubs            generate stubs for new modules     -stubs
+-style=plain      naming style: some_module_name     -style=plain
+-style=caps       naming style: SomeModuleName
+-style=headline   naming style: Some_Module_Name
+-style=title      naming style: Some_module_name
+-style=normal     naming style: Some-Module-Name
+-style=cobol      naming style: SOME-MODULE-NAME
+-trace            trace code generation to list file
+</PRE>
+
+<P>And now in detail:
+<UL>
+<LI><B>-[no]animate</B> - include or exclude animation code.  If
+you use this option, the schema will generate code that displays
+each new state, event, and action as the dialog runs.  This is
+useful for debugging.  The default is -noanimate.</LI>
+
+<LI><B>-author</B> - Libero uses this value when it creates a
+new file for you.  Put the string in quotes to include spaces:
+-author='My Name'.  On the MS-DOS command line, you must type
+this (two sets of quotes): "-author='My name'".  The default is
+"Your Name".</LI>
+
+<LI><B>-[no]check</B> - generate full runtime checks.  If you
+use this option, the schema will generate code that checks for
+invalid or missing events while the program runs.  Keep this
+option unless you are sure it is slowing down a crucial dialog.
+The default is -check.</LI>
+
+<LI><B>-[no]compress</B> - compress the generated tables.
+Currently, this means:removing unused states.  You can disable
+this using the nocompress option.  The default is
+-compress.</LI>
+
+<LI><B>-defaults=state</B> - the name of the Defaults state.
+This state serves to collect events that can happen in any other
+state; you can make the dialog smaller and simpler by placing
+these into the Defaults state.  The default is "Defaults".</LI>
+
+<LI><B>-dpath=variable</B> - Libero uses this path to search for
+the lr.ini file and the dialog file.  You can use the name of an
+environment variable (a logical variable under VMS) or a literal
+path.  If the case is important, enclose it in quotes.  For
+example, under MS-DOS: -dpath='LRPATH'.  Libero always searches
+the current directory first.  The default is empty, in which
+case Libero uses the -path value.</LI>
+
+<LI><B>-[no]generate</B> - generate output code.  If you want to
+check the dialog but not generate any output, use -nogen.  The
+default is -generate.</LI>
+
+<LI><B>-[no]idle</B> - indicate idle modules.  Libero lists any
+modules in your program that are not referenced in the dialog.
+This can happen when you change a dialog.  The default is
+-noidle.</LI>
+
+<LI><B>-initial=file</B> - tells Libero to read options from
+some specific file instead of lr.ini.  You can use this option
+on the command line only. The default is "lr.ini".</LI>
+
+<LI><B>-option:name=value</B> - supply a specific option value
+to a schema. This allows the schema to generate code
+conditionally, or fill-in specific values.  The 'name' is a
+variable defined in the schema; the 'value' overrides any
+default that the schema specifies.  The 'value' can be a full
+expression, including references to other schema variables.</LI>
+
+<LI><B>-path=name</B> - Libero uses this path to search for its
+message file and the schema used to generate code.  You can use
+the name of an environment variable (a logical variable under
+VMS) or a literal path.  If the case is important, enclose it in
+quotes.  For example, under MS-DOS: -path='LRPATH'.  Libero
+always searches the current directory first.  The default is
+"PATH" (in uppercase).  See also -dpath.</LI>
+
+<LI><B>-[no]plusd</B> - enforce the "source+D" naming rule.  The
+default is -noplusd.</LI>
+
+<LI><B>-[no]pretty</B> - rewrite the dialog, aligning it using
+the standard Libero conventions.  This can work nicely.  Your
+original dialog is saved with the extension .bak.  Does not
+generate any code.  The default is -nopretty.</LI>
+
+<LI><B>-schema=file</B> - schema for code generation.  If you
+override this default, be sure to specify the file extension.
+The default is "lrschema.c".</LI>
+
+<LI><B>-[no]settings</B> - show option settings for each file
+processed.  The default is -nosettings.</LI>
+
+<LI><B>-[no]sort</B> - output new module stubs in sorted order.
+Depending on your preferences, you may want to keep modules in
+sorted order or natural order.  The default is -nosort.</LI>
+
+<LI><B>-source=file</B> - program that uses the dialog.  By
+default the name of the dialog, unless you use -plusd option, in
+which case it is the name of the dialog minus an obligatory
+'D'.</LI>
+
+<LI><B>-[no]stats</B> - report the number of states, events, and
+modules in the dialog.  The default is -nostats.</LI>
+
+<LI><B>-[no]stubs</B> - generate stubs for modules which are
+referenced in the dialog but do not (yet) exist in the program.
+The default value for this option is -stubs.  If you use
+-nostubs, you will have to make new module stubs by hand.  So
+leave -stubs on.</LI>
+
+<LI><B>-style={plain|caps|heading|title|normal|cobol}</B> -
+style for module and event names.  The default is 'plain'.  You
+can use this to adapt Libero's output to your preferred
+programming style; do not change halfway through a project
+unless you like doing major cleanups.</LI>
+
+<LI><B>-[no]trace</B> - create a report file that traces the
+code generator's output.  This is useful if you are writing or
+changing a schema, and cannot get it to work.  The trace file is
+called <EM>dialog</EM>.lst.  The default is -notrace.</LI>
+</UL></P>
+
+.---------------------------------------------------------------------
+.page Using Exceptions
+
+<H2>$(TITLE)</H2>
+
+Exceptions are basically a tool to reduce the size of a dialog.
+Instead of defining an extra state to handle a decision (typically
+the Ok/Error outcome of some work), you assume it's Ok, and carry on
+with the next action module directly.  If it's Error, you raise an
+exception, which is like a jump to that event in the same state.  Any
+module in progress is completed, but any further modules are not
+executed by the dialog manager.
+
+It's often useful to put exception events into the Defaults state,
+since certain kinds errors can occur in any state.  So you can raise
+an exception in any code, and know that it will be handled the same
+way, in the Defaults state.  Sometimes we override such central
+handling by defining specific handling for an exception event in a
+specific state.
+
+Exceptions are thus used to make small control steps within a state
+(error handling is just one specific example).  Such control steps
+can be used for any purpose.
+
+Overusing exceptions leads to impenetrable dialogs.
+
+<P>Exceptions are a powerful technique that make your dialog leaner and
+meaner.  In a typical dialog many actions do some work that may result in an
+error condition.  For instance, an action that reads some data from a file
+may discover that the file is no longer accessible due to a 'hard' error
+(protection, disk crash, insufficient memory,...).  Without exceptions, the
+only way to handle such possibilities is to define additional states - for
+instance, 'after-reading-data', that check the outcome of each action with a
+questionable outcome.</P>
+
+<P>This quickly leads to dialogs with dozens of states that serve only to
+keep track of these minority cases.  In the majority of cases, the errors
+never happen.  This means that the main logic of the dialog can get diluted
+by all the extraneous states.  With exceptions, you write the dialog as
+though errors were incidental. When an error happens, you treat it as a
+special case, as an 'exception'.  Otherwise, the dialog carries on
+normally.</P>
+
+<P>Most real dialogs use exceptions, sometimes heavily, for two reasons:
+<OL>
+<LI>Exceptions are a good way to handle errors.</LI>
+<LI>Exceptions can make a complex dialog simpler.</LI>
+</OL></P>
+
+<P>A module raises an exception by setting the variable Exception-Raised to a
+'true' value.  The module then supplies an event in The-Exception-Event.
+Quite often I use an event called 'Exception' when I use an exception event
+to handle fatal errors. This is how we raise an exception using an event
+called Exception-Event in various languages:</P>
+
+<P>C and C++:</P>
+<PRE>
+    exception_raised = TRUE;
+    the_exception_event = exception_event;
+</PRE>
+
+<P>80x86 assembler:</P>
+<PRE>
+    mov exception_raised,1
+    mov the_exception_event,exception_event
+</PRE>
+
+<P>Korn Shell:</P>
+<PRE>
+    exception_raised=TRUE
+    the_exception_event=$exception_event
+</PRE>
+
+<P>COBOL:</P>
+<PRE>
+    MOVE "YES" TO EXCEPTION-RAISED
+    MOVE EXCEPTION-EVENT TO THE-EXCEPTION-EVENT
+</PRE>
+
+<P>Visual Basic:</P>
+<PRE>
+    exception_raised = True
+    the_exception_event = exception_event
+</PRE>
+
+<P>In most languages (except COBOL) Libero provides a function or macro
+'Raise-Exception' that does the above.  See the later sections on using
+Libero in each language for details.</P>
+
+<P>The dialog normally executes all the action modules for an event-in-state,
+one by one, then switches to the next state for the event.  An exception
+interrupts this flow. The dialog handles exceptions in two steps:
+<OL>
+<LI>It checks Exception-Raised after executing each module.  It this variable
+has become 'true', it stops and checks the value of The-Exception-Event.</LI>
+<LI>It looks for The-Exception-Event in the current state (or Defaults), then
+executes the action modules for that event.  These modules can in turn raise
+an exception.</LI>
+</OL></P>
+
+<P>When a module raises an exception, the dialog does not care what the next
+state was supposed to be.  This is no longer important, since the exception
+event will determine its own next state.</P>
+
+<P>Libero also allows a short-cut: if the exception event is the same as the
+current event, you don't need to supply it.  If you just set Exception-Raised
+but not the event, the dialog loops back to the same event in the same state.
+Honestly, I don't use this very often.  I prefer to separate exception events
+from 'normal' events.</P>
+
+<P>Take the example of three actions which the dialog executes in series.
+First, it reads some data from a file.  Then it parses and converts the data.
+Lastly, it writes the data to another file.  Each of these actions has a
+normal outcome, and possible exceptional outcomes (error during reading,
+invalid data, error during writing, etc.).  If we write the dialog without
+exceptions, we need these three states:</P>
+
+<PRE>
+Before-Reading:
+    (--) Ok                         -&gt; After-Reading
+          + Read-Data-From-Input
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+After-Reading:
+    (--) Ok                         -&gt; After-Parsing
+          + Parse-and-Convert-Data
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+After-Parsing:
+    (--) Ok                         -&gt; Another-State
+          + Write-Data-To-Output
+          + ...
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>In this case, Read-Data-From-Input does something like this (I use C as
+the language):</P>
+
+<PRE>
+MODULE read_data_from_input (void)
+{
+    if (read_from_file (file, input) != NULL)
+        the_next_event = ok_event;
+    else
+        the_next_event = error_event;
+}
+</PRE>
+
+<P>By using an exception event (here, Error), we can collapse the three
+states into a single state:</P>
+
+<PRE>
+Before-Reading:
+    (--) Ok                         -&gt; Another-State
+          + Read-Data-From-Input
+          + Parse-and-Convert-Data
+          + Write-Data-To-Output
+          + ...
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>Read-Data-From-Input now does this:</P>
+
+<PRE>
+MODULE read_data_from_input (void)
+{
+    if (read_from_file (file, input) == NULL)
+        raise_exception (error_event);
+}
+</PRE>
+
+<P>Some hints about using exception events:
+<OL>
+<LI>Don't over-use exceptions.  What you gain from a more compact dialog you
+can loose in unclear logic.  Remember that exceptions should be used for
+error handling and special cases, not for primary logic.</LI>
+<LI>Choose good names, and use one exception event for the same purpose
+everywhere.  For instance, use an exception event Fatal-Error to indicate a
+fatal i/o error that causes the dialog to halt.</LI>
+<LI>The Defaults state is an ideal place to handle exceptions which may occur
+in many places.  However, do place specific exception handling in any state
+where it is useful.</LI>
+</OL></P>
+
+.---------------------------------------------------------------------
+.page Using The Defaults State
+
+<H2>$(TITLE)</H2>
+
+<P>You can define a single Defaults state in any dialog.  You use this state
+to simplify dialogs.  Often, the same event can happen in many states, with
+the same effect.  Typically, you want to handle a fatal error at any point by
+displaying a message and halting the program.</P>
+
+<P>Rather than repeating the event and its (identical) actions in every state
+where the fatal error may happen, place it in Defaults.  If the event ever
+happens, Libero looks in the current state first.  If it cannot find the
+event there it looks in the Defaults state.  The Defaults state is ideal for
+error exception events that require central handling.</P>
+
+<P>After processing the actions for the event, the dialog sets the next state
+as follows: if the specified next state is empty, it returns to the original
+state.  If some next state is specified, it goes to that state.</P>
+
+<P>When you use a Defaults state, the generated code for your dialog does not
+get smaller.  It will actually get a little larger.  But your dialog source
+code can usually be simplified, and this is always a good idea.</P>
+
+.---------------------------------------------------------------------
+.page Using Sub-Dialogs
+
+<H2>$(TITLE)</H2>
+
+<P>Libero supports a simple state call/return mechanism.  This lets you build
+sub-dialogs that are called from other places in the dialog.  In the
+'calling' state, use the action Dialog-Call to call the sub-dialog state:</P>
+
+<PRE>
+Calling-State:
+    (--) Ok                         -&gt; Sub-State
+          + Do-Some-Normal-Work
+          + Dialog-Call
+    (--) Return                     -&gt; Next-State
+          + Continue-After-Call
+</PRE>
+
+<P>The Return event controls what happens when the sub-state returns.  The
+Return event can be in the same state, or in the Defaults state.</P>
+
+<P>The sub-dialog can consist of one or many states.  You should probably use
+some kind of naming convention to indicate that these states go together.  At
+some point, the sub-dialog uses the action Dialog-Return.  This ends the
+sub-dialog and continues in the calling state with the Return event.</P>
+
+.---------------------------------------------------------------------
+.page Using Super-States
+
+<H2>$(TITLE)</H2>
+
+<P>Some dialogs have a lot of states that are similar except for small
+differences, like Expecting-Initial and Expecting-Operand above.  We can
+write these in a more compact way using a shorthand technique called
+super-states.  We put the super-state name between '&lt;' and '&gt;' after
+the state name:</P>
+
+<PRE>
+Expecting-Initial: &lt;Expecting-Operand&gt;
+    (--) End-Mark                   -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The state inherits the events in the super-state, if they are not already
+defined.  In the above example we say that Expecting-Initial inherits events
+from Expecting-Operand, and also handles the End-Mark event.</P>
+
+<P>A super-state can itself be based on super-states, to any level.  My
+advice is: use super-states with care to simplify large dialogs.  Don't
+exaggerate.  Some more points about super-states:
+<UL>
+<LI>You can think of super-states as 'local defaults' states.</LI>
+
+<LI>If a super-state is not used anywhere in the dialog, it is not included
+in the generated code.</LI>
+
+<LI>When a state inherits an event, it may change the 'next state' name.  If
+this is blank, or refers to the super-state (which is semantically the same),
+it is changed to be the name of the inheriting state.</LI>
+</UL></P>
+
+.---------------------------------------------------------------------
+.page Using Templates
+
+<H2>$(TITLE)</H2>
+
+<P>The standard Libero schemas support templates.  This just means that you
+can build a library of code that the generator will pull-in whenever you use
+it in a dialog.</P>
+
+<P>For example, let's say that you are working in a COBOL application where a
+lot of programs need to do the same work in Initialise-The-Program:</P>
+
+<PRE>
+    MOVE LINKAGE-BLOCK TO OWN-LINKAGE-BLOCK
+    PERFORM CHECK-LINKAGE-VALUES
+    IF CURRENT-LANGUAGE = SPACES
+        MOVE "ENGLISH" TO CURRENT-LANGUAGE
+</PRE>
+
+<P>You can either:
+<UL>
+<LI>Retype or copy this code into each new program you create. This is extra
+effort for nothing.</LI>
+<LI>Modify the standard schema.  This is also extra effort, not today, but
+when the next release of Libero comes around.</LI>
+<LI>Use a COPY book (an included file) for the common code.  This is okay if
+the code is regularly changed, or large.  For many small pieces of code you
+just get a terrible burden of managing lots of these COPY books.
+<LI>Use a template.  Of course, this is the way to do it.</LI>
+</UL></P>
+
+<P>Let's say you make a file called TEMPLATE.cob.  This looks like this:</P>
+
+<PRE>
+&lt;Initialise-The-Program&gt;
+    MOVE LINKAGE-BLOCK TO OWN-LINKAGE-BLOCK
+    PERFORM CHECK-LINKAGE-VALUES
+    IF CURRENT-LANGUAGE = SPACES
+        MOVE "ENGLISH" TO CURRENT-LANGUAGE
+&lt;END&gt;
+</PRE>
+
+<P>Now, when you build a new program, Libero magically includes
+this code in the INITIALISE-THE-PROGRAM section.  This is how templates
+work:
+<UL>
+<LI>Each schema looks for a template file with the same extension as the
+schema.  If the template file does not exist, this is okay.</LI>
+
+<LI>The schema 'pulls in' code at various points.  Again, if it cannot find
+the code it's looking for, that is okay.</LI>
+
+<LI>Each section in the template starts with a keyword between "&lt;" and
+"&gt;" and ends in "&lt;END&gt;".  The schemas define a number of standard
+section keywords: "&lt;HEADER&gt;" and "&lt;DATA&gt;", plus one section per
+module.</LI>
+
+<LI>The keywords are case-sensitive.  &gt;Get-next-token&gt; is not the same
+as &gt;Get-Next-Token&gt;.  The second form is correct; the first will not
+work.</LI>
+
+<LI>The template can be in the current directory, or on the path.</LI>
+</UL></P>
+
+<P>The file template provides an example that you can use for your own
+templates.</P>
+
+.---------------------------------------------------------------------
+.page Using Get-External-Event
+
+<H2>$(TITLE)</H2>
+
+<P>The Get-External-Event module is empty in most types of program, and very
+important in other ones.  This module lets you centralise any kind of
+interface to the outside world that collects events.  An example of this is
+the $(*rover=Rover) subprogram we designed above.  The dialog explicitly
+does a Wait-for-incoming-message before each new state. We can put this code
+into Get-external-event, which makes the dialog simpler.</P>
+
+<P>Here I also move all handling for Onhook to the Defaults state - assuming
+that the Stop-Local-Tones module is safe to use at any time:</P>
+
+<PRE>
+After-Init:
+    (--) Ok                         -&gt; Idle
+          +
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Idle:
+    (--) Offhook                    -&gt; Dialing-First
+          + Start-Dial-Tone
+          + Reset-Dialed-Number
+    (--) Request                    -&gt; Ringing
+          + Start-Ringing-Local
+
+Dialing-First:
+    (--) Digit                      -&gt; Dialing-Next
+          + Stop-Local-Tones
+          + Have-Dialed-Digit
+    (--) Whole-Number               -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+
+Dialing-Next:
+    (--) Digit                      -&gt; Dialing-Next
+          + Have-Dialed-Digit
+    (--) Whole-Number               -&gt; Seizing
+          + Stop-Local-Tones
+          + Send-Outgoing-Request
+
+Seizing:
+    (--) Accept                     -&gt; Ringing
+          + Start-Ringing-Remote
+    (--) Busy                       -&gt; Seize-Failed
+          + Start-Busy-Tone
+    (--) Reject                     -&gt; Seize-Failed
+          + Start-Reject-Tone
+
+Seize-Failed:
+    (--) Onhook                     -&gt; Idle
+          + Stop-Local-Tones
+
+Ringing:
+    !  Events from local phone
+    (--) Offhook                    -&gt; Talking
+          + Stop-Ringing-Local
+    (--) Onhook                     -&gt; Idle
+          + Stop-Ringing-Remote
+    !  Event from remote phone
+    (--) Answer                     -&gt; Talking
+          + Stop-Ringing-Remote
+
+Talking:
+    !  Event from local phone
+    (--) Onhook                     -&gt; Idle
+          + Send-Outgoing-Release
+    !  Event from remote phone
+    (--) Release                    -&gt; Idle
+          + Start-Released-Tone
+
+Defaults:
+    (--) Onhook                     -&gt; Idle
+          + Stop-Local-Tones
+</PRE>
+
+.---------------------------------------------------------------------
+.page Efficiency
+
+<H2>$(TITLE)</H2>
+
+<H3>Efficiency of The Generated Code</H3>
+
+<P>People sometimes ask of Libero: "But does it produce efficient programs?".
+Bad grammar apart, this question gets a considered answer.  Usually I say:
+"What do you mean by 'efficient'?", or "Does a hammer build a solid table?".
+I have a practical definition of 'efficient': if a program is easy to write,
+easy to maintain, does the job on time, and no-one has trouble with it, it's
+efficient.  It's also unusual, but that is another soap-box.</P>
+
+<P>When I wrote Libero, my true goal was to make programming easier and
+safer, whatever the language.  This also gives me a convenient stock answer:
+if you write a program using Libero, and you find that it runs too slowly,
+you can rewrite it in a faster language quickly and cheaply.</P>
+
+<H3>Efficiency of The Dialog</H3>
+
+<P>First of all, the size of a dialog has only a slight relationship to the
+speed of the program.  A very large program will load and maybe run slower
+than a small one, but the program has to be a lot larger.</P>
+
+<P>Secondly, adding a new state, event, or action module will make the
+generated code larger.  If a dialog has 10 states, then a new event will add
+20 words to the program size.  If a dialog has 50 states, then a new event
+will add 100 words.  A dialog with 100 states and 100 events will use a
+whopping 20,000 words of storage for its main tables.  It is possible to
+compress large FSM tables, but I never had a problem that was so complex that
+it was worth it.  It is a function that one could add to Libero in the
+future. However, a program this complex is likely to be several tens of
+thousands of lines long.</P>
+
+<P>So, I generally tell people: if you make your dialog smaller, do it
+because it is better design, not because it is more efficient.</P>
+
+.---------------------------------------------------------------------
+.page Care and Feeding of Dialogs
+
+<H2>$(TITLE)</H2>
+
+<H3>Style - Good, Bad, and Ugly</H3>
+
+<P>Some of the worst dialogs that I have seen were written by people who were
+trying to make their dialogs 'efficient'.  It is not easy to write elegant
+and readable dialogs; it is a little like making pancakes: give the first one
+to the dog.  I have some advice: ask a colleague to read the dialog and
+explain how the program works.  If your colleague cannot understand
+something, rewrite it.</P>
+
+<P>The following extracts are from real-life dialogs that went wrong.  I
+changed names and did some surgery to protect the guilty, and myself from
+prosecution.  All I can say in defence of the authors was that these were
+early works, and that they had too little training.</P>
+
+<P>Example 1: the author tries to reduce the number of states by looping back
+to the same state several times.  Then he (I know the lad, so I can safely
+use the pronoun) compounds the sin by using event names that are specific to
+the state:</P>
+
+<PRE>
+Valorisation:
+    (--) Valori-Not-Ok              -&gt; Valorisation
+          + Update-Valorisation
+          + Get-Next-Valorisation
+    (--) Valori-Ok                  -&gt; Valorisation
+          + Process-Valorisation
+          + Get-Next-Valorisation
+    (--) Ok                         -&gt; Valorisation
+          + Test-Valorisation
+    (--) No-Valori                  -&gt; Valorisation
+          + Get-Next-Valorisation
+    (--) No-More                    -&gt; Transfer
+          + Get-First-Transfer
+
+Transfer:
+    (--) Transf-Not-Ok              -&gt; Transfer
+          + Update-Transfer
+          + Get-Next-Transfer
+    (--) Transf-Ok                  -&gt; Transfer
+          + Process-Transfer
+          + Get-Next-Transfer
+    (--) Ok                         -&gt; Transfer
+          + Test-Transfer
+    (--) No-Transf                  -&gt; Transfer
+          + Get-Next-Transfer
+    (--) No-More                    -&gt;
+          + Close-Data-Files
+          + Terminate-The-Program
+</PRE>
+
+<P>This is the advice I gave:
+<UL>
+<LI>Don't use a single state when the design demands several states.  This
+does not save space - since you have to invent more event names - it just
+makes the dialog hard to understand.</LI>
+
+<LI>Use exceptions to reduce the complexity of a dialog.</LI>
+
+<LI>Don't use event names that are only meaningful in one state, like
+'Transf-Not-Ok'.  This makes the code less reusable.  It also tightens the
+binding between action modules and the state, which is makes it harder to
+reuse action modules and change the dialog.</LI>
+
+<LI>Use meaningful names for states.  The state is an important concept in
+the design.</LI>
+
+<LI>Use helpful names for the action modules.  Test-Transfer tells the reader
+very little about what is happening.</LI>
+</UL></P>
+
+<P>Example 2: the author is struggling with a complex batch process.  At this
+stage he has to do a whole series of actions, with one small difference
+depending on the contents of a key field:</P>
+
+<PRE>
+After-Test-Key:
+    (--) Key-Empty                  -&gt; Have-Order
+          + Save-Current-Order-Record
+          + Get-Contract-For-Order
+          + Get-Company-For-Contract
+          + Create-Invoice-Header
+          + Update-Company
+          + Save-Contract-Key
+          + Call-Batch-012
+          + Call-Batch-013
+          + Get-Next-Order-Record
+    (--) Key-Not-Empty              -&gt; Have-Order
+          + Treat-For-Current
+          + Save-Current-Order-Record
+          + Get-Contract-For-Order
+          + Get-Company-For-Contract
+          + Create-Invoice-Header
+          + Update-Company
+          + Save-Contract-Key
+          + Call-Batch-012
+          + Call-Batch-013
+          + Get-Next-Order-Record
+</PRE>
+
+<P>This was my advice (resisting the urge to say 'junk it!'):
+<UL>
+<LI>Don't be obsessed by detailed breakdowns of logic.  Perhaps the whole
+series of steps above could be better bundled into two modules:
+Process-Order-Record and Get-Next-Order-Record.</LI>
+
+<LI>Don't copy large chunks of code like this; it creates a maintenance
+problem.</LI>
+
+<LI>The only difference between the two action lists is the extra action
+Treat-for-Current (whatever that means).  It is quite okay to internalise
+this step and have a module like Treat-for-Current-If-Key-Filled.  Don't
+bring microdecisions up to the level of the dialog.</LI>
+</UL></P>
+
+<P>Example 3: the author has used some other design method to start with, and
+then translated the result into a dialog.  The events have names like
+'Case-1', 'Case-2', or 'Ok' and 'Not-Ok'.  I've seen this happen often, and
+it never works.  If the project leader is not prepared to use a dialog as a
+primary design method, there is no benefit in trying to translate another
+design into a dialog.  You must in such cases rewrite the dialog cleanly.  A
+dialog is primarily for a readership, and secondarily for the computer.
+Ignore this at your peril: you will produce large, incomprehensible dialogs
+that are error-prone and fragile.</P>
+
+<P>This is an approach that is so common, and so wrong, that the warning
+bears repeating: <EM>Do not try to mechanically convert existing designs into
+dialogs.  It will not work.  You will make a fool of yourself.</EM></P>
+
+<P>Often, this also applies to designs already expressed as state machines.
+In one of the worst cases I ever saw, the culprit had mechanically converted
+a set of state-machine based designs into dialogs.  The states were called
+S1, S2, S3,... The events were called E1, E2, E3,...  The modules were called
+M1, M2, M3,... This happened in 1986.  In January 1996 I watched someone
+painfully maintain one of these programs, trying to understand what E4 in S3
+actually meant.  Okay, I warned you.  Now back to the main story.</P>
+
+<P>These are some more common problems:
+<UL>
+<LI>Dialog modules that explicitly set an event, like 'Set-Ok'.   We call
+this a <EM>control shunt</EM>.  It usually indicates that the author has
+confused the notion of <EM>state</EM> with the notion of <EM>action</EM>.  By
+shunting to some specific state, the author says 'I want to be in this state
+to do some specific work'.  Very rarely, this is a good way to write a
+dialog.  99% of times, though, it is bad practice.  If you find yourself
+doing a control shunt, change the dialog so you do the work in question
+<EM>as early as possible</EM> in the dialog, thus generating an event which
+you can handle neatly in the next state.</LI>
+<LI>Dialogs that are broken into very many small states.  This usually means
+that the designer has not figured-out how exceptions work.</LI>
+<LI>Dialogs that use lots and lots of different event names.</LI>
+</UL></P>
+
+<H3>Choosing Names</H3>
+
+<P>These are some guide-lines for names in a dialog:
+<UL>
+<LI>States: In-Some-State, After-Something, Before-Something,
+Expecting-Something, Have-Some-Data.</LI>
+<LI>Events: external actions: Help, Exit, Delete, Create,...
+Internal conditions: Ok, Error, Locked, Fatal-Error, No-More;
+Types: Number, String, Function,...</LI>
+<LI>Modules: active statements: Delete-The-Record, Print-Current-
+Invoice, Start-The-Transaction, Commit-All-Changes,...</LI>
+</UL></P>
+
+<P>A common beginner's mistake is to confuse events and modules, so that a
+state has events called 'Delete-Record', 'Print-Record', and so on.  It can
+help to remember that event names must be as general as possible without
+losing meaning.</P>
+
+<P>One helpful comparison is to think of events as push-buttons in a pop-up
+window box.  Common events are 'Ok' and 'Cancel', 'Print', 'Delete', and
+'Help'.  A push-button like 'Delete Next Record' is too specific.</P>
+
+.---------------------------------------------------------------------
+.page When To Use Libero
+
+<H2>$(TITLE)</H2>
+
+<P>Don't hammer screws, or vice-versa.  If a program is like a building, then
+Libero is like an architectural design that automatically forms the
+foundation and scaffolding.  In any programming language there are
+directions and complexities where Libero is worth using.  Until you get
+there, you'll be losing time.</P>
+
+<P>As far as I can see, these are some typical cases where you will profit
+from Libero:
+<UL>
+<LI>If you need to use some kind of pseudocode or other technique to document
+the program.  Better to use a dialog - it will always be up to date.  Libero
+lets you attach comments anywhere in the dialog.</LI>
+
+<LI>If you are making designs that another programmer will implement (i.e.
+you are doing 'analysis').  The programmer does not need to interpret your
+design.  Libero will generate a prototype program (with empty stubs for all
+modules), so you get feedback on your design right away.</LI>
+
+<LI>If your program analyses text, and you don't have access to tools like
+yacc.  It is harder to build a parser using a dialog than to use a parser
+generator, but it is still a lot simpler than doing it by hand.  Libero lets
+you build really large dialogs.</LI>
+
+<LI>If your program is a communications handler with incoming and outgoing
+messages.  A dialog is a perfect way of describing the handling for each
+message.  We've used Libero for <EM>complex</EM>TCP/IP servers in this
+way.</LI>
+
+<LI>If your program controls a device.  A dialog is a perfect way of
+describing the various states that a device can be in, with the handling for
+events in each state.</LI>
+
+<LI>If your program runs a complex task on a database; for example,
+processing data from a series of tables depending on various criteria and
+conditions.  A dialog shows the processing logic clearly, with a state for
+each main point in the processing, and an event for each condition or type of
+record.</LI>
+
+<LI>If your program is 'just too damn complex'.  It is difficult to keep the
+'main logic' separate from the details. Libero does this for you, and then
+splits the detailed code into individual modules.  Your program is easy to
+understand, easy to maintain, and easy to reuse.</LI>
+
+<LI>If you have to make design a program in several languages, or if you have
+people working in several languages.  Libero is language independent.</LI>
+
+<LI>If you are working in some esoteric language that has no support from
+third-party tools.  You can build a Libero schema for any language (or I'll
+change Libero).</LI>
+</UL></P>
+

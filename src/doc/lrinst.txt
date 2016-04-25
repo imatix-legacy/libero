@@ -1,0 +1,410 @@
+.---------------------------------------------------------------------
+.-   lrinst.txt   Installing Libero
+.-
+.define BASE      lrinst
+.define author    Pieter Hintjens
+.define written   24 Feb 1996
+.define revised   28 Dec 1996
+.---------------------------------------------------------------------
+.include prelude.def
+
+.page Installing Libero
+.ignore header $(ignore)
+<H1>$(TITLE)</H1>
+
+.include contents.def
+
+<H2>Getting Your Hands On Libero</H2>
+
+<H3>Availability and Distribution</H3>
+
+<P>Libero is available as a ready-to-run binary kit for various platforms.
+You can also download the source kit and re-compile Libero for a specific
+platform.
+
+<P>Libero is free software, distributed according to the terms of the
+$(*gnugpl="GNU General Public License (GPL)").  This means that
+you are free to change and re-distribute Libero, even charge for it, but you
+must always make the source code available under the same terms.
+
+<P>The Windows version of Libero is also free software, but does not fall
+under the GNU GPL.  You can't get the sources, mostly because it would be
+embarrassing.
+
+<P>If you have trouble accessing the iMatix site, or getting your hands on
+Libero for any reason, send an e-mail to us at $(*info=imatix.com)
+and we will provide you with Libero by e-mail, or on diskette.  We have
+used the portable Zip and GNU gzip+tar formats for all archives.
+
+<H3>Documentation</H3>
+
+<P>The Libero User's Guide consists of a set of HTML files that you can
+browse on-line or download and browse locally.  You can download:
+<UL>
+<LI>$(*lrhtml.zip=A set of HTML files) - 190Kb.
+<LI>$(*lrfull.zip=One big HTML file) - 73Kb.
+</UL>
+
+<H3>Deinstalling Libero</H3>
+
+<P>We made Libero as simple as possible to deinstall.  It does not change
+anything in system files, and keeps its own files in the single directory
+where you installed it.  To de-install Libero, delete this directory.
+
+.---------------------------------------------------------------------
+.page What You Will Need
+
+<H2>$(TITLE)</H2>
+
+<P>To install Libero, you'll need:
+<OL>
+<LI>Either the binary kit for your system, or the $(*lrsrc.zip=source kit)
+which is also available as a $(*lrsrc.tgz=GNU gzipped file).
+<LI>Infozip $(*info-zip=unzip) to extract the archives.  If you do not have
+Infozip unzip for your UNIX or VAX system, you can unzip the files under
+MS-DOS or Windows and upload them individually.  Use PKzip version 2.04g or
+later or a compatible unzip program.
+<LI>Alternatively, for UNIX source installation, GNU gunzip.
+<LI>For UNIX or VMS installations from the source kit, an ANSI C compiler to
+compile Libero.
+<LI>A compiler or interpreter for the language that you want to work in. You
+don't necessarily need this on the machine where you want to run Libero; it's
+possible to work on one system, then transfer the results to another for
+compiling and running.
+<LI>The Libero documentation kit.
+</OL>
+
+.---------------------------------------------------------------------
+.page Installing Libero for UNIX
+
+<H2>$(TITLE)</H2>
+
+<P>To install Libero for a UNIX system you must compile it.  Download one
+of:
+
+.build dir /pub/libero/src lrsrc*.*
+
+<P>You'll need an ANSI C compiler.  The source kit comes with build scripts
+for UNIX and VMS.  To unpack the sources in portable Zip format, load
+<TT>lrsrc$(versionnbr).zip</TT> into a working directory and extract the
+contents using <TT>unzip</TT>:
+
+<PRE>
+    $ mkdir temp
+    $ mv lrsrc$(versionnbr).zip temp
+    $ cd temp
+    $ unzip -a lrsrc
+    $ chmod +x install
+</PRE>
+
+<P>To unpack the sources in GNU gzip format, load
+<TT>lrsrc$(versionnbr).tgz</TT> into a working directory and extract the
+contents using <TT>gunzip</TT> and <TT>tar</TT>:
+
+<PRE>
+    $ mkdir temp
+    $ mv lrsrc$(versionnbr).tgz temp
+    $ cd temp
+    $ gunzip lrsrc
+    $ tar -xvf lrsrc$(versionnbr).tar
+</PRE>
+
+<P>The <TT>install</TT> script is smart enough to detect the UNIX system and
+use appropriate compile switches. It proposes various options: start with
+(b)uild to compile and (maybe) install Libero.  You can run Libero as soon as
+it is built; you don't need to install it into an install directory.  Run
+<TT>install</TT> like this (you may need root access if you want to install
+Libero into a system directory):
+
+<PRE>
+    $ su root
+    $ chmod +x install
+    $ ./install
+</PRE>
+
+<P>The <TT>install</TT> script uses the Korn shell, which is not available on
+all UNIX systems.  You can use <TT>install.sh</TT> instead, which uses the
+Bourne shell.  On some UNIX systems the Bourne shell does not support
+functions; then this script will not run either.  If you have trouble running
+<TT>install</TT> or <TT>install.sh</TT>, try something like this (it's what
+the scripts basically try to do):
+
+<PRE>
+    $ cc <I>&lt;switches&gt;</I> lr.c lr????.c -o lr
+    $ cp lr lrmesg.txt lrschema.* installdir
+    $ rm *.o
+</PRE>
+
+<P>The <I>&lt;switches&gt;</I> are the compiler switches that do an ANSI C
+compile.  Type <TT>man cc</TT> for details.
+
+<P>Once you have built the <TT>lr</TT> file, and installed it and its data
+files, you should check that the install directory is on the <TT>PATH</TT>
+definition.  By default the install script proposes <TT>/usr/local/bin</TT>
+as an install directory.
+
+<P>If you do not like placing non-executable files into a /bin directory, you
+can place <TT>lr</TT> there, and the remaining files (<TT>lrmesg.txt,
+lrschema.*</TT>) into another directory.  This second directory may be on the
+PATH or be defined in another, arbitrary environment variable; for example,
+<TT>LRPATH</TT>.  You must then tell Libero which variable you are using with
+a command-line switch like: <TT>-path=LRPATH</TT>.  You can also specify the
+path literally: <TT>-path=/usr/local/tools/bin</TT>. Place such global
+options in the <TT>lr.ini</TT> file.
+
+<P>Note that on UNIX, all filenames are lower-case.  If you do not manage to
+install Libero on a non-MS-DOS system, you can always run Libero on a PC,
+then upload the generated code.  You can also run Libero for Windows or
+MS-DOS, accessing your UNIX disk via a network.  This works pretty well for
+many people.
+
+<P>System-specific notes:
+<UL>
+<LI>Linux, gcc: compile switches: <TT>-pedantic -O2 -Wall -c</TT>.
+<LI>HP/UX: compile switches: <TT>-Aa</TT>.
+<LI>SunOS, SunC: compile switches: <TT>-O -vc -Xa</TT>.
+<LI>SunOS, gcc: see Linux.
+<LI>AIX 3.2.5: default compiler switches.  <TT><TT>LIBPATH</TT></TT> must be
+set to<TT><TT>/usr/lib</TT></TT> when you link <TT>lr</TT>, or you'll get an
+error at runtime.  This appears to be normal compiler behaviour.
+</UL>
+
+.---------------------------------------------------------------------
+.page Installing the MS Windows Kit
+
+<H2>$(TITLE)</H2>
+
+<P>Libero for Windows is an interactive editor that provides a drool-proof
+interface to the standard Libero code generation functions.  It runs under
+Windows 3.1, 95, NT, and other common varieties.  The Libero for Windows kit
+comes in two parts:
+<OL>
+<LI>$(*lrmswin.zip) - Libero for Windows editor.  Contains the software and
+associated files.
+<LI>$(*lrmswins.zip) - Libero for Windows system runtime.  You only need to
+download this once.  Contains 'system' files.
+</OL>
+
+<P>Basically, <TT>lrmswin.zip</TT> contains the latest version and will
+change whenever a new release is made.  <TT>Lrmswins.zip</TT> is unlikely to
+change often.  The split is made to save you download time.
+
+<P>Install as follows:
+<UL>
+<LI>Create a directory like <TT>C:\LRWIN</TT> and go there, or go to your
+existing Libero directory.
+<LI>Unzip <TT>lrmswin.zip</TT>.  This extracts a series of files, including
+the main executable - <TT>LRWIN.EXE</TT>.  Note that the standard Libero
+files - e.g.. schema files - are supplied in both versions of Libero
+(portable and Windows), so if you have a more recent version of portable
+Libero, or have customised schemas, take care when you install Libero for
+Windows.
+<LI>You must download and unzip <TT>lrmswins.zip</TT> at least once.  This
+holds a number of <TT>.VBX</TT> and <TT>.DLL</TT> files.  You can leave these
+where they are, or move them to your Windows system directory.  If you leave
+them alone, it's easier to de-install Libero afterwards.
+<LI>Open the file manager and drag the <TT>LRWIN.EXE</TT> program into a
+program group or onto your speedbar if you use such.
+<LI>Double-click on the Libero icon and load in your current dialog file.
+The installation directory does not need to be on your path, so long as the
+'Path' option in the <I>Options</I> screen points to this directory.
+</UL>
+
+<P>Libero for Windows is compatible with standard portable Libero; they share
+the same files and general ideas about the world.  However, Libero for
+Windows is not distributed under the same terms: it is free software, but you
+may not modify it, and you cannot get hold of the sources.
+
+.---------------------------------------------------------------------
+.page Installing the MS-DOS Kit
+
+<H2>$(TITLE)</H2>
+
+<P>Download $(*lrmsdos.zip=Libero for MS-DOS).  This was compiled using
+Borland Turbo-C.
+
+<P>Create a new directory and extract <TT>lrmsdos.zip</TT> there.  This
+creates the set of files that you need to run Libero under MS-DOS.  You must
+either add this new directory to your path, or copy certain Libero files into
+a directory (like <TT>C:\UTILS</TT>) which is already on your path:
+<UL>
+<LI><TT>LR.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+
+<P>The<TT> LR.EXE</TT> file is not too large, and runs in a modest amount of
+memory. If you are writing really enormous dialogs, you may want to rebuild
+<TT>LR.EXE</TT> from the source kit using a DOS extender.  I haven't tried
+this, and I have not heard of anyone running out of memory with Libero under
+MS-DOS.  The 32-bit $(*lros2=OS/2 version) should run under MS-DOS.  You may
+also want to try the 32-bit MS-DOS version if you run Windows NT or 95.
+
+.---------------------------------------------------------------------
+.page Installing the 32-bit MS-DOS Kit
+
+<H2>$(TITLE)</H2>
+
+<P>Download $(*lrdos32.zip=Libero for MS-DOS).  This was compiled
+with Microsoft VC 4.0 as a 'console application'.
+
+<P>Create a new directory and extract <TT>lrdos32.zip</TT> there.  This
+creates the set of files that you need to run Libero under Windows 95 or
+Windows NT in a DOS box.  You must either add this new directory to your
+path, or copy certain Libero files into a directory (like <TT>C:\UTILS</TT>)
+which is already on your path:
+<UL>
+<LI><TT>LR32.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+<P>LR32.EXE supports long filenames and mixed-case filenames.
+
+.---------------------------------------------------------------------
+.page Installing the OS/2 Kit
+.build anchor lros2
+
+<H2>$(TITLE)</H2>
+
+<P>Download $(*lros2.zip=Libero for OS/2) [117Kb].  This was compiled
+with EMX 0.9b, using GCC.  Ewen says:
+
+<BLOCKQUOTE>
+The binary was compiled using EMX 0.9b (I think it should run fine with
+EMX 0.9c, the latest version), using:
+
+gcc -O2 -Zomf -s lr????.c -o lr.exe
+
+As usual people will need the EMX runtime libraries to run the executable;
+they're on most OS/2 ftp sites including hobbes.nmsu.edu, ftp.cdrom.com,
+and ftp.leo.org.  Since quite a few programs need them, most people have
+them installed already.  It should run okay with the EMX 0.9b runtime
+libraries and the EMX 0.9c runtime libraries (which are the current ones).
+<BR>
+
+Oh, BTW, it'll probably run okay under DOS as well (as a 32-bit
+version) with either the EMX.EXE extender (included in the runtime DLL
+package mentioned above), or with RSX (I think it's called) which is a
+DMPI equivilent for EMX.EXE.  Being a 32-bit version it might solve
+ram-cramp issues if anyone is having problems.</BLOCKQUOTE>
+
+<P>Create a new directory and extract <TT>lros2.zip</TT> there.  This
+creates the set of files that you need to run Libero under OS/2.  You must
+either add this new directory to your path, or copy certain Libero files into
+a directory (like <TT>C:\UTILS</TT>) which is already on your path:
+<UL>
+<LI><TT>LR.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+
+.---------------------------------------------------------------------
+.page Installing the VAX/VMS Kit
+
+<H2>$(TITLE)</H2>
+
+<P>To install Libero for Digital OpenVMS you can either download the
+$(*lrvax.zip=binary kit for VAX/VMS) or the source kit, if you have
+a C compiler (Vax C, Dec C, or GNU gcc).  Currently we do not have a
+binary kit for Alpha OpenVMS - you must build from the source kit.
+To rebuild from the source kit, download $(*lrsrc.zip=) and place it
+into a working directory.  You need the unzip tool to extract it:
+
+<PRE>
+    $ set def [.temp]
+    $ create/dir []
+    $ ... upload LRSRCxxx.ZIP into this directory
+    $ unzip -a -o lrsrc$(versionnbr)
+    $ @buildvax.txt
+</PRE>
+
+<P>If you do not have Unzip on your VMS system, consider installing it - it
+is well worth the bother.  You can also unzip the sources on a PC and upload
+them from there.
+
+<P>The file <TT>BUILDVAX.TXT</TT> is a procedure that compiles and links
+Libero.  Run it (<TT>@buildvax.txt</TT>).  Then copy these files into an
+installation directory which is world-readable:
+<UL>
+<LI><TT>LR.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+
+<P>To run Libero your <TT>LOGIN.COM</TT> file must include these lines:
+
+<PRE>
+    $ define/nolog path "<I>directory</I>";  ! name of Libero directory
+    $ lr :== $<I>$disk</I>[<I>directory</I>]lr.exe
+</PRE>
+
+.---------------------------------------------------------------------
+.page Installing the Examples
+
+<H2>$(TITLE)</H2>
+
+<P>Each example archive is self-complete, and comes with a small
+<TT>readme.txt</TT> file.
+
+<P>This is the contents of the examples directory:
+.build dir /pub/libero/example
+
+.---------------------------------------------------------------------
+.page Configuring and Testing Libero
+
+<H2>$(TITLE)</H2>
+
+<P>When you have installed Libero, run the <TT><B>lr</B></TT> command without
+arguments.  This should show a page of help.
+
+<P>Try this from the installation directory, then from a different directory.
+If Libero cannot find its message file, you'll get an error like this:
+
+<PRE>
+C:\CTOOLS\LIBERO&gt;lr
+LIBERO v$(version) (c) 1991-97 iMatix <http://www.imatix.com>
+Options file 'lr.ini' not found.
+Cannot find message file lrmesg on 'PATH' path.
+</PRE>
+
+<P>Type 'path' if you're working on MS-DOS, 'echo $PATH' if you're on UNIX,
+or 'show log path' if you're on VMS.  Check that the installation directory
+is on the path.
+
+<P>Next, type the command 'lr -settings' to see what settings Libero is
+using:
+
+<PRE>
+C:\CTOOLS\LIBERO&gt;lr -settings
+LIBERO v$(version) (c) 1991-97 iMatix <http://www.imatix.com>
+  Option settings for command:
+    animate  . . .: No
+    author . . . .: Your Name
+    check  . . . .: Yes
+    compress . . .: No
+    defaults . . .: defaults
+    dpath  . . . .: -
+    generate . . .: Yes
+    help . . . . .: No
+    idle . . . . .: Yes
+    initial  . . .: lr.ini
+    option . . . .: -
+    path . . . . .: PATH
+    plusd  . . . .: No
+    pretty . . . .: No
+    schema . . . .: lrschema.c
+    settings . . .: Yes
+    sort . . . . .: Yes
+    source . . . .: -
+    stats  . . . .: No
+    stubs  . . . .: Yes
+    style  . . . .: plain
+    trace  . . . .: No
+</PRE>
+
+<P>You can change any of these default option settings by editing the lr.ini
+file, or by placing the settings you want in your dialog file.

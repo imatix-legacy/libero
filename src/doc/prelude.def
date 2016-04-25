@@ -1,0 +1,109 @@
+.---------------------------------------------------------------------
+.-  prelude.def   Libero standard links and definitions
+.-
+.-  Written:      96/03/08  Pieter Hintjens
+.-  Revised:      97/08/25  Pieter Hintjens
+.---------------------------------------------------------------------
+
+.-  The complete $(SERVER) tree is mirrored at $(LOCAL)
+.define SERVER          ""
+.define LOCAL           i:/site
+
+.define version         %(vlrs)
+.define versionnbr      %(vlr)
+
+.define imatix          http://www.imatix.com/
+.define libero          /pub/libero
+.define info-zip        http://quest.jpl.nasa.gov/Info-Zip/Info-Zip.html
+.define etk             http://www.toscintl.com
+.define etkpak          http://www.toscintl.com
+.define gnugpl          /html/gnugpl.htm
+.define info            mailto:info@imatix.com
+.define leif            mailto:leif@ibm.net
+.define altavista       http://www.altavista.digital.com
+
+.define src             $(libero)/src
+.define bin             $(libero)/bin
+.define doc             $(libero)/doc
+.define example         $(libero)/example
+
+.define lrsrc.zip       $(src)/lrsrc$(versionnbr).zip
+.define lrsrc.tgz       $(src)/lrsrc$(versionnbr).tgz
+
+.define lrmswin.zip     $(bin)/lrmswin.zip
+.define lrmswins.zip    $(bin)/lrmswins.zip
+.define lrmsdos.zip     $(bin)/lrmsdos.zip
+.define lrdos32.zip     $(bin)/lrdos32.zip
+.define lros2.zip       $(bin)/lros2.zip
+.define lrvax.zip       $(bin)/lrvax.zip
+
+.define lrhtml.zip      $(doc)/lrhtml.zip
+.define lrfull.zip      $(doc)/lrfull.zip
+
+.define expr.zip        $(example)/expr.zip
+.define calc.zip        $(example)/calc.zip
+.define acms.zip        $(example)/acms.zip
+.define install.zip     $(example)/install.zip
+.define config.zip      $(example)/config.zip
+.define picture.zip     $(example)/picture.zip
+.define erbot.zip       $(example)/erbot.zip
+.define htmlpp.zip      $(example)/htmlpp.zip
+.define complete.zip    $(example)/complete.zip
+
+.-  We normally ignore the first header in each document; if you redefine
+.-  ignore as 99, we ignore the ignore command.  Confused?  Me too...
+.define ignore  ""
+
+.block header
+<HTML><HEAD><!--Revised: $(revised) By: $(author)-->
+<TITLE>$(TITLE)</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | $(*doc_index=Libero documentation)<BR>
+ | $(*FIRST_PAGE=&lt;&lt;) | $(*PREV_PAGE=&lt;)
+ | $(*NEXT_PAGE=&gt;) | $(*LAST_PAGE=&gt;&gt;)
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version $(version)
+</TABLE>
+<HR>
+.end
+
+.block footer
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | $(*FIRST_PAGE=&lt;&lt;) | $(*PREV_PAGE=&lt;)
+ | $(*NEXT_PAGE=&gt;) | $(*LAST_PAGE=&gt;&gt;)
+<BR><FONT SIZE=2>
+.build index
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>
+.endblock
+
+.block anchor
+<A NAME="$(ANCHOR)">&nbsp;</A>
+.end
+
+.block index_open
+.block index_entry
+.if "$(INDEX_PAGE)" eq "$(PAGE)"
+| <EM>$(INDEX_TITLE)</EM>
+.else
+| $(*INDEX_PAGE="$(INDEX_TITLE)")
+.endif
+.endblock
+
+.block dir_open
+<PRE>
+.block dir_entry
+$(*DIR_HREF="$(DIR_NAME)") $(DIR_SIZE) $(DIR_DATE) $(DIR_TIME)  $($(DIR_EXT))
+.block dir_close
+</PRE>
+.end
+
+.include filetype.def

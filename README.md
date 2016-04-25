@@ -13,14 +13,12 @@ released in a stand alone version, retrieved from:
 
 *  http://legacy.imatix.com/html/libero
 
+*  http://legacy.imatix.com/pub/tools/lrdoc.zip
+
 on 2016-04-25.
 
 The *source code* is licensed under the GPL v2, a copy of which can
-be found in `src/copying`.  The license for the *documentation* (in
-`website`) is unknown (and as the source to the documentation is
-currently unavailable probably cannot be assumed to be the GPL);
-however the documentation has been downloadable by all, without charge,
-on the Internet for over 20 years at this point.
+be found in `src/copying`.
 
 ## `pub`
 
@@ -34,7 +32,11 @@ git repository.
 ## `src`
 
 The `src` directory was created from the unpacked contents of
-`pub/src/lrsrx232.tgz`, for ease of reference.
+`pub/src/lrsrx232.tgz`, for ease of reference.  
+
+The `src/doc` directory was created from the unpacked contents of
+`pub/src/lrdoc.zip` and may not exactly match the *rendered*
+documentation in the `website` directory.
 
 The code is licensed under the GPL v2, a copy of which can be found in
 `src/copying`.
@@ -45,6 +47,7 @@ The `website` directory contains the *rendered* documentation.  This
 is approximately equivalent to the contents of `pub/doc/lrfull.zip`, but
 was taken directly from http://legacy.imatix.com/html/libero.
 
-The documentation was built (with `htmlpp`) from a marked up text file,
-but at present no known copy of the documentation source file still
-exists (if found, it will be added to the archive).
+The documentation was built (with `htmlpp`) from a marked up text file.
+The latest known version of `htmlpp` source for the documentation is
+in `src/doc`, but may not exactly correspond to what is in the `website`
+directory.

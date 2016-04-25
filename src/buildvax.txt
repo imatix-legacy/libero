@@ -1,0 +1,52 @@
+!============================================================================*
+!									     *
+!   buildvax.txt - Rebuild LR.EXE using VAX C or Dec C			     *
+!									     *
+!   Written:	95/06/22  Pieter Hintjens <ph@imatix.com>		     *
+!   Revised:	96/12/29						     *
+!									     *
+!   Usage:	@buildvax.txt						     *
+!		Tested on VAX/VMS and Open VMS (Alpha)			     *
+!									     *
+!   FSM Code Generator.  Copyright (c) 1991-97 iMatix.			     *
+!									     *
+!   This program is free software; you can redistribute it and/or modify     *
+!   it under the terms of the GNU General Public License as published by     *
+!   the Free Software Foundation; either version 2 of the License, or	     *
+!   (at your option) any later version. 				     *
+!									     *
+!   This program is distributed in the hope that it will be useful,	     *
+!   but WITHOUT ANY WARRANTY; without even the implied warranty of	     *
+!   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the	     *
+!   GNU General Public License for more details.			     *
+!									     *
+!   You should have received a copy of the GNU General Public License	     *
+!   along with this program; if not, write to the Free Software 	     *
+!   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.		     *
+!============================================================================*
+
+$ if "''P1'" .eqs. "LINK" then goto linkup
+$ call compile lr
+$ call compile lrcalc
+$ call compile lrcode
+$ call compile lrdump
+$ call compile lreval
+$ call compile lrfree
+$ call compile lrglib
+$ call compile lrlibr
+$ call compile lrload
+$ call compile lroptn
+$ call compile lrsort
+$ call compile lrsymb
+$
+$ linkup:
+$ write sys$output "Linking lr..."
+$ link lr,-
+       lrcalc,lrcode,lrdump,lreval,lrfree,lrglib,-
+       lrlibr,lrload,lroptn,lrsort,lrsymb
+$ exit
+$
+$ compile: subroutine
+$ write sys$output "Compiling ''P1'..."
+$ cc 'P1'
+$ endsubroutine

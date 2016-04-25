@@ -1,0 +1,107 @@
+#============================================================================#
+#                                                                            #
+#   install.cat - LIBERO file catalogue - required by install script         #
+#                                                                            #
+#   Written:    95/03/10  Pieter Hintjens <ph@imatix.com>                    #
+#   Revised:    97/01/15                                                     #
+#                                                                            #
+#   Usage:      Lines starting with '&' indicate a file to be treated.  All  #
+#               other lines are ignored.  Each filename is followed by one   #
+#               or more action codes:                                        #
+#                                                                            #
+#               @m  mandatory at installation time                           #
+#               @c  compile using 'cc' command                               #
+#               @l  compile and link using 'cc' command                      #
+#               @i  install into final directory as normal file              #
+#               @x  install into final directory as executable file          #
+#               @d  clean-up after installation                              #
+#               %   following text is description                            #
+#                                                                            #
+#   FSM Code Generator.  Copyright (c) 1991-97 iMatix.                       #
+#                                                                            #
+#   This program is free software; you can redistribute it and/or modify     #
+#   it under the terms of the GNU General Public License as published by     #
+#   the Free Software Foundation; either version 2 of the License, or        #
+#   (at your option) any later version.                                      #
+#                                                                            #
+#   This program is distributed in the hope that it will be useful,          #
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#   GNU General Public License for more details.                             #
+#                                                                            #
+#   You should have received a copy of the GNU General Public License        #
+#   along with this program; if not, write to the Free Software              #
+#   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.                #
+#============================================================================#
+
+#   These files must be present in the current directory
+
+& copying      @m       %GNU general license
+& install.cat  @m       %Libero file catalogue
+& install      @m       %Libero install procedure, Korn shell
+& install.sh   @m       %Libero install procedure, Bourne shell
+& install.l    @m       %Libero install procedure dialog
+& install.mod  @m       %Libero install procedure source
+& lrpriv.h     @m       %Libero private header file
+& lr.c         @m       %Libero main program source
+& lrcalc.c     @m @c    %Libero expression calculator source
+& lrcalcd.l    @m       %Libero expression calculator dialog
+& lrcalcd.d    @m       %Libero expression calculator generated code
+& lrcalcd.i    @m       %Libero expression calculator generated code
+& lreval.c     @m @c    %Libero logic evaluator source
+& lrevald.l    @m       %Libero logic evaluator dialog
+& lrevald.d    @m       %Libero logic evaluator generated code
+& lrevald.i    @m       %Libero logic evaluator generated code
+& lrcode.c     @m @c    %Libero code generator source
+& lrcoded.l    @m       %Libero code generator dialog
+& lrcoded.d    @m       %Libero code generator generated code
+& lrcoded.i    @m       %Libero code generator generated code
+& lrdump.c     @m @c    %Libero debugging functions source
+& lrfree.c     @m @c    %Libero memory clean-up functions source
+& lrglib.c     @m @c    %Libero general library functions source
+& lrglib.h     @m       %Libero general library functions header
+& lrlibr.c     @m @c    %Libero private library functions source
+& lrload.c     @m @c    %Libero parser source
+& lrloadd.l    @m       %Libero parser dialog
+& lrloadd.d    @m       %Libero parser generated code
+& lrloadd.i    @m       %Libero parser generated code
+& lroptn.c     @m @c    %Libero option parsing source
+& lroptn.h     @m       %Libero option parsing header
+& lrsort.c     @m @c    %Libero sort dialog structures source
+& lrsymb.c     @m @c    %Libero symbol table management source
+& lrsymb.h     @m       %Libero symbol table management header
+& lrschema.asm @m @i    %Libero schema for 80x86 assembler programming
+& lrschema.awk @m @i    %Libero schema for Awk programming
+& lrschema.bsh @m @i    %Libero schema for GNU bash programming
+& lrschema.c   @m @i    %Libero schema for C programming
+& lrschema.cob @m @i    %Libero schema for COBOL programming
+& lrschema.cpp @m @i    %Libero schema for C++ programming
+& lrschema.csh @m @i    %Libero schema for Unix C shell programming
+& lrschema.jav @m @i    %Libero schema for Java programming
+& lrschema.ksh @m @i    %Libero schema for Unix Korn shell programming
+& lrschema.mst @m @i    %Libero schema for MS Test programming
+& lrschema.pl  @m @i    %Libero schema for Perl programming
+& lrschema.rex @m @i    %Libero schema for Rexx programming
+& lrschema.sh  @m @i    %Libero schema for Unix Bourne shell programming
+& lrschema.vb  @m @i    %Libero schema for Visual Basic programming
+& lrmesg.txt   @m @i    %Libero message file
+& lr_eg.ini    @m @i    %Libero example initialisation file
+& prelude.h    @m       %Libero public header file
+& template     @m       %Example of a template file
+& buildvax.txt @m       %OpenVMS rebuild script
+
+#   These temporary files are created by the installation procedure
+
+& lr           @l @x @d %Libero executable program
+& lr.o         @d       %Libero main program object
+& lrcalc.o     @d       %Libero expression calculator object
+& lrcode.o     @d       %Libero code generator object
+& lrdump.o     @d       %Libero debugging functions object
+& lreval.o     @d       %Libero logic evaluator object
+& lrfree.o     @d       %Libero memory clean-up functions object
+& lrglib.o     @d       %Libero general library functions object
+& lrlibr.o     @d       %Libero private library functions object
+& lrload.o     @d       %Libero parser object
+& lroptn.o     @d       %Libero scan command-line arguments object
+& lrsort.o     @d       %Libero sort dialog structures object
+& lrsymb.o     @d       %Libero symbol table management object

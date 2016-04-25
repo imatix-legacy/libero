@@ -1,0 +1,193 @@
+#============================================================================#
+#                                                                            #
+#   lrmesg.txt  LIBERO message and information file                          #
+#               Must be in same directory as lr.exe, on PATH                 #
+#                                                                            #
+#   Written:    92/10/25  Pieter Hintjens <ph@imatix.com>                    #
+#   Revised:    97/01/27                                                     #
+#                                                                            #
+#   FSM Code Generator.  Copyright (c) 1991-97 iMatix.                       #
+#                                                                            #
+#   This program is free software; you can redistribute it and/or modify     #
+#   it under the terms of the GNU General Public License as published by     #
+#   the Free Software Foundation; either version 2 of the License, or        #
+#   (at your option) any later version.                                      #
+#                                                                            #
+#   This program is distributed in the hope that it will be useful,          #
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of           #
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            #
+#   GNU General Public License for more details.                             #
+#                                                                            #
+#   You should have received a copy of the GNU General Public License        #
+#   along with this program; if not, write to the Free Software              #
+#   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.                #
+#============================================================================#
+
+# catch-all message
+
+0000 %s$
+
+# messages shown by lr.c
+
+0010 lr E: '%s' is not a valid filename
+0011 lr E: '%s' not found$
+0012 lr I: processing '%s'...
+0013 lr W:  - aborted
+0014 lr W:  - interrupted
+0015 lr W:  - cancelled
+0016 lr E:  - segment violation
+0017 lr E: cannot create '%s'$
+0018 lr W: dialog '%s' is not complete - no code generated
+
+# messages shown by lrload.c
+
+0020 lr E: '%s' is not a valid ETK dialog name
+0021 lr E: cannot open '%s' for input$
+0022 lr E: '%s' is not valid here - expected '%s'
+0023 lr E: unrecognised symbol '%s' - expected '%s'
+0024 lr E: use '(nn)' or '(--)' as event number
+0025 lr W: ':' missing after state name '%s' - accepted
+0026 lr E: '%s' is not a valid state name; use 'Some-State:'
+0027 lr E: '%s' is not a valid event number; use '(--)'
+0028 lr E: you can't use '%s' as an event name - it's reserved
+0029 lr E: superstate loop detected at '%s'
+0030 lr E: superstate '%s' not defined - ignored
+
+# messages shown by lrsort.c
+
+0040 lr W: next state '%s' is not defined - ignored
+0041 lr E: next state cannot be '%s'
+0042 lr E: duplicate state '%s'
+0043 lr I: %d states, %d events, %d modules in dialog
+0044 lr I: dialog symbol table is %d%% full
+
+# messages shown by lrcode.c
+
+0100 lr I: idle module: %s
+0101 lr E: could not delete file '%s'$
+0102 lr E: could not write to file '%s'$
+0103 lr E: could not append output to file '%s'$
+0104 lr E: could not find schema file '%s'$
+0105 lr E: '%s' not built; check -source option
+0106 lr E: '=value' expected after -option=%s
+0107 lr E: %s name '%s' is > 30 characters
+0108 lr I: Building stub for %s
+
+0110 lr E: invalid action ':%s'
+0111 lr W: variable '%s' not declared - assumed
+0112 lr W: '%c' missing from end of string - assumed
+0113 lr E: invalid substring specified - ignored
+0114 lr W: module name missing after ':internal' - ignored
+
+0120 lr W: no current ':output' specified
+0121 lr E: filename required after ':%s'
+0122 lr E: could not open '%s' for reading$
+0123 lr W: ':close' without active ':open' ignored
+0124 lr E: second filename required after ':%s'
+0125 lr E: could not create file '%s'$
+0126 lr E: could not rename file '%s'$
+
+0130 lr E: invalid ':do' action '%s'
+0131 lr E: ':enddo' missing for ':do'
+0132 lr E: ':enddo' without matching ':do'
+0133 lr E: ':enddo %s' does not match previous ':do'
+0134 lr E: same ':do' block is already open
+0135 lr E: incomplete or overlapping ':if' block in ':do' block
+0136 lr E: ':do' halted after %d loops - check :runaway value
+
+0140 lr E: ':endif' missing for ':if'
+0141 lr E: ':endif' without matching ':if'
+0142 lr E: incomplete or overlapping ':do' block in ':if' block
+
+0150 lr E: use ':declare [int|string] $name [= expr]'
+0151 lr W: duplicate declaration of '%s' accepted
+0152 lr W: unknown initialiser '%s' ignored - use '= expr'
+0153 lr E: '%s' is already defined as a standard variable
+
+0160 lr E: use ':set $name = expr'
+0161 lr W: '%s' was not declared - :declare assumed
+0162 lr E: assignment '= expr' expected after variable name
+0163 lr E: '%s' is read-only - :set ignored
+0164 lr W: '%s' may not be larger than %d - truncated
+
+0170 lr E: use ':push $name [= expr]'
+
+0180 lr E: use ':pop $name'
+0181 lr W: '%s' was not declared - :pop ignored
+
+# message codes returned by lrcalc.c
+
+0900 lr E: invalid token in expression
+0901 lr E: unexpected end of expression
+0902 lr E: too many ')'s in expression
+0903 lr E: too few ')'s in expression
+0904 lr E: expression too complex (operand stack overflow)
+0905 lr E: expression too complex (operator stack overflow)
+0919 lr E: internal lrcalc.c error
+
+# message codes returned by lreval.c
+
+0920 lr E: invalid token in expression
+0921 lr E: unexpected end of expression
+0922 lr E: quote missing at end of string
+0923 lr E: illegal or missing condition type - use 'test',...
+0924 lr E: numeric expression expected
+0925 lr E: string expected
+0926 lr E: numeric expression or string expected
+0927 lr E: one of: = != < <= > >= expected
+0928 lr E: invalid relation operator - use one of = != < <= > >=
+0929 lr E: use one relation operator only
+0939 lr E: internal lreval.c error
+
+1000 lr E: out of memory$
+1001 lr X: symbol table full - increase LR_SYMBOLMAX and recompile
+1002 lr X: vector table full - increase LR_VECTORMAX and recompile
+
+# Help text
+
+9000 State-Machine Code Generator
+9000
+9000 lr [file]... [-[no]option]...
+9000
+9000   file     - name of dialog file, default extension is .l
+9000   option   - parameter or command as follows:
+9000
+9000      Option            Explanation                        Default
+9000
+9000      -animate          include animation code             -noanimate
+9000      -author=name      include animation code             ="My Name"
+9000      -check            generate full runtime checks       -check
+9000      -compress         compress generated tables          -compress
+9000      -defaults=state   name of defaults state             =defaults
+9000      -dpath=variable   path for dialog and ini files      ="PATH"
+9000      -generate         generate output code               -generate
+9000      -help             show this information              -nohelp
+9000      -idle             indicate idle modules              -noidle
+9000      -initial=file     read options from file             =lr.ini
+9000      -option=list      define generation options          none
+9000      -path=variable    path variable for schema files     ="PATH"
+9000      -plusd            enforce 'source+D' naming rule     -noplusd
+9000      -pretty           pretty-print dialog file           -nopretty
+9000      -schema=file      schema for code generation         =lrschema.c
+9000      -settings         show option settings per file      -nosettings
+9000      -sort             add module stubs alphabetically    -sort
+9000      -source=file      program for dialog                 name of dialog
+9000      -stats            show dialog statistics             -nostats
+9000      -stubs            generate stubs for new modules     -stubs
+9000      -style=plain      naming style: some_module_name     -style=plain
+9000      -style=caps       naming style: SomeModuleName
+9000      -style=headline   naming style: Some_Module_Name
+9000      -style=title      naming style: Some_module_name
+9000      -style=normal     naming style: Some-Module-Name
+9000      -style=cobol      naming style: SOME-MODULE-NAME
+9000      -trace            trace code generation to list file
+9000
+9000   Options can come from various places in this order:
+9000
+9000      1. hard-coded defaults shown above
+9000      2. the lr.ini file or -initial option on command line
+9000      3. the start of the dialog file
+9000      4. the command line itself.
+9000
+9000   The last options read (ie. command line options) override earlier ones.
+9000   All option names can be abbreviated to 3 or more characters.

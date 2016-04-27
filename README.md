@@ -17,6 +17,9 @@ released in a stand alone version, retrieved from:
 
 on 2016-04-25.
 
+For more information see the [Libero
+Documentation](https://imatix-legacy.github.io/libero/).
+
 The *source code* is licensed under the GPL v2, a copy of which can
 be found in `src/copying`.
 

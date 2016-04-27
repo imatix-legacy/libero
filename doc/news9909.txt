@@ -1,0 +1,226 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-               September 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 9
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    What I found curious about the exploit that shut-down Microsoft's MSN
+    Hotmail web mail service for two hours on Monday morning was not the
+    fact that a small group of guys were able to crack a system used daily
+    by over 40 million people.  Hotmail is designed more for features than
+    security.  What I found unusual was the media coverage.  After years of
+    exploits on all kinds of systems, often on Microsoft's web servers and
+    browsers, I was a little surprised to hear the BBC call it the 'worst
+    Internet security breach ever'.  Whatever.
+    
+    That Microsoft would expose itself to such bad publicity says a lot.
+    Certainly, we'll hear a lot of spin about how this is all the fault of
+    the evil hackers involved.  Probably there will be prosecutions and
+    lawsuits.  The fact remains that it was a bad day for Microsoft.
+
+    Microsoft is like an agressive dog - it's only really happy when it has
+    its jaws around some rival's throat, head down and teeth on the jugular.
+    The history of the (personal) computer business reads like a trophy
+    list for Microsoft: Digital Research, IBM, Lotus, WordPerfect, Apple,
+    Novell, Borland and Netscape
+    
+    Microsoft's taste for meat has a flip-side, however.  Each fight they
+    pick and win with a market leader leaves them changed.  After beating
+    WordPerfect and Lotus into the ground, Microsoft was producing a great
+    (if buggy) word processor and spreadsheet.  When Borland was finally
+    buried, Microsoft's Visual C++, FoxPro and Visual Basic tools actually
+    looked quite good.  Solid, and reliable.  Nothing like the Microsoft
+    compilers we used to know when Borland's Turbo C first came out.
+
+    To beat IBM, Microsoft became an Enterprise Company, building its
+    principal client base at the corporate level.  Home computer users
+    steal all their software anyhow.  Windows NT took over the dying
+    minicomputer market, and Microsoft took over IBM's role of selling
+    expensive solutions to people too poor to form an expert opinion and
+    too rich to be bankrupted by the solution.
+    
+    Fighting Netscape left Microsoft in a state of mutant entwinement with
+    the Web, mail, and the infinite desktops of cyberspace.  How could one
+    ask Microsoft to separate Internet Explorer from Windows when the
+    Internet is a core philosophy in its Operating Systems division?
+    
+    So, what's today's fight all about?  It looks like Microsoft is moving
+    from software to services.  The market leader in Internet services is
+    AOL.  Microsoft and AOL are fighting it out, first through their
+    proxies, Hotmail and Netscape, but soon chin-to-chin.  AOL makes
+    excellent money acting as ISP for their millions of users.  Microsoft
+    has announced that it will start providing free Internet access,
+    presumably along the lines of the free ISP providers we've seen in the
+    UK and elsewhere.  This is aimed directly at AOL's throat.  AOL may
+    survive if it can counter-attack, or present a moving target.
+
+    The Hotmail episode shows that Microsoft is risking much by this move.
+    It is hard to win a battle for the hearts of millions of consumers who
+    think of you as the Sheriff of Nottingham, and the hackers as Robin
+    Hood.  My guess is that Microsoft's attack on AOL will fail, and that
+    they will move upmarket to corner the corporate Internet market, which
+    is almost mature.  Then they will use this position to wipe AOL from
+    the board.
+
+    Whatever happens, history has two lessons.  First, that Microsoft wins
+    every fight it can provoke.  Secondly, every fight changes it, often
+    radically.  The idea of Microsoft as the world's leading ISP should
+    give pause for thought.
+
+    Pieter Hintjens
+    Antwerpen
+    1 September 1999
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    To:             	editors@imatix.com
+    From:           	savvas xenophontos <fiftybmg@operamail.com>
+    Subject:        	RE: Liberetto IV/8
+    -----------------------------------------------------------------------
+    I recently made the decision to migrate to Linux from NT4 on my laptop, 
+    because I was heartily sick of having to rebuild the NT OS whenever
+    someone farted nearby. The prospect of upgrading memory and hard disk
+    for NT5 was unappealing. I purchased S.u.S.E 5.3, and it practically
+    installed itself : I had to fiddle a little with the X-Server video mode
+    setup, but I got the laptop to boot and recognise all it's bits in a
+    couple of hours. Initially, I was crawling painfully though steps that
+    were simple for me on NT, like locating applications, peripheral setup
+    and configurations. I was determined to suffer through it though,
+    because I would be damned before I erected the the NT5 megalith. It has
+    taken me a few months now to become reasonably familiar with my Linux
+    environment, and I am happy with the change. I can do everything on
+    Linux I could on NT, the only difference is that on Linux, all the apps
+    I use are Open Source or Freeware. To date I haven't had to re-install
+    Linux. Once I am reasonable skilled on Linux, I can see no reason not
+    to replace my work machine's NT4 with it too.
+    Yes, I am not into tatto parlours.
+    -- Savvas
+
+
+    To:             	editors@imatix.com
+    From:           	<jeff.covey@pobox.com>
+    Subject:        	Re: Liberetto IV/8
+    -----------------------------------------------------------------------
+    Pieter Hintjens <ph@imatix.com> writes:
+    Pieter> Well, I'm still with NT
+    what do you need?  do you need someone to come over to the office and
+    apply a dopeslap to wake you up?  it's a long haul, but i'd be willing 
+    to do it if that's what it takes.
+    Pieter> If I install Linux on a PC for a friend, I'll spend the
+    Pieter> next three months explaining why you need to 'unmount' the
+    Pieter> CD before swapping it.
+    i would rather install it once, show him how to unmount a cd, and then 
+    forget about it forever (as i've done several times) than drive over
+    to his house every few weeks to reinstall windows after it eats itself 
+    alive.
+    -- Jeff Covey
+
+
+    To:             	editors@imatix.com
+    Subject:        	Re: Liberetto IV/8
+    From:               "Eric S. Raymond" <esr@thyrsus.com>
+    Organization:   	Eric Conspiracy Secret Labs
+    -----------------------------------------------------------------------
+    Pieter Hintjens <ph@imatix.com>:
+    > There is a theory that explains why some people like to eat hot spicy
+    > food...
+    No longer just a theory, it's been clinically tested.  The method was
+    interesting.  There's a drug called Naloxone that's an endorphin
+    blocker; it temporarily mucks up the receptors in the brainstem.  They
+    give it to junkies to make smack uninteresting.
+    The experiment: find a bunch of pepperheads.  Feed 'em hot food, watch
+    'em grin.  Wait a few hours. Give 'em Naloxone.  Repeat.  Watch them
+    experience the same food with their endorphin response blocked.  Ouch...
+    > If this theory is correct, it may explain many other bizarre forms
+    > of obviously painful behaviour.
+    Elevator music.  This has to explain elevator music.  So, you think
+    Naloxone might be useful in the treatment of Windows addiction?
+    -- Eric S. Raymond
+
+    >>>>>>>>>>>>>>>
+    Aha, great idea.  Eric's comment stimulated our hyperactive editor-on-
+    a-leash to write an article for Segfault.org, which starts as follows:
+    
+    "Small White Pill could cure Windows forever
+    "Researchers at the Swedish Institute for Human Studies announced
+    Friday that they have discovered the cure for Windows, and it's a
+    small white pill. This astounding claim stems from findings made by
+    the team during tests into Human Long-lasting Low-level Pain Addiction
+    Syndrome (HLLPAS).  Apparently, people stick with Windows even after
+    repeated exposures to pain for the same reasons that they get tattooed
+    and pierced, eat spicy food, live in Pittsburgh, and listen to elevator
+    music."
+
+    More on Segault.org, if it's working today.  Last time we looked, this
+    site was kinda messed-up.  They're not using Xitami, it appears.
+
+    
+    To:             	editors@imatix.com
+    From:           	"Meyer Jean-Francois" <jf.meyer@bipharco.be>
+    Subject:        	libero 
+    -----------------------------------------------------------------------
+    Historically, did you start Libero working from the Kermit WART FSM
+    generator derivated from Lex?
+    -- JFM  
+
+    Historically, Libero has nothing to do with Lex except the first
+    letter, and nothing to to with Wart except the funny name.  Anyhow, we
+    asked someone who knows about this (it appears his cousin knew a guy who
+    was married to the office secretary at the time) to provide the Real
+    History of Libero (are you ready?):
+    
+    In 1980 or so, some genius in Belgium decided that FSMs were a good way
+    to write an IBM/CICS accounting system.  On-line applications, even an
+    accounting system, can be nicely designed as event-handling FSMs.  The
+    first such FSMs were coded by hand.  This is like brushing your teeth
+    by moving your head rapidly against a toothbrush fixed in the floor.
+    Another genius (Leif Svalgaard, someone so clever that ten years after
+    this story, someone was seen to be keeping Leif's slippers in a
+    carboard box as a kind of magic talisman) wrote a tool, the 'Dialog
+    Designer', that could generate the FSMs automatically.  This tool was
+    part of the ETK toolkit, still alive and kicking on etk.com.  Leif's
+    tool was so good that his company used it for dozens of projects, and
+    several tens of thousands of large, complex programs.  One of the
+    hackers who worked with Leif, Pieter Hintjens, was so impressed by this
+    way of working that he tried to apply it to everything he did.  After a
+    tragic episode with a waffle iron, he decided to apply it only to
+    software, with much better results.  Libero is basically Leif's tool
+    concept, redesigned to generate code in any language.
+
+    Kermit, on the other hand, is a small green stuffed frog.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Yes, this month's Liberetto is short and salty, rather than sweet.
+    This is what happens when the bulk of the editorial board leave on
+    trips to exotic warm countries, leaving just us frustrated sub-editors
+    to hack something together.  I warned them: folk will be unsubscribing
+    in droves if they don't get their monthly dose.  Which reminds me of a
+    joke:
+
+    An Englishman was travelling through India some years ago, by train, in
+    a first-class cabin.  After the first night, he was horribly bitten by
+    some kind of insect in the bedsheets.  He complained to the steward,
+    who went pale with dismay, and promised to immediately fire the entire
+    washing crew, burn the kitchens, torture the maid, etc.  The
+    Englishman received a formal apology from the Head Steward, saying how
+    unfortunate this incident was, the first time in fifty years, and how
+    the entire honour of the train cabin staff had been sullied, so they
+    would be abject in their service etc, etc.  Satisfied, the Englishman
+    retired, only to notice the post-it note stuck to the back of the
+    letter, reading 'Send him the usual bug letter'.
+
+    As if we would do such a thing at iMatix Corporation!
+
+    To unsubscribe, just send us an e-mail.

@@ -1,0 +1,121 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The Microsoft Setup Basic Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang6.htm">&lt;</A>
+ | <A href="lrlang8.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="setup_basic">&nbsp;</A>
+<H2><A NAME="TOC10">The Microsoft Setup Basic Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Setup Basic?</DT>
+<DD>Setup Basic is the Scripting language used and pushed by Microsoft for MS
+Windows 3.x setup procedures.  It is identical to the MS-Test Basic language,
+version 1.0.</DD>
+<DT>Portability</DT>
+<DD>Zero. Unless you are heavily into MS-Test.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: standard for setup procedures, easily available. Cons: you have to
+be an experienced Windows developer, and have other visual development tools,
+such as dialog editors, to use it.</DD>
+<DT>How To Get It</DT>
+<DD>It is part of the Windows SDK.</DD>
+<DT>Libero Supports</DT>
+<DD>MS Setup BASIC / Test Basic 1.0.</DD>
+</DL>
+
+<H3>Working With Microsoft Setup Basic</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.mst.</LI>
+<LI><B>Program model:</B> main <TT>.mst</TT> program, run using
+<TT>_mssetup.exe</TT> driver. </LI>
+<LI><B>Good for:</B> Win 3.x setup programs, as alternative to writing
+complex logic directly into program code.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mst</TT>; generates
+include file <TT>mydialog.inc</TT>.</LI>
+<LI><B>Module functions:</B>
+<TT>Static Sub module_function_name ()</TT></LI>
+<LI><B>Private functions:</B>
+<TT>Sub private_function_name Static (...)</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+dynamically at runtime.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+'****************   MODULE FUNCTION NAME   *****************
+
+Static Sub module_function_name ()
+
+End Sub
+
+Sub private_function_name Static (argument,...)
+    the_next_event = ok_event
+    raise_exception (error_event)
+}
+</PRE>
+
+<H4>Notes</H4>
+<P>This schema is still in a beta state; I've not used it in any real
+program. However, if I ever have to write a setup script in this language,
+this is the way to go.</P>
+
+<P>When I started writing a setup program for 'Libero for Windows', I got
+hold of the Microsoft Setup Toolkit, and discovered the joys of writing a
+setup script.  The language is the cut-down Basic that was used in the MS
+Test product: TestBasic version 1.0.  I call this almost-language MST.  At
+least, unlike Visual Basic, MST supports an include statement.  So, the MST
+schema puts the generated code into an .inc file.</P>
+
+<P>The setup toolkit documentation suggests that you draw a flowchart of the
+various stages of your install procedure, then code this into an MST program.
+Hmm.  :-(  I hate flowcharts, for one thing.  For another, I have a much
+simpler and useful technique up my sleeve, so some quick work on a schema,
+and 'wallop!'.  MST, please meet Mr. Turing.</P>
+
+<P>As it happens, I then decided that I did not want to use an MST setup
+program, did not want to start designing dialog boxes and resources.  Now the
+Libero for Windows installation package is a .zip file that you expand into
+the directory of your choice, full stop.  Still, the MST schema is there and
+it works, barring the odd lazy bug.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang6.htm">&lt;</A>
+ | <A href="lrlang8.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <EM>The Microsoft Setup Basic Language</EM>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

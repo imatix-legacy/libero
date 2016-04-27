@@ -1,0 +1,87 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>The State Machine Algorithm</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech10.htm">&lt;</A>
+ | <A href="lrtech12.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC26">The State Machine Algorithm</A></H2>
+
+<P>This is the dialog manager logic as pseudo-code.  If you need to write a
+schema for a new language, this section should be your main
+specifications.
+
+<P>The dialog manager consists of a basic loop, plus extra pieces that are
+generated only if necessary.  For example, handling of the Defaults state,
+error checking, and handling of the dialog stack.  For clarity, I've put
+in the Defaults handling, but nothing else other than the basic loop.
+The following code is loosely based on C:
+
+<PRE>
+    _LR_state = 0                       //  First state is always zero
+    initialise_the_program ()
+    while (the_next_event != terminate_event) {
+        _LR_event  = the_next_event
+        _LR_savest = _LR_state
+        _LR_index  = _LR_action [_LR_state][_LR_event]
+
+        if (_LR_index == 0) {           //  Try Defaults state
+            _LR_state = _LR_defaults_state
+            _LR_index = _LR_action [_LR_state][_LR_event]
+        }
+        the_exception_event = _LR_NULL_EVENT
+        exception_raised    = FALSE
+
+        Get first module in list
+        for ever {
+            if (we finished the module list OR exception_raised)
+                break
+            Execute next module in list
+        }
+        if (exception_raised) {
+            if (the_exception_event != _LR_NULL_EVENT)
+                _LR_event = the_exception_event
+            the_next_event = _LR_event
+        } else
+            _LR_state = _LR_nextst [_LR_state][_LR_event]
+
+        if (_LR_state == _LR_defaults_state)
+            _LR_state = _LR_savest
+        if (the_next_event == _LR_NULL_EVENT)
+            get_external_event ()
+    }
+    return (feedback)
+</PRE>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech10.htm">&lt;</A>
+ | <A href="lrtech12.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <EM>The State Machine Algorithm</EM>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

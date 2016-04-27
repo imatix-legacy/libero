@@ -1,0 +1,643 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                FEBRUARY 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 2
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    1997 promises to be a great year in the computer business.  This is the
+    year of the 'Internet Application', according to Liberetto I/3.  And
+    what better authority can you find?  What is an 'Internet Application'?
+    Simple: it's what you get when you prise the Net out of the hands of the
+    students and video-gamers, and turn it over to the people who live or
+    die by information systems.
+
+    There are people who tell me: 'Hey, try this site, it has some really
+    great graphics, and lots of interesting stuff'.  Okay, been there,
+    downloaded that, now what?  The really interesting parts of any
+    business, including ours, are not the pretty superficial features, but
+    the meaty, under-the-covers, dirty, busy, daily dangerous things that do
+    the real work.
+
+    When you look under the covers of the software business, you see a lot
+    of surprising things.  The most commonly-used programming language is
+    not C++ or Java, but COBOL, a language from the 1960's.  The bigest
+    users of software are banks, insurance companies, airlines, and others,
+    for whom the question 'would you bet your business on it?' is a daily
+    reality.
+
+    The acid test for any new software concept, technology, or shrink-
+    wrapped product is this: would you bet your business on it?
+
+    Right now, at the start of 1997, the Internet is still at the stage
+    where most people -- excluding those actually selling internet boxes and
+    services -- would say 'No'.
+
+    A few things are happening that will change people's minds, forever.
+    The first is that the Internet will become the Intranet...  In other
+    words, people will start to use web servers and web browsers, email, and
+    ftp, for internal business, generally for document access.  This is a
+    simple step, since many organisations already use TCP/IP, the internet
+    protocol.  The next step is to use all those web browsers for something
+    more interactive.  How about simple agendas or calendars?  By the middle
+    of 1997, we can expect to hear a lot about much more serious ways of
+    using the intranet: transaction processors, database interfaces, and
+    other manners of writing 'real' programs that work with the web.
+    Finally by the end of 1997, there will be a massive awakening of +
+    understanding, as people start to see the possibilities.
+
+    During the 1980's, many organisations made a shift from using large,
+    expensive mainframe computers to some kind of client-server solution,
+    often based on UNIX, PCs, and some kind of network.  This has often
+    produced mixed results, mostly because developing software for PCs is
+    amazingly expensive.  Why?  The Golden Rule for any large-scale software
+    project is this: 90% of the programs must take 10% of the time; the
+    other 10% will require 90% of the time.  When each program is a
+    carefully-crafted artisanal product, the project will fail.  The key to
+    success is to apply a mass production line to the 90% mass.
+
+    This was possible in the days of the big old machines, before the days
+    of client-server.  Look at any airline reservation system, banking
+    system, insurance system, and you'll see that, with some redesign, most
+    programs could be, and often were, either manually or automatically
+    generated.  They all do much the same kind of work, use a simple screen
+    interface, and run in a simple and limited environment.
+
+    Client-server applications are another thing.  It is really difficult to
+    simplify a Windows interface.  Each program takes skill and time to
+    make.  Back to the artisanal days, back to slow and expensive projects.
+
+    The Internet Application is much simpler, almost as pretty, and a whole
+    lot cheaper than client-server applications.  In fact, it's almost as
+    simple as the old mainframe programming model.
+
+    Plus ca change, plus ca reste la meme.
+
+    Pieter Hintjens
+    Antwerpen
+    1 February 1997
+
+
+ == NEWS ---..-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Xitami Gets Four Cows At Tucows!!  >:-= >:-= >:-= >:-=
+
+        Xitami makes it to the big stage!  Tucows is one of the largest
+        websites for downloading all those superficial, jazzy gadgets our
+        editor thinks so little of.  Now Xitami mingles with the best of
+        them.  Okay, they don't give anything less than three-and-a-half
+        stars.  But we'll sock their rocks with the next release of our
+        little Xitami web server.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >Date: Thu, 2 Jan 1997 16:02:01 -0800
+    >From: jlevy@qntm.com (John Levy)
+    >Subject: Re: Liberetto Vol II/1
+    >
+    >Just thought you'd like to know that I, no doubt like many of the
+    >'silent readers' on your distribution list, continue to read Liberetto
+    >with amusement and pleasure on into the new year.  I have not
+    >implemented a FSM using Libero (in fact, I haven't implemented any
+    >program for nigh on to 15 years, unless you consider those application
+    >scripts ... and I don't;  you see, [awful admission] I'm a manager),
+    >but ran into your Web page while searching for FSM approaches to
+    >firmware and ASIC co-design, and ... have kept on reading.
+    >
+    >A prosperous 1997 to you.
+    >
+    >-John Levy
+
+    I heard someone on a radio chat show a few weeks ago proclaiming that
+    as 'one of the silent majority', he wanted to give his opinion.  Hey,
+    we try to reach the parts that other software tools can't even see.
+    Actually, it's quite a compliment you pay, John.  Thanks.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date: Thu, 02 Jan 1997 22:30:27 GMT
+    >From: sheila@emplus.demon.co.uk (Sheila McGregor)
+    >
+    >Hi!
+    >
+    >Thanks for the latest Liberetto.  Very brisk and snappy and full of
+    >info, even for those who haven't a clue what a FSM might be.
+    >--
+    >Sheila McGregor, Edinburgh, Scotland
+
+    It's a "Fearsomely Shiny Motorbike".  This letter made us wonder; was it
+    a subtle hint that we're getting off topic here in this journal?  Just
+    in case, we come back to basics with a solid piece on asynchronous FSMs
+    (that means several of the shiny bikes, vroom, vroom, just not all at
+    once, which would probably annoy the neighbours).
+
+    Ps.  Are you the same 'Sheila McGregor' that started a six-month flame
+    war in soc.culture.celtic?  We really don't want that kind of business
+    here, please.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date:      Wed, 01 Jan 97 18:56:39
+    >Reply-To:  "Glenn R. Williams" <gloonie@ibm.net>
+    >Priority:  Normal
+    >Subject:   How quickly we forget!
+    >
+    >Ah, Pieter, Pieter,
+    >
+    >And where, in the magical world of Libero, is there a place for us
+    >OS/2 users?  Everyone else gets an update for the new year, and here
+    >we sit in the dark with our Warp 4 machines!  Sure, with Voice Type
+    >we can talk to ourselves, but we're here pining away for some
+    >transitions!  We got Java, NetRexx and Rexx too, ya know!  Did you
+    >lose your Australian "porter"?
+    >
+    >Glad to see you're thriving.  Best wishes for the New Year.
+    >
+    >Glenn R. Williams
+
+    The 'porter' Glenn is refering to is none other than Ewen McNeill
+    (Waaahey!, clap clap clap!, hoopee!) from New Zealand, who spent New
+    Year's Eve making Libero, SFL, SMT, and Xitami run on OS/2.  A big hand
+    for Ewen, please.  Hey, Ewen, your t-shirt is in the mail, really.  We
+    sent it surface, so you should get it before Christmas.  Needless to
+    say, Glenn has since received Libero for OS/2, and is now probably
+    feeling really guilty because he hasn't even opened it yet.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Tue, 21 Jan 1997 11:02:50 -0700
+    >From:             Robert Lopez <Robert.Lopez@scs.philips.com>
+    >To:               info@imatix.com
+    >Subject:          More Libero info
+    >Send reply to:    <Robert.Lopez@scs.philips.com>
+    >
+    >For what kind of programmer is your tool intended?
+    >Is it for advanced programmers or is it for beginners?
+    >
+    >Thanks.
+
+    Like the Jesuits say: give me someone at 5 years' old, and he's mine
+    for life.  You can't start too early.  However, it's never too late to
+    change your habits, either, so even advanced programmers need not
+    despair.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             "Kubat, Philip" <PKubat@CHARTER.com>
+    >Subject:          SFL and VC++ 4.2
+    >Date sent:        Thu, 23 Jan 1997 00:33:36 -0500
+    >
+    >I have downloaded SFL 1.4 and am trying to build it with MS VC++
+    >4.2.... but I can not get the build.bat file to run.  Should I have
+    >a c.bat?  It check for file but dies on the fist 'lib sfllib' and
+    >all the 'call c sfl..'..
+    >
+    >Hopefully you can help me out!!!
+    >
+    >Thanks,
+    >Philip Kubat
+    >Charter Systems, Inc.
+
+    There are lots of ways to rebuild SFL with MSVC4.  If you are a
+    command-liner, you can supply a 'C.bat' file and 'Linkup.bat' and
+    make sure that commands line 'lib' are on the path.  This approach
+    also works for other compilers.
+
+    A more useful way is to build SFL using the IDE; as a project.  For
+    example, to build the Xitami web server, we defined a main project for
+    the web server, plus a sub project for SFL and SMT each.  Into these
+    subprojects we inserted all the source (.C) files I need (sfl*.c and
+    smt*.c respectively).  We modify the project options to search these
+    two directories for include files.
+
+    In the subproject configurations we produce a static library, called
+    'libsfl.lib' and 'libsmt.lib', which end-up in the top-level
+    directory instead of in 'debug' or 'release'.  This is a simple and
+    convenient way to rebuild the whole thing or part of it when something
+    changes.
+
+    You can also build SFL as a static library, separately, then install
+    it and the sfl.h file in some central directory.  You can also include
+    the individual files that you want (allowing for cross-references within
+    the library) into some project.  Since the source files come with
+    individual header files, this is quite useful.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Hello, Namibia, can we have your points please?  Hello, Namibia,
+    are you there....  Hello??  Sorry, we seem to have lost Namibia.
+
+    Date sent:        Sun, 19 Jan 1997 06:00:02 -0800 (PST)
+    Subject:          Web Server Statistics
+    From:             Statistics Report Robot <sacc@imatix.com>
+    To:               ilive@imatix.com
+
+    ========= Web Server Statistics Report -- Text Version ==========
+
+    Program started at Sun-19-Jan-1997 01:04 local time.
+    Analysed requests from Wed-01-Jan-1997 00:13 to Sat-18-Jan-1997 22:57
+      (17.9 days).
+
+    Total completed requests: 16,973 (12,981)
+    Total failed requests: 547 (385)
+    Total redirected requests: 6 (5)
+    Average requests per day: 976 (1,910)
+    Number of distinct files requested: 541 (536)
+    Number of distinct hosts served: 957 (698)
+    Number of new hosts served in last 7 days: 660
+    Total data transferred (in bytes): 369,788,833 (279,528,533)
+    Total data transferred (in Megabytes): 352.658
+    Average data transferred per day (in bytes): 20,603,440 (39,932,647)
+    (Figures in parentheses refer to the last 7 days).
+
+    Daily Summary
+    Each + represents 80 requests, or part thereof.
+
+    day: #reqs
+    ---  -----
+    Sun:  2669: ++++++++++++++++++++++++++++++++++
+    Mon:  3790: ++++++++++++++++++++++++++++++++++++++++++++++++
+    Tue:  2236: ++++++++++++++++++++++++++++
+    Wed:  2172: ++++++++++++++++++++++++++++
+    Thu:  3252: +++++++++++++++++++++++++++++++++++++++++
+    Fri:  1751: ++++++++++++++++++++++
+    Sat:  1103: ++++++++++++++
+
+    Hourly Summary
+    Each + represents 25 requests, or part thereof.
+
+    hr: #reqs
+    --  -----
+     0:   791: ++++++++++++++++++++++++++++++++
+     1:   625: +++++++++++++++++++++++++
+     2:   566: +++++++++++++++++++++++
+     3:   508: +++++++++++++++++++++
+     4:   881: ++++++++++++++++++++++++++++++++++++
+     5:   868: +++++++++++++++++++++++++++++++++++
+     6:  1099: ++++++++++++++++++++++++++++++++++++++++++++
+     7:   869: +++++++++++++++++++++++++++++++++++
+     8:   939: ++++++++++++++++++++++++++++++++++++++
+     9:  1085: ++++++++++++++++++++++++++++++++++++++++++++
+    10:  1221: +++++++++++++++++++++++++++++++++++++++++++++++++
+    11:   685: ++++++++++++++++++++++++++++
+    12:   723: +++++++++++++++++++++++++++++
+    13:   557: +++++++++++++++++++++++
+    14:   808: +++++++++++++++++++++++++++++++++
+    15:   523: +++++++++++++++++++++
+    16:   586: ++++++++++++++++++++++++
+    17:   503: +++++++++++++++++++++
+    18:   440: ++++++++++++++++++
+    19:   459: +++++++++++++++++++
+    20:   439: ++++++++++++++++++
+    21:   597: ++++++++++++++++++++++++
+    22:   427: ++++++++++++++++++
+    23:   774: +++++++++++++++++++++++++++++++
+
+    Domain Report
+    Printing all domains with any traffic, sorted by amount of traffic.
+
+    #reqs: %bytes: domain
+    -----  ------  ------
+     4566: 28.23%: .com (Commercial (mainly USA))
+     1915: 12.39%: [unresolved numerical addresses]
+     1686: 11.83%: .net (Network)
+      612:  5.11%: .uk (United Kingdom)
+     1205:  4.84%: .edu (USA Educational)
+      788:  4.12%: .de (Germany)
+     1379:  3.83%: .no (Norway)
+      401:  2.94%: .nl (Netherlands)
+      493:  2.56%: .fr (France)
+      347:  2.17%: .ca (Canada)
+      203:  2.03%: .it (Italy)
+      371:  1.79%: .au (Australia)
+      381:  1.65%: .be (Belgium)
+      226:  1.61%: .org (Non-Profit Making Organisations)
+      188:  1.38%: .kr (South Korea)
+       82:  1.14%: .ru (Russian Federation)
+      178:  1.10%: .ch (Switzerland)
+      152:  1.00%: .il (Israel)
+      136:  0.99%: .at (Austria)
+      213:  0.90%: .se (Sweden)
+      143:  0.87%: .es (Spain)
+       38:  0.81%: .eg (Egypt)
+      168:  0.73%: .fi (Finland)
+      118:  0.59%: .jp (Japan)
+       57:  0.59%: .us (United States)
+       50:  0.44%: .tw (Taiwan)
+       61:  0.44%: .nz (New Zealand)
+       64:  0.43%: .pt (Portugal)
+      159:  0.41%: .gov (USA Government)
+       59:  0.39%: .ie (Ireland)
+       50:  0.35%: .pl (Poland)
+       58:  0.33%: .za (South Africa)
+      101:  0.32%: .dk (Denmark)
+       74:  0.31%: .br (Brazil)
+       24:  0.29%: .ee (Estonia)
+       57:  0.26%: .sg (Singapore)
+       30:  0.21%: .su (Former USSR)
+       14:  0.11%: .hr (Croatia)
+       20:  0.09%: .mil (USA Military)
+       30:  0.08%: .gr (Greece)
+        5:  0.08%: .mx (Mexico)
+        6:  0.08%: .lv (Latvia)
+       12:  0.06%: .hu (Hungary)
+        4:  0.04%: .tr (Turkey)
+       17:  0.03%: .ua (Ukraine)
+       15:  0.02%: .hk (Hong Kong)
+        2:  0.02%: .ar (Argentina)
+        9:  0.01%: .th (Thailand)
+        3:       : .in (India)
+        2:       : .na (Namibia)
+        1:       : .int (International)
+
+    Request Report
+
+    Printing all archive files with at least 10 requests, sorted by
+    number of requests.
+
+    #reqs: %bytes: filename
+    -----  ------  --------
+      143:  8.81%: /pub/libero/doc/lrhtml.zip
+      132:  4.99%: /pub/libero/src/lrsrc220.tgz
+      131:  8.00%: /pub/libero/bin/lrmswin.zip
+      123:  2.52%: /pub/libero/doc/lrfull.zip
+      106:  7.21%: /pub/libero/example/complete.zip
+      106:  7.33%: /pub/libero/bin/lrmswins.zip
+       91:  0.22%: /pub/tools/framer.zip
+       86:  0.32%: /pub/tools/srcdoc.zip
+       50:  0.60%: /pub/tools/htmlpp.zip
+       45:  0.06%: /pub/tools/otto.zip
+       41:  2.07%: /pub/sfl/src/sflsrc14.tgz
+       32:  0.88%: /pub/libero/bin/lrdos32.zip
+       31:  0.14%: /pub/libero/example/tcpip.zip
+       30:  0.86%: /pub/libero/src/lrsrc212.tgz
+       29:  1.90%: /pub/sfl/doc/sfldoc14.tgz
+       29:  1.39%: /pub/smt/src/smtsrc21.tgz
+       28:  0.99%: /pub/libero/src/lrsrc221.tgz
+       26:  0.08%: /pub/libero/example/install.zip
+       26:  0.33%: /pub/libero/example/htmlpp.zip
+       26:  3.27%: /pub/xitami/xiuni10c.tgz
+       25:  1.47%: /pub/libero/src/lrwinsrc.zip
+       25:  0.29%: /pub/libero/example/acms.zip
+       25:  0.08%: /pub/libero/example/config.zip
+       24:  0.70%: /pub/libero/bin/lrmsdos.zip
+       22:  0.50%: /pub/libero/example/expr.zip
+       22:  0.89%: /pub/libero/src/lrsrc220.zip
+       21:  0.92%: /pub/sfl/src/sflsrc14.zip
+       21:  0.04%: /pub/libero/example/stripper.zip
+       21:  0.11%: /pub/libero/example/erbot.zip
+       21:  0.19%: /pub/libero/example/picture.zip
+       16:  0.47%: /pub/libero/bin/lros2.zip
+       12:  0.80%: /pub/sfl/doc/sfldoc14.zip
+
+
+ == FOCUS ON TECHNOLOGY --.-..--..--..--.-.-.-..--..-.-..--..-.-..--..-.-..-
+
+    This month...  Asynchronous event processing in Visual Basic!
+
+    Tom:
+    ---------------------
+    >From: "Tom Bushell" <tbushell@Fox.nstn.ca>
+    >Organization: Telekinetics
+    >To: info@imatix.com
+    >Date sent: Thu, 23 Jan 1997 00:28:09 -400
+    >Subject: Syncronous state machines for GUIs
+    >
+    >Please add me to your newsletter list.
+    >  >From: Howard Goldstein <hg@penny.n2wx.ampr.org>
+    >  >Hello Pieter, libero is a nice system.  I can see it having many
+    >  >timesaving applications for me.
+    >
+    >I strongly concur!  Super system - definitely better than average
+    >commercial quality.  (I know, I know, pretty faint praise, but I'm not
+    >being sarcastic ;-)
+    >
+    >Would it not be possible to simply have a function that just
+    >_syncronously_ passed an event to the state machine and returned?  This
+    >function could be called from the VB event handling subs, and would
+    >provide a very clean interface to one or more state machines.  I don't
+    >see the need for a fully asynch approach, with event queues, etc.
+    >
+    >Am I missing something here?
+    >
+    >-Tom
+
+    Pieter:
+    ---------------------
+    I think the problem is that you have to, at some point, pass control
+    to the state machine so that it can handle the event.  SMT does this
+    in a formal and rich manner; you can do it manually *much* simpler.
+    Mainly, SMT is primarily intended to provide a type of multithreading.
+    If your intention is just to get asynchronous processing, it is not
+    necessary to use SMT.  Beside which, I don't see a VB version of SMT
+    coming onto the market toooo soon.
+
+    I reckon you can change the VB schema easily enough: define a data
+    structure that acts as an event queue, so that anyone can stick
+    events in the state-machine's queue.  Then, change the state machine
+    code -- perhaps in (or in place of) get_external_event -- to take an
+    event from this queue when necessary and possible.
+
+    There are many ways to implement this; off-hand, I can think of
+    these:
+
+       - the state machine can work from a timer, so doing background
+         processing;
+       - the state machine can do 1 dialog step, then relinquish control;
+       - the state machine can do N dialog steps, then relinquish
+         control;
+       - the state machine can handle one event, then relinquish control;
+       - the state machine can handle the queue fully, then relinquish
+         control.
+
+    Phew.  You try typing 'reluinbquish' four times after the amount of
+    wine I had this evening!
+
+    If you want to try this, but can't get into the schema easily, I'll
+    be happy to help.
+
+    Tom:
+    ---------------------
+    >Guess I wasn't too clear on what I want.  I don't need asyncronous
+    >processing, I just want to use Libero to provide a clean interface
+    >beteen the GUI event handling subs in VB, and one or more FSMs.  I'd
+    >like to just call a single routine, passing the new event as a
+    >parameter.  The FSM would just move to the new state, and then return.
+    >Could all be done as syncronous function calls.  The asyncronous aspect
+    >of GUI event handling is already being handled by VB's interface to the
+    >Windows OS.
+    >
+    >So the VB code would look something like this:
+    >
+    >Sub cmdButton1_Click()
+    >    MyFSMEventProcess(evButton1Click)
+    >end sub
+    >
+    >Sub cmdButton2_Click()
+    >    MyFSMEventProcess(evButton2Click)
+    >end sub
+    >
+    >My quick skim of the newsletters turned up two other people who seemed
+    >to want the same thing, so this might be a good optional feature for a
+    >future release.
+    >
+    >Libero seems to want something more sophisticated in the way of event
+    >flow.  No doubt I could dig into the code a bit and figure out how to
+    >do this, but was hoping you would be able to say something like "Just
+    >comment out line X and change line Y to Z" - if it's really that
+    >simple, and if you had time.
+    >
+    >I guess what I want is:
+    > - the state machine can do 1 dialog step, passed as a parameter, then
+    >relinquish control by returning to the caller.
+    >Am I right in thinking this is just a simplification of what Libero
+    >does now?
+
+    Pieter:
+    ---------------------
+    When I talk of an 'asynchronous' FSM, it just means that the FSM
+    program does not go from start to end each time you call it.  Like I
+    said, there are many in-between possibilities.
+
+    People do ask for this quite often, I guess because it's the key issue
+    of using a FSM in a GUI model.
+
+    It's not a single-line change, but it ain't too hard to do this.
+    There are two issues:
+
+      - how to make it work in the schema (trivial)
+      - how to use it in the real world (complex)
+
+    I've attached a modified lrschema.vb that does the first part.  It's
+    not tested, and there may be a few gotchas, which I'll explain.  But
+    it does, or will do, what you want.
+
+    The second part is harder, IMHO.  You need to find a good way to
+    translate external events into internal events, since the dialog
+    events are not known to the outside world, nor can you assume that
+    their numbering is fixed.  Then, you have to understand how the
+    incoming (external) events make sense within the state machine...  If
+    the FSM does one step and returns, then it keeps its own internal
+    state.  Thus, an external event may make sense at some point, but not
+    at another.  If all events are always handled the same way, we're
+    back to a 'synchronous' FSM, always starting in the same state.
+
+    Let's see how I tweaked the VB schema to do what you suggest...
+    First off, I assumed that '1 step' means whatever processing is
+    required for an external event.  This could be little, or a lot.  It
+    could imply a whole series of states, driven by various internal
+    events.  Whatever, when the FSM finally says 'Okay, finished',
+    control returns to the GUI.
+
+    The controlling code of the FSM is a loop 'until event = terminate'.
+    The normal FSM code starts by initialising the state, event, and
+    jumping in.  If we permit jumping in with whatever state was active
+    last time, we just need to supply an event.
+
+    So, take a look at the schema.  There are two main entry points,
+    'xxxx_init()' and 'xxxx_exec()'.  The first initialises the FSM and
+    returns.  The second executes the work for an event and returns.  To
+    generate this code you must set the option 'asynch=yes'.  The easiest
+    way to do this in the Windows editor is to choose the 'User-Defined'
+    schema (lrschema.vb), then enter 'asynch=yes' in the options list.
+
+    The last change to the schema is that instead of doing a
+    'Get-External-Event' when no internal event is supplied, the FSM
+    stops, and returns.  This is pretty much what you need.  This point
+    is just before entering a new state.  To be accurate, just after
+    executing all the modules for a state transition.  So long as you
+    supply internal events in the_next_event, the FSM continues working.
+    When you don't do this, it stops, with the intention of getting an
+    event from the outside world (hence 'external event').
+
+    I changed the Static variables to Dim.  My intention was to define
+    variables that would keep their values between invocations of the
+    function.  Looking at the code, this must be the case for Dim'ed
+    variables anyway.
+
+    Now the gotchas...
+
+        - The various FSM variables must keep their values from call to
+          call.  I do not remember whether this is the case for DIM'ed
+          data outside a function, or not.
+
+        - If the FSM ever terminates, I do not know what would happen.
+          Probably some weird stuff, as the dialog continues from the
+          last state.
+
+        - You must modify the xxxx_exec() function to translate the
+          external event into an internal value.  A standard problem in
+          all languages.
+
+        - The FSM will maintain internal states, so the external event
+          must make sense in the current state.  This is normal, but may
+          be a bit unusual at first sight.  I don't know quite what you
+          expected here.
+
+        - I did not test the schema (at all) so be prepared for a bug or
+          two.  It may not even generate code.  Heck, this way we share
+          the work.  ;-)
+
+    Let us know how it goes.  If anyone wants this schema, drop us a line.
+
+
+ == USER OF THE MONTH AWARD --...-.-..--.-.-...--.-.-...--.-.--...--.-.--..-
+
+    This letter from John Klass says it all:
+
+    >To:               ph@imatix.com
+    >Subject:          Re: Let's try again
+    >Date sent:        Tue, 28 Jan 1997 09:20:41 -0500
+    >From:             John Klassa <klassa@ivc1.ivc.com>
+    >
+    >->> --- bwq ---
+    >->> 0 0 0 0 0 0 12
+    >->> 00 0000 00000012
+    >->...
+    >->> --- dmMq ---
+    >->> 0 0 0 0 12 34 56 78
+    >->> 0000 0 AZaz 12345678
+    >
+    >What does this snippet tell you?
+    ...
+
+    Voodoo?  Yup, right.  John is giving the word 'inexhaustible' new
+    meaning.  He has been debugging the Xitami web server on a Sun Sparc
+    since the start of January; I count over 20 messages from him, sending
+    us debugging output, running various tests, and so on.  He's using GNU
+    gcc, and most everything works, except one very particular function in
+    SFL, sflexdr.c.  This packs and unpacks data into portable message
+    buffers.  We're still trying to see why it fails on this machine, but
+    John has in any case won the coveted iMatix USER OF THE MONTH award.
+    John, you get a free smiley, with hair on it.  =:-)
+
+    A very close runner-up has to be Ewen McNeill, who has single-handedly
+    ported the entire iMatix software library (Libero, SFL, SMT, Xitami,
+    Otto, and Htmlpp) to OS/2.  Any comments of the form 'Ewen who else?'
+    will be strictly frowned upon.  We're a serious journal.  Stop it.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    If you have absolutely no sense of humour, or are a braindead TV child
+    who's idea of intellectual stimulation is to play with those Other
+    buttons on the remote control, you'll probably not want to receive any
+    more issues of Liberetto.  But then again, you won't have gotten onto
+    this mailing list in the first place, so don't worry.  However, if you
+    are a better class of person who just happens to have absolutely no
+    interest in receiving this journal, fine.  We don't mind.  Really, we
+    don't.  Well, a little, but not too much.  Okay, it would break our
+    hearts and send dark clouds racing across the horizon, but we'll remove
+    you from the Liberetto distribution list if you really insist.  This
+    offer does not apply to employees of iMatix and their relations.  You
+    guys HAVE to suffer!
+

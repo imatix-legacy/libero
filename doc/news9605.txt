@@ -1,0 +1,403 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/5
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    JULY 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 5
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - News and Views - Reader's Letters - Tips & Hints
+
+
+ == THE QUICK STORY ---..-.-.---.-...-...--.-..---.--...-...-...-.-.---.-.-.-
+
+    *   We released the iMatix SFL (Standard Function Library) for portable
+        C development, to a generally grateful public.  Version 1.0 has some
+        160 functions, with documentation in HTML as usual.
+
+    *   We are working on a Java schema, ready for beta real soon now.  This
+        will be an easy way to get into Java programming if you want to.
+
+    *   No recent changes to Libero, although we are planning updates later
+        this year.
+
+    *   Check-out Dr Dobb's Journal (August 1996) for an article on Libero.
+
+
+ == WELCOME .-..---.-.-.-....-----.--.....----.-.---....----.-.-...-.---...-.
+
+    <disclaimer>
+    The following text contains fragments of humour that may shift during
+    transport.  All such humour was freshly packed and tested for quality.
+    If the humour does not reach you in prime condition, kindly check that
+    all your electronic connections are functioning correctly.  We cannot
+    be held responsible for intercultural humouristic displacements.  You
+    read on at your own risk.
+    </disclaimer>
+
+    When we sent-out Liberetto I/4, we got a letter from a guy who asked us
+    'what is this unsolicited crap?'  To make his point, he mailbombed our
+    postmaster by sending him several copies of Liberetto.  We found this
+    both funny and sad, since he got onto the Liberetto mailing list - like
+    most of you - by sending us a letter about the subject.
+
+    Well, our postmaster is pretty relaxed, and did not take offense.  He may
+    even have enjoyed Liberetto, who knows.  We removed our correspondent's
+    name from the mailing list, and - as promised in Liberetto I/3 - we are
+    publishing the gentleman's letters, to provide a balanced coverage of
+    reader's views, and because they are, basically, very funny.
+
+    Since we have pretentions of grandeur, and really want to be a serious
+    academic journal, we are making a few changes to the Liberetto Look.
+    We will provide a quick summary at the top of each issue for those with
+    little time.  We have given our writers strict instructions to either
+    invent new jokes, or stay serious.  We fired Ed., who was getting on our
+    nerves.
+
+    Pieter Hintjens
+    Antwerpen,
+    1 July 1996, in most of the world.
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    iMatix releases the Standard Function Library (SFL) For C, version 1.0
+
+        The SFL is a set of 160 or so C functions that provide a basis for
+        portable C applications written with or without Libero.  It is also
+        a source of interesting algorithms.  For example, you will find a
+        set of date algorithms that are useful in any programming language.
+        At some point we will rewrite Libero to use the SFL.
+
+    Java Gets Heavy
+
+        No, we are not talking about the coffee served on british trains,
+        but about the forthcoming Java schema for Libero.  If Java can
+        survive Microsoft, then it promises to be a great platform for
+        developers.  One version of your code will run on everything from
+        an IBM 3090 to a Nintendo.  With Libero you will be able to build
+        large, robust Java programs.  The alpha version is running nicely
+        and we expect to be ready with a beta kit in the middle of July.
+
+    Libero - What's Coming Up?
+
+        Later this year we expect to release a new version of Libero that
+        supports a slightly richer dialog syntax, has some bug fixes, and
+        some new gadgets.  We are doing this very slowly, and carefully,
+        so do not expect much change soon.  The reason is simple: we have
+        a *lot* of people using Libero and accessing the iMatix website.
+        About 9000 accesses last week, with about 500 people downloading
+        one or other product.  Even with this traffic, we get very little
+        mail, and most of what we get is either fan mail (which we like
+        a lot) or simple questions.  We get one or two problem reports a
+        month, which is manageable.  So, our strategy is to release only
+        well tested, documented, and self-supporting software.  The down
+        side of this is that it can take a bit longer to get ready.
+
+    "I Was Pushed", says Ed.
+
+        Liberetto's Ed., not to be confused with the Editor, has walked
+        the plank, sung the swan song, gone to feed the poppies.  Yes,
+        we can officially announce that Liberetto is finally Ed.-free,
+        after many pleas. [Thank goodness - Mandy].
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    More real letters from real people.  Someone actually hinted to one of
+    our roving reporters that the Liberetto letters page was faked!  Weird,
+    okay.  Eclectic, yes.  But faked?  Never!  Every bit is guaranteed 100%
+    original.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: rds@Coyote1.swdc.stratus.com (Richard Schaal)
+    >This really seems to be an exciting breakthrough. Unfortunately for
+    >many, or at least me, your web page is unbelievably hard to read with
+    >a monochrome screen....
+    >I think I'll have to try lynx rather than Mosaic....
+    >Richard
+
+    It's a well-known fact that Mosaic does not work well on monochrome
+    screens.  Okay, perhaps not.  If our 'chiseled stone' wallpaper gives
+    your screen the ripples, try switching-off images.  We only use these
+    for pretty-pretty effects anyhow.  Text mode works okay.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: jwillis@telalink.net (Joe Willis)
+    >To: editors@imatix.com
+    >Subject: A Request and A Question
+    >Thank you for developing Libero and providing it as free software.
+    >I downloaded it from you web site this morning, and I really like the
+    >looks of it.
+    >First, the request:  Please add me to the subscription list for
+    >LIBERETTO.  TIA.
+    >Now, the question:  Is there a Pascal (or, preferably, Delphi) schema
+    >file around somewhere?  I work mostly in Delphi and think that Libero
+    >would be a good tool for it.
+    >Thank you again.
+    >Joe Willis
+
+    Several people have asked for a Delphi schema.   Well, we installed
+    Delphi, had a look at it - it is nice - and then put it on our to-do
+    list.  Now it is just a small matter of time.  (Giggles in the back of
+    the room.)
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Subject: Re: State engine
+    >From: Harlan Stenn <Harlan.Stenn@pfcs.com>
+    >How about including a sample (unix) Makefile to get folks
+    >more quickly bootstrapped when downloading your package?  I
+    >know it would have saved me a bit of time!
+    >Thanks!
+
+    What's a 'Makefile'?  Life is hard enough already without needing to
+    become a UNIX guru, just to sell free software.  Nah, we don't like
+    Makefiles.  Oh-oh.  Now the cat's out the bag.  What can we say?  Maybe
+    one day there will be a Libero Makefile.  And free beer in the Bent
+    Arrow, our local tavern.  Look, it's simple: if anyone feels strongly
+    enough to make and maintain a makefile, tell us.  Well, do it, then tell
+    us.  This is how it goes:
+
+    a) the hard part is figuring-out which compiler command to use.
+    b) the easy part is compiling the programs.
+
+    Most makefiles do (b) very nicely, and leave (a) to the person doing
+    the installation.  This is not polite, as far as we can see.  So, no
+    makefiles unless (b) suddenly gets very complex.  Which it won't.
+
+    If Ed. was still with us, he would remark that a Unix makefile has been
+    on our to-do-list for ages, and the above sounds like a suspiciously
+    easy excuse for not getting off our butts and making the thing.  This is
+    the kind of thing we fired Ed. for.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: sholmes@cais.cais.com (Stephen R. Holmes)
+    >Subject: Subscribe (Libero newsletter)
+    >Dear Sir, Madam, or FSM Automaton:
+    >Please add <sholmes@cais.com> to the mailing list for the
+    >(excellent!) Libero newsletter.
+    >Waiting-for-News:
+    >    (--) Receive-Newsletter           -> Happy-State
+    >          + Cancel-Timer
+    >          + Get-Info-From-Newsletter
+    >    (--) Timer-Expiration:            -> Waiting-for-News
+    >          + Restart-Timer
+    >          + Curse-Mail-Server
+    >          + Drink-Another-Amstel
+    >(I just downloaded the Libero package and complete HTML documentation;
+    >terrific work, folks! Libero compiled 'instantly' and without errors
+    >on my SCO UNIX (3.2v4.2) system with the GNU compiler, and I'm now
+    >trying to mangle my brain into envisioning my old hand-crufted FSMs as
+    >Libero dialogs.)
+    >Best regards,  /steve holmes
+
+    Ah, true flattery.  We love it!  Yes, mangle on, Steve.  Note that with
+    our soon-to-be-released SMT 2.0 multithreaded kernel for Libero programs
+    you will be able to drink several Amstels in parallel.  Messy but fun,
+    if I remember correctly from my student days.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: timf@solect.com (Tim Fry)
+    >Subject: Re: C++ Libero Beta
+    >To: ph@imatix.com
+    >Great! Thanks for the Beta. This looks very interesting. I'm planning to
+    >use Libero to aid in a CGI based suite of forms to manage ISP accounts.
+    >A FSM seems appropriate to represent the various interactions between
+    >the forms and the different events a user can generate from the forms.
+    >One of the problems I'm grappling with is: how can I maintain Libero's
+    >state context between the necessarily seperate invocations of the CGI
+    >UNIX executable that are started by the httpd for each form action.
+    >Any suggestions, or any pointers to people who may have already solved
+    >this and related CGI/Libero issues?
+    >Your help much appreciated.
+    >Tim
+
+    CGI is a connectionless protocol, and largely useless for real work
+    such as you are describing.  We are planning (in the long term, so
+    don't hold yer breath) a solid solution for exactly this area, but in
+    the meantime maybe one can tweak CGI into some kind of useful shape.
+
+    The two main problems with CGI are:
+
+     *  You lose state information each time the user gets a form.  So,
+        you cannot do real useful work, since that requires substantial
+        state information in the program.
+
+     *  It is slow to start a process each time the user clicks.  Imagine
+        a CGI program that accesses a relational database, where the code
+        can include several megabytes of runtime.  Horrid!
+
+    The usual solution to the first problem is to pass all the state info
+    in the messages to and from the web browser.  This is nasty and smacks
+    of desperation.  There is no usual solution to the second problem, as
+    far as we know.
+
+    Okay, now our advice...
+
+    1.  Structure your CGI application (that's what it is) as a server
+        program that accepts requests from CGI clients.  These processes
+        can communicate using TCP/IP, pipes, whatever.
+
+    2.  The CGI client is started by the httpd, creates a connection to
+        the server, passes its message, waits for the reply, and sends that
+        back to the web browser.
+
+    3.  The server can be multithreaded.  Each thread gets a number, which
+        is a 'handle' to its state information.  The CGI client passes this
+        handle to the web browser, which passes it back, eventually.  No
+        matter how much state information you need, it's all represented by
+        the same small handle.  The server can also be single threaded, and
+        just handle each request in serial.
+
+    4.  Since the server program runs continuously, its memory stays alive,
+        so the thread handle stays meaningful.  Okay, you need some way to
+        detect dead threads, but that is a minor issue.
+
+    5.  The 'state information' includes all the data you need to manage
+        a connection, as well as literally the state/event information that
+        Libero needs to manage its dialog.
+
+    At present, it's probably a lot of work to build such a system.  If
+    you can wait a wee while, it may become a lot easier.  Our soon-to-be-
+    released SMT 2.0 multithreading kernel solves most of these issues.
+    One of the issues we want to address is writing CGI applications like
+    this.  SMT 1.0 was more specifically limited to internet server
+    programming; the new version is a complete rewrite based on a message-
+    passing kernel that looks like an operating system microkernel, except
+    a bit obsessed with finite-state machines.  It's portable and runs on
+    "any" system, including MS-DOS, Windows, Unix, Vax.  Oh yeah, ANSI C
+    is the name of the game here.
+
+    Some of you have asked about this type of work in the past.  Somewhere
+    hidden in Libero is the promise of a really flexible, object-oriented,
+    multilevel intercooperating finite-state machine architecture, where
+    you can plug programs together like lego, and where the program dialog
+    handles events coming from the outside world.  Well, this is SMT 2.0.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date: Wed, 8 May 1996 03:58:16 -0500
+    >From: cpg@cs.utexas.edu (Carlos Puchol)
+    >Subject: Re: State engine
+    >pieter, i got libero. i have been using state machines for a long
+    >while. i am writing a compiler for an fsm-based language right now
+    >and i know well the benefits of the approach. i like your
+    >philosophy and i thin kit has potential. however, i cannot run any
+    >single example, i cannot understand the documentation and i cannot
+    >comprenhend your approach to code generation. no matter how many times
+    >you repeat in your documentation that this is an unusual approach and
+    >so forth, just that it is not going to help. i would love to
+    >learn details of your approach, but of all the examples, acms, pictures,
+    >erbot, etc., none seems to show a small example where c code is
+    >generated without having to learn some large or obscure application.
+    >i think you should have a simple example with as few as 4 states or
+    >something. some example could be a small elevator, a small voice
+    >mail system to retrieve messages, etc. or a small wristwatch.
+    >-- carlos
+
+    >Date: Sat, 1 Jun 1996 03:52:40 -0500
+    >From: cpg@cs.utexas.edu (Carlos Puchol)
+    >To: Pieter Hintjens <pahint@box.eunet.be>
+    >Subject: Re: Liberetto Vol I/4
+    >Cc: postmaster@box.eunet.be, root@box.eunet.be
+    >what is this unsolicited crap? remove my name email address and any
+    >other information related to me IMMEDIATELY from any mailing list
+    >you may have.
+    >[... Liberetto copied several times]
+
+    >Date: Sat, 1 Jun 1996 04:07:50 -0500
+    >Subject: Re: Liberetto Vol I/4
+    >i read the first sentences of your pamphlet and saw something about
+    >battles, the net and freedom of expression. nothing to do with state
+    >machines. i don't have time to read more about stuff i receive unless
+    >i am instantly interested on what it is. recently i started to get
+    >unsolicited stuff. it's past 4am and i still have work to do.
+
+    No comment, really.  Hee-hee-hee.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: "Pierre Vandevenne" <pierrev@ibm.net>
+    >Subject: Re: Liberetto Vol I/4
+    >Hello Pieter,
+    >I've got a new e-mail address : datarescue@pophost.eunet.be.
+    >Please keep me on your list !
+    >I have to confess that after spending more than 22 years in our
+    >wonderful educational system, I still don't understand much about
+    >Turing machines, self advertising coffeinated vapourware distributing
+    >machines and/or compilers. Worse : if I keep libero on my hard disk,
+    >it is only because it is much more classy than visual basic (and is
+    >also incidentally somewhat less space consuming).
+    >But all in all, I *love* liberetto.
+    >Pierre
+
+    We are not proud.  Any reason will do to keep Libero on your hard disk.
+    ;-)
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Sender: rlaplante@agile.com
+    >Subject: uncompression / what format ?
+    >To whom it may concern,
+    >I've downloaded Libero (lrmswin.zip and lrmswins.zip) via my HP
+    >workstation - then transported to my PC (via ftp), but am unable to
+    >restore the files from the compressed version. I'm trying to use
+    >PKZIP (2.04) but it doesn't accept the file header.  I've tried
+    >several other decompressions in the Unix environment - gunzip,
+    >uncompress etc. - none worked.
+    >Obviously I have either obtained a bad file or I need a different
+    >compression utility. Which is it? Can you point me to the right
+    >utility?
+    >I would really like to try the tool.
+    >Richard Laplante
+
+    Most likely, you transferred the file using ftp in text mode.  Ftp will
+    carefully convert all tabs, line endings, and accented characters, which
+    is nice for a real text file, and fatal for a .zip file.  It's a good
+    idea to use binary mode in ftp unless you really want text mode.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >To: "Hintjens, Pieter" <pahint@box.eunet.be>
+    >Reply-To: "Glenn R. Williams" <gloonie@ibm.net>
+    >Subject: How do you pronounce iMatix?
+    >Pieter,
+    >Can you include in the next Liberetto a pronunciation of 'iMatix'?
+    >We speculate "im-matics" to rhyme with "fanatics" (almost!), but
+    >it could be "eye-maticks" ...
+    >Cheers,
+    >Glenn
+
+    We asked Alex, he-who-invented-the-name, to explain the name and how to
+    pronounce it.  He said that he invented "iMatix" while 'sitting on the
+    loo one day', and that one pronounces it 'im-matiks' (UK English),
+    'eye-matiks' (US English), or 'ee-matiks' (continental Europe).  We like
+    to think we can adapt to local needs and preferences.  These days, there
+    are only two real concerns when choosing a name for an organisation.
+    (a) it's still available as an Internet domain name, and (b) it isn't
+    an insult in any language you can think of.  On some far-off planet, we
+    just started a thousand year war between two tribes for whom the phrase
+    'ee-mah-ticks' is a deadly personal and ancestral insult.  Pace, Douglas
+    Adams.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Liberetto... not an insult in any known language.  If that's not enough
+    reason to keep getting it every month, send a message to our robot at
+    'LISTSERVER@imatix.com' with the phrase 'unsubscribe me' in the body or
+    in the Subject: heading (but not in both unless you set Cc: to the
+    address 'nulldev@imatix.com').  Use exact case and spelling, and write
+    neatly.  If in doubt, drink another beer, and repeat until you fall
+    over.  That usually works.
+

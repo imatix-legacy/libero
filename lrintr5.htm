@@ -1,0 +1,396 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Example of a C/C++ Comment Stripper</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr4.htm">&lt;</A>
+ | <A href="lrintr6.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC11">Example of a C/C++ Comment Stripper</A></H2>
+
+<P>One of the classic uses for state machines is in scanning and parsing text
+- e.g. source programs.  People usually do this with tools like lex and yacc,
+or using languages like Awk and Perl that are good at pattern matching.  When
+I explain that Libero uses a state-machine model, some people think that I am
+asking them to use Libero in place of the honoured tools I just mentioned.
+The next example shows why this is not the case.</P>
+
+<P>Here I present a C/C++ comment stripper based on an example by Robert
+Martin (who makes a finite-state machine code generator for C++).  In C and
+C++, comments are either enclosed between '/*' and '*/', or begin with '//'
+until the end of the line.  This program removes all comments from a C or C++
+source program, with some checking for errors like an unmatched '/*':</P>
+
+<PRE>
+!
+!   C/C++ comment stripper dialog
+!
+!   Written:    95/03/30  Pieter Hintjens &lt;ph@imatix.com&gt;
+!   Revised:    96/05/15  Frans Janssens &lt;frans@sebb.bel.alcatel.be&gt;
+!
+-source=stripper.c
+-schema=lrschema.c
+
+After-Init:
+    (--) Ok                         -&gt; Outside-Comment
+          + Get-Char-From-Input
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+
+Outside-Comment:
+    (--) Quote                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; After-Slash
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+Skip-Quote:
+    (--) Quote                      -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Quote
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+After-Slash:
+    (--) Quote                      -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Comment
+          + Start-New-Comment
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Outside-Comment
+          + Put-Slash-To-Output
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+
+Skip-Eoln:
+    (--) Quote                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Eoln
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Outside-Comment
+          + Put-Char-To-Output
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Eoln
+          + Get-Char-From-Input
+
+Skip-Comment:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; After-Comment-Slash
+          + Get-Char-From-Input
+    (--) Star                       -&gt; After-Comment-Star
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+After-Comment-Star:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Outside-Comment
+          + Other-If-Nested-Comment
+          + Get-Char-From-Input
+    (--) Star                       -&gt; After-Comment-Star
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+After-Comment-Slash:
+    (--) Quote                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Slash                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Star                       -&gt; Skip-Comment
+          + Start-New-Comment
+          + Get-Char-From-Input
+    (--) NewLine                    -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) Other                      -&gt; Skip-Comment
+          + Get-Char-From-Input
+    (--) End-Of-File                -&gt;
+          + Signal-Unterminated-Comment
+          + Terminate-The-Program
+
+Defaults:
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+    (--) End-Of-File                -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>This is what Libero generates when I compile the dialog:</P>
+<PRE>
+/*===========================================================================*
+ *                                                                           *
+ *  stripper.c  description...                                               *
+ *                                                                           *
+ *  Written:    96/12/31    Pieter Hintjens <ph@imatix.com>                  *
+ *  Revised:    96/12/31                                                     *
+ *                                                                           *
+ *  Skeleton generated by LIBERO 2.20 on 31 Dec, 1996, 14:00.                *
+ *===========================================================================*/
+
+#include "prelude.h"                    /*  Universal include file           */
+#include "stripper.d"                   /*  Include dialog data              */
+
+/*- Function prototypes -----------------------------------------------------*/
+
+/*- Global variables used in this source file only --------------------------*/
+
+static int
+    feedback;                           /*  Feedback for calling program     */
+
+static char
+    *some_param;                        /*  Example of parameter             */
+
+/********************************   M A I N   ********************************/
+
+int my_funct (char *p_some_param)
+{
+    feedback = 0;                       /*  No errors so far                 */
+    some_param = p_some_param;          /*  Local copy of parameters         */
+
+#   include "stripper.i"                /*  Include dialog interpreter       */
+}
+
+/*************************   INITIALISE THE PROGRAM   ************************/
+
+MODULE initialise_the_program (void)
+{
+    the_next_event = ok_event;
+}
+
+/***************************   GET EXTERNAL EVENT   **************************/
+
+MODULE get_external_event (void)
+{
+}
+
+/*************************   TERMINATE THE PROGRAM    ************************/
+
+MODULE terminate_the_program (void)
+{
+    the_next_event = terminate_event;
+}
+
+/**************************   GET CHAR FROM INPUT   **************************/
+
+MODULE get_char_from_input (void)
+{
+}
+
+/***************************   PUT CHAR TO OUTPUT   **************************/
+
+MODULE put_char_to_output (void)
+{
+}
+
+/**************************   PUT SLASH TO OUTPUT   **************************/
+
+MODULE put_slash_to_output (void)
+{
+}
+
+/***************************   START NEW COMMENT   ***************************/
+
+MODULE start_new_comment (void)
+{
+}
+
+/**********************   SIGNAL UNTERMINATED COMMENT   **********************/
+
+MODULE signal_unterminated_comment (void)
+{
+}
+
+/************************   OTHER IF NESTED COMMENT   ************************/
+
+MODULE other_if_nested_comment (void)
+{
+}
+</PRE>
+
+<P>This is the completed comment-stripper program:</P>
+<PRE>
+/*=========================================================================*
+ *                                                                         *
+ *  stripper.c  C/C++ comment stripper                                     *
+ *                                                                         *
+ *  Written:    96/12/31    Pieter Hintjens <ph@imatix.com>                  *
+ *  Revised:    96/12/31                                                   *
+ *                                                                         *
+ *=========================================================================*/
+
+#include "prelude.h"                    /*  Standard include file          */
+#include "stripper.d"                   /*  Include dialog data            */
+
+
+/*- Global variables used in this source file only ------------------------*/
+
+static int
+    thisch,                             /*  Current character              */
+    comment_level,                      /*  Comment nesting level          */
+    feedback;                           /*  Feedback for calling program   */
+
+int main (void)
+{
+    feedback = 0;                       /*  No errors so far               */
+#   include "stripper.i"                /*  Include dialog interpreter     */
+}
+
+/************************   INITIALISE THE PROGRAM   ***********************/
+
+MODULE initialise_the_program (void)
+{
+    the_next_event = ok_event;
+}
+
+/*************************   GET CHAR FROM INPUT   *************************/
+
+MODULE get_char_from_input (void)
+{
+    thisch = getchar ();
+    switch (thisch)
+      {
+        case '"':   the_next_event = quote_event;         break;
+        case '/':   the_next_event = slash_event;         break;
+        case '*':   the_next_event = star_event;          break;
+        case '\n':  the_next_event = newline_event;       break;
+        case EOF:   the_next_event = end_of_file_event;   break;
+        default:    the_next_event = other_event;
+      }
+}
+
+/**************************   PUT CHAR TO OUTPUT   *************************/
+
+MODULE put_char_to_output (void)
+{
+    putchar (thisch);
+}
+
+/*************************   PUT SLASH TO OUTPUT   *************************/
+
+MODULE put_slash_to_output (void)
+{
+    putchar ('/');
+}
+
+/**************************   START NEW COMMENT   **************************/
+
+MODULE start_new_comment (void)
+{
+    comment_level++;                    /*  We have a new comment          */
+}
+
+/***********************   OTHER IF NESTED COMMENT   ***********************/
+
+MODULE other_if_nested_comment (void)
+{
+    comment_level--;                    /*  We've finished a comment       */
+    if (comment_level &gt; 0)              /*    but maybe it was nested...   */
+        raise_exception (other_event);
+}
+
+/*********************   SIGNAL UNTERMINATED COMMENT   *********************/
+
+MODULE signal_unterminated_comment (void)
+{
+    fprintf (stderr, "stripper: unterminated comment\n");
+    feedback = 1;                       /*  Return code for main program   */
+}
+
+/***************************   GET EXTERNAL EVENT   ************************/
+
+MODULE get_external_event (void)
+{
+}
+
+/************************   TERMINATE THE PROGRAM   ************************/
+
+MODULE terminate_the_program (void)
+{
+    the_next_event = terminate_event;
+}
+</PRE>
+
+<P>The program works and is easily understood.  However, because the dialog
+is really too low-level, it makes the problem seem more complex than it
+actually is.  In fact, this is a good example of the kind of problem that I
+would never use Libero for.  I would write this as a straight C program.</P>
+
+<P>Moral: Libero is not worth the overhead on trivial problems.  By contrast,
+when you are wrestling with a really complex problem, Libero lets you break
+it down into smaller, simpler pieces, and keep the central logic in a single
+place.</P>
+
+<P>Second moral: simplicity can be deceptive.  It often happens that the
+first stab at a problem produces a simple solution, as here.  However, when
+the solution meets reality, reality often gets its own way and imposes all
+kind of nasty complexities that mess-up the clean solution.  A dialog is very
+good at handling such things.  So, it can be better to start-out on the right
+footing and use a dialog from the start.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr4.htm">&lt;</A>
+ | <A href="lrintr6.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <EM>Example of a C/C++ Comment Stripper</EM>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

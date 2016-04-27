@@ -1,0 +1,120 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Syntax Of Logical Conditions</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech3.htm">&lt;</A>
+ | <A href="lrtech5.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC7">Syntax Of Logical Conditions</A></H2>
+
+<P>The <TT>:if</TT> and <TT>:do while</TT> commands output some code
+depending on a logical-condition.  Some examples:
+
+<PRE>
+:if $debug
+:  echo "version is $version"
+:endif
+:do while $counter &gt; 0
+   ...
+:enddo
+</PRE>
+
+<P>A logical condition has two possible forms:
+
+<PRE>
+:if [not] [test] <I>expr1</I> [<I>logical_operator</I> <I>expr2</I>]
+:while [not] [test] <I>expr1</I> [<I>logical_operator</I> <I>expr2</I>]
+
+:if [not] [<I>standard_test</I>]
+:while [not] [<I>standard_test</I>]
+</PRE>
+
+<H3><A NAME="TOC8">Logical Operators</A></H3>
+
+<P>You can make a condition by comparing two expressions.  The 'test' keyword
+is optional and I normally don't use it.  The expressions can be numeric or
+string; if either is a string, Libero treats both as strings.  The logical
+operator can be one of:
+
+<P>These are the logical operators:
+<UL>
+<LI><TT>=</TT> - <I>expr1</I> is equal to <I>expr2</I>. <TT>==</TT> is also
+okay.
+
+<LI><TT>&lt;&gt;</TT> - <I>expr1</I> is not equal to <I>expr2</I>.
+<TT>!=</TT> is also okay.
+
+<LI><TT>&lt;</TT> - <I>expr1</I> is less than <I>expr2</I>.
+
+<LI><TT>&lt;=</TT> - <I>expr1</I> is less than or equal to <I>expr2</I>.
+
+<LI><TT>&gt;</TT> - <I>expr1</I> is greater than <I>expr2</I>.
+
+<LI><TT>&gt;=</TT> - <I>expr1</I> is greater than or equal to
+<I>expr2</I>.
+</UL>
+
+<H3><A NAME="TOC9">Standard Tests</A></H3>
+
+<P>Libero provides these standard tests:
+<DL>
+<DT>exist <I>filename</I></DT>
+<DD><I>filename</I> exists in the current directory.</DD>
+<DT>animate</DT>
+<DD>The dialog uses the -animation option.</DD>
+<DT>check</DT>
+<DD>The dialog uses the -check option.</DD>
+<DT>caps</DT>
+<DD>The dialog uses the -style=caps option.</DD>
+<DT>cobol</DT>
+<DD>The dialog uses the -style=cobol option.</DD>
+<DT>headline</DT>
+<DD>The dialog uses the -style=headline option.</DD>
+<DT>normal</DT>
+<DD>The dialog uses the -style=normal option.</DD>
+<DT>plain</DT>
+<DD>The dialog uses the -style=plain option.</DD>
+<DT>title</DT>
+<DD>The dialog uses the -style=title option.</DD>
+<DT>defaults</DT>
+<DD>The dialog defines a Defaults state.</DD>
+<DT>state <I>name</I></DT>
+<DD><I>name</I> is a state in the dialog.</DD>
+<DT>event <I>name</I></DT>
+<DD><I>name</I> is an event in the dialog.</DD>
+<DT>module <I>name</I></DT>
+<DD><I>name</I> is a module in the dialog.</DD>
+</DL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech3.htm">&lt;</A>
+ | <A href="lrtech5.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <EM>Syntax Of Logical Conditions</EM>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

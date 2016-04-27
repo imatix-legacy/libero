@@ -1,0 +1,347 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol II/1
+
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 JANUARY 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 1
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == HAPPY NEW YEAR --...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Welcome to 1997!  If you can read that in one shot, you didn't have
+    enough to drink on Tuesday evening.  A CNN talking head once described
+    Russia as a land where 'traditions go back a long way'.  One of our
+    Great Western Traditions is to start the New Year by listing all the
+    promises we intend to break during the year.  For instance, my main New
+    Year resolution is to give up smoking, alcohol, fast women, fast cars,
+    and fast computers.  I'll drink to that, honey, do me a cigar and let's
+    go for a drive in the new Cyrix 250+!
+
+    Liberetto survived its first year with only minor bomb damage, no
+    lawsuits, and no editor to speak of.  iMatix has grown up, though, and
+    we do a lot more than finite-state machines these days.  Finite state
+    machines are good for you, like brown bread or a hard bed.  Yet, variety
+    is also pleasant.  So, Liberetto has gone under the knife - welcome to
+    the All New Liberetto.
+
+    We hope 1997 will be as much fun for you as we reckon it will be for us!
+
+    Pieter Hintjens
+    Antwerpen
+    1 January 1997
+
+
+ == HEADLINES --.-...---.-.-..--.-.-...--.-.-.-...--.-.-...-.-..---.-.-...--.
+
+    Libero '97 Hits The Streets!  Godzilla Flees!
+
+        It's true!  Libero 2.20 is out now!  More languages, more features,
+        it's amazing that they can pack this much into such a small box.
+        Even if you don't use Libero, it's such a great product your hard
+        disk will be happy to hold it.  Keep your hard drive content!  More
+        news at six!
+
+    Search The iMatix Website!
+
+        Looking for something?  Lost your way to the back issues of
+        Liberetto?  Didn't bookmark the section on superstates?  Don't worry!
+        Now you can let the computer do the work.  Our new full-text search
+        will find anything on our website in a few seconds.  Just follow the
+        link from our home page...
+
+    Xitami Gets Even Better
+
+        Our wonderful webserver is under 150Kb yet performs like a poodle on
+        steroids.  Watch those teeth!  Xitami can handle thousands of
+        connections on a 286 PC running MS-DOS 3.11!  Okay, maybe not.  But
+        on a 486 running Windows 95, it can.  Now supports Windows 95, 3.51,
+        4.0, as well as most UNIXes.  Creates standard NCSA/CERN log files.
+        Does CGI, image maps, authorization,...  And it's free.
+
+
+ == LIBERO '97 --...-.-.---.-.-.--.-.-.-----....-.-.-.-..--...--.-...-.-.--.
+
+    This is a useful upgrade to Libero 2.12.  It looks the same, works much
+    the same, but we made a number of small improvements and fixes.  Check
+    it out:
+
+     *  New 'Pretty Print' option, after a suggestion from Ewen McNeill.
+
+     *  New options '-stats' (print statistics), '-nosort' (don't sort new
+        module stubs, suggested by Jonathan Schultz), '-dpath' (search path
+        for dialogs and .ini files, suggested by Ewen McNeill).
+
+     *  C++, Java, Rexx schemas now a standard part of Libero kit.
+
+     *  Various minor bugs fixed.
+
+     *  Event '$other' means 'all other events in dialog'; this is great for
+        writing parsers.
+
+    Starting with this new version, we're no longer supplying binary kits for
+    the various UNIX platforms (Linux, SunOS, Sparc, OSF/1, etc.).  Too much
+    work for little return.  To install Libero 2.20 on a UNIX system you will
+    need to recompile.  This is generally quick and simple, and recommended
+    for UNIX software in any case.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    From: jstone@world.std.com (Jeff Stone)
+    To: ph@imatix.com
+    Subject: Libero Registration
+
+    Pieter,
+
+    I read a discussion about Finite State Machine programming in one of
+    the usenet newsgroups (comp.programming?) in which you described
+    Libero as part of your reply to someone's question.  I have
+    occasionally included a FSM in some of my projects, but I've always
+    written my own, either with nested switch/case statements or with a
+    set of transition tables and a tiny interpreter I built for that
+    project.
+
+    When I read your contribution to the net discussion, I recognized
+    that Libero might ease my job of FSM programming the next time, so I
+    downloaded a copy and saved it away.  Sure enough, now, six months
+    afterward, I have a project (a portable drugs and explosives
+    detector) in which a user can select menu items using a few buttons
+    and a small LCD screen.  Nested switch/case programming got too
+    complex and too ugly so I brought out Libero and learned how to use
+    it.  My project is now a mix of procedural and FSM programming, with
+    a Libero dialog controlling the overall operation.
+
+    > Who are you
+    Jeff Stone, an independent Software Consultant/Contractor near
+    Boston, MA, (USA).  Most of my work is with embedded systems such as
+    the drugs detector I mentioned above.  When I'm not playing with
+    computers, I am usually hiking, skiing, or climbing rocks.
+
+    > E-mail
+    jstone@world.std.com
+
+    > What version of Libero do you use
+    v2.11
+
+    > Where did you get Libero from
+    >From imatix, I think.  I used the URL you gave in your Usenet posting.
+
+    > Where did you hear about Libero
+    As above, your contributions to Usenet.
+
+    > Operating system and compiler
+    MSDOS, MS C/C++ v8.00 (aka MSVC++ v1.0)
+
+    > Installation problems
+    None
+
+    > Difficulties in using Libero
+    Libero doesn't always recognize my coding style.  It generates
+    function preambles with a space where I don't use one, eg.:
+    MODULE SomeFunction (void).  If I forget and reformat SomeFunction()
+    as: MODULE SomeFunction(void), Libero won't recognize it and will
+    generate a new function stub.  This confused me the first couple
+    of times it happened.
+
+    When I am debugging, I can follow the procedural code alright, but
+    knowing where I am in the dialog is more difficult.  I had to trace
+    the interpreter code to know where to look for the current state
+    value, and looking up its name in the source code is a little tedious.
+
+    > Difficulties with the documentation
+    > Suggestions for the documentation
+    It took quite a while for me to figure out the syntax of a libero
+    dialog.  An explicit description of it would have helped.
+    After I'd read it several times and still didn't 'get it' I copied the
+    Comment Stripper script and translated it.  Seeing the stub functions in
+    STRIPPER.C as output by the translator and comparing it to your coded
+    STRIPPER.C helped me see part of what I had missed.  So perhaps including
+    both versions in the documentation would help others.
+
+    > You program in which language(s)
+    C and C+
+
+    > Suggestions for technical changes
+    If the schema generated event-numbers and state-numbers as
+    C enums, some debuggers (Turbo Debugger, at least) could report
+    state- and event-values as symbols.
+
+    Since I write embedded systems I usually don't have a printf() or any
+    terminal to write to.  In many desktop applications, reporting a
+    dialog error to the terminal would confuse the user anyway.  How
+    about having the interpreter call an error function that Libero puts
+    into the .C file along with the animation symbol tables, _LR_mname[],
+    _LR_ename[], _LR_sname[]?  The interpreter would pass only the
+    numeric ID's for state, event and module.  The Libero-generated
+    version of this function could still translate these IDs to symbols
+    and call printf() or vprintf() but it would be easy for the
+    programmer to modify the function to suit the environment, eg., to
+    log to a file or to a memory array, with or without symbolic
+    translation.  The programmer could modify the function and the
+    tables, comment them out or whatever, without having to modify
+    the schema.
+
+    How about defining Libero's main function as:
+      void *my_funct (struct _LIBERO_VARIABLES *pv, void *pargs);
+
+    The programmer could pass arbitrarily complex arguments (or none at
+    all) into and out of the libero dialog, just by casting 'pargs' and
+    the returned pointer to the appropriate pointer types: ((struct _USER
+    *)pargs)->whatever.
+
+    Similarly with pv, the programmer could provide memory for the
+    interpreter's variables which the interpreter would address as
+    'pv->xyz'.  This would allow 'pure procedure dialogs' that could be
+    run by several tasks in a multi-tasking program.  If, in addition,
+    the interpreter code in the .i file were not generated for every
+    script, then a system might include several separately compiled
+    Libero dialogs without the overhead of keeping many copies of the
+    interpreter.  Even though the it is small, embedded systems often are
+    short of memory.
+
+    I know that some of these suggestions are for specialized situations,
+    but the features can be included in the .C file inside of some general
+    purpose 'wrapper' functions, so that programmers who don't need those
+    features might never see them, and those who do could find them.
+
+    Well, this started out to be a registration and a 'Thank You' and I
+    seem to have turned it into a technical discussion.  I hope some of
+    these suggestions will be useful.  If some of them find their way
+    into Libero, I'd be pleased to hear about it -- and grateful.
+
+    Thanks for a useful tool and for making it so readily available.
+
+    Regards,
+
+    Jeff Stone
+
+    ------------
+    We liked Jeff's ideas, and built a couple of them into Libero 2.20:
+    events and states are now defined as 'enums' in the C and C++ schemas;
+    we made the documentation more explicit about the dialog file syntax.
+    It looks like there is room for a C schema specifically tuned for small
+    (embedded) systems.  The SMT kernel uses some of the techniques Jeff
+    proposes, such as a single interpreter for multiple dialogs.  But it's
+    probably overkill.  Any interest in a specific C schema for embedded
+    systems?
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From: "Noyes, Robert D (rdnoyes)" <RDNOYES@msg.PacBell.COM>
+    To: "'pahint@EUNET.BE'" <pahint@box.eunet.be>
+    Subject: RE: Liberetto Vol I/10
+    Date: Wed, 4 Dec 1996 14:04:39 -0800
+
+    Always good to get Libretto, even when it is a short one. Here's hoping
+    the holidays are good for you.
+
+    ------------
+    Likewise, thanks.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From: Bill Meahan <wwm@wa8tzg.mi.org>
+    Organization: What, ME Organized?
+    To: info@imatix.com
+    Date: Wed, 4 Dec 1996 22:15:21 -0400
+    Subject: Schema for PIC Microcontrollers?
+
+    Hey, you guys still alive?  Nothing new on the website for well over
+    a month.
+
+    Anyway, it seems to me like FSMs are a primo way of programming for
+    just the kind of things embedded microcontrollers are good at.  I'm
+    starting to fool around with the (in)famous Microchip PIC series of
+    controllers.  Despite the existence of semi-complete C compilers,
+    PICs are really best programmed in their own assembler.  Hey, when
+    you only have a couple of hundred bytes of program memory, you want
+    to use every trick possible to minimize code size!  Any chance of a
+    PIC assembler schema for Libero?
+
+    I'll probably regret it, but sign me up for a "subscription" to
+    Liberetto while you're at it.
+
+    Bill Meahan WA8TZG                   wmeahan@wa8tzg.mi.org
+    ARRL, IMRA, QRP-L(#117), NorCal QRP (#407), G-QRP (#8468), MI-QRP (#M1458)
+    All statements herein are worth exactly what you paid for them
+    cat: a purr bearing mammal
+
+    ------------
+    Alive?  Kicking, no less.  Well, December was pretty busy.  It was so
+    busy, in fact, that we had two coffee machines working in shifts just
+    to keep up with demand.  Everyone wanted everything to be done by the
+    end of the year, since despite our highly advanced culture, we still
+    worship the calendar and the seasons.  We've tried to make it up, with
+    little flashy stickers on our home page, saying 'New!' and 'Improved!'
+    and such like.  And no, not much chance of a PIC assembler schema from
+    these quarters, unless someone sends us a PIC emulator plus "Learn PIC
+    Assembler In Twenty Minutes".  (A quick check on the Internet turns up
+    a handful of PIC ICEs -- in-circuit emulators -- but nothing free...)
+    (Shouldn't it be ICE PICs?.  Probably an old joke in the PIC community.)
+
+
+ == FOCUS ON TECHNOLOGY --.-..--..--..--.-.-.-..--..-.-..--..-.-..--..-.-..-
+
+    This month... we look at Framer, a new tool that adds spice to your
+    Libero dialogs.  We chat to our head scientist, still wearing his famous
+    white jacket, arms casually tied behind him, and smoke exuding subtly
+    from his right ear...
+
+    Liberetto: Hi, Pieter, how the devil are you?
+    Pieter: Fine, thanks, just light me one of those cigars, if you would,
+    please.  Hmm, zhatsh nice.
+
+    L.: What's the deal with this Framer thing?
+    P.: One of our buddies, Pascal, was playing with HTML frames and found a
+    neat way to display a dialog in one window, and the program source in
+    another.  You click on something in the dialog, and the source window
+    shows what you clicked on.
+
+    L.: Sounds nice.  What can you do with it?
+    P.: We like it for documentation.  It's a great way to look at a dialog
+    and its program at the same time.  We've started using it on our website.
+
+    L.: I heard it's written in Perl.  Does that mean it only works for Perl
+    programs?
+    P.: That would be dumb.  It works with everything, C, COBOL, Perl,
+    anything that Libero can generate.  Take your program and its dialog,
+    throw Framer at it, and it produces some HTML pages, three in fact.  The
+    first one defines the frames, the second and third contain the hyper-
+    linked program and dialog.
+
+    L.: Can't you put it into a single HTML page?  Three pages...  It sounds
+    so inelegant.
+    P.: Frames are fun.  If you don't get it just right, you get the famous
+    'Hall of Mirrors' effect, where Netscape cuts the main window into two
+    pieces, then does the same for each new window, until all you have is a
+    lot of borders and no windows.  Microsoft's Internet Explorer does just
+    the same.  The 'three page' solution was the best we could find.
+
+    L.: What about people with older browsers, like Lynx, that don't support
+    frames?
+    P.: The HTML that Framer produces will support non-frame browsers, too.
+    It won't be as nice as the real thing, but at least it shows something.
+
+    L.: Anything else you want to add?
+    P.: Well, interestingly enough, Framer is a Perl program that parses
+    dialogs.  We built it using the same dialog as one of the Libero C
+    programs, LRLOAD, which also parses dialogs.  This saved us a lot of
+    effort.  Just shows again how useful dialogs are.
+
+    L.: Thanks for the interview.  Okay, lads, you can take him back.
+    P.: I'll keep the cigar.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    Enough already?  To get off this mailing list, send a message to
+    NomOrelIberetTopleaSeorillBesick@imatix.com.
+

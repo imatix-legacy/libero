@@ -1,0 +1,654 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-               September 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 9
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Here in Belgium, the end of Summer coincides with the start of the school
+    year, with the return of free and unlimited parking on the autoroutes,
+    and with general relief in the population as people can stop complaining
+    about the lousy Summer weather and start complaining about the lousy
+    Autumn weather.
+
+    Nothing much happened in August, generally, apart from the fall of the
+    Russian presidency, the onset of the world economic crisis, and signs
+    that terrorists are starting to get nasty again, after two decades of
+    only minor fireworks.
+
+    This month we're able to bring you the fruit of our Xitami User's
+    Survey, something that would have been impossible before the days of
+    e-mail.  Now it was simply a matter of sending out a small
+    questionnaire, then standing back as hundreds of replies flooded our
+    mail system.  Thanks to all of you who answered.
+
+    As well as the many people who replied to the survey, we got a full and
+    varied mailbag.  It's one of the pleasures of my job to go through some
+    of these mails, which range from the profoundly interesting to the
+    frankly bizarre.
+
+    Thanks for all the mails, and keep on enjoying the software!
+
+    Pieter Hintjens
+    Antwerpen
+    1 September 1998
+
+
+ == XITAMI USERS SURVEY .-..-..-...----.-.-...---.---...--.----.-..---.-.--..
+
+    We sent out about 1400 questionnaires and got 370 responses.  To show
+    you the results we've collated the figures back into the original
+    questions:
+
+    1  How many months have you been using Xitami?
+    1a   [ 41] Less than 1 month
+    1b   [ 57] 1 to 3 months
+    1c   [ 75] 3 to 6 months
+    1d   [112] 6 to 12 months
+    1e   [ 81] more than a year
+
+    2  Used for (please insert an X where appropriate):
+    2a   [106] Intranet, for [] users
+    2b   [ 84] Intranet web applications
+    2c   [214] Testing
+    2d   [205] Internet
+    2e   [  9] CD-Rom web application
+
+    3  Platforms:
+    3a   [134] Windows NT
+    3b   [289] Windows 95
+    3c   [ 32] Linux
+    3d   [ 38] OS/2
+    3e   [  5] Other Unix
+
+    4  Satisfaction:
+    4a   Stability           [247] Excellent [ 98] Good [12] Average [ 5] Poor
+    4b   Performance         [244] Excellent [105] Good [ 9] Average [ 0] Poor
+    4c   Documentation       [ 94] Excellent [175] Good [73] Average [17] Poor
+    4d   Support             [157] Excellent [137] Good [33] Average [ 6] Poor
+    4e   Ease-of-use         [207] Excellent [121] Good [24] Average [ 4] Poor
+    4f   Functionality       [155] Excellent [163] Good [38] Average [ 1] Poor
+    4g   Rate of improvement [130] Excellent [169] Good [41] Average [ 2] Poor
+    4h   imatix.com website  [ 77] Excellent [204] Good [59] Average [ 5] Poor
+
+    Of the 1400 people polled, 66 run an Internet website (we'll be adding a
+    page to imatix.com with these links).  We know that there are about 500
+    Internet sites that use Xitami, so a quick application of data-sleuthing
+    techniques lets us estimate that there are about 10,000 Xitami users out
+    there.  We're assuming that anyone who is serious enough to use Xitami
+    for an Internet web site would respond to the survey, and be glad to be
+    listed on our site.
+
+    The results of the survey are interesting.  Clearly many people have a
+    hard time with the documentation.  We also received a large number of
+    excellent ideas for changes and improvements.
+
+    The person (who will remain nameless, Bill) who asked that Xitami be
+    supplied with an espresso, English-style toast (one side only) and a
+    French maid should be ashamed.  Everyone knows that Belgian waffles
+    are far superior to English toast.
+
+    We promised a free copy of Xitami/Pro (Xitami's big brother, which
+    supports the Secure Sockets Layer) to one respondent chosen at random.
+    So, we cut-out the little 'From:' lines in each mail, put the whole lot
+    into a hat, and asked the concierge, Harry, to pull one out.  Okay, in
+    truth we wrote a small Perl script as a snip-n-hat Harry simulator, but
+    the results were just as impressive.  The proud (we hope) winner of a
+    Xitami/Pro is Dan Nitescu <dan.nitescu@swipnet.se>.
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    On the follies of large projects...
+
+    From:          "Noyes, Robert D (PB-rdnoyes)" <RDNOYES@msg.pacbell.com>
+    To:            "'Pieter Hintjens'" <editors@IMATIX.COM>
+    Subject:       RE: Liberetto III/8
+    -----------------------------------------------------------------------
+    Your observations  in the Libretto III/8 are brilliant, take it from
+    another who has "been there." Monty Python would be amazed at how smart
+    "those Belgies" are!
+    It's always a pleasure getting the Libretto; keep it coming.
+    L8R
+
+    >>>>>>>>>>>>>>>>>>>>
+    No comment. :|
+
+    From:               Lennart.Borgman@draco.se.astra.com
+    To:                 info@imatix.com
+    Subject:            XML explained
+    -----------------------------------------------------------------------
+    I read your article about XML in Volume III/4 or Libretto. Thanx for
+    finally making me understand what XML is good for. Who needs MS Word doc
+    format now that we have XML? Not even Bill I guess.
+    - Lennart
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    On SMT and Libero...
+
+    From:               John Totten <john@totten.com>
+    To:                 Libero@isonline.com
+    Subject:            Telephony
+    -----------------------------------------------------------------------
+    Anyone using Libero for telephony apps?
+    John Totten
+    Sitka AK
+
+
+    From:               john eikenberry <jae@dsinw.com>
+    To:                 smt@imatix.com
+    Subject:            Python wrapper for SMT?
+    -----------------------------------------------------------------------
+    Hello,
+    I recently discovered your SMT kernel and after reading a bit about it
+    have gotten the idea that it would make a great part of a software agent
+    development environment I'm working on. I'm implementing my system in
+    Python, and thought about trying to use Swig to generate a python
+    wrapper for SMT.
+    I was hoping that someone there might be wiling to pass along some
+    thoughts on this idea. This would be my first use of Swig, and I have
+    cetain reservations about how closely SMT is tied to Libero.
+    ---
+    John Eikenberry
+
+
+    From:               Dave_Kirby@3com.com
+    To:                 info@imatix.com
+    Subject:            Please add me to Liberetto mailing list
+    -----------------------------------------------------------------------
+    Firstly please add me to your Liberetto mailing list - I was on it a
+    couple of years ago (at a different email address), but for some reason
+    I stopped receiving it after a few months.
+    I have just downloaded and started playing with Xitami - great stuff.  I
+    am glad to see you have included examples in Python. It is my current
+    language of choice and deserves far wider coverage.
+    Talking of Python has anyone done a Libero schema for the language yet?
+    I may attempt one myself if no one else has, though I can see there
+    could be problems with Python's method of using indentation to delimit
+    blocks, though I haven't looked at schemas closely enough to tell how
+    limiting this would be.
+    Regards,
+    Dave Kirby
+
+
+    From:               fredrik.thornblad@bfs.bofors.se (Fredrik Thoernblad)
+    To:                 ph@imatix.com
+    Subject:            Libero
+    -----------------------------------------------------------------------
+    Hi!
+    I have just managed to persuade our computer department to download your
+    product Libero. (They haven't managed to install it correctly yet, but
+    that's another question). I heard about Libero a week or two ago when
+    someone in comp.lang.ada asked for a tool for creating state machines.
+    Someone suggested Libero, but also stated that it didn't yet support Ada.
+    He also made a hint that you might produce Ada support if someone asked
+    for it...  Well, here I am, asking for it!
+    As a mostly military company we make much of our software in Ada and
+    freqently use state machines. Now it's mostly up to the hacker himself
+    how the state machine is implemented and I think that a tool for
+    generating them would be useful to us.
+    I haven't had time to look that much into what Libero produces (mostly
+    since they haven't installed it correctly yet, but I downloaded the
+    win-version at home and had a quick look). One thing that I didn't find
+    was a graphical view of the complete state machine (not just current
+    state and next) with all the states and transitions. That's something
+    to consider for future versions.
+    Please let me know if you have the intention to make Ada support for
+    Libero.  And I would also like to have Ada 83 compatibility since we
+    still use that in some projects.
+    Regards,
+    Fredrik Thörnblad
+    Systems developement
+    Bofors Missiles AB
+
+    >>>>>>>>>>>>>>>>>>>>
+    Thanks for your mail about Libero. From what you say about frequently
+    using state machines, Libero would be a useful tool for your work.
+    Certainly it provides a single syntax for state machines that is
+    language-independent and can easily be shared between developers and
+    teams. You will find that it makes FSM programs much more maintainable
+    than previously, and provides a high-level design that can be provided
+    as part of the formal program specifications.
+
+    It's true that the Windows GUI does not show a overview of all the
+    states, but frankly, this is something we consider to be way too complex
+    for what it's worth. The single-state view is both simple and effective,
+    especially since a state is the logical unit of work in a FSM design.
+    An overall design is as useful as a full printout of a long program.
+    I.e. it can be impressive but does not say very much.
+
+    As regards Ada support: a competent Ada programmer can make this in less
+    than a day, by adapting one of the existing schemas. I forget whether
+    Ada supports constructs like the C #include statement, and
+    statically-assigned arrays, but presumably it does. You can probably start
+    from the C or C++ schemas. In general it's a matter of hand-translating the
+    schema code, then generating code and seeing that it compiles. Use a simple
+    test case such as the expression evaluator that comes with Libero.
+
+    When you've developed an Ada schema, you'll be able to tailor it for
+    various versions of Ada, either with separate schemas, or by using
+    conditional options in a single schema, as we do for Cobol. In any case,
+    we'll be glad to assist in this work, and to include any eventual Ada
+    schema in the standard Libero distribution.
+
+
+    From:               "Brett Hardcastle" <bhardca1@san.rr.com>
+    To:                 "Pieter Hintjens" <ph@imatix.com>
+    Subject:            Drumbeat 2.0
+    -----------------------------------------------------------------------
+    Will Xitami work with Drumbeat 2.0 from Elemental Software?
+    I must say that Xitami is my server of choice, however there is a growing
+    need to build database-driven websites (as they are no doubt the real sites
+    of tomorrow), and since I am NOT a programmer, the newer programs such as
+    Cold Fusion and Drumbeat are at least one answer to my web development
+    needs. Drumbeat (probably owned by Microsoft), as you probably know, is set
+    up to work easily with Access and ODBC.
+    Since I have never been enamored with either MS Personal Web Server or
+    Information Server, I am hoping that there is compatibility with Xitami.
+    Best Regards,
+    Brett Hardcastle
+
+    >>>>>>>>>>>>>>>>>>>>
+    Indeed, database-driven websites (or, put another way, web-based
+    business applications) are indeed an important part of the future.  We
+    are looking at a number of ways to access simple ODBC databases from
+    within Xitami; for serious work, we also make a web-based development
+    tool, iMatix Studio.  See http://www.imatix.com/pub/info/twp9801.zip.
+
+    From:               Jonathan Story <jonathan.story@usa.net>
+    To:                 info@imatix.com
+    Subject:            OS/2 versions of SFL and SMT?
+    -----------------------------------------------------------------------
+    I am about to make use of Libero in at least one application
+    (it looks very good -- I'm surprised it doesn't get more
+    mention in the newsgroups.)
+    Since the first application is multi-threaded, I *might* have
+    considered using SMT, except that OS/2 was not mentioned as
+    a platform to which it was ported. Now, I'm not asking that
+    you consider doing this (Libero seems to be sufficient), but
+    I am curious: you have Xitami ported to OS/2, and, as I
+    understand it, Xitami uses SFL and SMT. Does some OS/2 version
+    in fact exist?
+    Finally, what kind of thinking are you doing about making
+    a Java version of Libero? I suppose at this time it might
+    be more an intellectual curiousity than an actual tool, but
+    in time -- when Java moves into mission critical areas -- it
+    could find its stride. The well-known advantage, of course,
+    is that you wouldn't/shouldn't need a separate version for
+    each operating system.
+    Good work!
+    Jonathan Story
+
+    >>>>>>>>>>>>>>>>>>>>
+    There is a Java version of Libero, SMT runs just fine on OS/2, and
+    Xitami does too. And yes, it's a shame that Libero does not get as much
+    coverage as it deserves.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    On Htmlpp...
+
+    To:               ph@imatix.com
+    From:             The Happy Smiling Silver Family <psg@find-it.uk.com>
+    Subject:          HTMLPP
+    -----------------------------------------------------------------------
+    I've just been trying out HTMLPP and I'm impressed. I had been writing
+    my pages in SHTML and pulling them through a server to create the final
+    version (including common navigation bars, etc). Your code has solved
+    all of that.
+    Thanx for a great code and thanx for taking the time to read this.
+    --
+    Alan Silver
+    Prestwich Smile Gemach
+    http://www.geocities.com/Heartland/Hills/6749
+
+
+ == WEB SITE STATISTICS -..-..--..-..----...-.-...---.-..-.-..-..----..-..---
+
+    Once more, the latest figures from www.imatix.com:
+
+    Program started at Sun-Aug-30-1998 05:49 local time.
+    Analyzed requests from Fri-Jul-31-1998 23:57 to
+      Sun-Aug-30-1998 00:24 (29.0 days).
+
+    Total successful requests: 299,867 (67,857)
+    Average successful requests per day: 10,333 (9,693)
+    Total successful requests for pages: 59,484 (12,908)
+    Average successful requests for pages per day: 2,050 (1,844)
+    Total failed requests: 958 (198)
+    Total redirected requests: 153 (33)
+    Number of distinct files requested: 930 (886)
+    Number of distinct hosts served: 16,176 (4,163)
+    Number of new hosts served in last 7 days: 3,367
+    Corrupt logfile lines: 283
+    Unwanted logfile entries: 10
+    Total data transferred (in Megabytes): 7868 Mbytes (1729 Mbytes)
+    Average data transferred per day: 284 Mbytes (259 Mbytes)
+    (Figures in parentheses refer to the last 7 days).
+
+
+    Weekly Report
+
+    week beg.: #reqs:  %reqs:      bytes: %bytes:
+    ---------  -----  ------  ----------  ------
+    Jul/26/98:  8283:  2.76%:  242615111:  2.94%:
+    Aug/ 2/98: 74952: 25.00%: 2083932942: 25.26%:
+    Aug/ 9/98: 77728: 25.92%: 2099402229: 25.44%:
+    Aug/16/98: 69788: 23.27%: 1969869746: 23.87%:
+    Aug/23/98: 69075: 23.04%: 1854195677: 22.47%:
+    Aug/30/98:    41:  0.01%:     765279:  0.01%:
+
+
+    Daily Summary
+
+    day: #reqs:  %reqs:      bytes: %bytes:
+    ---  -----  ------  ----------  ------
+    Sun: 33708: 11.24%:  913658068: 11.07%:
+    Mon: 44533: 14.85%: 1162808935: 14.09%:
+    Tue: 48074: 16.03%: 1291939142: 15.66%:
+    Wed: 51594: 17.21%: 1519911289: 18.42%:
+    Thu: 44975: 15.00%: 1197898286: 14.52%:
+    Fri: 41738: 13.92%: 1150857981: 13.95%:
+    Sat: 35245: 11.75%: 1013707283: 12.29%:
+
+
+    Daily Report
+
+         date: #reqs:  %reqs:     bytes: %bytes:
+    ---------  -----  ------  ---------  ------
+    Jul/31/98:    19:  0.01%:     56548:       :
+    Aug/ 1/98:  8264:  2.76%: 242558563:  2.94%:
+
+    Aug/ 2/98:  9917:  3.31%: 260846962:  3.16%:
+    Aug/ 3/98: 11866:  3.96%: 306648028:  3.72%:
+    Aug/ 4/98: 11920:  3.98%: 338459043:  4.10%:
+    Aug/ 5/98: 11661:  3.89%: 338336763:  4.10%:
+    Aug/ 6/98: 11581:  3.86%: 328333764:  3.98%:
+    Aug/ 7/98: 10632:  3.55%: 288823874:  3.50%:
+    Aug/ 8/98:  7375:  2.46%: 222484508:  2.70%:
+
+    Aug/ 9/98:  8487:  2.83%: 238429224:  2.89%:
+    Aug/10/98: 10387:  3.46%: 281500450:  3.41%:
+    Aug/11/98: 14301:  4.77%: 366605609:  4.44%:
+    Aug/12/98: 14801:  4.94%: 409293546:  4.96%:
+    Aug/13/98: 11482:  3.83%: 308038011:  3.73%:
+    Aug/14/98: 11019:  3.67%: 290492001:  3.52%:
+    Aug/15/98:  7251:  2.42%: 205043388:  2.49%:
+
+    Aug/16/98:  7602:  2.54%: 211975916:  2.57%:
+    Aug/17/98: 11279:  3.76%: 264749109:  3.21%:
+    Aug/18/98: 11012:  3.67%: 308048415:  3.73%:
+    Aug/19/98: 12430:  4.15%: 431397588:  5.23%:
+    Aug/20/98: 11227:  3.74%: 292413728:  3.54%:
+    Aug/21/98: 10006:  3.34%: 291039569:  3.53%:
+    Aug/22/98:  6232:  2.08%: 170245421:  2.06%:
+
+    Aug/23/98:  7661:  2.55%: 201640687:  2.44%:
+    Aug/24/98: 11001:  3.67%: 309911348:  3.76%:
+    Aug/25/98: 10841:  3.62%: 278826075:  3.38%:
+    Aug/26/98: 12702:  4.24%: 340883392:  4.13%:
+    Aug/27/98: 10685:  3.56%: 269112783:  3.26%:
+    Aug/28/98: 10062:  3.36%: 280445989:  3.40%:
+    Aug/29/98:  6123:  2.04%: 173375403:  2.10%:
+
+    Aug/30/98:    41:  0.01%:    765279:  0.01%:
+
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes:
+    --  -----  ------  ---------  ------
+     0: 11322:  3.78%: 306862522:  3.72%:
+     1: 10660:  3.55%: 274555546:  3.33%:
+     2: 11410:  3.81%: 336639621:  4.08%:
+     3: 11067:  3.69%: 340806057:  4.13%:
+     4: 10996:  3.67%: 338184842:  4.10%:
+     5: 14031:  4.68%: 394085775:  4.78%:
+     6: 14295:  4.77%: 373486362:  4.53%:
+     7: 15550:  5.19%: 410297693:  4.97%:
+     8: 15729:  5.25%: 458687777:  5.56%:
+     9: 15652:  5.22%: 383604255:  4.65%:
+    10: 14327:  4.78%: 415065525:  5.03%:
+    11: 13802:  4.60%: 400009328:  4.85%:
+    12: 15141:  5.05%: 368532799:  4.47%:
+    13: 15077:  5.03%: 407240231:  4.94%:
+    14: 13752:  4.59%: 384304999:  4.66%:
+    15: 13789:  4.60%: 374374111:  4.54%:
+    16: 10954:  3.65%: 302876126:  3.67%:
+    17: 11467:  3.82%: 294148907:  3.57%:
+    18: 10473:  3.49%: 331292916:  4.02%:
+    19: 11341:  3.78%: 294317314:  3.57%:
+    20: 10637:  3.55%: 301785391:  3.66%:
+    21:  8634:  2.88%: 233462775:  2.83%:
+    22:  9303:  3.10%: 231899300:  2.81%:
+    23: 10458:  3.49%: 294260812:  3.57%:
+
+
+    Domain Report
+
+    Printing all domains, sorted by number of requests.
+    #reqs:  %reqs:      bytes: %bytes: domain
+    -----  ------  ----------  ------  ------
+    69576: 23.20%: 1670448669: 20.25%: .com (Commercial, mainly USA)
+    58212: 19.41%: 1721731673: 20.87%: [unresolved numerical addresses]
+    53827: 17.95%: 1369848173: 16.60%: .net (Network)
+    19407:  6.47%:  675361129:  8.19%: .de (Germany)
+     9512:  3.17%:  190067128:  2.30%: .ca (Canada)
+     9320:  3.11%:  214025797:  2.59%: .edu (USA Educational)
+     5915:  1.97%:  135041910:  1.64%: .uk (United Kingdom)
+     5792:  1.93%:  195497251:  2.37%: .fr (France)
+     5205:  1.74%:  277732702:  3.37%: .br (Brazil)
+     5010:  1.67%:  130221344:  1.58%: .se (Sweden)
+     4936:  1.65%:  134079195:  1.63%: .au (Australia)
+     4472:  1.49%:  110513986:  1.34%: .nl (Netherlands)
+     4117:  1.37%:   93144020:  1.13%: .it (Italy)
+     3143:  1.05%:   56607760:  0.69%: .jp (Japan)
+     2513:  0.84%:   70513202:  0.85%: .kr (South Korea)
+     2230:  0.74%:   62798589:  0.76%: .ch (Switzerland)
+     2165:  0.72%:   60358082:  0.73%: .es (Spain)
+     2126:  0.71%:   59053065:  0.72%: .no (Norway)
+     2043:  0.68%:   69219745:  0.84%: .at (Austria)
+     1977:  0.66%:   93797346:  1.14%: .ru (Russian Federation)
+     1951:  0.65%:   44751400:  0.54%: .dk (Denmark)
+     1813:  0.60%:   94043713:  1.14%: .pl (Poland)
+     1790:  0.60%:   37285638:  0.45%: .fi (Finland)
+     1562:  0.52%:   41833820:  0.51%: .org (Non-Profit Making Organisations)
+     1352:  0.45%:   54898550:  0.67%: .sg (Singapore)
+     1280:  0.43%:   39305975:  0.48%: .be (Belgium)
+     1146:  0.38%:   21117180:  0.26%: .nz (New Zealand)
+     1104:  0.37%:   27817746:  0.34%: .my (Malaysia)
+      983:  0.33%:   25743970:  0.31%: .hu (Hungary)
+      982:  0.33%:   28495686:  0.35%: .gov (USA Government)
+      914:  0.30%:   16429358:  0.20%: .us (United States)
+      893:  0.30%:   20900984:  0.25%: .il (Israel)
+      861:  0.29%:   32012713:  0.39%: .th (Thailand)
+      798:  0.27%:   17916063:  0.22%: .mil (USA Military)
+      718:  0.24%:   26752520:  0.32%: .id (Indonesia)
+      691:  0.23%:   18747093:  0.23%: .hk (Hong Kong)
+      658:  0.22%:   25511864:  0.31%: .mx (Mexico)
+      618:  0.21%:   18147515:  0.22%: .cz (Czech Republic)
+      591:  0.20%:   18125296:  0.22%: .pt (Portugal)
+      585:  0.20%:   27795703:  0.34%: .za (South Africa)
+      471:  0.16%:    8078035:  0.10%: .ie (Ireland)
+      430:  0.14%:   17845050:  0.22%: .ar (Argentina)
+      421:  0.14%:    9371930:  0.11%: .cl (Chile)
+      397:  0.13%:    4401723:  0.05%: .si (Slovenia)
+      369:  0.12%:   12515812:  0.15%: .tw (Taiwan)
+      352:  0.12%:   14467947:  0.18%: .gr (Greece)
+      338:  0.11%:   16141288:  0.20%: .ua (Ukraine)
+      293:  0.10%:   11695695:  0.14%: .su (Former USSR)
+      269:  0.09%:    7016557:  0.09%: .yu (Yugoslavia)
+      258:  0.09%:    9935949:  0.12%: .arpa (Old style Arpanet)
+      254:  0.08%:    6909233:  0.08%: .ph (Philippines)
+      249:  0.08%:   12641247:  0.15%: .uy (Uruguay)
+      247:  0.08%:    7152873:  0.09%: .tr (Turkey)
+      209:  0.07%:    4013178:  0.05%: .int (International)
+      200:  0.07%:    4533124:  0.05%: .in (India)
+      189:  0.06%:    6012275:  0.07%: .co (Colombia)
+      167:  0.06%:    7511509:  0.09%: .lv (Latvia)
+      166:  0.06%:    2495081:  0.03%: .sk (Slovak Republic)
+      163:  0.05%:    7103022:  0.09%: .ro (Romania)
+      137:  0.05%:    3999619:  0.05%: .is (Iceland)
+      131:  0.04%:    1220073:  0.01%: .jm (Jamaica)
+      128:  0.04%:    9932844:  0.12%: .hr (Croatia)
+      109:  0.04%:    1643663:  0.02%: .ee (Estonia)
+      106:  0.04%:    5792315:  0.07%: .bg (Bulgaria)
+       96:  0.03%:    1844059:  0.02%: .tt (Trinidad and Tobago)
+       95:  0.03%:    1405736:  0.02%: .lt (Lithuania)
+       89:  0.03%:    1416941:  0.02%: .cn (China)
+       75:  0.03%:     788674:  0.01%: .pe (Peru)
+       74:  0.02%:    1310215:  0.02%: .pr (Puerto Rico)
+       64:  0.02%:    2326516:  0.03%: .cy (Cyprus)
+       61:  0.02%:    2277114:  0.03%: .lu (Luxembourg)
+       57:  0.02%:    1460106:  0.02%: .ke (Kenya)
+       53:  0.02%:    1402710:  0.02%: [unknown]
+       47:  0.02%:    1890597:  0.02%: .by (Belarus)
+       41:  0.01%:    1123855:  0.01%: .mu (Mauritius)
+       35:  0.01%:     767663:  0.01%: .nu (Niue)
+       34:  0.01%:    1092572:  0.01%: .gb (Great Britain)
+       32:  0.01%:     118343:       : .do (Dominican Republic)
+       27:  0.01%:    1364714:  0.02%: .cr (Costa Rica)
+       26:  0.01%:     130312:       : .ad (Andorra)
+       24:  0.01%:     941822:  0.01%: .bo (Bolivia)
+       24:  0.01%:      98803:       : .eg (Egypt)
+       18:  0.01%:     718397:  0.01%: .pk (Pakistan)
+       16:  0.01%:    1219316:  0.01%: .mt (Malta)
+       10:       :     447158:  0.01%: .gt (Guatemala)
+        7:       :    1904204:  0.02%: .ve (Venezuela)
+        5:       :      44103:       : .am (Armenia)
+        5:       :      21423:       : .om (Oman)
+        2:       :      87024:       : .bh (Bahrain)
+        2:       :    1261826:  0.02%: .kz (Kazakhstan)
+        2:       :     650106:  0.01%: .mk (Macedonia)
+        2:       :     641914:  0.01%: .ni (Nicaragua)
+        2:       :    1267444:  0.02%: .sa (Saudi Arabia)
+        1:       :     633722:  0.01%: .tj (Tadjikistan)
+
+
+    File Type Report
+
+     #reqs:  %reqs:      bytes: %bytes: extension
+    ------  ------  ----------  ------  ---------
+    219279: 73.13%:  592337399:  7.18%: .gif
+     45571: 15.20%:  965406599: 11.70%: .htm
+     13913:  4.64%:   73725847:  0.89%: (directories)
+      9726:  3.24%: 4014232554: 48.65%: .exe
+      8440:  2.81%: 2301155234: 27.89%: .zip
+      1375:  0.46%:   21847219:  0.26%: .txt
+      1078:  0.36%:  277553991:  3.36%: .tgz
+       192:  0.06%:     600249:  0.01%: .class
+        54:  0.02%:     104647:       : (no extension)
+        48:  0.02%:     577402:  0.01%: .mod
+        44:  0.01%:     930913:  0.01%: .pl
+        36:  0.01%:     513534:  0.01%: .cpp
+        33:  0.01%:     452344:  0.01%: .c
+        27:  0.01%:     293540:       : .bas
+        20:  0.01%:     690638:  0.01%: .cob
+        17:  0.01%:     297302:       : .asm
+        13:       :      61369:       : .java
+         1:       :        203:       : .cfg
+
+
+    Request Report
+
+    Printing the top requested archives, sorted by number of requests.
+    #reqs:  %reqs:      bytes: %bytes: file
+    -----  ------  ----------  ------  ----
+     5284:  1.76%: 2482959660: 30.09%: /pub/xitami/xiw3223d.exe
+     1386:  0.46%:  484165607:  5.87%: /pub/xitami/xiw3223d.zip
+      989:  0.33%:  244593297:  2.96%: /pub/xitami/xiw3221c.exe
+      890:  0.30%:  368067587:  4.46%: /pub/xitami/xic3223d.exe
+      732:  0.24%:  345926719:  4.19%: /pub/xitami/xis3223d.exe
+      462:  0.15%:  204546839:  2.48%: /pub/xitami/xiw3223b.exe
+      424:  0.14%:   93527735:  1.13%: /pub/libero/bin/lrmswin.zip
+      396:  0.13%:   83370521:  1.01%: /pub/xitami/xic3221c.exe
+      390:  0.13%:  137877368:  1.67%: /pub/xitami/xic3223d.zip
+      373:  0.12%:   95723585:  1.16%: /pub/libero/bin/lrmswins.zip
+      369:  0.12%:  311475692:  3.78%: /pub/xitami/xswin23d.zip
+      348:  0.12%:  111796515:  1.35%: /pub/sfl/src/sflsrc19.zip
+      341:  0.11%:   30078858:  0.36%: /pub/tools/htmlp40g.zip
+      338:  0.11%:  112009853:  1.36%: /pub/xitami/xiw3223c.exe
+      300:  0.10%:  105534993:  1.28%: /pub/xitami/xis3223d.zip
+      258:  0.09%:   93417519:  1.13%: /pub/libero/doc/lrhtml.zip
+      247:  0.08%:   17156191:  0.21%: /pub/libero/doc/lrfull.zip
+      237:  0.08%:  144317081:  1.75%: /pub/xitami/xiuni23d.tgz
+      207:  0.07%:   49507322:  0.60%: /pub/libero/example/complete.zip
+      188:  0.06%:   59184175:  0.72%: /pub/info/twp9801.zip
+
+
+    Referrer Report
+
+    Printing the top referring URLs, sorted by number of requests.
+    (Excluding iMatix URLs)
+     #reqs: URL
+    ------  ---
+      1862: http://www.winfiles.com/apps/98/servers-websrv.html
+       392: http://www.winfiles.com/apps/nt/servers-websrv.html
+       351: http://serverwatch.internet.com/webserver-xitami.html
+       303: http://www.geocities.com/ResearchTriangle/6293/source-cpp.htm
+       254: http://www.geocities.com/Baja/Canyon/5829/index4.html
+       187: http://www.freecode.com/cgi-bin/viewproduct.pl?4379
+       185: http://personal.sip.fi/~lm/c2txt2c/
+       176: http://members.xoom.com/flawolverine/ip's.htm
+       153: http://www.genitor.com/resources/librarie.htm
+       150: http://www.download.com/PC/Result/Download/0,21,0-50436,00.html?st.d
+       133: http://mitec.softseek.com/Internet/Web_Publishing_Tools/Servers/Revi
+       130: http://serverwatch.internet.com/top10.html
+       102: http://www.angelfire.com/sc/electron/
+       100: http://members.xoom.com/kkross/servidor.html
+        96: http://www.terravista.ciclone.com.br/albufeira/1567/dowloads.htm
+        93: http://www.softseek.com/Internet/Web_Publishing_Tools/Servers/Review
+        88: http://webcompare.internet.com/
+        85: http://reference.perl.com/query.cgi?cgi
+        80: http://nng.simplenet.com/servd32.html
+        73: http://www.davecentral.com/2426.html
+        72: http://www.heise.de/ct/shareware/ct9814/uk68.shtml
+        67: http://www.infogoal.com/cbd/cbdtol.htm
+        64: http://freeloader.simplenet.com/win95index.html
+        64: http://serverwatch.internet.com/webreview-xitami.html
+        63: http://members.xoom.com/badwolf/down1.html
+        59: http://www.freecode.com/cgi-bin/viewproduct.pl?2426
+        57: http://tucows.tierranet.com/server95.html
+        54: http://www.pheared.com/nonags/servd32.html
+        53: http://207.92.100.8/
+
+
+    Browser Summary
+
+    Printing the first 20 browsers, sorted by number of requests.
+     #reqs:  %reqs:      bytes: %bytes: browser
+    ------  ------  ----------  ------  -------
+    156406: 52.24%: 3969328346: 48.28%: Netscape
+    133604: 44.62%: 3381209994: 41.13%: Netscape (compatible)
+      2473:  0.83%:  103983908:  1.26%: Teleport Pro
+      1840:  0.61%:  517706207:  6.30%: GetRight
+       440:  0.15%:   31584064:  0.38%: Lynx
+       408:  0.14%:    3593900:  0.04%: NetAttache Light 1.1
+       240:  0.08%:   21734943:  0.26%: Wget
+       200:  0.07%:   37516836:  0.46%: Web Downloader
+       189:  0.06%:   53956871:  0.66%: Net_Vampire
+       164:  0.05%:           :       : SiteMill
+       146:  0.05%:      23804:       : MSProxy
+       137:  0.05%:    1123968:  0.01%: Netmind-Minder
+       136:  0.05%:    4923597:  0.06%: WebZIP
+       122:  0.04%:    1983922:  0.02%: Konqueror
+       110:  0.04%:     615531:  0.01%: TE
+       106:  0.04%:    2911327:  0.04%: IBM-WebExplorer-DLL
+       105:  0.04%:     196700:       : Mosaic
+        91:  0.03%:           :       : CNET_Snoop
+        88:  0.03%:    1074238:  0.01%: EmailSiphon
+        86:  0.03%:    1140706:  0.01%: OmniWeb
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+ To stop receiving these newsletters, reply with 'remove' in the subject.

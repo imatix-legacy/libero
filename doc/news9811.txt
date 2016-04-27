@@ -1,0 +1,338 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                November 1998
+ =========
+  =======    The iMatix Newsletter                        Volume III Issue 11
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    The software industry appears to be obsessed by the question: Who can
+    compete with Microsoft?  It's an issue that is shaping the business, so
+    perhaps the obsession is normal.  Often the issue is presented as Good
+    vs. Evil, but this is the recourse of the desperate.  It's not about one
+    company making better products than another, having a higher moral status
+    than another, or being better' than another.  It's simply about survival
+    in a pond where the big fish is *really* big.
+
+    We've seen a number of anti-Microsoft strategies come and go.  Generally,
+    Microsoft attacks a market head-on, with flashy products, free giveaways,
+    and lots of publicity.  The full-frontal defense tried by WordPerfect,
+    Borland, Novell, Netscape, and other ex-market leaders does not work,
+    and can in fact ruin a company: aquisitions and marketing campaigns can
+    be hideously costly.
+
+    Sun has tried a double strategy.  As far as regards its Unix systems, it
+    ignores Microsoft.  It also seems to ignore its clients, and now sells
+    systems that are comparatively expensive and limited.  We've ported our
+    software to dozens of Unix systems, and the biggest problems have always
+    been on Sun systems.  Sun's second approach has been to push new
+    technologies like Java.  Java was intended to be a Microsoft killer, but
+    like I said, the direct approach does not seem to work well against the
+    chaps in Redmond.
+    
+    IBM and Oracle have done much better: aim for the corporate dollars by
+    offering products and services that are reassuringly expensive, complex,
+    and reliable.  After all, Windows NT with SQL Server can't compete
+    against a serious Unix system running DB2 or Oracle, can it?  Right.
+
+    Then there are the 'stealth' companies like Corel, who by re-inventing
+    themselves continuously can keep finding and supplying new markets.
+    It's a neat trick, which relies on the fact that there is always a
+    window of a few years before Microsoft can get its act together in a new
+    domain.  But it only works with smaller companies who have strong
+    leaders.
+
+    The current darling of those who would topple Bill Gates is a cuddly
+    penguin called 'Tux' who symbolises the Linux movement.  But Linux is
+    not a competitor to Microsoft.  Linux is like the Internet.  It's an
+    open technology, indestructible, and plastic enough to be moulded into
+    any form.  Little network clients, giant server clusters.  It runs on
+    every modern CPU worthwhile: in fact its true value is its portabilty.
+    Install Linux today on an Intel, move everything tomorrow to an Alpha
+    or Sparc.
+    
+    Microsoft will start by ignoring Linux, and then when Linux has 30% of
+    the market, they will denounce it.  Eventually, they will incorporate
+    Linux into their product range, and then try to take it over.  Imagine
+    a MS Linux distribution.  It will happen.  Maybe it already exists...
+
+    One final approach is to compete by exploiting Microsoft's own
+    weaknesses, which are many, and well-known.  MS cannot write decent
+    code.  Their applications are huge, slow, and way too complex.  The
+    sticky web of DLLs means that upgrading one part of a Windows system
+    often spills-over into service patches, and fixpacks.  The more MS
+    integrates applications like MSIE into their operating systems, the
+    worse it gets.
+    
+    Most people who use Xitami do so because it's so small and easy,
+    compared to Microsoft's servers.  Xitami is just well-written.  We only
+    shine because the alternatives are so bad.
+
+    We're not afraid to compete with Microsoft.  In fact, it's rather fun.
+
+    Pieter Hintjens
+    Antwerpen
+    1 November 1998
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+
+    From:           	Emil Totev <emilt@unacs.bg>
+    Subject:        	RE: Liberetto
+    -----------------------------------------------------------------------
+    Don't you have somewhere all the issues of Liberetto? I've been reading
+    it since II/10 with great pleasure. I hoped to find them on the archives
+    in your site, but...
+    Regards
+    Emil Totev
+
+    >>>>>>>>>>>>>
+    The newsletters should be somewhere on the iMatix web site, I think at 
+    http://www.imatix.com/html/libero/index2.htm
+
+   
+    From:           	"Bob Orchard" <Bob.Orchard@iit.nrc.ca>
+    Organization:   	National Research Council of Canada
+    Subject:        	Simple Questions
+    -----------------------------------------------------------------------
+    In the docs for Libero it says ...
+    
+    "Working With Java - the README.DOC file included in the beta kit
+    explains how to develop Java programs using Libero."
+    
+    I have not been able to find that README.DOC in the windows zip files
+    that I downloaded --- lrmswin.zip, lrmswins.zip and lrwinsrc.zip.
+    
+    Any experience using Libero Java code with VisualCafe development toolkit?
+    Basically I'm just looking for any info that will help on the Java side
+    when using Libero.
+    
+    I note that there have been no releases since June 1997 ... so good it
+    never has bugs or little time to update?
+    
+    Many thanks,
+    Bob.
+
+    >>>>>>>>>>>>>
+    Libero is perfect, naturally. :)  The documentation does have a few
+    errors, such as the one you pointed out.  The Java schemas have been a
+    standard part of Libero for yonks, and the Libero doc. has an entire
+    section on using Java (small, but entire).
+    
+    Libero has been well used for a long time and this incarnation has few or
+    no bugs.  Our long term plans call for replacing the Libero code
+    generator by a more generic tool which uses XML files instead of
+    Libero's native dialog files.  We'd also like to junk the Windows GUI,
+    and provide a web-based interface.  There are good reasons for this, not
+    least the ability to edit dialogs from a distance, something that's
+    essential for teams of developers.
+    
+
+    Date sent:      	Wed, 21 Oct 1998 17:36:36 -0700
+    To:             	info@imatix.com
+    From:           	Mark Blythe <mark@cvp.com>
+    Subject:        	BUG in exdr_read?
+    -----------------------------------------------------------------------
+    Hi,
+
+    I just started using your SFL/SMT libraries a few weeks ago, and so
+    far I'm quite pleased with them!  They're a great set of development
+    libraries. However, I was just digging through your memory transaction
+    routines and looked at exdr_read() as an example of how to use them.
+    Please correct me if I'm wrong, but there seems to be a potentially
+    dangerous problem with the way this function uses the memory
+    transactions.
+
+    At the top, it starts a transaction with mem_new_trans(), and if a
+    mem_alloc() call fails, it properly does a mem_rollback() to free all
+    allocated blocks since the beginning of the transaction.  However, upon
+    successful completion, it never calls mem_commit().  According to the
+    documentation for the mem_rollback() function:
+
+    "... if you forget to do a mem commit(), a later mem rollback() will do
+    damage to your memory space."
+
+    So, should I be concerned?  Even if subsequent rollbacks won't do damage
+    as this would lead me to believe, won't there be a "memory leak" type
+    situation with repeated calls of exdr_read()?  Since no mem_commit() is
+    called, the transaction record in mem_rollback() will never be freed,
+    and memory will be slowly eaten up, never to be recovered until the
+    program ends.
+
+    Please let me know your thoughts on this.  I'm thinking of fixing
+    exdr_read() myself so I feel safer about my project.
+
+    Thanks,
+    Mark Blythe 
+
+    >>>>>>>>>>>>>
+    Indeed, if one creates memory transactions without ever committing them,
+    your memory will get eaten up.  One good way to detect this is to use the
+    mem_assert() macro at the normal end of a program.  In this specific
+    case, you either misread sflexdr.c, or have a modified copy.  The
+    released source always does mem_rollback() or mem_commit() before it
+    returns.
+    
+
+    From:           	David Deutsch <ddeutsch@vigamail.com>
+    Subject:        	Your company
+    Date sent:      	Tue, 27 Oct 1998 10:19:21 -0700
+    -----------------------------------------------------------------------
+    Great website; I have one question:  how do you make money? Your suffix
+    is .com, not .org, so I assume you are not non-profit (like, say, the
+    Free Software Foundation). Do you sell other products?
+    -Dave
+
+    >>>>>>>>>>>>>
+    Who says we make money?  :-)  We make software.  Okay, this is one of
+    the questions that has to go into the Great iMatix FAQ, along with 'how
+    do you pronouce iMatix,' and 'Why did you not add garlic to the humus
+    recipe'.  iMatix consists of three branches.  The consultancy branch
+    provides highly-paid and highly-skilled technical assistance to various
+    large and critical projects.  This we do locally in various countries,
+    and occasionally for remote clients by e-mail.  In this branch, we often
+    develop specific interfaces, servers, and other software.  Our second
+    branch does pure research and development, and is financed by the first.
+    Our R&D is tightly focussed, since we have a Mission, and we know where
+    we want to arrive.  Currently we're working on our top-end Studio
+    product, which will be a sophisticated web-based environment for
+    building web-based applications.  Our third branch produces the software
+    that we distribute, for free or for sale.  Currently, this mainly means
+    Xitami.  This branch is supposed to be self-financing through the sale
+    of support licenses and commercial products like Xitami/Pro.
+
+
+ == FOCUS ON TECHNOLOGY -..-..--..-..--..-..--.--.--.--.--.-..-...-.--...-.--
+
+    Occasionally, the Liberetto office has guests.  The careful ones beat a
+    hasty retreat when they hear the strange noises coming from the coke
+    machine, but a few of the hardy souls actually make it to 'Ed's' office,
+    and some of these even survive the coffee.
+
+    One such last month was our friend Darius, from Phidani, a Belgian
+    company which does parsers.  This is understating it a little.  Phidani
+    makes parsers like BMW makes cars.  So, I was quite interested when
+    Darius told me of his new tool, 'RainCode', which does interesting
+    things with legacy Cobol code.  We see a lot of this in the various
+    projects we work on.  A tool like RainCode lets us do useful stuff with
+    it, apart from just complaining about the poor guys who wrote it.
+
+    Anyhow, while legacy Cobol code is not directly part of the iMatix
+    mission, I'm glad to be able to present RainCode, in the words of
+    Darius.  Enjoy!
+
+    ----------------------------------------    
+    RainCode, complianceware - Managing your source code real-estate
+
+    Before being a problem, a market, an opportunity or the latest
+    buzzword for Y2K marketing people, legacy happens to be made of
+    lots of code.  Except in rare cases - up to a point where I have
+    never heard of a single one - anything like reliable design
+    information or beyond the trivial inter-module dependency information
+    is lost.  Or awfully obsolete, which is perhaps even worse.
+
+    The only thing we know for sure about the code is its executability.
+    It executes.  If it did not, we would notice instantly.  That's one of 
+    the nice side-effects of using compilers.
+
+    Executability is of course a significant part of the story, but it
+    is far from being enough.  We need the ability to find, measure and
+    detect things far beyond what a compiler can handle:
+
+    - Is our source compliant to our internal coding standards?  More
+      importantly, what about the source code provided by sub-contractors 
+      or updated by consultants?
+      
+    - Given a change of platform, database, version of compiler, how many
+      alterations to the code should we perform?
+      
+    - Producing structured documentation charts, version XREFs, etc...
+    
+    - Reverse-engineering some design information out of the code.
+
+    Besides, in many large scale projects that do live for more than
+    2 or 3 years, systematic and repetitive changes must be applied
+    at least once, to adapt to a new computing environment, file 
+    structure, taking advantage of new features, or even, to reflect 
+    a significant change in functionality.
+
+    This is where RainCode gets into the picture.  RainCode analyses
+    your COBOL source code, builds a parse tree, and gives you full
+    access to this parse tree using a concise and powerful ad hoc 
+    scripting language. You can detect structures, statements, usages
+    that do not conform to your standards, unreferenced data, etc...
+
+    Even more, after finding things in the source code, RainCode can
+    then perform patches as well, thereby automating some tedious
+    adaptative coding tasks, some of which are not trivial by any mean. 
+    For instance, http://www.etk.com/download/etkpak/style.txt describes 
+    how a COBOL program should be a depth-first flattening of its tree
+    structure. A RainCode script that takes a COBOL program, and makes it 
+    compliant to this rule would be about 50 to 70 lines long. 
+
+    Together with Amdahl Belgium, we have just completed a project aimed at
+    taking a number of COBOL transactions, removing the presentation part
+    of them, and turning them into business logic transactions callable
+    from a Transaction Server (MSTS).  The COBOL code manipulation is
+    entirely automated using RainCode.
+
+    There are zillions of possible applications, and that's probably what
+    makes RainCode unique.  Y2K tools aim at a single kind of source code
+    manipulation. RainCode can perform any source code manipulation,
+    dealing with problems so obscure and so specific that no specific
+    product will do the job.
+
+    RainCode is available for COBOL, and a C++ version will be available 
+    Q1'99.  It runs under NT and various flavours of Unix.
+
+    Further information is available at http://www.raincode.com, including
+    a full on-line technical information, as well as a downloadable
+    postscript image of the user-manual.
+
+
+ == LINK OF THE MONTH .-..-..---.-.--...-.-..---..-....---..-.-.-.--...-.-..-.
+
+    The American Bar Association's Law Practive Management Magazine reviewed
+    Xitami in their October issue.  The full text is at the abanet.org site
+    at http://www.abanet.org/lpm/magazine/tu987.html.  This is how it starts:
+
+    "Wow."
+
+    This is how it continues:
+    
+     "It's been years since I've seen a product that even registers on the
+    Wow Scale. (Jaded? Me?)  But the Xitami Web server is just plain
+    astonishing...  Let's see. Fast, easy, well-documented, runs on 95, NT,
+    Unix, OS/2,  OpenVMS, and Windows 3.x. Yeesh. Something that fancy is
+    probably enormous. It's gotta be a hundred Mbytes or so. Yes? Nope. 618K.
+
+    And finally:
+    
+    "I'm impressed. 618 K; it's free; it's fast; and in about 20 minutes,
+    I've gone from no server to Web server -- with enough time left over to
+    wander around and say "Wow" more times than an alpha-geek wannabe would
+    ordinarily admit to. Bill Gates, eat your heart out.  At this writing,
+    Xitami is the single most popular download from ServerWatch."
+
+    Now we'll have to delete the lawyer jokes from the iMatix intranet.
+
+    
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    In Belgium, recently, there was a report telling how road accidents had
+    increased by 30% over the same period last year (Jan-Jun).  The people
+    who compiled the report attributed this variously to bad driving, more
+    cars on the road, and the bad weather (i.e. El Nino, once again).  Of
+    course the main reason was that all those drivers didn't read Liberetto.
+    It could also be linked to the explosion in GSM phones, but who knows?
+
+    Anyway, to cut a long story short, if you really don't want to get more
+    of these mails, just let us know.  We can take it.

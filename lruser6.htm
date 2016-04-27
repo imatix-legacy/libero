@@ -1,0 +1,69 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Super-States</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser5.htm">&lt;</A>
+ | <A href="lruser7.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC7">Using Super-States</A></H2>
+
+<P>Some dialogs have a lot of states that are similar except for small
+differences, like Expecting-Initial and Expecting-Operand above.  We can
+write these in a more compact way using a shorthand technique called
+super-states.  We put the super-state name between '&lt;' and '&gt;' after
+the state name:</P>
+
+<PRE>
+Expecting-Initial: &lt;Expecting-Operand&gt;
+    (--) End-Mark                   -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The state inherits the events in the super-state, if they are not already
+defined.  In the above example we say that Expecting-Initial inherits events
+from Expecting-Operand, and also handles the End-Mark event.</P>
+
+<P>A super-state can itself be based on super-states, to any level.  My
+advice is: use super-states with care to simplify large dialogs.  Don't
+exaggerate.  Some more points about super-states:
+<UL>
+<LI>You can think of super-states as 'local defaults' states.</LI>
+
+<LI>If a super-state is not used anywhere in the dialog, it is not included
+in the generated code.</LI>
+
+<LI>When a state inherits an event, it may change the 'next state' name.  If
+this is blank, or refers to the super-state (which is semantically the same),
+it is changed to be the name of the inheriting state.</LI>
+</UL></P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser5.htm">&lt;</A>
+ | <A href="lruser7.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <EM>Using Super-States</EM>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

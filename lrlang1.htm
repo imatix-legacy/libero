@@ -1,0 +1,169 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The Awk Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang.htm">&lt;</A>
+ | <A href="lrlang2.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<A NAME="awk">&nbsp;</A>
+<H2><A NAME="TOC4">The Awk Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Awk?</DT>
+<DD>Awk is a standard UNIX tool that comes in several flavours -
+'old' awk (/bin/awk), new awk (/bin/nawk), GNU gawk (/bin/gawk).
+It is a small interpreted language that looks a bit like C, with
+a strong flavour of sed pattern matching.  Awk is mostly used to
+manipulate text files, but is also fun as a general-purpose
+programming language.</DD>
+<DT>Portability</DT>
+<DD>GNU gawk is available on many platforms. Awk scripts are
+highly portable if you don't rely on (UNIX) system-dependent
+commands.  GNU Gawk and new awk share most functions.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: Awk is versatile and easy to learn; GNU gawk is freely
+available; Awk is an interpreted language and looks a bit like
+C.  Cons: Awk is a simple language, not powerful enough for
+industrial-strength work; it's interpreted - slower than C but
+faster than a shell; it looks a bit like C.</DD>
+<DT>How To Get It</DT>
+<DD>On UNIX boxes, <TT>awk</TT> or <TT>nawk</TT>. On other
+systems, get GNU gawk.</DD>
+<DT>Libero Supports</DT>
+<DD>Libero supports new awk and gawk, but not old awk.</DD>
+</DL>
+
+<H3>Working With Awk</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.awk.</LI>
+<LI><B>Program model:</B> shell-wrapped awk script; directly
+executable.  All processing is done in the BEGIN block.</LI>
+<LI><B>Good for:</B> large awk scripts that handle multiple
+files.</LI>
+<LI><B>Files used/made:</B> Own work in <TT>myprog.mod</TT>;
+generates program called myprog.</LI>
+<LI><B>Module functions:</B>
+<TT>function module_function_name \</TT></LI>
+<LI><B>Private functions:</B>
+<TT>function private_function_name () {</TT></LI>
+<LI><B>Naming style:</B> Any except -style=cobol.</LI>
+<LI><B>Limits:</B> Standard Libero limits, and system memory.
+All tables are defined dynamically at runtime.</LI>
+<LI><B>Development cycle:</B> Run <TT>lr</TT> after you change
+the dialog or <TT>.mod</TT> file.  When you add a new module,
+run lr, then edit the <TT>.mod</TT> file, then run <TT>lr</TT>
+again.  Don't change the generated awk script except for tests -
+you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name  ( local_var,... ) {            # Place local variables here
+    return                      # Empty module needs 'return'
+}
+function private_function_name (argument,...) {
+    the_next_event = ok_event
+    raise_exception (error_event)
+}
+</PRE>
+<P><A HREF="doc/erbot.mod">A fuller example.</A></P>
+
+<H4>Notes</H4>
+<P>My awk programs fall between two extremes.  At the one end is
+a 'filter', to process text according to patterns in each line.
+This is excellent for smallish problems.  As the problem grows,
+I need to read other files 'on the side', and the logic of my
+awk program grows until a large part of it is sitting in the
+BEGIN or END blocks.  Eventually I find that I am perhaps
+reading and writing several files, so I take the plunge and
+rewrite the program to handle all files with explicit 'getline'
+calls.  The awk program is no longer a filter, but a stand-alone
+program that resembles a classic procedural program.  Of course
+at this point my Libero hindbrain wakes up and starts muttering
+'an' whaddabout Libero, eh?'.</P>
+
+<P>When I wrote the awk schema, I started with the Visual Basic
+schema. Bizzarely enough this language resembles awk most in
+terms of structure and possibilities.  I've started thinking of
+awk as a kind of 'Basic for UNIX'.</P>
+
+<P>Awk presents some of the same difficulties as Visual Basic.
+There is no 'include' statement to take an external file as part
+of the program.  The UNIX shells have the same problem.</P>
+
+<P>&lt;GRIPE&gt;Since awk is tokenised, then executed, messieurs
+A, W, and K had no real excuse for omitting an 'include'
+facility.&lt;/GRIPE&gt;</P>
+
+<P>I really don't want to look at the chunk of code that Libero
+generates, so I always try to find a way to separate this from
+the hand-written code I am working on.  If the language provides
+an 'include' statement, I place the generated code in an include
+file.  This works great in serious compiled languages which all
+have something like this.  You change the dialog, regenerate
+the code, and recompile.  At any time you can change the
+program and recompile without having to run Libero again.</P>
+
+<P>For the awk schema I used another technique: you work in a
+separate 'module' file (<TT>myprog.mod</TT>).  Libero combines
+the module file with the generated program to create a final
+program, which you don't change. This effectively hides the
+generated code, but introduces an extra step: each time you
+change the .mod file you must re-run Libero to create the final
+script.  In effect, Libero acting as a preprocessor in place of
+the missing 'include' statement.</P>
+
+<P>Notice the slightly unusual format of a generated module
+header:</P>
+
+<PRE>
+function module_function_name  ( local_var,... ) {
+    ...
+}</PRE>
+
+<P>I break the function header over two lines so that you can
+add local variables easily if you need to.  Libero recognises
+the first line as a module header, and does not look at the next
+line with the local variables. The unusual format also
+distinguishes module functions from private functions, so
+ensures that the -idle option works correctly.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang.htm">&lt;</A>
+ | <A href="lrlang2.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <EM>The Awk Language</EM>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

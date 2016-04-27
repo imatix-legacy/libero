@@ -1,0 +1,213 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Care and Feeding of Dialogs</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser9.htm">&lt;</A>
+ | <A href="lruser11.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC13">Care and Feeding of Dialogs</A></H2>
+
+<H3><A NAME="TOC14">Style - Good, Bad, and Ugly</A></H3>
+
+<P>Some of the worst dialogs that I have seen were written by people who were
+trying to make their dialogs 'efficient'.  It is not easy to write elegant
+and readable dialogs; it is a little like making pancakes: give the first one
+to the dog.  I have some advice: ask a colleague to read the dialog and
+explain how the program works.  If your colleague cannot understand
+something, rewrite it.</P>
+
+<P>The following extracts are from real-life dialogs that went wrong.  I
+changed names and did some surgery to protect the guilty, and myself from
+prosecution.  All I can say in defence of the authors was that these were
+early works, and that they had too little training.</P>
+
+<P>Example 1: the author tries to reduce the number of states by looping back
+to the same state several times.  Then he (I know the lad, so I can safely
+use the pronoun) compounds the sin by using event names that are specific to
+the state:</P>
+
+<PRE>
+Valorisation:
+    (--) Valori-Not-Ok              -&gt; Valorisation
+          + Update-Valorisation
+          + Get-Next-Valorisation
+    (--) Valori-Ok                  -&gt; Valorisation
+          + Process-Valorisation
+          + Get-Next-Valorisation
+    (--) Ok                         -&gt; Valorisation
+          + Test-Valorisation
+    (--) No-Valori                  -&gt; Valorisation
+          + Get-Next-Valorisation
+    (--) No-More                    -&gt; Transfer
+          + Get-First-Transfer
+
+Transfer:
+    (--) Transf-Not-Ok              -&gt; Transfer
+          + Update-Transfer
+          + Get-Next-Transfer
+    (--) Transf-Ok                  -&gt; Transfer
+          + Process-Transfer
+          + Get-Next-Transfer
+    (--) Ok                         -&gt; Transfer
+          + Test-Transfer
+    (--) No-Transf                  -&gt; Transfer
+          + Get-Next-Transfer
+    (--) No-More                    -&gt;
+          + Close-Data-Files
+          + Terminate-The-Program
+</PRE>
+
+<P>This is the advice I gave:
+<UL>
+<LI>Don't use a single state when the design demands several states.  This
+does not save space - since you have to invent more event names - it just
+makes the dialog hard to understand.</LI>
+
+<LI>Use exceptions to reduce the complexity of a dialog.</LI>
+
+<LI>Don't use event names that are only meaningful in one state, like
+'Transf-Not-Ok'.  This makes the code less reusable.  It also tightens the
+binding between action modules and the state, which is makes it harder to
+reuse action modules and change the dialog.</LI>
+
+<LI>Use meaningful names for states.  The state is an important concept in
+the design.</LI>
+
+<LI>Use helpful names for the action modules.  Test-Transfer tells the reader
+very little about what is happening.</LI>
+</UL></P>
+
+<P>Example 2: the author is struggling with a complex batch process.  At this
+stage he has to do a whole series of actions, with one small difference
+depending on the contents of a key field:</P>
+
+<PRE>
+After-Test-Key:
+    (--) Key-Empty                  -&gt; Have-Order
+          + Save-Current-Order-Record
+          + Get-Contract-For-Order
+          + Get-Company-For-Contract
+          + Create-Invoice-Header
+          + Update-Company
+          + Save-Contract-Key
+          + Call-Batch-012
+          + Call-Batch-013
+          + Get-Next-Order-Record
+    (--) Key-Not-Empty              -&gt; Have-Order
+          + Treat-For-Current
+          + Save-Current-Order-Record
+          + Get-Contract-For-Order
+          + Get-Company-For-Contract
+          + Create-Invoice-Header
+          + Update-Company
+          + Save-Contract-Key
+          + Call-Batch-012
+          + Call-Batch-013
+          + Get-Next-Order-Record
+</PRE>
+
+<P>This was my advice (resisting the urge to say 'junk it!'):
+<UL>
+<LI>Don't be obsessed by detailed breakdowns of logic.  Perhaps the whole
+series of steps above could be better bundled into two modules:
+Process-Order-Record and Get-Next-Order-Record.</LI>
+
+<LI>Don't copy large chunks of code like this; it creates a maintenance
+problem.</LI>
+
+<LI>The only difference between the two action lists is the extra action
+Treat-for-Current (whatever that means).  It is quite okay to internalise
+this step and have a module like Treat-for-Current-If-Key-Filled.  Don't
+bring microdecisions up to the level of the dialog.</LI>
+</UL></P>
+
+<P>Example 3: the author has used some other design method to start with, and
+then translated the result into a dialog.  The events have names like
+'Case-1', 'Case-2', or 'Ok' and 'Not-Ok'.  I've seen this happen often, and
+it never works.  If the project leader is not prepared to use a dialog as a
+primary design method, there is no benefit in trying to translate another
+design into a dialog.  You must in such cases rewrite the dialog cleanly.  A
+dialog is primarily for a readership, and secondarily for the computer.
+Ignore this at your peril: you will produce large, incomprehensible dialogs
+that are error-prone and fragile.</P>
+
+<P>This is an approach that is so common, and so wrong, that the warning
+bears repeating: <EM>Do not try to mechanically convert existing designs into
+dialogs.  It will not work.  You will make a fool of yourself.</EM></P>
+
+<P>Often, this also applies to designs already expressed as state machines.
+In one of the worst cases I ever saw, the culprit had mechanically converted
+a set of state-machine based designs into dialogs.  The states were called
+S1, S2, S3,... The events were called E1, E2, E3,...  The modules were called
+M1, M2, M3,... This happened in 1986.  In January 1996 I watched someone
+painfully maintain one of these programs, trying to understand what E4 in S3
+actually meant.  Okay, I warned you.  Now back to the main story.</P>
+
+<P>These are some more common problems:
+<UL>
+<LI>Dialog modules that explicitly set an event, like 'Set-Ok'.   We call
+this a <EM>control shunt</EM>.  It usually indicates that the author has
+confused the notion of <EM>state</EM> with the notion of <EM>action</EM>.  By
+shunting to some specific state, the author says 'I want to be in this state
+to do some specific work'.  Very rarely, this is a good way to write a
+dialog.  99% of times, though, it is bad practice.  If you find yourself
+doing a control shunt, change the dialog so you do the work in question
+<EM>as early as possible</EM> in the dialog, thus generating an event which
+you can handle neatly in the next state.</LI>
+<LI>Dialogs that are broken into very many small states.  This usually means
+that the designer has not figured-out how exceptions work.</LI>
+<LI>Dialogs that use lots and lots of different event names.</LI>
+</UL></P>
+
+<H3><A NAME="TOC15">Choosing Names</A></H3>
+
+<P>These are some guide-lines for names in a dialog:
+<UL>
+<LI>States: In-Some-State, After-Something, Before-Something,
+Expecting-Something, Have-Some-Data.</LI>
+<LI>Events: external actions: Help, Exit, Delete, Create,...
+Internal conditions: Ok, Error, Locked, Fatal-Error, No-More;
+Types: Number, String, Function,...</LI>
+<LI>Modules: active statements: Delete-The-Record, Print-Current-
+Invoice, Start-The-Transaction, Commit-All-Changes,...</LI>
+</UL></P>
+
+<P>A common beginner's mistake is to confuse events and modules, so that a
+state has events called 'Delete-Record', 'Print-Record', and so on.  It can
+help to remember that event names must be as general as possible without
+losing meaning.</P>
+
+<P>One helpful comparison is to think of events as push-buttons in a pop-up
+window box.  Common events are 'Ok' and 'Cancel', 'Print', 'Delete', and
+'Help'.  A push-button like 'Delete Next Record' is too specific.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser9.htm">&lt;</A>
+ | <A href="lruser11.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <EM>Care and Feeding of Dialogs</EM>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,500 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                December 1998
+ =========
+  =======    The iMatix Newsletter                        Volume III Issue 12
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    At the start of November, a document was leaked from Microsoft.  This
+    document, now called the "Halloween Document", ended-up in the capable
+    hands of Eric Raymond, the High Priest of the Open Source Movement.
+
+    If you did not already look at this, it's on the Open Source website at
+    www.opensource.org/halloween.html.  It makes an interesting read.
+    
+    The essence of this document is that Linux represents a movement that is
+    a serious danger to Microsoft's hegemony over the software business.
+    The process which produced Linux is better, faster, and more capable
+    than the software development process inside Microsoft.  The document
+    looks at this process (now called 'Open Source Software'), and notes
+    that since it is heavily based on open protocols, a good way to break
+    the process is to take open protocols and to turn them into protocols
+    that only Microsoft can understand and use.
+    
+    That Microsoft works actively against open standards is not news, nor is
+    it a tactic that they invented.  Standards have always been anathema to
+    market leaders, since they make competition easier.  But Microsoft take
+    the strategy of standards breaking further than anyone ever dared.  The
+    remarkable thing about the Halloween Document is that it shows that this
+    strategy at least partly directed by policy, although I'd not rule-out
+    plain incompetence.
+
+    In my role as a technical consultant, I sometimes get to watch the pain
+    people go through when they try to upgrade part of a network that
+    depends heavily on MS software.  In one case I recently saw, a web site
+    was crashing regularly.  The cure: an upgrade from IIS3 to IIS4.  The
+    cost: upgrading the NT server software on over fifteen servers.  The
+    remote administration tools only work if all the servers are running the
+    same release and service-pack level of NT.
+
+    A Microsoft-only world is pretty unpleasant when you look at it close
+    up.  Complex, expensive, and hamstrung by delicate interdependencies.
+
+    The Open Source Software movement (which iMatix is proud to be part of)
+    is no longer a bunch of long-haired radicals espousing strange notions
+    about how to produce software.  Suddenly we're a bunch of long-haired
+    radicals who have just become Bill Gate's worst dream.
+
+    Pieter Hintjens
+    Antwerpen
+    1 December 1998
+
+
+ == BITS AND PIECES -..-.-.---.-..----...-.-...-..----..-..-----.-.-.---..--.
+
+     *  In the Halloween Document, we read that Apache has 80,000 lines of
+        code.  Xitami (including SFL and SMT) has 95,000 lines of code.  I
+        guess we use really short lines.
+
+     *  Libero has been re-released with two new schemas: one for PHP/3, by
+        Attilio <glen@ats.it>, and one for PL/SQL, by Sema Group Belgium.
+        You can get it from www.imatix.com, as usual: download the Libero
+        source package.
+
+     *  Watch next month's Liberetto for an announcement about GSL, the new
+        language from iMatix specifically targeted at code generation from
+        XML data files.  GSL is like a meta-Libero language, and the next
+        generation of Libero will be implemented using GSL.  We'll be making
+        more information, as well as free versions of the GSL tools available
+        in January 1999.  This issue of Liberetto has a small introduction
+        to GSL and XML-based code generation.
+
+     *  Also coming in 1999: www.xitami.com - a web site dedicated to the
+        best web server in the world (biased, us?)
+    
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    From:           	Rob Judd <judd@alphalink.com.au>
+    Subject:        	Liberetto III/11
+    -----------------------------------------------------------------------
+    Thanks for once again emitting amusing peeps on controversial subjects.
+    It brightens my day no end.
+
+    In Liberetto III/11 you state:
+        Microsoft will start by ignoring Linux, and then when Linux has
+        30% of the market, they will denounce it.  Eventually, they will
+        incorporate Linux into their product range, and then try to take
+        it over.  Imagine a MS Linux distribution.  It will happen.  Maybe
+        it already exists...
+
+    However, you seem to have missed the phase where Microsoft goes into a
+    'benign' partnership with the creators of Linux, gets hold of the source
+    code, rewrites it and calls it something else. Their history is peppered
+    with the wreckage of companies whose directors thought a partnership was
+    the sure road to riches. These comments might be inflammatory if not for
+    the court cases still in progress, in which such acts are being judged
+    against the better good.
+
+    As for Java, JDK 1.2 Release Candidate 1 contains so much corporate guff
+    that the little programmer can't afford a HDD big enough to hold it.
+    85Mb of documentation, for crying out loud. I could do without CORBA,
+    SQL, JDBC, Security API and a whole bunch of other stuff, thanks. With
+    the internet still barely supporting 1.0.2 (and they're usually a jump
+    ahead of the rest of the world), I don't see the relevance of a new set
+    of API's that has grown by 3x since Java 1.1 was released 18 months
+    back.
+
+    If Sun made the extant package work properly and built an optional
+    "business pack" that integrated the new stuff by installing over the top
+    of JDK 1.1, maybe I could make sense of them. Seems like a distinct lack
+    of internal guidance to me; perhaps the company should require her
+    employees to occasionally re-read the original White Paper, complete
+    with Antoine de Saint Exuperey quotes about perfection being when
+    nothing more can be removed rather than when nothing more can be added,
+    and talk to James Gosling about what he originally conceived as being an
+    efficient language.
+
+    Of course I NEVER lose sight of my goals, and it will all be different
+    when WE rule the world, eh my friend. Yeah, sure.
+
+    Regards,
+    Rob
+
+    >>>>>>>>>>>>>
+    Goals are made to be shifted.  In praise of Antoine de Saint Exuperey,
+    we're going to produce a new release of Xitami, 'Xitami/Lite', which
+    does nothing else except crash the system at random moments during the
+    day, thus fulfilling one of the main functions of modern software at a
+    fraction of the effort.  Revolutionary, possibly.
+
+
+    From:           	"Bernard D. Tremblay (Ben)" <ab006@chebucto.ns.ca>
+    Subject:        	Re: Liberetto III/11
+    -----------------------------------------------------------------------
+    I just wanted to add something to your "cause of rise in rate of
+    automobile accidents" ... now, maybe this will sound like the sort of
+    hex you read in a chain letter, but it's true: a fellow I know has been
+    running a server for years, and he hasn't installed Xitami; he didn't
+    get tenure this year. Another fellow I know didn't win the SuperLotto,
+    even though he bought 6 tickets; he doesn't even know what Xitami is
+    _for_. ... frightening, if you extrapolate ... *sigh* ... such a 
+    responsibility, to get the word out.
+
+    ben
+
+
+    From:           	savvas xenophontos <savvas@gte.net>
+    Subject:        	Re: Liberetto III/11
+    -----------------------------------------------------------------------
+    -- On the subject of competing with Microsoft:
+        So far I see the tools to build the systems to beat Microsoft.  I
+        see no-one who can use the tools, or execute the objective. To
+        execute the objective requires a strategy, and impeccably timed
+        tactics. Under the right general, it would take one year to shake
+        the business systems of the world loose from profit-melting apps.
+
+    -- On the subject of a WEB GUI for Libero :
+        tcl. [+] Much quicker development than Java. [+] Very rich form
+        GUI. [-] Requires a browser plugin.
+
+    >>>>>>>>>>>>>
+    The software wars promise to be interesting viewing for the next
+    decade, once people recover from the millenium shock enough to start
+    caring again.  As for Libero, we think that plain old HTML can actually
+    do the job quite nicely, with a little care and skill.  We don't use
+    Java here.
+    
+
+    From:           	Wenning <wenning@us.ibm.com>
+    -----------------------------------------------------------------------
+    I'm trying to use Libero to generate C++ files - the output file are
+    <filename>.cpp .  My unix system assumes that C++ source files are
+    <filename>.C  I copied lrschema.cpp to lrschema.C, hoping to fix this,
+    but now it dumps out files as <filename>.c .  Is there any way to get
+    libero to output <filename>.C ?
+    --
+    Mark Wenning
+
+    >>>>>>>>>>>>>
+    Each Libero schema is in fact a script that tells Libero how to generate
+    its code for a particular language.  In the C++ schema, for instance,
+    you'll see a line ':output $source.cpp' which creates a file with the
+    .cpp extension.  Change this to say ':output $source.c', and your files
+    will be given the .c extension.  It can be useful to play with the
+    Libero schemas, to tune them and extend them for your own needs, but
+    it's best to call your new schemas something different, just to avoid
+    problems if you ever upgrade to a new release of Libero.
+
+
+    From:           	De Smedt Marc <Marc.DeSmedt@sema.be>
+    Subject:        	Pie
+    -----------------------------------------------------------------------
+    "Brussels police department, how may I assist you?"
+    "Uh.. yes.. I just got hit in the face with a cream pie."
+    "Okay, sir. Have you called the Brussels police department before?"
+    "No"
+    "Well, let me get a little information about you for our records.
+    "Your name?"
+    "Bill Gates"
+    "Country?"
+    "The USA"
+    "Native language?"
+    "English."
+    "Okay, sir. Your police department ID number is BP31415927. Please use
+     this number the next time you call. Now, you say you were hit in the
+     face with a pie?"
+    "Yes, I was just about to meet with the Belgian Prime Minister. One
+     person distracted me while another hit me with a cream pie."
+    "We've had other customers report that they were hit in the face with
+     a custard pie. Are you sure it was a cream pie?"
+    "Well, I have white stuff all over my face and I don't see any custard,
+     so I really don't think it was a custard pie."
+    "Have you visited the Prime Minister before?"
+    "Yes"
+    "Were you hit in the face with a pie then?"
+    "No"
+    "Hmm... have you visited any other Prime Ministers in the past month?"
+    "Yes"
+    "Any pies then?"
+    "No"
+    "Okay, well.. let's try something. Go outside the building and come in
+     again. I'll wait."
+    "Just a minute.." (several minutes pass) "Okay, I'm back."
+    "Did you get hit by another pie?"
+    "Of course not"
+    "Well sir, I don't know what could have caused the first pie, but it
+     looks like things are working fine now. I'll make a note of the problem,
+     though.  If it happens again, please note the exact details of the
+     situation and call us again. Thank you for calling the Brussels Police
+     Department. (click)"
+
+
+    From:           	David Whittemore <del@topica.com>
+    Subject:        	xitami and synchronicity
+    -----------------------------------------------------------------------
+    you don't know me, but in the last few hours, i've seen too many
+    connections to feel i've gotta just say "hi".
+
+    this evening, i just happened onto a website which was rating "hot"
+    new web servers - and i saw one listed under apache which i had never
+    seen before: xitami. (http://serverwatch.internet.com/top10.html)
+
+    so i downloaded and compiled it on my IRIX box.  it installed and ran
+    witout a hitch.  so i started reading the docs... and my mind twisted
+    inside out..
+
+    in the very early 90's i was stuck in a DOS programming job, and was in
+    need of a multi-tasking environment in which to  develop some projects
+    (i was hoping to write an event-driven  DOS/X11-portable windowing
+    environment - sick! (but i did it!)) and so i found (through archie,
+    no doubt) what appears to be the multi-tasking project mentioned in
+    the xitami docs.
+
+    i tweaked it a bit and was able to have nested graphical cubes spinning
+    inside each other - each cube in its own pre-empted sub-routine. it was
+    cool, but that was about all i did with it. but some part of my brain
+    remembered a "Pieter" being tied to it.
+
+    reading the xitami/libero docs, one can see how this early DOS multi
+    tasking envinment could permute and grow to be what i just downloaded
+    onto my SGI in 1998.
+
+    and so i went looking up references to "Pieter Hintjens" on altavista.
+    and i found: http://pw1.netcom.com/~jcds/docs/Review_htmlpp.html
+    "Pieter Hintjens' HTML Pre-Processor HTMLPP"
+
+    some more background about me...
+
+    in the early 90's until early 1995, i slaved on the Purdue University
+    campus (west lafayette, indiana, usa) at silly DOS applications.  in
+    late 93/early 94, i witnessed the birth of this web thing and started my
+    own web server..  and taught myself CGI... and immediately recognized the
+    need for the "define once, include everywhere" philosophy of website
+    authoring.  in fact, the software which i started writing in 1994 to
+    address that (i called HTDB for HyperText DataBase) has now matured into
+    a semi-commercial product: http://www.adjective.com/htdb.html
+
+    another tie-in?  i don't know if you were responsible at all for the
+    http://pw1.netcom.com/~jcds/docs/Review_htmlpp.html site, but i was
+    webmaster at NETCOM for awhile - it was my efforts which allowed pages
+    such as the above to even exist!
+
+    that said..
+
+    i will be playing with the xitami server.  i would be particularly
+    interested in learning more of the Libero language/method and how it
+    might assist in web application writing.  i've my own ideas (using HTDB)
+    of introducing "stateful-ness" into the web app world, and am interested
+    to see how you approach it.  at this point, it would not suprise me to
+    find they are similar!
+
+    good evening from san francisco!
+
+    -david
+    del@netcom.com
+    www.adjective.com
+
+    >>>>>>>>>>>>>
+    pieter replies: hi, san francisco!  by an amazing coincidence (ok, i did
+    get up a little late) it's also evening here in belgium.  it's nice to
+    hear from someone who can still write coherently with a mind that is
+    twisted inside out.  i tried that once and it did not do my programming
+    any good at all.  here at imatix we have our own urban legend, about a
+    programmer who, smashed on a friday evening, spent all weekend writing a
+    fantastic new tool.  on monday morning he showed it to his colleagues,
+    who all agreed that it looked really amazing, and asked what it did.
+    'not sure', he said.  no-one ever really got it to work, and sometimes
+    people still whisper its name, late at night, to scare the junior techs.
+    the motto is: most of the software out there must have been written by
+    the same guy.  hey, microsoft, stay away from the hard stuff!
+
+
+ == FOCUS ON TECHNOLOGY -..-..--..-..--..-..--.--.--.--.--.-..-...-.--...-.--
+
+    GSL - a Generic Schema Language based on XML
+
+    A critical part of the iMatix mission is code generation.  We use this
+    technique in Libero to generate code from templates, called 'schemas',
+    in a variety of languages.
+
+    There are many tools which generate code, but the vast majority use
+    built-in code templates.  Even those which let you tune the generated
+    code by editing an external file are still totally dedicated to one
+    task.
+
+    Code generation (as we use it in iMatix) means taking a data definition
+    (for instance, a Libero dialog), and a schema file (for instance, a
+    schema for generating Perl).  The code generator combines these two
+    files and produces a resulting block of compilable code in Perl.
+
+    Code generation is an economic way to turn-out large numbers of nearly-
+    identical source code files - it's simply easier to specify the
+    differences between each instance, and a 'standard model', than to build
+    each instance from scratch by hand.  Once you've started using a code
+    generator, you can maintain your work as easily as changing the
+    'standard model' (your schema) and regenerating.  Not only is code
+    generation cheap, it can also result in excellent code, since it's
+    economical to spend a lot of effort tuning and improving the schemas.
+    Lastly, code generation is a good way to make applications more
+    portable.  
+
+    These are some classic uses for code generation:
+        Database management
+            - The object defines a database table
+            - Generates copy books, header files, subroutines, SQL
+            - E.g. data dictionaries
+        Message handling
+            - Object defines a structured message
+            - Generates pack/unpack functions
+            - E.g. XDR (rfc1014, rfc1832)
+        Flow control
+            - Object defines program logic flow
+            - Generates interpreter for logic flow
+            - E.g. Lex, Yacc, Libero
+
+    So why don't people use code generators a lot more?  The answer is that
+    it takes a lot of work to make a decent code generator, and you'll find
+    yourself writing new generators for each new problem you come across.
+    
+    The iMatix notion of a schema was invented in 1986 by Leif Svalgaard,
+    working at Sobemap in Brussels, Belgium.  At the time, the few that could
+    generate code used built-in code strings, e.g.:
+
+        print "<HTML><P>", var, "</HTML>";
+
+    Leif conceived the 'schema' as an external text file that held the code
+    strings to output for the generated code.  The concept evolved for many
+    years, and was used in over a dozen different code generators.  In 1992,
+    the Libero tool introduced multilanguage schemas, making it possible to
+    generate code in any programming language (C, Java, VB, Cobol,...), but 
+    the process was still constrained by code generator.  Libero can only
+    generate code for one type of object - the dialog definition.
+
+    A schema is a schema is a source code template, a text file that looks
+    like the language it wants to generate: C, Cobol, SQL, whatever.  A
+    schema is half-script, and half-source code.  It's written by experts in
+    the domain, and maintained by competent users.  Schemas are often
+    customised per project, according to site, platform, or personal needs.
+
+    Sometime early this year, we experimented with using XML as the basis
+    for defining objects.  If you're not aware of XML, it is a way to
+    represent any kind of data object with multiple levels of data.  An XML
+    file is self-describing, can be validated, and can be parsed by a
+    generic parser.  XML allows ad-hoc mark-up languages.  It is portable,
+    standard, simple, modern, and born from the Internet and the Web.  It's
+    also really, really useful for code generation.
+
+    For instance, I can easily recode a Libero dialog as an XML file.  This
+    is the start of the Libero 'lrcode' dialog, which parses a dialog file:
+
+    After-Init:
+        (--) Ok                                 -> Expect-State-Name
+              + Open-Dialog-File
+              + Expect-State-Name
+              + Get-Next-Token
+
+    Expect-State-Name:
+        (--) State-Name                         -> After-State
+              + Attach-New-State
+              + Expect-State-Definition
+              + Get-Next-Token
+        (--) Item-Name                          -> After-State
+              + Warning-On-State-Name
+              + Attach-New-State
+              + Expect-State-Definition
+              + Get-Next-Token
+
+    Now I'll recode this as XML:
+
+    <DIALOG>
+    <STATE name="After-Init">
+      <EVENT name="Ok" NextState="Expect-State-Name">
+        <MODULE name=" Open-Dialog-File
+        <MODULE name=" Expect-State-Name
+        <MODULE name=" Get-Next-Token
+      </EVENT>
+    </STATE>
+    <STATE name="Expect-State-Name:
+      <EVENT name="State-Name" next="After-State">
+        <MODULE name="Attach-New-State" />
+        <MODULE name="Expect-State-Definition" />
+        <MODULE name="Get-Next-Token" />
+      </EVENT>
+      <EVENT name="Item-Name" next="After-State">
+        <MODULE name="Warning-On-State-Name" />
+        <MODULE name="Attach-New-State" />
+        <MODULE name="Expect-State-Definition" />
+        <MODULE name="Get-Next-Token" />
+      </EVENT>
+    </STATE>
+
+    Now let's look at a GSL fragment which prints this as a Libero dialog:
+
+    .open "lrcode.l"
+    .for state
+    $(Name):
+    .  for event
+    .   (--) $(Name)                            -> $(Next)
+    .    for module
+    .         + $(Name)
+    .    endfor
+    .  endfor
+    .endfor
+    
+    GSL is the Generic Schema Language.  It's a simple scripting language
+    with special constructs for code generation.  GSL uses a single format
+    for input data definitions - XML, and can generate code in any language,
+    like Libero.  The first GSL implementation was a Perl program, but the
+    current GSL code generator is a fast, portable package written in C.
+
+    You can use GSL for classic code generation: define your application
+    objects as XML, and write schemas to generate SQL definitions,
+    data access routines, messages, forms, programs.  This is how the iMatix
+    Studio Workbench (yes, still being developed) will work.  The GSL code
+    generator can be embedded in other tools, since it's available both as a
+    command-line utility and a callable subroutine.
+    
+    You can use GSL to build interfaces.  Define the import/export format as
+    an XML language, and use GSL scripts to validate exchange files, to
+    manipulate them, and to convert them to further formats.  The iMatix SFL
+    contains a module (sflxml) which will read and write XML data files.
+
+    You can even use GSL for end-user applications, such as report
+    generation, database administration, and preparing junk emails.  If you
+    can get the data into XML, you can generate source code, or text files
+    from it using GSL.
+    
+    The GSL code generators will not be provided as open source software,
+    but will be available as free trial versions for certain platforms, from
+    January 1999.  The price for the commercial GSL code generator will be
+    around US$1000.
+    
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    We'd like to apologise for the scarcity of jokes this month.  Someone
+    crashed our jokes server by trying to load another set of iyfeg jokes
+    onto it.  Unfortunately this overloaded the bogusity relays, and the
+    hard drive jumped its spindle.  True fact: in the days when hard drives
+    were measured in square meters, one of the deadly hazards of working
+    with computers was the risk that a hard drive would jump its spindle.
+    You do not want to be in the way of a 50-kilo steel disc spinning at
+    a thousand revolutions per minute.  In our case, the jokes server hard
+    disk managed to slash its way through a stale cheese sandwich, a bag of
+    'cheeso-snaps' and one pizza, before falling to the floor.  They don't
+    make 'em like they used to.
+
+    To get off the Liberetto mailing list, just reply with 'remove' in the
+    subject.
+    
+    
+    

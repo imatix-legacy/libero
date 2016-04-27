@@ -1,0 +1,139 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   MARCH 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 3
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last month, Netscape announced that their Communicator browser would
+    henceforth be free.  First off, they have stopped trying to collect
+    money for the software.  Secondly, they will make the source code
+    available under the kinds of terms pioneered by Richard Stallman and
+    the GNU project.  This represents a very bold move, and is much more
+    interesting than Netscape's main anti-Microsoft tactic up to now,
+    which was to try to use the courts to block Microsoft's approach of
+    packaging their browser with Windows.
+
+    Microsoft's browser, Internet Explorer (MSIE), has gained ground since
+    the days when Netscape Navigator had 90% of the browser market. Today,
+    MSIE is more up to date, better integrated with the OS, and possibly
+    (the polls are not unanimous) has more market share. Before Netscape's
+    radical move, I'd have given them 6 to 12 months before they stopped
+    their browser business and were bought-up by Sun or Oracle. Now, the
+    picture has changed. Or has it?
+    
+    Netscape are citing the success of Apache as the model they want to
+    follow.  Apache, like GNU and Linux, was built to fill a void.  It
+    succeeded because was significantly better than the competition (which
+    was the NCSA httpd), and because it accessible to the kind of tweaking
+    and extension required to turn it into a world class product.
+
+    Despite this, Apache has only really succeeded on Unix.  Granted, the
+    majority of Internet servers are (still) Unix-based.  But WinNT is
+    moving up fast, and looks set to become dominant.  And people who choose
+    NT over a Unix system will do so exactly because they don't want to play
+    with the internals of their system.
+
+    It is possible that by turning their browser into Apacheware, Netscape
+    will be able to recoup the technical lead that they lost to Microsoft.
+    But this is not the main factor people base their choice on.  If the
+    browser can load and run five times faster, take half the amount of disk
+    space, and integrate neatly into the Windows shell, it may regain its
+    spot as the world's choice.  Otherwise, I reckon the world will just do
+    as it normally does, and go for the easy and safe choice.
+    
+    Pieter Hintjens
+    Antwerpen
+    1 March 1998
+
+
+ == NEWS -..--.-.-.-..--.-.-....----.-.---...---..-.-.-----...-.---.-.-.-.---
+
+    iMatix Studio Nears Release!
+        For an in-depth technical description, download the technical white
+        paper from http://www.imatix.com/pub/info/twp9801.zip.  Requires
+        MS-Word 7.0 or thereabouts.  The short story: iMatix Studio is an
+        open toolkit for building web applications using nothing more than a
+        short stick, two lengths of garden twine and a team of dedicated and
+        hard-working developers.
+
+    Xitami Hits Iceberg!!  Iceberg reported sinking!
+        Just to prove that iMatix can compete with the big boys, the latest
+        release of Xitami came complete with its own Titanic security hole.  
+        Luckily our plucky crew were able to provide an instant workaround
+        and a quick update to fix the problem, once they'd found the coffee
+        machine and the right mouse.
+
+    You Missed Linux Journal Dec '97?  Ooops, so did we!
+        Linux Journal Dec '97 contained an article on "Industrializing Web
+        Page Construction", describing the htmlpp tool we developed for our
+        website and made freely available.  Interestingly, BYTE magazine
+        March '98 talks about the need for new markup languages (XML, XLL)
+        to get around the problem of dead links on webpages.  The point
+        being that this was the main reason for developing htmlpp.
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    Date sent:        Sun, 1 Feb 1998 08:16:25 -0800 (PST)
+    To:               editors@imatix.com
+    From:             stevel@coastside.net (Steve Leibel)
+    Subject:          Re: Liberetto III/2
+    
+    >  The concept of a Microsoft-Intel-Compaq axis being able to flatten any
+    >  other computer company, including the last of the old timers, IBM, is
+    >  interesting if not particularly savoury.
+    
+    Editors,
+    Sorry you missed the connection to Compaq's purchase of Tandem last year.
+    Famous for "fault tolerant" computers, Tandem also has a line of
+    enterprise-size NT boxes built around Microsoft's Wolfpack clustering
+    technology.
+    Both Tandem and Dec are minicomputer companies that got to the PC
+    revolution late, and were brought down by bad management in the 80's.
+    Compaq was smart enough to notice, and to see the technology value of both
+    companies.
+    I agree with you that it's frightening to see a clone maker swallowing up
+    genuinely innovative technology companies.
+    Steve Leibel
+    stevel@coastside.net
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    Date sent:        Mon, 23 Feb 1998 10:09:57 -0800
+    To:               ljeditor@ssc.com
+    From:             Richard Parry <rparry@qualcomm.com>
+    Subject:          Issue #44, worth its weight in gold
+    Copies to:        ph@imatix.com
+
+    LJ Editor,
+
+    RE: Letters to the Editor
+
+    For nearly a month I agonized and procrastinated over my need to develop
+    a web site consisting of hundreds of pages that were similar and related.
+    Creating a few pages is easy and fun, but anything more becomes tedious and
+    boring.  When I turned to the article "Industrializing Web Page
+    Construction" in the Dec 97 issue (#44), I learned that tools have already
+    been developed to solve such problems.  I installed the software and
+    created 60+ pages in hours. Thank you LJ and Pieter Hintjens.
+
+    ---------------
+    Richard Parry, P.E., W9IF - Qualcomm, Inc. Globalstar/Gateway RLGTS
+    Internet --> http://people.qualcomm.com/rparry
+    Intranet --> http://web/~rparry
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Short but sweet; this calory-reduced Liberetto is designed to maximise
+    your enjoyment while minimising the effects on your waistline.  Yes, for
+    once, junk that won't make you fat!

@@ -1,0 +1,225 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The 80x86 Assembler Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang13.htm">&lt;</A>
+ | &gt; | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="80x86">&nbsp;</A>
+<H2><A NAME="TOC17">The 80x86 Assembler Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is 80x86 Assembler?</DT>
+<DD>This is the native language for most of the world's PCs. It is fast and
+dangerous.  It gives you a 5-to-10 performance improvement over the best C
+compilers.</DD>
+<DT>Portability</DT>
+<DD>Very portable to all compatible CPU's. Comes in various varieties,
+following the evolution in 80x86 CPU's.  The lowest-common denominator is the
+16-bit 8086.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros - can't get it faster; can't make it smaller. Cons: multiply your
+development and maintenance costs by ten.</DD>
+<DT>How To Get It</DT>
+<DD>There are various free and shareware assemblers around, which are not all
+compatible in terms of syntax.  The 'standards' are the Borland TASM and
+Microsoft MASM products.</DD>
+<DT>Libero Supports</DT>
+<DD>MS MASM 5.0: .com files, .exe files, and subroutines.</DD>
+</DL>
+
+<H3>Working With 80x86 Assembler</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.asm.</LI>
+<LI><B>Program model:</B> .EXE file, .COM file, or large-model C
+subroutine.</LI>
+<LI><B>Good for:</B> anything complex in assembler.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.asm</TT>; generates an
+include file <TT>mydialog.d</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+MODULE module_function_name
+ ...
+ENDMODULE
+</PRE></LI>
+<LI><B>Private functions:</B>
+<PRE>
+private_function_name PROC NEAR
+  ...
+ENDP
+</PRE></LI>
+<LI><B>Naming style:</B> schema sets -style=plain automatically.</LI>
+<LI><B>Limits:</B> 255 states, 254 modules, 253 events.  The schema checks at
+generate-time that the dialog does not exceed these limits. All tables are
+defined statically, at assembly time.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+;****************   MODULE FUNCTION NAME   *****************
+
+MODULE module_function_name
+       ret                        ; All modules end in 'ret'
+ENDMODULE
+
+private_function_name proc near
+    mov the_next_event,ok_event
+    raise_exception error_event
+endp
+</PRE>
+
+<P><A HREF="doc/exprcom.asm">A fuller example.</A></P>
+
+<H4>Specific Schema Options</H4>
+
+<UL>
+<LI><B>-opt:model=com</B> - generate code for a .COM program.  This is the
+default model.</LI>
+<LI><B>-opt:model=exe</B> - generate code for an .EXE program.</LI>
+<LI><B>-opt:stack_size=nnnn</B> - size of stack for .EXE program; default is
+1024.</LI>
+<LI><B>-opt:model=lsub</B> - generate code for a large-model subroutine using
+the Microsoft/Borland C calling convention.</LI>
+</UL>
+
+<P>The schema provides these data items, macros, and functions (above the
+standard ones provided by all schemas):</P>
+
+<UL>
+<LI><TT>msg_helptext</TT> - example of help message; change to suit (COM, EXE
+only).</LI>
+<LI><TT>arg_text db 128 dup(0)</TT> - command line arguments, null-terminated
+(COM, EXE only).</LI>
+<LI><TT>arg_size db 0</TT> - size of arguments (0 = none) (COM, EXE
+only).</LI>
+<LI><TT>arg_help db 0</TT> - 1 if /? was specified on command line, else 0
+(COM, EXE only).</LI>
+<LI><TT>newline db '\n',0</TT> - newline as null-terminated string.</LI>
+<LI><TT>the_next_event dw 0</TT> - next event from module.</LI>
+<LI><TT>the_exception_event dw 0</TT> - exception event from module.</LI>
+<LI><TT>exception_raised db 0</TT> - 1 if exception raised.</LI>
+<LI><TT>feedback db 0</TT> - return code to system.</LI>
+<LI><TT>xxxx_event</TT> - macro: defined for each event in the dialog, where
+'xxxx' is the name used in the dialog.</LI>
+<LI><TT>terminate_event</TT> - macro: when you move this to the_next_event,
+the state machine halts.</LI>
+<LI><TT>raise_exception</TT> - macro: raises an exception and sets
+the_exception_event to the event specified.</LI>
+<LI><TT>pushr</TT> -  macro: push one or more registers onto stack.</LI>
+<LI><TT>popr</TT> - macro: pop one or more registers from stack.</LI>
+<LI><TT>jmps</TT> - macro: short jump.</LI>
+<LI><TT>echo</TT> - function: prints null-terminated message at DS:SI.  The
+sequence \n is treated as newline.  All registers are safe except flags.</LI>
+<LI><TT>echoch</TT> - function: prints character in AL using BIOS tty
+function.  Does not change any registers except the flags.</LI>
+<LI><TT>echonum</TT> - function: displays the value in AX as a signed decimal
+number with one leading space, and optional sign.  Does not change any
+registers except the flags.  Number is in range 32768..32767</LI>
+<LI><TT>pause</TT> - function: waits for a keystroke; if [Esc] pressed, exits
+program.  Does not change any registers except the flags.</LI>
+</UL>
+
+<H4>Programming with the COM model</H4>
+
+<UL>
+<LI>Assemble and link as a .COM file:
+<PRE>
+    masm $source;
+    link $source;
+    exe2bin $source.exe $source.com
+    del $source.exe
+</PRE></LI>
+<LI>Code, data, and stack are in same segment: <TT>CS</TT>, <TT>DS</TT>,
+<TT>ES</TT>, and <TT>SS</TT> point to the one segment, and never change.</LI>
+</UL>
+
+<H4>Programming with the EXE model</H4>
+
+<UL>
+<LI>Assemble and link as an .EXE file:
+<PRE>
+    masm $source;
+    link $source;
+</PRE></LI>
+<LI>Code, data, and stack each have their own segment.  <TT>DS</TT> and
+<TT>ES</TT> both point to the data segment.  Default stack size is 1024; you
+can ask for a larger stack using '-opt:stack_size=nnnn'.</LI>
+</UL>
+
+<H4>Programming with the LSUB model</H4>
+
+<UL>
+<LI>Assemble and link with a large-model calling program
+<PRE>
+    masm $source;
+    link caller+$source;
+</PRE></LI>
+<LI>Code, data, and stack each have their own segment.  <TT>DS</TT> and
+<TT>ES</TT> both point to the data segment.  Stack is provided by calling
+program.</LI>
+
+<LI>The <TT>FUNCTION_OPEN</TT> macro defines the interface between your
+function and calling programs.  The default is for C programming. In the
+generated skeleton program, change the definition of <TT>function</TT> to
+suit the name of your function.  Note that it must start with '_' for C
+programming.  Define any parameters following the example param1 shown.  The
+parameters to a function are passed on the stack starting at &lt;6[BP]&gt;.
+Don't make these changes to the skeleton, but to the program that Libero
+generates for you the first time.</LI>
+</UL>
+
+<H4>Programming with all models</H4>
+
+<UL>
+<LI>Do not rely on registers being safe between modules.  The dialog code
+uses these freely without saving them.</LI>
+<LI>You can freely use any of the working registers (AX, BX, CX, DX, ES, DS,
+DI, SI) in a module function.</LI>
+<LI>In a LSUB model program, do not change BP.</LI>
+<LI>In an EXE or LSUB model program, ES is initialised to be equal to
+DS.</LI>
+</UL>
+
+
+
+
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang13.htm">&lt;</A>
+ | &gt; | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <EM>The 80x86 Assembler Language</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

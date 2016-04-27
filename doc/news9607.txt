@@ -1,0 +1,462 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/7
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-               SEPTEMBER 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 7
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - News and Views - Reader's Letters - Tips & Hints
+    Some humour - Well that's a point of view - If in doubt press Delete now.
+
+
+ == EDITORIAL ..---.-.-.-....-----.--.....----.-.---....----.-.-...-.---...-.
+
+    I was in Burkina Faso again this month, to catch up on the latest vogue
+    in tropical diseases.  Well, that's another story.  The thing about
+    Burkina Faso, being one of the poorest countries around, is that human
+    labour costs next to nothing.  A tailor will spend a day sewing a shirt
+    from cloth for perhaps two dollars in added value.
+
+    How much is your time worth?  Probably a bit more.
+
+    If you are, like me, a programmer, then you'll be acutely aware of the
+    cost and passage of time.  We work like children playing on the beach,
+    with the wind and waves constantly washing our efforts away.  There are
+    few other creative professions where one's work is so quickly outdated
+    and incompatible, outside the fashion industry.  Even there they manage
+    to recycle ideas every twenty years or so.
+
+    The forces that move our business don't help a lot.  Let's see...  We
+    are supposed to throw away C++ and work in Java.  Or perhaps in Visual
+    Basic, VBScript, or JavaScript...  Gee, thanks!  Every year or two, a
+    new fashion statement will issue from Redmond and we can throw away the
+    barely-familiar 'old' tools and start learning new ones.  Like so many
+    thin summer clothes, we pay for expensive client-server applications
+    using the latest visual vogue, then find that the stuff won't run on
+    the next version of Windows, or is impossible to maintain, or just too
+    clumsy to really work.  The core of many businesses still consists of
+    old COBOL code, running since the 70's.  This old code brings its own
+    problems, as the next few years will demonstrate forcefully.
+
+    I will make my point.  It is this: enough disposable software already!
+
+    As a programmer, I resent writing software that has a limited shelf-
+    life.  As a business man, I cannot justify the investment in time and
+    money.  If software cannot last twenty years, fifty years, or more,
+    then we are doing something fundamentally wrong.  It seems obvious that
+    the core software used by any business must be stable and robust for
+    decades.  This is a fundamental need of most of our clients, yet too
+    often it gets lost in the fashion chase.
+
+    Software gets discarded for two main reasons: it does not run on the
+    current crop of machines, or it no longer does something useful.  For
+    the programmer, the first issue is portability.  The second issue is
+    maintainability.  Write portable code.  Write it well.  Ignore fashion.
+    Your work will last for longer.  The products we make at iMatix, here
+    in downtown Antwerp, are meant to last for at least 25 years, and 100
+    if possible.
+
+    I pointed out in Liberetto I/2 that the Internet will bring a flood of
+    skilled, valuable minds into the world market for services.  Like the
+    Burkinabe tailor, many will be willing to work for relatively trivial
+    sums.  If we (the rich West) cannot improve the quality and lifespan of
+    our software, we programmers will be out of business within ten years.
+
+    Pieter Hintjens
+    Antwerpen
+    1 September 1996
+
+
+ == CONTENTS .-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Interview With The Revamper
+
+        The gnomes have been busy again, putting the final touches to the
+        newly revamped iMatix multithreading kernel, SMT version 2.0.  We
+        speak to the chief revamper, Pieter, about the project.
+
+    SMT 2.0 - A Technical Brief
+
+        Also known as "The Idiot's Guide To Internet Programming And
+        Multithreading The Way Grandma Used To Do It".  If you thought
+        you understood what was going on, this will soon change your
+        mind.
+
+    Summer Competition Results
+
+        "Loads of baloney!", says Big Al, who judged the competition
+        entries.  Did you win a t-shirt?  Did anyone?  Did anyone even
+        bother to enter the competition?  What happened to all the wine?
+        And is this a blatant attack on the world's beer drinkers?  Read
+        on for the full details!
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Libero...  The very name evokes far-away destinations, tropical air
+    bringing the fragrance of jacaranda through the open window, distant
+    music and voices, and in some countries, garbage collection devices
+    worn by immature humans.
+
+    Bring on the dancing coke machines!
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: jmf@sema-grenoble.fr
+    >Date: Wed, 14 Aug 1996 13:22:47 MET_DST
+    >To: info@imatix.com
+    >Subject: SMT 2.0
+    >I work now on a rather huge state-machine in real-time environment to
+    >develop a supervisor in a distributed environment.
+    >I feel very interested in your introduction of what is SMT 2.0.
+    >Do you already have an idea about when more information will be
+    >available (documentation and/or kernel)?
+    >Best regards
+    >Jean-Marc FOURNERON
+
+    The technical brief below should answer some of your initial questions.
+    We will be announcing SMT 2.0 on various newsgroups in September.  The
+    package will be on our website as soon as possible, perhaps even earlier.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: Susan Thibodeau <smct@frontiernet.net>
+    >To: ph@imatix.com
+    >Subject: Libero
+    >Mr. Hintjens:
+    >I read with great interest your article in the Jul/Aug issue of
+    >_Dr._Dobb's_Sourcebook_ ("The Libero Environment"). In an effort to try
+    >Libero, I downloaded the Windows version from imatix.com, but it seems
+    >that I am missing at least two (perhaps several) VBX files that are
+    >required to allow Libero to load.
+    >I would be most appreciative if you could email me the names and URLs of
+    >all VBXes that Libero uses.  I finally found assoc.vbx, but am presently
+    >stuck in finding dpush.vbx ... and I'm not sure what comes next.
+    >Thank you.  I look forward to an exciting adventure experimenting with
+    >your development environment.
+    >Regards,
+    >Susan Thibodeau
+
+    Hmm.  Maybe we were too clever for our own good.  A few people got hit
+    by the 'missing .VBX' syndrome.  RTWP (read the web pages), or SUAM
+    (send us a mail).
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: "Patrick Petrossians" <petross@ibm.net>
+    >To: "Pieter Hintjens" <editors@imatix.com>
+    >Date: Sun, 11 Aug 96 12:54:27
+    >Subject: Liberetto 1/5
+    >Hi Pieter,
+    >Let's have a moment of silence for all those young students who
+    >collected all those little pennies and instead of putting them in a
+    >modern Coke machine (cocus machinus sentiens sentiens) spent them in
+    >the august issue of Dr. Dobb's. Imagine them browsing the journal in
+    >search of your signature. Imagine their disappointment in not
+    >finding anything about Libero. Imagine them loosing all their faith
+    >and entering a long term depression. Imagine them spending the rest
+    >of their pennies in Prozac. Just because you forget to precise that
+    >your article is not in the regular Dr. Dobb's but in the July/August
+    >issue of the "Dr. Dobb's Sourcebook".
+    >Of course, you may be forgiven if you put me in your mailing list...
+    >By the way have you been thinking of:
+    >- Libero for APL:  For years I have been trying to write a "useful"
+    >program in this language, something doing anything else than
+    >multiplying two matrices. Maybe with Libero for APL?
+    >- Libero for XLISP: For years I have benn trying to write a "useful"
+    >program in this language, something doing anything else than
+    >transforming (apple orange peach) to (orange peach)...
+    >- Libero for Clipper: Nobody will use it. People who program in
+    >Clipper won't understand anything about FSM.
+    >- Libero for Lotus Macro Language: Dr. Dobb's says that it's the most
+    >used programming language.
+    >- Libero for Qedit Macro Language: This one is just for me.
+    >--
+    >Patrick.
+
+    The answer is yes, terrible, isn't it; yes, okay; yes, unlikely; no;
+    probably; nah; Great Idea!  The neat thing about Libero is that if you
+    want to badly enough, you can just sit down and write your own schema!
+    Sounds tough, but is actually pretty difficult.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: "Stefaan A. Eeckels" <Stefaan.Eeckels@ecc.lu>
+    >Date: Sun, 11 Aug 1996 00:20:02 +0200
+    >To: info@imatix.com
+    >Subject: Libero for Windows
+    >Hi info (Pieter),
+    >I read your (Pieter Hintjens) article on Libero in Dr Dobb's
+    >Sourcebook, and was sufficiently interested to visit your Web site.
+    >Just wanted to tell you that your Windows distribution
+    >lrmswin.zip seems to lack the file ASSOC.VBX (at least that's what
+    >my Windows box tells me when I double click on lrwin.exe)
+    >Your manual is well written and funny - I liked the bit about
+    >the coke machine (did you know its Latin name is "Distributosaurus
+    >Unhealthius" ;-).
+    >Give me a week and I'll tell you whether the 'penny dropped'.
+    >-- Stefaan
+    >Felson's Law:
+    >To steal from one person is plagiarism; to steal from many is research
+
+    Felson obviously never got arrested for shoplifting.  Nor, we hasten
+    to add, did we.  'Yo, officer, I was doing research!'  I would phrase
+    this so: to steal from a few is theft; to steal from many is politics.
+
+
+ == INTERVIEW -....--.-.-----...----...-.---...-.----....-.---.---....--.-...
+
+    Liberetto: Pieter, hello.  How the devil are you?
+    Pieter: Fine, thanks.  Having a great time.
+
+    L.: Can you tell us a little about this SMT project?  What's the point?
+    P.: The main point was to let us (and our Libero users) write better
+    Internet programs.  Libero is very good for that kind of work.  With
+    SMT, we solve some of the main technical problems that remain.
+
+    L.: What are those?
+    P.: Handling lots of users at once, mainly.  We don't think much of a
+    technical solution that falls apart under heavy use.  Today's ftp
+    servers and web servers can handle a few dozen or a hundred users, but
+    not more.  We want to be able to handle thousands.  The other problem
+    with today's state-of-the-art is that if you bite the bullet and write
+    a really fast Internet server, you have to use non-portable techniques.
+    Those are expensive to learn, and restrict your market.  Then, your
+    work is quickly outdated as the market moves to new systems.
+
+    L.: How do you solve that problem?
+    P.: We write totally portable software.
+
+    L.: I read somewhere that that wasn't possible; you just got the worst
+    of all worlds...
+    P.: Well, you won't see a portable version of Duke Nuke'm, but an
+    Internet server does not use hires graphics or sound.  Just package the
+    functions you need, make them work on each system, and voila!
+
+    L.: It's not really that simple, is it?
+    P.: Sure it is.  Just takes quite a lot of work.  But we've made the
+    library - the SFL - run on all our target systems so far.  When that
+    runs, the rest is portable.
+
+    L.: Not everyone wants to write a new ftp server.  Can people use SMT
+    for something else?
+    P.: The first version was really specific for Internet programming.
+    This new version is a total rewrite, and much more general.  We made
+    it a general framework for writing cooperative applications.
+
+    L.: Can you explain that term?
+    P.: A cooperative application consists of lots of pieces that all talk
+    to each other, and run in parallel.  One example is the software that
+    controls a telephone switchboard.  These applications get very complex,
+    and the combination of Libero plus SMT should make such work a lot
+    easier, and so cheaper.
+
+    L.: 'Should'...?
+    P.: Our Internet servers are just specific cases of cooperative
+    applications.  We haven't written any telephone switchboard software
+    yet, so there are still a few things to demonstrate.
+
+    L.: When will the new SMT be available?
+    P.: Sometime in September.  We're finishing the packaging, user guide,
+    funny dancing coke-machine icons, and so on.
+
+    L.: And what's next?
+    P.: We're working in a couple of directions.  Our long-term goal is to
+    make a solid Internet application toolkit.  SMT is one step on the way.
+    Another step is a replacement for the CGI (common gateway interface)
+    hack that people use today to write Internet applications.  CGI breaks
+    rule number one, efficiency under heavy use.  Finally, we're designing
+    a distributed control layer.  The first real application will be a
+    distributed version of our Cosmos web server.  You will be able to
+    build an intranet server by adding any number of systems - UNIX, NT,
+    Macs, OS/2, in a sort of ad-hoc cluster.  That should be fun.
+
+    L.: Sounds like you have a few white nights ahead.
+    P.: Well, we're not in a hurry.  We work slowly, and carefully.
+
+    L.: Cheers, and thanks for your time.
+    P.: And 'cheers' to you too.  Now, where's that beer you promised me?
+
+
+ == TECHNICAL BRIEF --.-...---.-.--...-.-..---.-.-...--.-....----.-....--.---
+
+
+    Technical Brief - The iMatix Simple Multithreading Kernel
+
+    Summary
+
+        This paper describes the SMT kernel, a system for writing
+        fast, portable, multithreaded C applications.  We explain the
+        objectives of the SMT kernel, its implementation, and its
+        availability.  We also describe a sample application, the
+        iMatix COSMOS web server.  The SMT kernel is free software,
+        supplied according to a liberal license policy.
+
+    Objectives
+
+        The SMT kernel was designed as a toolkit for fast, portable
+        Internet servers, and other industrial-scale event-driven
+        applications.
+
+        The main objective was to provide the benefits of native
+        multithreading systems without the extra cost in complexity
+        that native multithreading systems usually bring.  An
+        additional objective was to permit these multiple threads of
+        execution to exchange and process messages in an asynchronous
+        manner.  This permits the construction of large applications
+        consisting of multiple finite-state machine components.
+
+    Implementation
+
+        The SMT kernel is written in, and for, portable ANSI C in
+        order to cover the widest possible range of platforms.  It
+        uses two additional iMatix technologies: the Standard Function
+        Library (SFL) and the Libero tool.  The SFL provides a basis
+        for rich, portable C applications.  The Libero tool provides a
+        method for building programs using a finite-state machine
+        (FSM) model.  A future version of the SMT kernel may support
+        C++ directly.  The SMT design is easily and fully
+        implementable in other languages.
+
+        The fundamental entity in an SMT application is a 'thread'.  A
+        thread exists as an instance of a finite-state machine.  Each
+        thread has its own current state, and carries a block of
+        context to hold its private variables.
+
+        Threads can send events to other threads.  Events can be
+        requests for some service, replies, acknowledgments, error
+        feedbacks, etc.  Each thread has a queue containing zero or
+        more events waiting to be processed.  The SMT kernel delivers
+        events to waiting threads, schedules threads for execution,
+        and executes each thread until it once again requires an input
+        event.  When a thread waits for an event, and its event queue
+        is empty, the thread becomes 'passive' until an new event
+        arrives for it.  At any time, the set of valid events for a
+        thread are determined by the thread's current state.  The
+        programmer can choose to handle some or all possible events in
+        any state.
+
+        The SMT kernel switches rapidly between the various active
+        threads.  Since most threads depend on external activity (e.g.
+        input on an Internet socket) a large number of threads can run
+        in parallel with no performance slow-down.
+
+        The Libero tool provides an state-machine programming model
+        that works perfectly with this event-driven approach.  Thus
+        the logic of each thread is described formally as a Libero
+        'dialog', which in turn is passed to the Libero code
+        generator.  Like all Libero programs, SMT programs are largely
+        self-documenting, and easy to understand or modify.
+
+        We call an SMT program an 'agent'.  An agent runs one or
+        several threads, each executing an independent instance of the
+        same state machine.  Each agent provides specific services,
+        accessed through a well-defined set of request and reply
+        events.  Agents are a convenient way to build reusable
+        components.  The SMT kernel provides a set of standard agents,
+        from a simple logging agent that writes entries to a log file,
+        to complete HTTP agents that form the basis for a Web server.
+        Indeed, the architecture of a typical SMT application like the
+        COSMOS web server consists basically of a set of
+        intercooperating agent programs.  This internal object-
+        oriented approach is a strong support for writing robust and
+        reusable code.
+
+        Apart from the various standard agents, The SMT kernel
+        consists of two main pieces: a set of functions that we call
+        the 'SMT kernel API', and a specialised Libero 'schema'.  This
+        schema provides the skeleton for SMT programs.
+
+        The SMT kernel schedules and executes threads according to the
+        events that they exchange.  While most programs in an SMT
+        application are written as agents, non-agent programs can also
+        access the SMT kernel API, to start threads, send and receive
+        events and so on.
+
+        All file access is done asynchronously, using non-blocking i/o
+        calls.  Thus, a thread can write data to a log file or read
+        data from a file to transmit, without slowing the application.
+
+    Availability
+
+        A beta release of the SMT kernel, version 2.0, is planned for
+        September 1996.  The SMT kernel will be available from the
+        iMatix website on http://www.imatix.com.  Documentation (in
+        HTML format) and sources will be included as usual.
+
+        The SMT kernel has been tested on these systems: MS-DOS,
+        Windows 95, Windows NT, Linux, AIX, OSF/1, HP/UX, Sun OS.
+
+        The SMT kernel is free software, supplied according to a
+        liberal license policy.  There are no restrictions to its use
+        in private or commercial projects except the requirement for a
+        statement of copyright.
+
+    The COSMOS Web Server
+
+        The main example application is the iMatix COSMOS web server.
+        This server provides basic HTTP and FTP access, and is
+        excellent as an intranet server due to its high performance
+        and portability.  Ready-to-use executables for various
+        platforms will be supplied separately at a later date.
+
+        The COSMOS web server consists of standard agents already
+        supplied with the SMT kernel.  This highlights the fact that
+        it is simple to add HTTP or FTP capability to your
+        applications by simple inclusion of the appropriate agent in
+        your main() function.
+
+    Conclusions
+
+        The SMT 2.0 kernel provides a level of performance that is as
+        good as native multithreading systems.  An SMT-based
+        application will - with many clients - run faster and with
+        less memory than a standard UNIX application that uses the
+        fork() function to manage new connections.
+
+        The COSMOS web server is as fast as, or faster, than current
+        servers available on UNIX and Windows platforms. (This
+        statement results from initial tests, and must still be
+        verified formally.)
+
+        The Libero tool is a solid, proven approach for event-driven
+        programming.  The combination of Libero and SMT 2.0 result in
+        robust and efficient applications that are cheap to maintain.
+
+        An SMT application can be 100% portable to UNIX, Windows 95,
+        Windows NT, Digital VMS, and other systems, with no loss of
+        functionality.  The core requirements for portability to a new
+        system are an ANSI C compiler and an implementation of the
+        iMatix Standard Function Library.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    Big Al reports on the Liberetto Summer Competition:
+
+      "I can describe the entries we got in one word: interesting, but
+    wrong.  I tried them all, and I'm still trying to get the bicycle
+    spoke out of the wall.  If it wasn't for the SEP field, we'd probably
+    all be in jail.  Never again!
+      "The correct answer was this: take a dishcloth and twist one corner
+    into the bottle as far as possible.  Shake the cork until it nestles
+    in the folds of the cloth.  Now gently pull the cloth out.  The cork
+    will not stick, being wrapped in cloth.
+      "We also found one other workable solution, which requires a skewer
+    - or a bicycle spoke - and a corkscrew.  Skewer the cork and bring it
+    close to the bottle's neck.  You can get just enough leverage to
+    screw-in the corkscrew and then pull the cork out.
+      "So, no one gets a t-shirt [Boo!, hiss!].  Although if anyone wants
+    to help us with the legal fees, and fixing the neighbour's bike, feel
+    welcome!"
+
+    The judge's decision, arbitrary and capricious, is final.  So you can
+    forgot those e-mails!  Hey, life is like that.  You want a free t-shirt,
+    you have to either earn it or buy it!
+

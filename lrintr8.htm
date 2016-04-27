@@ -1,0 +1,287 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Frequently Asked Questions</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr7.htm">&lt;</A>
+ | &gt; | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC16">Frequently Asked Questions</A></H2>
+
+<P><EM>Why is the documentation in HTML format?</EM></P>
+
+<P>We originally wrote the documentation using Microsoft Word
+5.0 for MS-DOS, a fine word-processor that satisfied our
+minimalist preferences for a long time.  Our target was
+PostScript on paper.  Since those old days, we have changed our
+minds a little about the best way of moving information from our
+brains to yours.  We like the idea of keeping the help 'on-line'
+in the literal sense.  Effectively, this means using HTML.  Now,
+our approach is two-fold.  Firstly, we use HTML as the basic
+language.  It's excellent for the job.  Secondly, we have
+structured the documentation to suit.  This means that the
+Libero documentation is less of a traditional paper book, and
+more of a hyper-linked text database. Our guiding principle is
+that you can take the entire HTML kit and put it on a local hard
+disk, then browse, print, and copy that.  There are HTML
+browsers available for all of our target platforms, and the
+market is competitive and generally free.</P>
+
+<P><EM>Why do you not supply binary kits for UNIX (any
+longer)?</EM></P>
+
+<P>We used to do this...  It just does not work very well, and
+takes a lot of work.  It is generally not a good idea to use an
+executable built under one version of an operating system on an
+other.  Sometimes, but not always, you can go from an earlier
+version of <EM>Brandix</EM> to a later version, but never
+contrarywise.  With some exceptions (see next question) it's a
+snap to install Libero by compiling the source kit.  At iMatix
+we tend to do this for all our products today.</P>
+
+<P><EM>I get compile errors on Sun Sparc</EM></P>
+
+<P>For some bizarre reason, possibly related to the struggle of
+commercialism over utility, this system does not come with an
+ANSI C compiler as standard.  People often install GNU C, which
+works well, but there can be conflicts between the Sun header
+files and GNU runtime library. In theory we fixed these in
+version 2.11 (by changing prelude.h).  If you still get compile
+errors, send us a listing and we will see what is wrong.  On
+some Sparc systems, the ANSI C compiler is called acc.</P>
+
+<P><EM>I get compile and link errors and then <TT>lr</TT>
+dies</EM></P>
+
+<P>If you get compile errors (not warnings), or link errors,
+don't try to run the resulting executable.  Or if you do, don't
+expect reasonable behaviour, unless one can describe a dump as
+'reasonable'.</P>
+
+<P><EM>Does Libero support language </EM>X<EM>?</EM></P>
+
+<P>If it is not on the list, the answer is 'not yet'.  There are
+several possible reasons why we have not yet built a schema for
+a particular languages:
+<UL>
+<LI>We hate the language and would not touch it with a 10 ft
+pole.</LI>
+<LI>We don't have a compiler or interpreter for that language;
+</LI>
+<LI>We don't consider the language to be worth it;</LI>
+<LI>We don't see a good way to implement dialogs in the
+language;</LI>
+<LI>We have not had time yet.</LI>
+</UL>
+<P>So far no language has fallen into the first category, while
+many have fallen into the last.</P>
+
+<P><EM>How do I add support for language </EM>X<EM>?</EM></P>
+
+<P>If it is a language that we can easily get hold of, we'll add
+support more or less on demand.  For instance, if anyone
+actually comes and asks for an Ada implementation, we could
+install GNU Ada and get an Ada schema up and running in a few
+days.  The bizarre thing is we don't even ask for money for the
+whole business.  Whatever.</P>
+
+<P>If the language is one that we cannot get freely -- and we're
+not in the habit of buying expensive compilers just for fun --
+then we can try to build a schema 'by remote control'.  In this
+scenario, you provide us with the specifications of the
+language, sample programs, etc.  We'll do the schema and send
+you programs to test.  Eventually we get a solid version.  This
+can work surprisingly well.</P>
+
+<P>Finally, you can bite the bullet (more like a 10mm shell) and
+learn how Libero's schema language works.  You can then write
+the schema yourself.  Honestly, if you need to write a schema
+from scratch, this is probably the hard way.</P>
+
+<P><EM>I want to customise a schema</EM></P>
+
+<P>Firstly, be sure that you can't get what you need by adding
+code to the template file.  Then, drop us a line to tell us what
+you want so we can try to figure-out a way of supporting it in
+the standard schemas. As a last resort, copy the schema and
+change it.  If your changes are cosmetic, we'd try to convince
+you to accept our cosmetics.  Some projects have such unusual
+needs that a new schema is the only practical answer.  Be
+warned, however: if you make your own version of a schema, you
+lose the benefits of any future improvements or fixes to the
+schema.</P>
+
+<P><EM>I don't understand Libero</EM></P>
+
+<P>This is quite normal.  Anyone who understands Libero the
+first time is either lying, has a serious mental problem, or is
+not a real programmer. The concept is simple, and easy to
+explain to a lay-person.  But if you have spent long enough
+coercing computers to do your bidding, you get a certain
+world-view of how things work.  Libero does things differently.
+Keep trying, and after a week or so you will suddenly see it.
+</P>
+
+<P><EM>How do I print-out the documentation?</EM></P>
+
+<P>Probably the best approach is to download the
+<A href="/pub/libero/doc/lrfull.zip">big file</A> that contains the entire documentation
+kit.  Load this into your favourite browser and press 'Print'.
+Alternatively you can try to convert the HTML file into a word
+processor format, load it up and print it like that.  This is a
+field that is changing rapidly, for the better.</P>
+
+<P><EM>Why is there no UNIX Makefile?</EM></P>
+
+<P>There are several reasons for this: Libero is a portable
+product, and makefiles are specific to UNIX; we don't really
+like makefiles; we prefer to try a more 'intelligent' approach
+when possible; we don't have the time to make and maintain
+makefiles for all the possible UNIX platforms.  Ok, none of
+these reasons is enough by itself, but you get the idea.  Libero
+is simple to build and install, so the lack of a makefile is not
+a serious handicap.</P>
+
+<P><EM>Libero for Windows crashes</EM></P>
+
+<P>There was a bug in previous releases of Libero for Windows.
+It was caused by a missing Windows font.  Install the latest
+version.</P>
+
+<P><EM>Why can't I get the files by ftp?</EM></P>
+
+<P>Our site does not provide anonymous ftp for reasons of speed
+and of security.  If you do not have http access, send us an
+e-mail telling us what system you work with, or which files you
+want, and we'll send them by e-mail back to you.</P>
+
+<P><EM>Is there a mirror site?</EM></P>
+
+<P>Not to our knowledge, though we have seen a few older
+versions of Libero floating around.</P>
+
+<P><EM>How do I build a mirror site?</EM></P>
+
+<P>Our website does not (currently) support anonymous ftp, nor
+other protocols for automatic mirror-site replication.  If you
+want to set-up a mirror site for Libero, <A href="mailto:info@imatix.com">contact us</A> and
+we'll work-out the principles.</P>
+
+<P><EM>I want to repackage Libero for a CD-ROM</EM></P>
+
+<P>You do not need our permission, but you must respect our
+license terms. If your CD-ROM is for a specific platform, e.g.
+Linux, we suggest that you include the binary kit for that
+platform, the source kit, and the HTML kit. If you have space on
+the CD-ROM, supply the HTML tree uncompressed: then people can
+follow the links through their Internet connection to pick-up
+other files such as examples.</P>
+
+<P>If your CD-ROM is a source collection, you may want to
+provide the Windows version of Libero, the source kit, and the
+HTML kit.</P>
+
+<P><EM>Why is </EM>Liberetto<EM> so silly?</EM></P>
+
+<P>Everything is relative.  When the first issue of
+<EM>Libermanga</EM> comes out, you'll see what we mean.
+Seriously, though, we try to maintain a harmonious balance
+between education, entertainment, humour, and subtle irony.
+When that fails, we just go for silly.</P>
+
+<P><EM>Is there a 'pretty printer' for my dialogs?</EM></P>
+
+<P>Yes, since version 2.20 - use the -pretty option.</P>
+
+<P><EM>How is a Libero FSM different from a 'classic'
+FSM?</EM></P>
+<UL>
+<LI>Libero lets you specify several actions in a transition; a
+classic FSM usually only lets you specify one action.</LI>
+<LI>Some FSMs allow an 'entry action', a 'transition action',
+and an 'exit action'.  These are all equivalent, as far as we
+can see, and since Libero allows multiple actions, you can do
+the same in Libero.</LI>
+<LI>You describe your FSM as a textual diagram, not as a
+numbered graph, as is usually the case.</LI>
+<LI>Libero stores the FSM in a table and interprets this.  This
+is one of several approaches; some classic FSMs use goto's;
+others use a large switch statement.  The table + interpreter
+approach is a reasonable compromise between space and speed and
+simplicity.</LI>
+<LI>Libero has the concept of an <EM>exception event</EM>.</LI>
+<LI>Libero has the concepts of <EM>super-states</EM> and
+<EM>default</EM> states</EM>.</LI>
+</UL>
+
+<P><EM>I want my FSM to handle an event queue in realtime</EM>
+</P>
+
+<P>Use our SMT kernel; this is our solution for event-handling
+in realtime programs, multi-FSM constructions, communications
+servers, internet servers, etc.</P>
+
+<P><EM>Are Libero FSMs good for writing parsers?</EM></P>
+
+<P>Well, in principle yes, but in practice there are better
+tools.  For instance, Perl is great for writing ad-hoc parsers.
+If you are working with formal grammars, there are tools that
+will generate parsers for such grammars.  It is usually
+pointless to re-invent the wheel by hand.  There are exceptions.
+For instance, sometimes the grammar cannot be formalised enough
+to work with a parser generator.  Sometimes a generated parser
+is too slow.  In these cases, a Libero FSM may produce excellent
+results.</P>
+
+<P><EM>I downloaded a Libero .zip file to my UNIX, then ftp'd
+it to my PC - now PKUNZIP won't extract it</EM></P>
+
+<P>When you ftp a binary file like a .zip file, always set ftp
+to binary mode (use the command 'bin').  Sometimes ftp is
+configured like this by default, but more often it assumes you
+want to transfer text files.  So, it expands tabs, converts
+line-ending, and such, generally turning a .zip file into
+garbage along the way.</P>
+
+<P><EM>Is there a Libero mailing list?</EM></P>
+<P>No, not yet.  Each month we send out Liberetto, our fanzine.
+We include the most interesting mail we get, news about changes
+to Libero, forthcoming releases, etc.  This is the closest thing
+to a discussion group so far.  We intend one day to create a
+usenet news group.  A public mailing list may be one step on the
+way.  We welcome any suggestions.</P>
+
+<P><EM>Libero for Windows complains 'ASSOC.VBX Not Found'</EM>
+</P>
+
+<P>To use Libero for Windows you need to download TWO .zip
+files; <TT>lrmswin.zip</TT> and <TT>lrmswins.zip</TT>.  The
+second contains 'system files' including various .vbx files.  To
+download an update you only take the first .zip file. This saves
+download time.</P>
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr7.htm">&lt;</A>
+ | &gt; | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <A href="lrintr6.htm">Example of Parsing An Arithmetic Expression</A>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <EM>Frequently Asked Questions</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

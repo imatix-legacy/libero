@@ -1,0 +1,450 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    July 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 7
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+    
+    The other day, I switched on my PC, ready and inspired to write another
+    great editorial for Liberetto.  Yes, with a few strokes of the keyboard,
+    Xitamibert creates a masterpiece of wit and insight, ready to be beamed
+    electronically across our wired globe. 
+
+    It takes an awfully long time to boot a PC.  Didn't I read somewhere
+    that Microsoft were going to start putting adverts on the boot screen?
+    Anyway, my PC ground and chugged, but the screen just stayed blank.
+    In the Hacker's Dictionary, this moment, identified by the feeling of
+    one's insides turning rapidly into greasy chopped liver, is called the
+    "Ohno second".  Oh-no, here we go...
+
+    I'm not going to go into detail, but the upshot was that the video card
+    was broken.  Easily enough replaced with something new, but Windows NT
+    would not start any longer.  I guessed it was trying to load the drivers
+    for the old card.  Anyhow, impossible to make it start.
+
+    Resolving this kind of problem with Windows is like trying to drive
+    through a busy city with a map dating from 1920, a car that won't turn
+    left, and three drunken co-pilots.  You can get there eventually, but it
+    hurts.
+
+    So, this is one more entry for the Windows NT FAQ.  Question: what do I
+    do when I change video cards, and Windows NT won't boot?  Answer: install
+    a new copy of NT, in a separate directory, so you keep the old NT.
+    Boot-up in the new NT, and then find your old video card drivers. Delete
+    these.  Don't make any mistakes, and make sure you delete everything.
+    Now reboot into the old NT.  With luck it will start-up.  Now install the
+    software drivers for your new video card.  Edit the hidden system file
+    'c:\boot.ini' and delete the new NT entries.  Also delete the new NT
+    directory.  Total time: 55 minutes.  Possible fatal mistakes: 10.
+
+    The alternative is to re-install from scratch, reinstall all your
+    applications, shortcuts, security, disk configurations, and get
+    counselling.  Total time: 6 hours.  Possible fatal mistakes: 3.
+
+    I've worked with computers half my life, and I'm reduced to the choice of
+    doing brain surgery on my PC, or wasting a day doing it the normal way.  
+
+    My conclusion is that I've done a Faustian bargain with Bill Gates: I
+    get GUI word processing and e-mail, and he gets my soul and life-blood.
+    I don't think it's a good bargain.  Now, where were those Linux CD's?
+
+    Pieter Hintjens
+    Antwerpen
+    2 July 1999
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:           	"srini kulkarni" <srini_kulkarni@hotmail.com>
+    To:             	ph@imatix.com
+    Subject:        	your VB schema for Libero
+    Date sent:      	Wed, 26 May 1999 08:20:24 PDT
+    -----------------------------------------------------------------------
+    I would like to use Libero to generate visual basic code to implement a
+    simple communication protocol state machine using the MSComm control.
+    I don't understand how to use the code generated using your vb schema.
+    Can you point me to some examples. I am using VB 6.0.  What I am confused 
+    about is:
+    - what is the entry point? which function should i call from Main() or
+    some VB click_event handler.
+    - how do i deal with events on the MSComm control i am using i.e how to
+    use raise_exception?
+    Any help would be appreciated.
+    Thank you.
+    - srini
+
+    >>>>>>>>>>>>>>>
+    Pieter Hintjens replies:
+    The code generated is basically for a subroutine, whose name is
+    initially the same as that of the source file, but you can change
+    that easily in the .bas file which is produced.  The code is for
+    VB3, so you may need to modify the schema - I've not worked with
+    VB since version 3.
+
+    Dealing with the events is a little delicate.  You need to define an
+    event-handler for MSComm events, and pass these event to your state
+    machine in a useful way.  One way is to use an event queue.  This is a
+    queue which one party (the event handler) stuffs with incoming events,
+    and the other party (your Libero program) processes event by event.
+    You can map external MSComm events to internal Libero events in any
+    way you need to.  I'd not use exception events for this - use them
+    only as a way of controlling the dialog in case of errors.
+
+
+    Date sent:      	Wed, 02 Jun 1999 14:45:11 EDT
+    From:           	tmetro@vl.com (Tom Metro)
+    To:             	sales@imatix.com
+    Subject:        	Why use Xitami?
+    -----------------------------------------------------------------------
+    After looking over http://www.xitami.com/ I'm left wondering, whyuse 
+    Xitami rather than say Apache?
+    Your site would benefit from having more of a "sales pitch" for 
+    Xitami, or at least a competitive analysis or something that attempts 
+    to position it in comparison to the competition.
+    On a side note, I'd also like to see a "history of Xitami" section
+    that would offer an introduction to the lead developers, why they 
+    chose to create Xitami (rather than work on existing open source 
+    products), and what code has Xitami inherited.
+    -Tom
+    Venture Logic 
+    Newton, MA, USA
+
+    >>>>>>>>>>>>>>>
+    'Competition'?  I don't think we have any...  Well, maybe a little here
+    and there.  It's interesting to see how Xitami has developed, both as a
+    product and a community.  First off, we built it as a technology
+    demonstrator.  Xitami is the iMatix web server, based on our tools and
+    methods.  We reused about 200 lines of code from Apache, namely to
+    handle image maps.  Everything else is original.
+
+    We never did much advertising for Xitami.  People use it because they've
+    heard about it from friends and colleagues, and we estimate that over
+    100,000 people use it worldwide.  This is the kind of thing you see in
+    the newsgroups:
+
+        Pletschette André wrote:
+        
+        Could anybody tell the minimum Settings for the Apache WebServer to:
+        - test CGI-Programs
+        - to have a local domain
+        - and letting every user make use of it (everybody can have all the
+        permissions)
+        
+        (I don't have the time and not the need of a professional Apache
+        Server, I've got that O'Reilly Book, but I think it is difficult to
+        understand, ... I just want to test CGI Programs)
+        >
+        Why then not run a smaller, and not so difficult server like Xitami.
+        Check out the iMatix hompage at www.imatix.com. Is all for free (open
+        source), and very easy to setup.  Works on both Windows, OS/2, Unix
+        and OpenVMS.
+        -
+        Robert Rehammar
+
+    Search www.deja.com and you'll see lots of this kind of thing. People
+    *like* Xitami, although I can't see why.  Just because it's small, fast,
+    easy to install, and hardly ever crashes.  I thought all software was
+    made like that.
+    
+
+    Date sent:      	Wed, 09 Jun 1999 01:53:12 +1000
+    From:           	Rob Judd <judd@alphalink.com.au>
+    To:             	editors@imatix.com
+    Subject:        	Re: Liberetto IV/6
+    -----------------------------------------------------------------------
+    Thank you for you entertaining treatise on template-based code generation.
+    Since it has dispelled all the myths, I won't have to beat them with 100
+    copies of the newsletter.
+    Rob
+
+    >>>>>>>>>>>>>>>
+    Shucks, thanks.
+
+
+    From:           	"Joseph R. Kiniry" <kiniry@imap.cs.caltech.edu>
+    Subject:        	Re: Liberetto IV/6
+    To:             	editors@imatix.com
+    Date sent:      	Tue, 01 Jun 1999 14:08:55 -0800
+    -----------------------------------------------------------------------
+    A big "thank you" for this latest installment.  It got several of us
+    laughing with gusto here in my lab and copy will go up on the wall RSN.
+    Best,
+    Joe Kiniry
+
+    >>>>>>>>>>>>>>>
+    Apparently there was something in the water fountain.  We've fixed it
+    now, and did a couple re-installs of Windows NT just to cool our
+    fevered imaginations.  
+
+    
+    From:           	Charlie Hudson <Chudson@PLANSOFT.com>
+    To:             	"'ph@imatix.com'" <ph@imatix.com>
+    Subject:        	Thanks
+    Date sent:      	Tue, 15 Jun 1999 12:10:36 -0400
+    -----------------------------------------------------------------------
+    Please accept my thanks for your offerings.  Today I visited your site
+    and updated my copy of Xitami, which a friend had left behind on my
+    machine, and, being curious, also a copy of Libero.  Having read the
+    documentation I confess I am still lost, but the little I can see of
+    the scheme appears quite elegant.  Feel free to let me know from time
+    to time what is happening in the iMatix world.
+    Charles L. Hudson
+    Director, Graphic Services
+    PlanSoft Corporation
+
+    >>>>>>>>>>>>>>>
+    Libero is kind of unreal, sometimes.  The only way we know to appreciate
+    it is to use it... the 'Aha!' light-bulb clicks-on after a week or so,
+    and it all makes sense.  Thanks for your interest in our work.
+
+
+ == STATISTICS -..----...-.---....-.-----....-.-.----...-.-.---..-.--...--...
+
+    Who's looking at what on www.imatix.com...
+
+    Program started at Sun-Jun-27-1999 04:18 local time.
+    Analyzed requests from Mon-May-31-1999 23:55 to
+      Sat-Jun-26-1999 23:54 (26.0 days).
+
+    Total successful requests: 403,387 
+    Average successful requests per day: 15,515 
+    Total successful requests for pages: 76,348 
+    Average successful requests for pages per day: 2,937
+    Number of distinct hosts served: 15,770
+    Number of new hosts served in last 7 days: 4,089
+    Total data transferred (in bytes): 4,058,064,643 bytes 
+    Total data transferred (in Megabytes): 3870.072 Megabytes
+    Average data transferred per day: 156,079,409 bytes 
+
+    Weekly Report
+
+    week beg.:  #reqs:  %reqs:      bytes: %bytes: 
+    ---------  ------  ------  ----------  ------  
+    May/30/99:  95948: 23.79%: 1069009962: 26.34%: 
+    Jun/ 6/99: 103012: 25.54%:  982480941: 24.21%: 
+    Jun/13/99:  98846: 24.50%:  915087161: 22.55%: 
+    Jun/20/99: 105581: 26.17%: 1091486579: 26.90%: 
+
+    Daily Summary
+
+    day: #reqs:  %reqs:     bytes: %bytes: 
+    ---  -----  ------  ---------  ------  
+    Sun: 31994:  7.93%: 302827049:  7.46%: 
+    Mon: 47108: 11.68%: 449413869: 11.07%: 
+    Tue: 85449: 21.18%: 837898702: 20.65%: 
+    Wed: 80349: 19.92%: 916102388: 22.57%: 
+    Thu: 53397: 13.24%: 498845737: 12.29%: 
+    Fri: 64070: 15.88%: 662244364: 16.32%: 
+    Sat: 41020: 10.17%: 390732534:  9.63%: 
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes: 
+    --  -----  ------  ---------  ------  
+     0: 14460:  3.58%: 147711980:  3.64%: 
+     1: 15710:  3.89%: 179565036:  4.42%: 
+     2: 16072:  3.98%: 185643187:  4.57%: 
+     3: 16759:  4.15%: 153617568:  3.79%: 
+     4: 16220:  4.02%: 163214546:  4.02%: 
+     5: 17761:  4.40%: 187697343:  4.63%: 
+     6: 20596:  5.11%: 197514323:  4.87%: 
+     7: 22848:  5.66%: 208057580:  5.13%: 
+     8: 20849:  5.17%: 196733231:  4.85%: 
+     9: 21474:  5.32%: 217265454:  5.35%: 
+    10: 18573:  4.60%: 194640413:  4.80%: 
+    11: 21411:  5.31%: 193488340:  4.77%: 
+    12: 20561:  5.10%: 191629696:  4.72%: 
+    13: 21016:  5.21%: 231484857:  5.70%: 
+    14: 20244:  5.02%: 202799178:  5.00%: 
+    15: 15531:  3.85%: 161816395:  3.99%: 
+    16: 13596:  3.37%: 137479155:  3.39%: 
+    17: 14348:  3.56%: 155387806:  3.83%: 
+    18: 11280:  2.80%: 111946140:  2.76%: 
+    19: 14019:  3.48%: 126438672:  3.12%: 
+    20: 13463:  3.34%: 141181245:  3.48%: 
+    21: 10706:  2.65%: 122562626:  3.02%: 
+    22: 12377:  3.07%: 130148452:  3.21%: 
+    23: 13513:  3.35%: 120041420:  2.96%: 
+
+    Domain Report
+
+    Printing all domains, sorted by number of requests.
+    #reqs:  %reqs:     bytes: %bytes: domain
+    -----  ------  ---------  ------  ------
+    87411: 21.67%: 945931354: 23.31%: .com (Commercial, mainly USA)
+    83557: 20.71%: 832890230: 20.52%: [unresolved numerical addresses]
+    73053: 18.11%: 677260335: 16.69%: .net (Network)
+    32991:  8.18%: 328049079:  8.08%: .de (Germany)
+    10887:  2.70%:  94422594:  2.33%: .edu (USA Educational)
+     8980:  2.23%:  67253044:  1.66%: .ca (Canada)
+     8309:  2.06%:  93481152:  2.30%: .uk (United Kingdom)
+     7664:  1.90%:  79496602:  1.96%: .br (Brazil)
+     7346:  1.82%:  78991635:  1.95%: .fr (France)
+     6906:  1.71%:  68597550:  1.69%: .nl (Netherlands)
+     5748:  1.42%:  71604675:  1.76%: .au (Australia)
+     5685:  1.41%:  57676597:  1.42%: .it (Italy)
+     5275:  1.31%:  59918908:  1.48%: .ru (Russian Federation)
+     4731:  1.17%:  35936772:  0.89%: .se (Sweden)
+     3573:  0.89%:  20229823:  0.50%: .jp (Japan)
+     3465:  0.86%:  24537629:  0.60%: .pl (Poland)
+     3218:  0.80%:  28857581:  0.71%: .be (Belgium)
+     3068:  0.76%:  27195917:  0.67%: .ch (Switzerland)
+     2779:  0.69%:  29770779:  0.73%: .at (Austria)
+     2106:  0.52%:  18608669:  0.46%: .dk (Denmark)
+     2064:  0.51%:  21343658:  0.53%: .tw (Taiwan)
+     1947:  0.48%:  30659912:  0.76%: .es (Spain)
+     1900:  0.47%:  14338808:  0.35%: .fi (Finland)
+     1840:  0.46%:  16494124:  0.41%: .org (Non-Profit Making Organisations)
+     1656:  0.41%:  24552264:  0.61%: .nz (New Zealand)
+     1585:  0.39%:  17905748:  0.44%: .no (Norway)
+     1511:  0.37%:  16608858:  0.41%: .gov (USA Government)
+     1492:  0.37%:  14618708:  0.36%: .sg (Singapore)
+     1396:  0.35%:  16277433:  0.40%: .mx (Mexico)
+     1327:  0.33%:  12392002:  0.31%: .il (Israel)
+     1124:  0.28%:  12887592:  0.32%: .my (Malaysia)
+     1119:  0.28%:  14262959:  0.35%: .cz (Czech Republic)
+     1083:  0.27%:  13348566:  0.33%: .mil (USA Military)
+     1056:  0.26%:  12104865:  0.30%: .ar (Argentina)
+      956:  0.24%:   8705788:  0.21%: .us (United States)
+      902:  0.22%:  18698514:  0.46%: .hu (Hungary)
+      802:  0.20%:   4324531:  0.11%: .kr (South Korea)
+      780:  0.19%:   7533379:  0.19%: .ie (Ireland)
+      720:  0.18%:   9742291:  0.24%: .gr (Greece)
+      711:  0.18%:   7843259:  0.19%: .th (Thailand)
+      698:  0.17%:   7330260:  0.18%: .pt (Portugal)
+      661:  0.16%:   6292635:  0.16%: .si (Slovenia)
+      644:  0.16%:   8005702:  0.20%: .ua (Ukraine)
+      638:  0.16%:   8704870:  0.21%: .hk (Hong Kong)
+      624:  0.15%:   5515293:  0.14%: .lv (Latvia)
+      503:  0.12%:   4250266:  0.10%: .in (India)
+      496:  0.12%:   4654315:  0.11%: .sk (Slovak Republic)
+      490:  0.12%:   9313455:  0.23%: .za (South Africa)
+      449:  0.11%:   5835342:  0.14%: .tr (Turkey)
+      374:  0.09%:   2001366:  0.05%: .id (Indonesia)
+      359:  0.09%:   5554971:  0.14%: .hr (Croatia)
+      353:  0.09%:   8284770:  0.20%: .ro (Romania)
+      297:  0.07%:   2789245:  0.07%: .su (Former USSR)
+      290:  0.07%:   1411283:  0.03%: .lt (Lithuania)
+      270:  0.07%:   4061415:  0.10%: .is (Iceland)
+      218:  0.05%:   1089634:  0.03%: .cl (Chile)
+      208:  0.05%:   1362356:  0.03%: .co (Colombia)
+      203:  0.05%:   7201300:  0.18%: .cn (China)
+      199:  0.05%:   1845100:  0.05%: .arpa (Old style Arpanet)
+      184:  0.05%:   1849261:  0.05%: .lu (Luxembourg)
+      178:  0.04%:    789395:  0.02%: .sa (Saudi Arabia)
+      172:  0.04%:   2381326:  0.06%: .bg (Bulgaria)
+      166:  0.04%:   1689568:  0.04%: .om (Oman)
+      164:  0.04%:    576625:  0.01%: .int (International)
+      153:  0.04%:    537250:  0.01%: .gb (Great Britain)
+      140:  0.03%:   1687156:  0.04%: .ae (United Arab Emirates)
+      119:  0.03%:    478463:  0.01%: .do (Dominican Republic)
+      112:  0.03%:   1485370:  0.04%: .uy (Uruguay)
+      109:  0.03%:    458998:  0.01%: .by (Belarus)
+      105:  0.03%:   1573766:  0.04%: .ke (Kenya)
+       99:  0.02%:   2542537:  0.06%: .yu (Yugoslavia)
+       96:  0.02%:    305385:  0.01%: .mk (Macedonia)
+       89:  0.02%:   1546227:  0.04%: .ve (Venezuela)
+       87:  0.02%:   1326981:  0.03%: .ee (Estonia)
+       68:  0.02%:    372845:  0.01%: .ph (Philippines)
+       59:  0.01%:    166673:       : .bn (Brunei Darussalam)
+       58:  0.01%:    265718:  0.01%: .cy (Cyprus)
+       56:  0.01%:    254564:  0.01%: [unknown]
+       56:  0.01%:    254564:  0.01%: .ki (Kiribati)
+       55:  0.01%:    235430:  0.01%: .pk (Pakistan)
+       50:  0.01%:    346320:  0.01%: .sv (El Salvador)
+       44:  0.01%:   1481732:  0.04%: .kg (Kyrgyzstan)
+       37:  0.01%:    195299:       : .cr (Costa Rica)
+       29:  0.01%:    111739:       : .mg (Madagascar)
+       28:  0.01%:    495330:  0.01%: .jm (Jamaica)
+       27:  0.01%:    102167:       : .gt (Guatemala)
+       25:  0.01%:     94840:       : .ge (Georgia)
+       24:  0.01%:    132023:       : .kz (Kazakhstan)
+       24:  0.01%:     86452:       : .lk (Sri Lanka)
+       24:  0.01%:     86452:       : .nu (Niue)
+       20:       :    102853:       : .pe (Peru)
+       10:       :     74349:       : .tt (Trinidad and Tobago)
+        5:       :    241333:  0.01%: .py (Paraguay)
+        4:       :     89443:       : .ba (Bosnia-Herzegovina)
+        4:       :    188733:       : .bh (Bahrain)
+        3:       :    180345:       : .ni (Nicaragua)
+        3:       :     15715:       : .pr (Puerto Rico)
+        2:       :   1596844:  0.04%: .ec (Ecuador)
+        1:       :    798422:  0.02%: .bs (Bahamas)
+        1:       :      8388:       : .qa (Qatar)
+
+    Non-iMatix Referrer Report
+
+     #reqs:  %reqs:     bytes: %bytes: URL
+    ------  ------  ---------  ------  ---
+       438:  http://www.winfiles.com/apps/98/servers-websrv.html
+       416:  http://serverwatch.internet.com/webserver-xitami.html
+       369:  http://www.geocities.com/ResearchTriangle/6293/source-cpp.htm
+       274:  http://www.freecode.com/cgi-bin/viewproduct.pl?4379
+       209:  http://www.worldremote.net/ftc/ftpserv.html
+       182:  http://www.microsoft.com/ntserver/nts/exec/vendors/freeshare/Web.asp
+       169:  http://members.tripod.com/~osninjas/xitami.htm
+       169:  http://www.download.com/pc/software/0,332,0-62445-s,1000.html
+       166:  http://skyscraper.fortunecity.com/zeros/83/sources.html
+       150:  http://serverwatch.internet.com/top10.html
+       146:  http://www.download.com/pc/software/0,332,0-62445-s,1000.html
+       141:  http://www.winfiles.com/apps/nt/servers-websrv.html
+       140:  http://www.webgroove.com/doc137.html
+       106:  http://linux.davecentral.com/3832_webauth.html
+       102:  http://www.genitor.com/resources/librarie.htm
+       100:  http://webcompare.internet.com/cgi-bin/detail.pl?03_Server=Xitami
+        98:  http://www.angelfire.com/ak2/lordofthedeath/DownloadHack.html
+        92:  http://www.angelfire.com/sc/electron/
+        89:  http://www.geocities.com/SouthBeach/Jetty/5394/IPtra.html
+        65:  http://serverwatch.internet.com/reviews/web-xitami.html
+        65:  http://www.freecode.com/cgi-bin/viewproduct.pl?2426
+
+    Top 10 Browsers
+
+     #reqs:  %reqs:      bytes: %bytes: browser
+    ------  ------  ----------  ------  -------
+    226893: 55.84%: 2035639150: 50.58%: Netscape (compatible)
+    167055: 41.11%: 1540283677: 38.27%: Netscape
+      1687:  0.42%:   16684111:  0.41%: WebZIP
+      1318:  0.32%:  136611763:  3.39%: GetRight
+      1267:  0.31%:   23874430:  0.59%: Teleport Pro
+       700:  0.17%:    3071469:  0.08%: Slurp
+       646:  0.16%:   39457563:  0.98%: Go!Zilla 3.5 (www.gozilla.com)
+       437:  0.11%:   21712671:  0.54%: Lynx
+       426:  0.10%:    4089752:  0.10%: libwww-perl
+       402:  0.10%:   25811416:  0.64%: Go!Zilla 3.3 (www.gozilla.com)
+
+    So... something like 16,000 distinct visitors per month, from 100
+    countries.  The website hums 24 hours a day, and the average visitor
+    reads 5 webpages before downloading Xitami or another package. Since we
+    use mirror sites, we don't have statistics for the number of downloads.
+
+    Interesting facts:
+    
+     - Over 50% of visitors use Microsoft MSIE.
+     - We had visitors from all of the countries of ex-Yugoslavia.
+     - The top 5 countries visiting iMatix.com are: US, Germany, Canada,
+       UK, and Brazil  
+     - Germans make-up about 8% of our visitors, a steady statistic.
+     - iMatix.com gets 40 times more visitors than it did in February 1996,
+       exactly 40 months ago.
+
+    
+ == ERRATA --...-.-.--...-.-.-.-.-.-.-.-..-.--.-.-..-.-.-.-..-.----..-..--.-.
+
+    In Liberetto IV/6 we wrongly dated the editorial '1 May 1999'. We
+    apologise to all members of trades unions, communist parties and marxist
+    guerillas who may have been offended by this.
+    
+    
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.
+

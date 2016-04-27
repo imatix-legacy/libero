@@ -1,0 +1,71 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Installing the OS/2 Kit</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst5.htm">&lt;</A>
+ | <A href="lrinst7.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<A NAME="lros2">&nbsp;</A>
+
+<H2><A NAME="TOC10">Installing the OS/2 Kit</A></H2>
+
+<P>Download <A href="/pub/libero/bin/lros2.zip">Libero for OS/2</A> [117Kb].  This was compiled
+with EMX 0.9b, using GCC.  Ewen says:
+
+<BLOCKQUOTE>
+The binary was compiled using EMX 0.9b (I think it should run fine with
+EMX 0.9c, the latest version), using:
+
+gcc -O2 -Zomf -s lr????.c -o lr.exe
+
+As usual people will need the EMX runtime libraries to run the executable;
+they're on most OS/2 ftp sites including hobbes.nmsu.edu, ftp.cdrom.com,
+and ftp.leo.org.  Since quite a few programs need them, most people have
+them installed already.  It should run okay with the EMX 0.9b runtime
+libraries and the EMX 0.9c runtime libraries (which are the current ones).
+<BR>
+
+Oh, BTW, it'll probably run okay under DOS as well (as a 32-bit
+version) with either the EMX.EXE extender (included in the runtime DLL
+package mentioned above), or with RSX (I think it's called) which is a
+DMPI equivilent for EMX.EXE.  Being a 32-bit version it might solve
+ram-cramp issues if anyone is having problems.</BLOCKQUOTE>
+
+<P>Create a new directory and extract <TT>lros2.zip</TT> there.  This
+creates the set of files that you need to run Libero under OS/2.  You must
+either add this new directory to your path, or copy certain Libero files into
+a directory (like <TT>C:\UTILS</TT>) which is already on your path:
+<UL>
+<LI><TT>LR.EXE</TT> - the executable Libero program
+<LI><TT>LRMESG.TXT</TT> - the message file
+<LI><TT>LRSCHEMA.*</TT> - the code-generation schemas
+<LI><TT>LR.INI</TT> - default initialisation file
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrinst.htm">&lt;&lt;</A> | <A href="lrinst5.htm">&lt;</A>
+ | <A href="lrinst7.htm">&gt;</A> | <A href="lrinst9.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrinst.htm">Installing Libero</A>
+| <A href="lrinst1.htm">What You Will Need</A>
+| <A href="lrinst2.htm">Installing Libero for UNIX</A>
+| <A href="lrinst3.htm">Installing the MS Windows Kit</A>
+| <A href="lrinst4.htm">Installing the MS-DOS Kit</A>
+| <A href="lrinst5.htm">Installing the 32-bit MS-DOS Kit</A>
+| <EM>Installing the OS/2 Kit</EM>
+| <A href="lrinst7.htm">Installing the VAX/VMS Kit</A>
+| <A href="lrinst8.htm">Installing the Examples</A>
+| <A href="lrinst9.htm">Configuring and Testing Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,371 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                NOVEMBER 1997
+ =========
+  =======    The iMatix Newsletter                         Volume II Issue 11
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming - Technology - Finite State Machines - News - Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last week I watched the presentation of a project that involved
+    migrating an old mainframe order-entry system to the Web.  I guess we
+    were supposed to take this as a shining example of the exciting new
+    possibilities offered by Java, thin clients, fast networks, and all
+    those bright young minds that were never traumatised by pointless
+    hardware constraints.
+
+    For those of you who were not at the presentation (and I guess that is
+    pretty much everyone), let me summarise.  The old system ran on a
+    MVS/CICS mainframe, with a thousand or so terminals across the country
+    connected by a 1200 baud dial-up network.  This system let people enter
+    their orders, check payments, and so on.  I guess the MVS/CICS
+    transactions were written in Cobol, or perhaps even assembler.  They
+    were ugly, old fashioned, and probably a little slow, given that 1200
+    baud modems went out of fashion in 1987 along with digital watches.
+
+    The new system uses Pentium PCs, running Windows NT 4.0 and Navigator
+    4.01, connected by 33.6k modems to a faster network and a couple of NT
+    application servers.  These in turn talk to the same old MVS/CICS
+    transactions.  Most of the browser interface is handled by Java applets.
+    The new application is absolutely beautiful.  I think the designers
+    could get good jobs at Nintendo, or possibly Porche.  Unfortunately, it
+    now takes a minute to make an order, instead of a few seconds.  This is
+    after putting the Java applets on each PC to save download time.
+    Clearly the network is still too slow.  Hah!  As if.
+
+    The truth is that this project, like so many, represented nothing more
+    than an enormous and expensive leap backwards.  The designers were more
+    concerned with gadgets than substance, so forgot the prime rules of
+    design: economy, utility, efficiency.
+
+    Writing good software is hard enough already.  The Web offers stunning
+    potential in terms of economy, utility, and efficiency.  But to forget
+    the lessons of the past is to repeat the errors of the past.
+
+    Pieter Hintjens
+    Antwerpen
+    1 November 1997
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-.
+
+    Over 11,000 Downloads In October!
+        Yes, the iMatix site has been busier than a hutch of rabbits on
+        caffeine carrots!  Seven thousand visitors from 74 countries, 3
+        gigabytes of data sent over the Internet...  Great bouncing
+        zipdisks, Batman!!
+
+    iMatix Not Involved In Stockmarket Blues, says iMatix Spokesone
+        iMatix spokesfolk denied today that the turbulence on the world
+        currency and stock markets was caused by the decision earlier this
+        month to keep Xitami as free software.  "No way, Jose", said an
+        unperturbed iMatix spokeperson, "We're certain there is no link".
+        Meanwhile, industry commentators have described the decision as
+        "Crazy! They should be charging for this product!"  Famous chaos
+        theorist T. Bruyfelt stated (in a heavy accent which we can't really
+        reproduce here) that: "If an insect flapping its wings over the
+        Andes can be responsible for El Nino, then anything is possible.
+        And if we find the butterfly in question, it's gonna have some
+        tough questions to answer."
+
+    More Statistics...
+        37% of our users are from the US, 63% from other countries,
+        including Latvia, Kuwait, and Cote D'Ivoire.  Netscape browsers
+        still rule, with 67%, more than twice as popular as MS Internet
+        Explorer (30%).  Get the full story from the iMatix web site, on
+        http://www.imatix.com/html/stats/stat9710.htm.
+
+    Mirror Sites Wanted!!
+        Got a fast Internet connection?  Time, bandwidth, and 20Mb to spare?
+        Drop us a line, and help spread the best free software around the
+        globe.  Sites in Europe are particularly welcome.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Each month we get about a thousand emails, which means that at least 90%
+    of our users never send us a word!  We're grateful.  Here are some of the
+    nicer mails we got in October.
+
+
+    >From:             David Wood <david@thermoteknix.co.uk>
+    >Subject:          RE: Liberetto II/10
+    >Date sent:        Thu, 2 Oct 1997 17:06:21 +0100
+    >Thanks for another great newsletter. It's worth the wait.
+    >The M$ thing is begining to worry me. However, I have a theory that it
+    >will implode on itself soon. It's getting too big, people are getting a
+    >little fed up with it and because they charge for everything, the
+    >little companies, if they can keep going, will reap the benefits later.
+    >Where are the web hit statistics. I was actually waiting for them this
+    >time and you didn't include them.
+    >Thanks
+    >--
+    >David Wood
+
+    Okay, we get the message.  The statistics will be on the website in the
+    directory /html/stats from now on.  We'll try to put up the stats each
+    month or so.  We agree about reaping the benefits later.  Our current
+    calculations indicate that Microsoft will have expanded to be greater
+    than the world economy in 2006.  Statistics also prove that the average
+    person has less than two legs, so there you are!
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             John Nelson <webshop@penn.com>
+    >Subject:          Please register me
+    >Date sent:        Sun, 12 Oct 1997 11:42:58 -0400
+    >Hi...
+    >Please register me as a user of your Xitami Web server.  I downloaded
+    >last week and am currently learning how to use it and exploring its
+    >capabilities.  So far I am impressed with what I have seen with it.
+    >What really impresses me is how fast you fix the bugs in the program.
+    >Geez.. since downloading it last week you have put up 2 revisions of it
+    >already.  I still have to download the newest one yet.. hehehe.  I have
+    >plans of putting up my own web server in the next few months so I have
+    >been checking out what's available for me.  So far I like yours the
+    >best.  To be honest with you I'm not too crazy about the interface, but
+    >I do like how fast it runs and the fact that it does not take up much
+    >space or use too much of my CPU.  I am also a little concerned with the
+    >security of your server, but I do remember reading that you will be
+    >working on that.  And finally, just in case you're taking requests..
+    >hehehe.. I would love to see this thing with at least some of the
+    >popular SSI's.  So with that in mind, I want to thank you for making a
+    >GREAT web server and am looking forward to seeing how this thing is
+    >going to evolve.  Once again, GREAT JOB!  Keep up the good work!
+    > -John
+
+    Well, to be honest, three releases in one week is more a sign of the
+    kind of sloppy work we detest than a reason for applause.  We had to
+    kick some serious butt here at iMatix HQ.  Hahargh, take that!!
+    As for SSIs, we're working on that.  Yes, it's official: SSIs are now
+    on the 'things we really seriously intend to implement as soon as the
+    final bugs are fixed' list.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Rudi Vanhoutte <Rudi.Vanhoutte@Egemin.be>
+    >Subject:          multiple FSM's
+    >Date sent:        Tue, 21 Oct 1997 13:09:38 +0200
+    >Please add me to the mailing list for Liberetto.
+    >I recently found Libero on the web and am now discovering its
+    >capabilities, now I have the following problem: I would like to
+    >generate data-tables for multiple FSM's running parallel all being
+    >processed by one state-machine motor routine, everything should be in
+    >one output file. Is this possible with Libero, possibly with a special
+    >schema?
+    >I would like to use it to generate microcontroller source code for
+    >small embedded controllers, i.e. audio/video devices etc. Do you know
+    >of anyone using Libero for such applications?
+    >Best regards.
+    >Rudi.
+
+    Yes, no.  There is of course only one way to have multiple FSMs running
+    together, and that is to chase them with a big stick.  Boy, do they run!!
+    If you really want to have them run parallel, you can either train them
+    (but that usually takes some years) or just hammer a couple of 4-by-2s
+    across their backs.
+
+    The only small embedded controllers we've ever seen were at the tax
+    office, and I don't know if they would appreciate being called that.
+    Seriously, though, Libero comes in three sizes: small, medium, and large,
+    and you should chose the size appropriately.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:          stephane.lajoie@belairdirect.com
+    >To:            editors@imatix.com
+    >Subject:       Fanmail
+    >Date:          Fri, 24 Oct 1997 16:37:42 -0400
+    >Hi editors!
+    >First and foremost: please add me to the mailing list for Liberetto
+    >under slajoie@usa.net.  The magazine is great! The commentary is
+    >especially insightful and gave me a good bit to think about.
+    >About Libero: well I don't really get it yet. I understand it can
+    >replace easily and clearly a bunch of switch statements but I don't
+    >feel that it can be a general solution.  Anyway, I'll try harder some
+    >other time.  Thanks also for making great software and making it free.
+    >Xitami is impressive!
+    >How high is the current offer from Microsoft to buy iMatix? 2-3
+    >millions?  At what price will you give in? :)  I'm watching the mailbox
+    >now...
+
+    'Bunch of switch statements'?  No, no.  Libero is much more than that.
+    Imagine lying on a tropical beach, with calypso music in the background,
+    several half-nude members of the opposite sex but same species eager to
+    bring you alcoholic fruit beverages, a permanent half-past-four lazy
+    late afternoon sun, and all the curried chickpeas you can crunch.  This
+    is not Libero, just a nice fantasy.  Libero is just a good way to write
+    many kinds of program.  Boring, but won't give you gas or sunburn.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             dholland@cix.compulink.co.uk (Dick Holland)
+    >Date sent:        Sun, 26 Oct 97 09:46 GMT0
+    >Hi,
+    >I have recently discovered your FABULOUS Xitami web server, and it is
+    >perfect for an application I am wishing to implement.
+    >My company offers software systems for the automation and support of
+    >front- and back-offices of international investment institutions. We
+    >also provide our customers with a web-based service giving them
+    >information about forthcoming product releases, histories of errors and
+    >enhancements raised and quality metrics about the products. The website
+    >is hosted on a Digital Alpha running OpenVMS and the OSU DecThreads web
+    >server.
+    >Some of our customers cannot, however, reach the web, usually because
+    >of internal security policies (remember these guys are banks etc.!) and
+    >we have this idea of shipping them the entire website on CD-ROM
+    >probably monthly so they can put it on their intranets.
+    >I demonstrated a prototype of this idea at one of our Product User
+    >Groups in Frankfurt, Germany last Friday and the customers got very
+    >excited by it. My CD had, of course, Xitami on board!
+    >I would very much like to use Xitami for this application because of
+    >its reliability, robustness and, most importantly, its complete lack of
+    >any set-up requirements. It's absolutely the easiest thing to run I've
+    >ever encountered.
+    >I believe that I can distribute Xitami royalty-free in this way. Can
+    >you confirm this for me? I would also be very keen to publicise Xitami
+    >on our CD, so I would like your permission to do so and particularly to
+    >use some of your official graphic images (the iMatix and Xitami logos
+    >for example).
+    >One final point: we make very extensive use of SSI on our site, and
+    >thus far I have developed an AWK script that resolves the SSI
+    >directives prior to making the web pages available for Xitami to use. I
+    >see that you are planning SSI support in the future - do you have any
+    >target date for its release?
+
+    Yes, Xitami is excellent for this kind of application.  You just plug-it
+    in, press 'Start', and it starts...  Kind of a revolutionary concept.
+
+    Act 1, scene 1: The Patent Office.  Prof. Einstein is bringing his new
+    invention to the patent controller.
+    Controller: So, Al, what d'you have there?
+    Einstein: Ach, nothing special.  Just some revolutionary software.
+    Controller: Yes, I see.  And what is the revolution?
+    Einstein: Well, that's the great thing.  You start it, and it works.
+    Controller: Haha, that's a good one.  Look, Al, we get perpetual motion,
+    water engines, and lead-to-gold transmuters every day.  Don't make me
+    laugh.
+
+    You can, of course, freely use Xitami in such projects -- or anything
+    else that is not immoral or illegal.  This is spelt-out in the License
+    Agreement that comes with the software.  Yup, SSI is on the way.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Eric Terashima <eric.terashima@aloha.net>
+    >Subject:          How?
+    >Date sent:        Fri, 31 Oct 1997 05:40:11 -1000
+    >OK, I REALLY like your software, tried ALL the free Web servers, and
+    >ALWAYS ended up coming back to Xitami.  Imagine my surprise when I
+    >found your v2.0 with FTP! Just one question: if you GIVE AWAY all this
+    >great software, how do you guys make any money?
+    >Thanks,
+    >Eric Terashima
+
+    Good question.  Great question, actually.  You know how the best art is
+    made by poor starving artists who finally sucumb to tuberculosis in their
+    Parisian garrets, only to be rediscovered many years later (their art,
+    not themselves).  Well, we're not like that at all.  We're well-fed
+    artists who do this partly for fun, mostly out of conviction that the
+    Internet needs good technology, and that we'll reap the benefits later.
+
+
+ == OKTOBERFEST UPDATE ..-.---.-.-.---...-.-.-..-.-.---.-.-..-.--..-.--....-.-
+
+    Our Munchen correspondent (Sabine) tells us:
+
+    "I now have the final numbers concerning the Oktoberfest 1997
+     (fresh out of the newspapers)
+     6.4 million visitors (1996: 6.9 million)
+     5.2 million liters of beer (1996: 5.1 million)
+     160,000 glasses caught at the entrances (1996: 110,000)
+     85 oxen eaten in the 'Ochsenbraterei'-tent
+     x exp n roasted chickens...."
+
+    So, the message seems clear.  If you're a chicken, avoid Munchen in
+    October.  However, if you're into large glasses of good beer, roasted
+    oxen, and funny hats, make a beeline for the Okoberfest.  Nothing at
+    all to do with software, we're glad to say.
+
+
+ == FOCUS ON TECHNOLOGY -.---.-.--.-.--.-.--.-.--.-.--.-.-.---....-.-.---...-
+
+    "How Not To Migrate An Order-Entry System To The Web"
+
+    1.  Since you're really afraid of 'legacy people' and their mysterious
+        MVS and CICS systems, make sure you use a 'screen scraper'.  That
+        way, you can present your users with a lovely video game-style
+        interface where each click of the designer-drawn remote control will
+        translate into several dozen CICS transactions and take at least a
+        minute or two.  This gives your users plenty of time to watch the
+        animated icons, and answer their e-mail.
+
+    2.  At all costs avoid things like SNA, LU 6.2, and transaction servers
+        on CICS.  You may have to write Cobol programs, and we all know that
+        nothing is worse than that.  Besides, it might produce a fast
+        application, and that would cause problems for people who need to do
+        their e-mail.
+
+    3.  Do use Java; after all, this language is object-oriented, portable,
+        thin-client, and (most importantly) very, very fashionable.   If
+        anyone asks why 'object-oriented' is important, just look at them as
+        if they came from Mars.  After all, EVERYONE knows why OO is better!
+        Don't worry if you run into dozens of little portability problems
+        such as requiring Netscape 4.0.1, which only runs on Windows NT 4.0
+        SP3, since Sun are making little Java CPUs, so tomorrow you'll be
+        able to run the whole application on your microwave oven!
+
+    4.  Please read everything that Sun, Oracle, and Netscape write on their
+        web sites.  Please believe this, and base your business (or better,
+        your clients' business) on it.  If you go bankrupt, at least you
+        won't be alone.
+
+    5.  Make sure you develop everything on a Pentium II 300Mhz with 256Mb
+        RAM and enough hard disk space to float the Titanic.  This is the
+        best way to make sure your code won't run on your client's systems,
+        so that they have a good excuse to upgrade their old 486's to
+        something decent.
+
+    6.  Remember that a 33.6K modem is a SLOW connection, and no self-
+        respecting application ever ran on anything less than a 1Mbit
+        connection.  So don't worry if things are a little slow... in ten
+        years everyone will have a really FAST connection, and all such
+        problems will be solved.
+
+    7.  The Golden Rule of software development is: if you saw a demo of it
+        on a stand-alone PC, it's good enough for a serious application.
+        This is especially true of all software that runs across a network,
+        or does heavy database access.
+
+    8.  If things start to go wrong, just remember: all the rules are there
+        just so you can break them.  So, if you sold a web-based solution
+        just to be able to avoid the nightmare of managing versions of
+        client software on a thousand PCs, don't worry if you end-up having
+        to install your applets on each PC.  Bill Gates will find a
+        solution.
+
+    9.  When the client finally refuses to pay, because you've converted his
+        old order entry system (reliable, black and white, fast, boring)
+        into a new Web based system (delicate, hires colour, slow,
+        exciting!) and he cannot get a transaction done before his clients
+        put the phown down, just remember... Progress is always Painful.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Progress is painful.  But, not if you get Liberetto every month!!  We
+    saw one discussion group where someone said 'Why can't *our* project
+    have a funny newsletter', referring to Liberetto.  However, every page
+    has its small print, and if you can't read between the lines, you should
+    not go into the kitchen.  As required by spam law, we therefore hereby
+    explain how to get off the Liberetto mailing list.  Place a small FSM
+    in a circle of salt, sprinkle it lightly with curried chickpeas, and
+    count to ten.  (Look, most of this newsletter is unintelligble to most
+    readers, so there's no reason why *you* should understand it all.)
+

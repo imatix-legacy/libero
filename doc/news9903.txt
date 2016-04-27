@@ -1,0 +1,558 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   March 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 3
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    This month I'm looking at a new twist on the upcoming Y2K problem.  Of
+    course everyone now knows the problem: on 1 January 2000 (or 4 January
+    for those coming back from the party), our computer systems will start
+    to fail in subtle and less subtle ways.  This will be bad news.
+
+    Since this problem crossed the public awareness horizon in 1997 or so,
+    the brightest and bestest have tried to find the holy grail: a simple,
+    general-purpose solution to what is, after all, a very small problem (2
+    bytes large, in most cases).  Every few months, another genius writes to
+    the papers saying they've found a miracle cure (like stuffing eight
+    digits into the space used by six).  People snigger a little, then get
+    back to the problem.
+
+    In fact, all people working on the Y2K problem are taking a similar
+    approach (apart from the essential activities of trying to find another
+    job, preferrably in another industry, and failing that, to figure-out
+    who will get the blame in 2000).  In January 2000, computers will stop
+    working the way they should, and the basic approach is to try to fix
+    this.
+
+    I'm convinced that this approach will fail - it's too late, too costly,
+    and frankly, way too boring.  Who wants to work through several zillion
+    lines of undocumented COBOL code when they could be playing Lara Croft?
+
+    So, in an innovative stroke of genius, the iMatix Research Labs have
+    thought-up an approach that is cheap, easy, and above all, feasible.  We
+    call this the Y2K Vaccination Programme, or Y2KVP.  Unlike the standard
+    strategy of trying to fix a lot of lousy code, the Y2KVP actually makes
+    use of the principal feature of most software - its total lack of quality.
+
+    Y2KVP came out of discussions we had with a client.  This company has a
+    central computer system that is so bad it's frankly amazing.  When the
+    system crashed, no-one noticed for two days.  The users of this system
+    could typically get one day's use out of the system every week.  For the
+    rest, they had ferretted-out the data they needed to do their work,
+    keeping it on paper, diskettes, or small databases on their PCs.
+
+    Now, the idea was of course to fix this horrible computer system.  But,
+    wait a minute... this system, horrible as it is, has no Y2K problem.  It
+    already runs so badly that even a total Y2K wipeout would probably pass
+    by unnoticed.  To  put it another way, the users of this system have
+    already developed Y2K immunity!  Repeated injections of semi-fatal
+    computer crashes had caused the users to develop full resistance to the
+    real thing.  So, to make Y2KVP work, all we need to do is degrade the
+    quality of computer systems, instead of trying to improve them.  Users
+    will complain of course (no-one likes to get needled) but within six
+    months at most, they'll be quite used to working without their computers
+    and networks for long periods.
+
+    I'll give you an example of how Y2KVP works.  Up to a week ago, I used a
+    dual boot NT/Win95 PC, plus a Win95 notebook.  Both essential for my work.
+    Then in the space of one long weekend, I discovered that the Win95
+    'Restart in DOS mode' option will actually wipe-out the NT boot sector
+    (okay, two days down to reinstall Windows NT).  Then my Win95 notebook
+    died with a corrupted hard disk, which Windows 95 converted into five
+    thousand files called FILE0001.CHK, FILE0002.CHK, etc.  I thought I was
+    totally reliant on these systems, but now I could easily weather a Y2K
+    crash with a defiant laugh.  Hah!  (By the way, those of you who
+    wondered why I was not replying to e-mail, now you know...  I'm still a
+    bit dopey from the tranquilisers)
+
+    Generously, we've decided to place Y2KVP into the public domain, and
+    we've been planning how to put it into practice.  Ideally, we'd like a
+    central computer operating system that is unstable and encourages users
+    to fall back on their PCs.  Then, we'll cleverly choose a PC operating
+    system that crashes easily, looses data, and thus innoculates its users
+    to the point where a week or two of downtime on January 2000 will not be
+    noticed.  Some major software companies are releasing beta versions of
+    new OSes that will perform perfectly here.
+
+    Of course, the press will have to cooperate, to end the current fashion
+    for high-quality systems like Linux.  People simply do not realise how
+    dangerous it can be to install Linux on a PC!!  This is not the moment
+    to lower the immunity level of the computer user population.
+
+    Luckily, it appears that the software industry has been working in this
+    way for years, and the majority of software is fully Y2KVP compatible.
+    
+    Y2KVP is perhaps the best chance we have of averting disaster, if we act
+    now!
+
+    Pieter Hintjens
+    Antwerpen
+    1 March 1999
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:           	John Totten <john@totten.com>
+    Subject:        	Re: Liberetto IV/2
+    -----------------------------------------------------------------------
+    When can we expect to see an XML driven Liberetto ?
+    John Totten
+
+    >>>>>>>>>>>>>>>
+    Ah, yes.  Few people know this, but XML is actually based on an earlier
+    language, SGLML, which stands for 'Standardised General Liberetto Markup
+    Language'.  SGLML is so sophisticated that not a single fully compliant
+    compiler has ever been constructed.  In fact, it's been mathematically
+    proven that this would require the combined mental effort of every civil
+    servant in the world for at least ten years (roughly five point three
+    iotas).  Even our janitor, Harry, was unable to contruct a fully
+    normalised non-backtracking LR(1) grammer for SGLML.  We rest out case.
+
+    
+    From:           	ia-dja@ix.netcom.com
+    Subject:        	Keep It Up !!
+    -----------------------------------------------------------------------
+    To all at iMatix and whoever (is it only Pieter?) is responsible 
+    for Xitami:
+    Your stuff is great !!
+    I am forced to use several diffent webservers for my clients from 
+    NES to Apache to JWS, but Xitami is my primary testbed and the 
+    most fun to work with. Unfortunately, for some of the real high-
+    powered eCommerce sites that I work on, the client would never 
+    consider it. But I am turning as many on to it as will listen.
+    However, as impressed as I am with Xitami, I am even MORE interested 
+    in GSLgen. As soon as I master the evaluation kit (and assuming it 
+    even comes close to the high standards and expectations set by 
+    Xitami), you can expect a PRO license application from us in the 
+    near future.
+    I applaud what you are doing and would love to meet y'all some 
+    day.
+    Thanx.
+    Don Alameda
+    Integrated Automata, Inc.
+    Montclair, NJ
+
+    >>>>>>>>>>>>>>>
+    Well, it's Pascal, Jonathan, Ewen, Pieter, with the support of several
+    dozen others who run mailing lists, web servers, provide feedback, debug
+    problems, and so on.
+
+
+    Subject:        	Technical question about Libero
+    From:           	Brad Dixon <brad.dixon@gtri.gatech.edu>
+    -----------------------------------------------------------------------
+    Hello,
+    I am considering using Libero for a project analyzing data from an
+    avionics system. The user of our system will construct simple state
+    machines using Libero to analyze a stream of data. I'm having trouble
+    understanding how to have multiple simple state machines using the same
+    set of input events. The following simple example should illustrate my
+    problem:
+    Example data stream:
+
+    MARYHADALITTLELAMB
+
+    Our user wishes to find two patterns:
+    	a) "TT" followed by an "A"
+    	b) "LI" followed by a "L" and then a "B"
+    From the sample data stream you can see that pattern A and B overlap. It
+    is certainly possible to construct one state machine to find either
+    pattern in the data stream but it is easier to visualize and construct the
+    problem as two seperate state machines.
+    Our target language is Perl.
+    Q: Have any you heard of any other similar applications? How did they
+    handle this situation.
+    My current idea is to create a new schema that will create a Perl module.
+    I can then use multiple perl modules in my application and feed them
+    events via a method call.
+    I would appreciate any suggestions that you may have.
+    Thanks,
+    -- 
+    Brad Dixon
+    Georgia Tech Research Institute -- Atlanta, GA
+    brad.dixon@gtri.gatech.edu
+
+
+    >>>>>>>>>>>>>>>
+    As far as I understand your question, you'd like to pass the input to
+    multiple FSMs in parallel, to analyse ambigous input without backtracking. 
+
+    This is an interesting problem. Perl is perhaps not the ideal language
+    (slow, when you start to do serious computations), but that's a detail.
+
+    We've used Libero to do parallel FSMs in various projects. The principle is
+    quite simple. You construct event queues, and write the schema to take
+    events from the queue. You can create 'instances' or threads simply by
+    saving the FSM state variables (state, module, event, and event queue) and
+    doing a context switch before invoking each FSM module. You can also pass
+    this state information as an argument to the code. The SMT kernel does this
+    kind of thing, although the objectives are different.
+
+    Libero is well suited to doing this kind of thing, since you can play with
+    the schema as needed to construct your own FSM model.
+
+
+    Date sent:      	1 Mar 1999 03:00:01 -0000
+    Subject:        	Web Server Statistics
+    From:           	Statistics Report Robot <sacc@imatix.com>
+    To:             	owner@imatix.com
+
+    ========= Web Server Statistics Report -- Text Version ==========
+
+    A HTML version is also stored in the Stats subdirectory
+    in your web account.
+
+    Program started at Sun-Feb-28-1999 04:31 local time.
+    Analyzed requests from Sun-Jan-31-1999 23:56 to
+      Sat-Feb-27-1999 23:55 (27.0 days).
+
+    Total successful requests: 349,296 (91,414)
+    Average successful requests per day: 12,937 (13,059)
+    Total successful requests for pages: 79,376 (19,406)
+    Average successful requests for pages per day: 2,940 (2,772)
+    Total failed requests: 43,485 (1,767)
+    Total redirected requests: 219 (45)
+    Number of distinct files requested: 977 (856)
+    Number of distinct hosts served: 17,082 (5,084)
+    Number of new hosts served in last 7 days: 4,024
+    Corrupt logfile lines: 352
+    Unwanted logfile entries: 169
+    Total data transferred (in bytes): 3,604,203,072 bytes (893.616 Mb)
+    Total data transferred (in Megabytes): 3437.236 Megabytes (852.219 Mb)
+    Average data transferred per day: 133,489,003 bytes (127.659 Mb)
+    (Figures in parentheses refer to the last 7 days).
+
+    Weekly Report
+
+    week beg.: #reqs:  %reqs:      bytes: %bytes: 
+    ---------  -----  ------  ----------  ------  
+    Jan/31/99: 86996: 24.91%: 1067934268: 29.63%: 
+    Feb/ 7/99: 81799: 23.42%:  807957582: 22.42%: 
+    Feb/14/99: 87808: 25.14%:  825037597: 22.89%: 
+    Feb/21/99: 92693: 26.54%:  903273625: 25.06%: 
+
+    Daily Summary
+
+    day: #reqs:  %reqs:     bytes: %bytes: 
+    ---  -----  ------  ---------  ------  
+    Sun: 31028:  8.88%: 285770907:  7.93%: 
+    Mon: 56918: 16.30%: 570966181: 15.84%: 
+    Tue: 56031: 16.04%: 628720547: 17.44%: 
+    Wed: 56967: 16.31%: 618414027: 17.16%: 
+    Thu: 56013: 16.04%: 591529121: 16.41%: 
+    Fri: 53723: 15.38%: 537592392: 14.92%: 
+    Sat: 38616: 11.06%: 371209897: 10.30%: 
+
+    Daily Report
+
+         date: #reqs:  %reqs:     bytes: %bytes: 
+    ---------  -----  ------  ---------  ------  
+    Jan/31/99:     2:       :    191573:  0.01%: 
+    Feb/ 1/99: 15964:  4.57%: 203643889:  5.65%: 
+    Feb/ 2/99: 15810:  4.53%: 227211043:  6.30%: 
+    Feb/ 3/99: 15088:  4.32%: 217939334:  6.05%: 
+    Feb/ 4/99: 15585:  4.46%: 174029034:  4.83%: 
+    Feb/ 5/99: 14326:  4.10%: 154071674:  4.27%: 
+    Feb/ 6/99: 10221:  2.93%:  90847721:  2.52%: 
+
+    Feb/ 7/99: 11405:  3.27%:  95887550:  2.66%: 
+    Feb/ 8/99: 13532:  3.87%: 129252923:  3.59%: 
+    Feb/ 9/99: 12912:  3.70%: 132829401:  3.69%: 
+    Feb/10/99: 12210:  3.50%: 115155203:  3.20%: 
+    Feb/11/99: 12254:  3.51%: 129667395:  3.60%: 
+    Feb/12/99: 11279:  3.23%: 111104978:  3.08%: 
+    Feb/13/99:  8207:  2.35%:  94060132:  2.61%: 
+
+    Feb/14/99:  9124:  2.61%:  95973011:  2.66%: 
+    Feb/15/99: 13478:  3.86%: 122976201:  3.41%: 
+    Feb/16/99: 13380:  3.83%: 127285417:  3.53%: 
+    Feb/17/99: 14025:  4.02%: 119679059:  3.32%: 
+    Feb/18/99: 13969:  4.00%: 145054190:  4.02%: 
+    Feb/19/99: 14310:  4.10%: 137952570:  3.83%: 
+    Feb/20/99:  9522:  2.73%:  76117149:  2.11%: 
+
+    Feb/21/99: 10497:  3.01%:  93718773:  2.60%: 
+    Feb/22/99: 13944:  3.99%: 115093168:  3.19%: 
+    Feb/23/99: 13929:  3.99%: 141394686:  3.92%: 
+    Feb/24/99: 15644:  4.48%: 165640431:  4.60%: 
+    Feb/25/99: 14205:  4.07%: 142778502:  3.96%: 
+    Feb/26/99: 13808:  3.95%: 134463170:  3.73%: 
+    Feb/27/99: 10666:  3.05%: 110184895:  3.06%: 
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes: 
+    --  -----  ------  ---------  ------  
+     0: 12528:  3.59%: 145383936:  4.03%: 
+     1: 12273:  3.51%: 168819979:  4.68%: 
+     2: 11505:  3.29%: 132398230:  3.67%: 
+     3: 11622:  3.33%: 134317162:  3.73%: 
+     4: 13678:  3.92%: 139996663:  3.88%: 
+     5: 17300:  4.95%: 196601665:  5.45%: 
+     6: 16729:  4.79%: 161402855:  4.48%: 
+     7: 17848:  5.11%: 187397325:  5.20%: 
+     8: 17925:  5.13%: 177067478:  4.91%: 
+     9: 17536:  5.02%: 188380774:  5.23%: 
+    10: 18611:  5.33%: 169909946:  4.71%: 
+    11: 18561:  5.31%: 196258340:  5.45%: 
+    12: 19720:  5.65%: 202421977:  5.62%: 
+    13: 18013:  5.16%: 172307725:  4.78%: 
+    14: 15534:  4.45%: 149529322:  4.15%: 
+    15: 14696:  4.21%: 149565565:  4.15%: 
+    16: 13133:  3.76%: 121595536:  3.37%: 
+    17: 12862:  3.68%: 134262137:  3.73%: 
+    18: 11566:  3.31%: 126082829:  3.50%: 
+    19: 12655:  3.62%: 123272446:  3.42%: 
+    20: 11755:  3.37%: 107255725:  2.98%: 
+    21: 11007:  3.15%:  94333720:  2.62%: 
+    22: 10823:  3.10%:  98769350:  2.74%: 
+    23: 11416:  3.27%: 126872387:  3.52%: 
+
+    Domain Report
+
+    #reqs:  %reqs:     bytes: %bytes: domain
+    -----  ------  ---------  ------  ------
+    72323: 20.71%: 723698002: 20.08%: .com (Commercial, mainly USA)
+    70536: 20.19%: 710030201: 19.70%: [unresolved numerical addresses]
+    62320: 17.84%: 625342568: 17.35%: .net (Network)
+    25155:  7.20%: 265091317:  7.36%: .de (Germany)
+    17526:  5.02%: 126285410:  3.50%: .edu (USA Educational)
+     9925:  2.84%: 170187065:  4.72%: .uk (United Kingdom)
+     8302:  2.38%:  75678614:  2.10%: .ca (Canada)
+     7941:  2.27%:  59547437:  1.65%: .br (Brazil)
+     7358:  2.11%:  78009887:  2.16%: .nl (Netherlands)
+     5075:  1.45%:  44670834:  1.24%: .se (Sweden)
+     5004:  1.43%:  60082522:  1.67%: .fr (France)
+     4899:  1.40%:  83391213:  2.31%: .au (Australia)
+     3667:  1.05%:  48017706:  1.33%: .it (Italy)
+     3549:  1.02%:  29446047:  0.82%: .be (Belgium)
+     3416:  0.98%:  36688074:  1.02%: .at (Austria)
+     3173:  0.91%:  25639227:  0.71%: .jp (Japan)
+     2429:  0.70%:  19341988:  0.54%: .dk (Denmark)
+     2318:  0.66%:  19161882:  0.53%: .ch (Switzerland)
+     2059:  0.59%:  31255216:  0.87%: .ru (Russian Federation)
+     1895:  0.54%:  12093718:  0.34%: .il (Israel)
+     1702:  0.49%:  17695969:  0.49%: .es (Spain)
+     1521:  0.44%:  11422232:  0.32%: .no (Norway)
+     1518:  0.43%:  21856394:  0.61%: .org (Non-Profit Making Organisations)
+     1377:  0.39%:  16811756:  0.47%: .pl (Poland)
+     1366:  0.39%:   7984416:  0.22%: .us (United States)
+     1334:  0.38%:  22654566:  0.63%: .hu (Hungary)
+     1155:  0.33%:  10516166:  0.29%: .cz (Czech Republic)
+     1147:  0.33%:  13134620:  0.36%: .fi (Finland)
+     1118:  0.32%:  11602578:  0.32%: .mx (Mexico)
+     1105:  0.32%:   9489949:  0.26%: .sg (Singapore)
+     1094:  0.31%:   5582815:  0.15%: .hr (Croatia)
+     1050:  0.30%:  12102201:  0.34%: .nz (New Zealand)
+     1035:  0.30%:   9188382:  0.25%: .th (Thailand)
+      885:  0.25%:   9910725:  0.27%: .gr (Greece)
+      877:  0.25%:  10028838:  0.28%: .pt (Portugal)
+      856:  0.25%:  11469825:  0.32%: .my (Malaysia)
+      774:  0.22%:  21215046:  0.59%: .ro (Romania)
+      757:  0.22%:  18787209:  0.52%: .za (South Africa)
+      754:  0.22%:   7613807:  0.21%: .tw (Taiwan)
+      702:  0.20%:   6630100:  0.18%: .ar (Argentina)
+      608:  0.17%:   5738699:  0.16%: .mil (USA Military)
+      596:  0.17%:  10512541:  0.29%: .ua (Ukraine)
+      573:  0.16%:   5282606:  0.15%: .gov (USA Government)
+      567:  0.16%:  12284778:  0.34%: .yu (Yugoslavia)
+      541:  0.15%:   4142552:  0.11%: .id (Indonesia)
+      508:  0.15%:   3825426:  0.11%: .kr (South Korea)
+      412:  0.12%:   4105853:  0.11%: .ee (Estonia)
+      399:  0.11%:   4777588:  0.13%: .ie (Ireland)
+      367:  0.11%:   3468968:  0.10%: .hk (Hong Kong)
+      308:  0.09%:   6973574:  0.19%: .lu (Luxembourg)
+      290:  0.08%:   2274844:  0.06%: .si (Slovenia)
+      264:  0.08%:   3720849:  0.10%: .in (India)
+      260:  0.07%:   3332476:  0.09%: .sk (Slovak Republic)
+      254:  0.07%:   4940797:  0.14%: .su (Former USSR)
+      225:  0.06%:   3843482:  0.11%: .arpa (Old style Arpanet)
+      167:  0.05%:    768608:  0.02%: .lv (Latvia)
+      137:  0.04%:   1423918:  0.04%: .bg (Bulgaria)
+      132:  0.04%:   5407375:  0.15%: .ph (Philippines)
+      123:  0.04%:   1796160:  0.05%: .int (International)
+      121:  0.03%:    455329:  0.01%: .lt (Lithuania)
+      103:  0.03%:   1428452:  0.04%: .cn (China)
+      102:  0.03%:   1139225:  0.03%: .bn (Brunei Darussalam)
+       96:  0.03%:    503518:  0.01%: .tr (Turkey)
+       93:  0.03%:   2254333:  0.06%: .co (Colombia)
+       88:  0.03%:    867665:  0.02%: .by (Belarus)
+       84:  0.02%:   1265434:  0.04%: .gb (Great Britain)
+       81:  0.02%:    611583:  0.02%: .is (Iceland)
+       71:  0.02%:    252777:  0.01%: .do (Dominican Republic)
+       66:  0.02%:   1118520:  0.03%: .ae (United Arab Emirates)
+       66:  0.02%:    307346:  0.01%: .uy (Uruguay)
+       54:  0.02%:    400367:  0.01%: .ve (Venezuela)
+       53:  0.02%:   1715055:  0.05%: .cl (Chile)
+       52:  0.01%:    267454:  0.01%: [unknown]
+       52:  0.01%:   1125410:  0.03%: .cr (Costa Rica)
+       50:  0.01%:    243080:  0.01%: .pe (Peru)
+       45:  0.01%:    119391:       : .cy (Cyprus)
+       36:  0.01%:    141502:       : .bb (Barbados)
+       25:  0.01%:    117380:       : .gt (Guatemala)
+       24:  0.01%:    140194:       : .jm (Jamaica)
+       24:  0.01%:     92135:       : .pk (Pakistan)
+       23:  0.01%:    203545:  0.01%: .ba (Bosnia-Herzegovina)
+       23:  0.01%:    783652:  0.02%: .ec (Ecuador)
+       22:  0.01%:     82268:       : .lb (Lebanon)
+       22:  0.01%:     77039:       : .ni (Nicaragua)
+       21:  0.01%:     76529:       : .kz (Kazakhstan)
+       20:  0.01%:     71418:       : .ge (Georgia)
+       17:       :     82750:       : .ke (Kenya)
+        8:       :     49297:       : .bh (Bahrain)
+        5:       :     31962:       : .ag (Antigua and Barbuda)
+        4:       :     20839:       : .pf (Polynesia (French))
+        4:       :     31990:       : .zw (Zimbabwe)
+        3:       :     78734:       : .md (Moldavia)
+        3:       :      5739:       : .tt (Trinidad and Tobago)
+        3:       :     15606:       : .vi (Virgin Islands (USA))
+        2:       :     31554:       : .gl (Greenland)
+        1:       :     16384:       : .cx (Christmas Island)
+        1:       :          :       : .ma (Morocco)
+
+    File Type Report
+
+     #reqs:  %reqs:      bytes: %bytes: extension
+    ------  ------  ----------  ------  ---------
+    260691: 74.63%:  774901186: 21.50%: .gif
+     61752: 17.68%: 1263228600: 35.05%: .htm
+     17620:  5.04%:  119702876:  3.32%: (directories)
+      5659:  1.62%:  989333135: 27.45%: .zip
+      1358:  0.39%:   23868352:  0.66%: .txt
+       853:  0.24%:  158403825:  4.39%: .tgz
+       830:  0.24%:  269722873:  7.48%: .exe
+       187:  0.05%:     575216:  0.02%: .class
+        70:  0.02%:     358605:  0.01%: (no extension)
+        59:  0.02%:     775918:  0.02%: .cpp
+        52:  0.01%:     670324:  0.02%: .c
+        46:  0.01%:     370993:  0.01%: .mod
+        42:  0.01%:     921504:  0.03%: .pl
+        33:  0.01%:     326261:  0.01%: .bas
+        26:  0.01%:     735572:  0.02%: .cob
+        14:       :     192740:  0.01%: .asm
+         4:       :     115092:       : .html
+
+    Request Report
+
+    Printing the first 40 requested files, sorted by number of requests.
+    #reqs:  %reqs:     bytes: %bytes: file
+    -----  ------  ---------  ------  ----
+    15294:  4.38%:  98058260:  2.72%: /
+    13429:  3.84%: 167314134:  4.64%: /html/im0190c.gif
+    13279:  3.80%:  13563684:  0.38%: /html/newstone.gif
+    12571:  3.60%:  13265522:  0.37%: /html/xitami.gif
+    12390:  3.55%:  59517249:  1.65%: /html/xitami/index.htm
+    12313:  3.53%:  12906949:  0.36%: /html/libero.gif
+    11812:  3.38%:  11839621:  0.33%: /html/smt.gif
+    11461:  3.28%:  12670858:  0.35%: /html/htmlpp.gif
+    11459:  3.28%:  12894444:  0.36%: /html/archives.gif
+    11214:  3.21%:  10856253:  0.30%: /html/sfl.gif
+    11182:  3.20%:  77500370:  2.15%: /html/topfame.gif
+    11182:  3.20%:   3067716:  0.09%: /html/new.gif
+    10762:  3.08%:  11555578:  0.32%: /html/search.gif
+    10752:  3.08%:  10792941:  0.30%: /html/horizon.gif
+    10596:  3.03%:  31159771:  0.86%: /html/tucows.gif
+    10559:  3.02%:  46720293:  1.30%: /html/top50-lt.gif
+    10331:  2.96%:  41120466:  1.14%: /html/inetfw.gif
+    10188:  2.92%:  22446124:  0.62%: /html/itmaward.gif
+     9940:  2.85%:  44089720:  1.22%: /html/inetcom.gif
+     9931:  2.84%:  39192492:  1.09%: /html/nonags.gif
+     9622:  2.75%:  59345433:  1.65%: /html/powered5.gif
+     9579:  2.74%:  11577705:  0.32%: /html/red81.gif
+     9529:  2.73%: 190320073:  5.28%: /html/xitami/index2.htm
+     7618:  2.18%:  29384763:  0.82%: /images/xitami1.gif
+     7195:  2.06%:  26399375:  0.73%: /images/im0096c.gif
+     2440:  0.70%:   2347521:  0.07%: /html/sfl/newstone.gif
+     2421:  0.69%:   7248079:  0.20%: /html/sfl/sfl80c.gif
+     2272:  0.65%:   8615313:  0.24%: /html/sfl/im0096c.gif
+     2145:  0.61%:  57409723:  1.59%: /html/sfl/index.htm
+     2059:  0.59%:   9189690:  0.25%: /html/im0096c.gif
+     2052:  0.59%: 240760584:  6.68%: /html/xitami/index13.htm
+     1851:  0.53%:   2455299:  0.07%: /html/libero/lr_tiny.gif
+     1826:  0.52%:   1609460:  0.04%: /html/libero/newstone.gif
+     1817:  0.52%:   6266875:  0.17%: /html/libero/im0096c.gif
+     1621:  0.46%:  15993230:  0.44%: /html/xitami/index1.htm
+     1516:  0.43%:   7932240:  0.22%: /html/libero/index.htm
+     1426:  0.41%:   6707312:  0.19%: /html/htmlpp/htmlpp1.gif
+     1407:  0.40%:   1099453:  0.03%: /html/libero/leebehro.gif
+     1400:  0.40%:   1535501:  0.04%: /html/htmlpp/newstone.gif
+
+    Referrer Report (outside imatix.com)
+
+     #reqs:  URL
+    ------   ---
+       628:  http://www.geocities.com/ResearchTriangle/6293/source-cpp.htm
+       503:  http://www.winfiles.com/apps/98/servers-websrv.html
+       477:  http://serverwatch.internet.com/webserver-xitami.html
+       367:  http://serverwatch.internet.com/top10.html
+       271:  http://www.jacksonville.net/~tazzone2/oldtazz/softwar1.html
+       255:  http://www.freecode.com/cgi-bin/viewproduct.pl?4379
+       225:  http://www.microsoft.com/ntserver/nts/exec/vendors/
+                            freeshare/Web.asp
+       179:  http://www.winfiles.com/apps/nt/servers-websrv.html
+       163:  http://www.geocities.com/Baja/Canyon/5829/index4.html
+       146:  http://www.ddj.com/oped/1999/hint.htm
+       143:  http://www.freecode.com/cgi-bin/viewproduct.pl?2426
+       141:  http://www.greymatter.co.uk/gmWEB/News/free05.htm
+       128:  http://www.genitor.com/resources/librarie.htm
+       125:  http://www.angelfire.com/sc/electron/
+       124:  http://www.imatix.com/html/libero/lrtech.htm
+       123:  http://webcompare.internet.com/cgi-bin/detail.pl?
+                            03_Server=Xitami&amp;04_Version=2.2b
+       114:  http://www.angelfire.com/ak2/lordofthedeath/DownloadHack.html
+       112:  http://nng.simplenet.com/servd32.html
+        98:  http://www.freecode.com/cgi-bin/viewproduct.pl?4378
+        77:  http://www.elj.com/new/
+        73:  http://computers.rochester.rr.com/nonags/servd32.html
+
+    Browser Summary
+
+    Printing the first 30 browsers, sorted by number of requests.
+     #reqs:  %reqs:      bytes: %bytes: browser
+    ------  ------  ----------  ------  -------
+    196192: 50.20%: 1607078899: 44.87%: Netscape (compatible)
+    181109: 46.34%: 1596377400: 44.57%: Netscape
+      1651:  0.42%:  119215680:  3.33%: GetRight
+      1651:  0.42%:   33095545:  0.92%: Wget
+      1546:  0.40%:   11296370:  0.32%: Teleport Pro
+      1300:  0.33%:   47492893:  1.33%: Go!Zilla 3.3 (www.gozilla.com)
+       795:  0.20%:    6890744:  0.19%: WebReaper
+       726:  0.19%:    4702043:  0.13%: Java1.1.3
+       474:  0.12%:     380493:  0.01%: MSProxy
+       386:  0.10%:   16654510:  0.46%: Mercator-1.0
+       287:  0.07%:   15461177:  0.43%: NetAnts
+       266:  0.07%:   15271092:  0.43%: Lynx
+       220:  0.06%:    3631009:  0.10%: IBM-WebExplorer-DLL
+       208:  0.05%:    6130225:  0.17%: Go!Zilla (www.gozilla.com)
+       188:  0.05%:    2808035:  0.08%: EmailSiphon
+       156:  0.04%:     804537:  0.02%: Konqueror
+       144:  0.04%:     825003:  0.02%: TE
+       140:  0.04%:     781206:  0.02%: Nokia-Communicator-WWW-Browser
+       135:  0.03%:    3526621:  0.10%: ia_archiver
+       110:  0.03%:     306009:  0.01%: libwww-perl
+       107:  0.03%:    2388254:  0.07%: ; AOL 4.0
+       100:  0.03%:     256210:  0.01%: WebAuto
+        96:  0.02%:     979432:  0.03%: Ultraseek
+        90:  0.02%:           :       : CNET_Snoop
+        86:  0.02%:     955388:  0.03%: SiteSnagger
+        78:  0.02%:    1162371:  0.03%: IBrowse
+        77:  0.02%:     379143:  0.01%: Scooter
+        73:  0.02%:       4313:       : Xenu's Link Sleuth 1.0p
+        70:  0.02%:   30687382:  0.86%: fetch
+        67:  0.02%:    1855216:  0.05%: HotJava
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To be removed from this mailing list, e-mail us with the subject
+    'remove'.  Liberetto should be taken once monthly, with food and drink.
+

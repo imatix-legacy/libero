@@ -1,0 +1,130 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Control Variables</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech4.htm">&lt;</A>
+ | <A href="lrtech6.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC10">Control Variables</A></H2>
+
+<P>Libero supplies various <I>control variables</I>.  A control variable
+affects some aspects of code generation; you set the control variable to tell
+Libero how to handle something specific for the language you want to
+generate.  Control variables are usually 'write-only'.  You don't normally
+refer to these variables in the code, though you can if you want to.  To
+change a control variable you use the <TT>:set</TT> command:
+<DL>
+<DT>$array_base</DT>
+<DD>Specifies the base value for tables.  You use this when
+building an array of values.  By default this is 0; in some
+languages it is more useful to start at 1.  The
+<TT>$array_base</TT> affects the value of <TT>$number</TT> in a
+<TT>:do</TT> block.</DD>
+<DT>$comma_before</DT>
+<DD>This value is used as <TT>$comma</TT> when the current item
+being output is not the last.  Default is <TT>","</TT>.</DD>
+<DT>$comma_last</DT>
+<DD>This value is used as <TT>$comma</TT> when the current item
+being output is the last. Default is empty.</DD>
+<DT>$comment_ind</DT>
+<DD>Comment indicator in schema command lines. Default is
+'#'.</DD>
+<DT>$module_line</DT>
+<DD>libero looks for single lines that look like this when
+creating new module stubs.  By default: <TT>"MODULE %s
+(void)"</TT>. The '%s' symbol represents the module name.</DD>
+<DT>$number_fmt</DT>
+<DD>This value is used to format the <TT>$number</TT> value;
+numbers are always signed long ints.  It must be a valid printf
+format string.  Default is <TT>"%ld"</TT>.</DD>
+<DT>$row_first</DT>
+<DD>This value is used to format the first numeric item in a
+<TT>$row</TT> value.  It must be a valid printf format string.
+Default is <TT>"%ld"</TT>.</DD>
+<DT>$row_after</DT>
+<DD>This value is used to format numeric items in a
+<TT>$row</TT> value after the first one.  It must be a valid
+printf format string.  Default is <TT>",%ld"</TT>.</DD>
+<DT>$row_clean</DT>
+<DD>Tells Libero to clean-up overflow rows.  You get overflow
+rows when you generate a table that is wider than the
+<TT>$row_width</TT>.  When <TT>$row_clean</TT> is 1, Libero
+removes any non-numeric data from the start of overflow rows.
+When 0, Libero leaves overflow rows as they are.  Default is
+0.</DD>
+<DT>$row_null</DT>
+<DD>This value is used in <TT>$row</TT>s when there is no event
+defined in a certain state.  This is by default 0, but can be
+set to any numeric value by the schema.</DD>
+<DT>$row_width</DT>
+<DD>Maximum space, in characters, for a <TT>$row</TT> item in
+the generated source.  Default is the compile-time constant
+<TT>LR_ROW_WIDTH</TT>, defined as 60.  Rows longer than this
+are chopped into 'overflow' pieces.</DD>
+<DT>$run_away</DT>
+<DD>If a <TT>:do</TT> loop does more than this number of
+iterations, Libero halts it with an error message.  Default is
+the compile-time constant LR_RUNAWAY_LIMIT, defined as 1000.
+This lets you generate at  least a table with the maximum
+number ofstates, events, or modules (up to 1000 depending on
+the schema).</DD>
+<DT>$stub_before</DT>
+<DD>Used to generate new module stubs.  If this string value is
+not empty, it is output before each module stub header. By
+default it is <TT>""</TT> (empty).</DD>
+<DT>$stub_between</DT>
+<DD>Used to generate new module stubs: this string value is
+repeated to build-up a stub header.  Default is
+<TT>"*"</TT>.</DD>
+<DT>$stub_first</DT>
+<DD>Used to generate new module stubs: this string value is
+output at the start of a stub header line.  Default is
+<TT>"/"</TT>.</DD>
+<DT>$stub_last</DT>
+<DD>Used to generate new module stubs: this string value is
+output at the end of a stub header line.  Default is
+<TT>"/"</TT>.</DD>
+<DT>$stub_width</DT>
+<DD>Used to generate new module stubs: defines the width of the
+stub line.  Default is the compile-time constant
+<TT>LR_HEADER_WIDTH</TT>, defined as 79.</DD>
+</DL>
+<P>To see the value that a control variable had for
+code-generation, use the -trace option when you generate code.
+ The <TT>.lst</TT> file produced shows
+the symbol table, including all control variables, as code
+generation
+ended.
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech4.htm">&lt;</A>
+ | <A href="lrtech6.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <EM>Control Variables</EM>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

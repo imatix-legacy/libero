@@ -1,0 +1,368 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/4
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                    JUNE 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 4
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+                                           "We accept all major credit cards"
+                                                      "Also cash and bullion"
+                                                        "Barter is cool, too"
+                                                              "Okay, a beer."
+
+ == EDITORIAL --.-.----...-.-....-.-.--..-.-.-..-.--....-.-.-..-.---..-.-..-.
+
+    There are battles going on in several countries - the US, France, and
+    China - to name a few.  So far it's the governments against... someone.
+    Who that 'someone' is, is not obvious.  In the US, the government has
+    enacted, and is now trying to enforce a decency law that controls what
+    can be placed onto the Internet.  Paris is taking service providers to
+    court because of the material that others are posting through their
+    networks.  Peking wants to provide access to the Net, yet keep control
+    over what gets sent across it.
+
+    The governments' battle-cry is "Decency!"; their critics cry "Freedom!"
+
+    But this is not the whole story.  The Internet makes a mockery of
+    existing decency laws.  It does this without effort and without
+    organisation.  It is inherently robust against outside efforts to
+    control it, damage it, or limit it.
+
+    Governments around the world are realising, possibly too late, that
+    this anarchaic network is a real threat to their current way of life.
+    We'll always need someone to collect and redistribute taxes, but do
+    we need today's bloated bureaucracies?  Of course not.  What role for
+    government when information cannot be controlled, and when people can
+    organise themselves into interest groups without regard for location,
+    nationality, and (eventually) language?
+
+    From here, it looks like the governments cannot win.  A country that
+    restricts its Internet will suffer commercially.  Yet, a free Internet
+    is a direct threat to large-scale government.
+
+    Expect a long war.  My money is on the nuclear-bomb-proof Net.
+
+    Pieter Hintjens
+    Antwerpen,
+    1 June 1996
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Editor Gets It Wrong - No Apology!
+        Yes, millions* of you reported the glaring error in last month's
+        otherwise pristine edition.  No matter how hard you look in the
+        AltaVista indexes, you won't find Libero under 'prehistoric coke
+        machine'.  However, our editor is adamant: "This was not an error.
+        We made a deliberate statement about the way the industry works.
+        By now Scooter, the AltaVista web-munching robot will have indexed
+        Vol 1/3, so the search *will* work.  This is demonstration of basic
+        vapourware mechanics."
+
+    Libero Goes Public!
+        "[NY, 23 Mar 1999] Today Wall Street tried to recover from the shock
+        of yesterday's events during the first public issue of iMatix stock.
+        Small green men (we think) swamped the stock market building, buying
+        every share they could find -- including $2bn shares in Microsaft by
+        mistake.  As far as we can tell, 98.5% of the stock is in the hands
+        (if that is the correct term) of ecologically-correct hominids who
+        reportedly said that they came from late-2110 but were only visiting.
+        An iMatix spokesone, Mandy, 26, pointed out that shareholder meetings
+        would probably not be a problem, but that..."
+        [This clipping flew through a five-dimensional space-time vortex we
+        inadvertently created while conducting usability tests.  Better than
+        a 15-ton dinosaur. -- Ed.]
+
+    Bug Bites The Dust!
+        Antwerpen, 20 May 1996: the elusive "Invalid Property Value" bug
+        has at last hit the dust.  Not a reference to falling real-estate
+        values, but one of those rare phenomena - a bug in Libero!  More
+        news in the Leisure section.  Film at 11.
+
+    * 'Two' does not have the same snappy touch as 'millions'.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    More bits from our bulging inbox...  Yes, it's that moment you always
+    dreamt of... you're walking down the street.  Suddenly you see that
+    you (a) forgot to dress, (b) forgot to go to the exams/meeting/doctor,
+    and (c), they published your letter in Liberetto!  AAAGGHHH!  >8^|
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: David Wood <david@thermoteknix.co.uk>
+    >Subject: The coke machine example
+    >Hi
+    >Can you put me on your mailing list please.
+    >Are you a fan of Douglas Adams by any chance. You coke machine humming
+    >theory is great, much like the theories on mattresses and biros in the
+    >Hitch Hikers Guide to the Galaxy books!
+    >The code generator...  Two main grips here, possible the same result.
+    >What if I want to use the system with in a real time environment.
+    >I don't want a while loop that has to check the rest of the system
+    >for an event. I want the event to be able to call into the FSM.
+    >What if I want to use this system for a windows program WndProc
+    >(in C). This is a message handler that is a switch (usually). Again
+    >the events need to be able to call into the FSM.
+    >In both cases I want the FSM to store state and what ever other info
+    >it needs but to be able to call specific event routines that do the
+    >work.
+    >Have you a solution for this, or any thoughts.
+    >--
+    >David Wood
+    >I try to live one day at a time, but lately several days have
+    >attacked me at once.
+
+    Right now the Libero FSM model is pretty arrogant in its view of the
+    world; it starts, it runs, it finishes.  The idea that other things
+    might need to happen at the same time never crosses its mind.
+
+    Okay, we made an attempt to improve this with the Simple Multithreaded
+    (SMT) Kernel [Liberetto I/2], which lets you write programs that do
+    many different things, apparently at once.  SMT 1.x worked pretty well,
+    but still does not offer the real-world view that David is describing.
+
+    So, we are throwing away the SMT 1.x and making a new SMT 2.x that works
+    totally differently, yet contains just as many essential minerals and
+    vitamins!  SMT 2.0 is based on a cooperative asynchronous multithreaded
+    FSM, after a suggestion from Frans Janssens <frans@sebb.bel.alcatel.be>.
+    I first saw an asynchronous FSM when Christian Rozet <crz@acse.be> took
+    an early version of Libero and made a C++ version that was nicely event-
+    driven, just as David is describing.  We'll have a technical paper on
+    the Website as soon as it's in decent shape.  Possibly some news in the
+    next Liberetto.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Brooks David Smith <brooks@brooks.csd.uwm.edu>
+    >Subject: 'Bigger Examples' in libero documentation
+    >I noticed that the references to bigger examples in the Libero
+    >documentation for the various languages get a browser 404 error: page
+    >not found. Is this intentional or an oversight?  I would like to see
+    >the larger examples if they are still available.
+    >Very powerful idea in libero but you know that. :-)
+
+    Yikes!  You found the missing link - this was not intentional, but an
+    error, mistake, flaw, and oversight, not to mention basic blunder on
+    our part.  All fixed and working nicely, though I had to scold Mandy
+    about it.  Thanks for making the world a better place.  [Yeah, right.
+    He'll start singing old Coke adverts any moment now. - Ed.]
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Ray Welchman <ray@mrad.com.au>
+    >Subject: Documentation
+    >Hi,
+    >I thought I would take a look at Libero. I am on a UNIX system with
+    >SunOs. I downloaded the user guide lrpsa4.zip.
+    >What tool do I use to `unzip' this? gunzip doesn't like it.
+    >Thanks
+    >Ray Welchman.
+
+    Well, firstly, try the InfoZip unzip tool, which you can get from lots
+    of places.  Secondly, we removed this file from the website, so the
+    issue is moot.  Yeah, PostScript is nice, and lots of folks downloaded
+    this file, but it was starting to get out of date.  [Ahem.  The file is
+    still in /pub/libero/doc; we just took it off the web pages.  Another
+    first for iMatix: undocumentation. - Ed.]
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Wolfgang Kutschera <kutschera@linux1.htlwrn.ac.at>
+    >Subject: ftp.imatix.com - Libero
+    >Hello guys!
+    >I tried to download "Libero" from ftp.imatix.com, but am not able to
+    >log into ftp-server. Would you be so kind to send me send the files via
+    >E-Mail (I am running Linux 1.3.72, so please send me the source codes!)
+    >Thanx in forward
+    >Wolfgang "Rick" Kutschera
+
+    >From: charles1@netcom.com (charles copeland)
+    >Subject: Re: State Machine in C without using GOTO ???
+    >Newsgroups: comp.lang.c
+    >I got Libero from your post info, but am unable to get the examples
+    >from the suggested ftp address in libero.txt.  It refuses to take an
+    >anonymous login.  Any suggestions?
+
+    Well, the documentation in libero.txt is old, defunct, archaic, and
+    generally out of date.  We deleted it.  Our iMatix site does not allow
+    anonymous ftp access, for various intricate and subtle reasons.  (It
+    makes the system too slow, opens too many security doors.)  Anything you
+    need you can get by browsing our web pages.  If that don't work, e-mail
+    us and we'll zap the stuff you need down the line.  Our almost office
+    manager, Mandy (23 1/2, likes hang-gliding) has plenty of spare time
+    when she's not doing her nails, and she loves to do the uuencode thang.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Martin Moore <moore@tdl.com>
+    >Subject: Re: State-Machine Techniques, preferred techniques?
+    >Pieter,
+    >I had a fairly large state machine description delivered to me a few
+    >days ago (about 15 states, 50 events), and rather than code it by hand,
+    >I started looking for a state machine generator.  I found your Libero
+    >system via a news search, and I have been meaning to tell you how
+    >much I like the system.  I modified the generating schema file for my
+    >needs, and cranked out the new system in a short time. Now, the beauty
+    >is that I can change the state machine description, recompile the
+    >generated code and respond to changes during testing in a matter of
+    >minutes, rather than going in and modifying some huge 2-d array or
+    >switch statement.  The state machine description language is easy to
+    >read, and acts as a documentation source.  I liked this method so much,
+    >that I returned to a prior state driven application that had not been
+    >released yet, and I recoded it to use Libero facilities too!
+    >--
+    >Martin Moore
+
+    If Martin Moore did not exist (he does, really!), we'd have to invent
+    him.  Wonderful stuff, warms the cockles of our old hearts.  No we don't
+    know what a heart-cockle is, but we assume it's that part of your heart
+    that warms when someone like Martin sends a mail like this.  Okay, User
+    Of The Month Award definitely goes to Martin.  I just love this guy!!
+    [Two exclamation marks... true enthusiasm.  Hope he doesn't start to
+    write in capitals. - Ed.*]
+
+    * This refers to what is known as 'clenched pencil' syndrome.  Origin
+      of the term was a thread on soc.culture.celtic where some person was
+      posting long and incoherent articles with no punctuation and little
+      regard for spelling.  The polite group tolerated this for a while,
+      then someone asked him why he always wrote in such a strange style.
+      The answer from another poster was: "it is very hard to write in a
+      clear manner when your arms are tied behind your back and you must
+      peck at the keyboard using a pencil clenched between your teeth."
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: punamia@falcon.kla.com (Manoj Punamia)
+    >Subject: Re: Libero Installation on UNIX
+    >Thanks.
+    >I got it to compile without any error using 'acc' compiler.
+    >lr is now running on my box !
+    >-- Manoj
+    >Workstation: Sun(4)Sparc
+    >OS: SunOS4.1.3
+    >Compiler: sun c compiler SC1.0 (acc)
+
+    Manoj wins the User Of The Month Award of for his successful port of
+    Libero to SunSparc, despite Sun's sneaky attempt to divert him by
+    renaming the compiler.  These guys will stop at nothing!  The sad truth
+    is that we get problem reports from folks on Sun systems just too often.
+    Put it another way, we've had about 15 stories of non-ANSI C compilers
+    on Sun systems, and about 0 on other systems.  Hey Sun guys, put a decent
+    ANSI C compiler on your systems now!  [Cool it, bud, it's always worked
+    so far, eventually. - Ed.]
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Robert Noyes <RDNOYES@PB1.PacBell.COM>
+    >Subject: Liberetto Vol I/3
+    >I agree with you completely that HTML will become "The Way" for on-line
+    >documentation. I don't think that books are going to be replaced entirely
+    >as they require no electricity or computers to be read; they are
+    >extremely portable and can be annotated easily. I prefer to read from a
+    >book as it is easier than reading the screen. And, I read the screen all
+    >day long as an "old COBOL hack." Thanks for putting me on the Libero
+    > mailing list. Happy Trails.
+
+    Robert, thank you for your vote.  We like our site, and we like the way
+    HTML works for us.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Marc Edgar <edgarm@crd.GE.COM>
+    >Subject: Re: Liberetto Vol I/3
+    >Pieter wrote:
+    >>"The module 'Do-The-Work' was several thousand lines of
+    >>COBOL code.
+    >>You can guess what my advice was."
+    >No I can't guess what the advice was.
+    >Pieter, I think you have written an amazing piece of code.  I have read
+    >your web site, even reading some pages several times, but I still don't
+    >feel that I fully understand the Liberetto paradigm.  I would like to
+    >make a friendly suggestion.  Don't sacrifice clarity for being funny.
+    >There is a time for both, don't mix them.  Clarity is always more
+    >important when making a factual point, humor just keeps one interested.
+    >Don't ever leave the reader guessing about what you are saying.
+    >Keep up the good work.
+    >Marc
+
+    Well...  The 'guess' part was meant to be an exercise for the reader.
+    Basically, I told the developer in question to rewrite the thing.  She
+    was really not using Libero at all, just writing ol'style cruddy code.
+
+    [I keep telling him, keep it short, don't crack jokes, explain it like
+    they were idiots. - Ed.]  [Oops. - Ed]
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: BMG@gnn.com (Bob  McGhee)
+    >Subject: Re: Liberetto Vol I/3
+    >Pieter, thanks for speaking so frankly from the future. Your command of
+    >the net, special relativity, and reality in general is superb.  Your
+    >stitch is a newsletter.  Sign me down NOT!
+    >You do keep Kevorkianism at bay.  Thanks!   Cheers/b
+
+    Too kind, too kind, but keep this kind of stuff coming.  We love it.
+    Admittedly the quality of Liberetto varies [whatcha mean? - Ed.] but
+    it is difficult to offend everyone all the time, so we just aim for a
+    general level of background irratiation.
+
+
+ == WHAT'S NEW ----.-.-..-.----.-.-...----.-.-.--.-.-....----.-.-.-.-.---..-.
+
+    The Libero for Windows Saga
+        User Of The Month Award goes to John Dammeyer who helped find a
+        tenacious and mobile problem in Libero Windows.  Maybe you recall
+        this from Liberetto I/1.  Well, if you took our advice to reformat
+        the hard disk and re-install DOS and Windows, you would have cured
+        the problem!
+
+        Silly, really.  Libero tries to load a font called "FixedSys". The
+        font is normally installed with Windows.  If it ain't, the Visual
+        Basic runtime (there are reserved seats in hell reserved for those
+        guys) complains and kills Libero.
+
+        Cure 1: install the FixedSys font.
+        Cure 2: download and re-install Libero for Windows (v2.12).
+        Cure 3: change jobs, become a cd-recycler.  [Probably a good idea to
+        no longer be a programmer on 3 Jan 2000, when the world grinds to a
+        halt because several million COBOL apps never got the 8-digit-date
+        treatment.  Gonna be one *heck* of a weekend and one *heck* of a
+        hangover. - Ed.]
+
+    Libero For King
+        Libero now supports the King of Programming Languages, Rexx.  If you
+        want the Rexx schema, which is still in beta test, send us an e-mail
+        and we'll gladly get Mandy to do the uuencode thang.  She's a real
+        demon with UNIX.  Alternatively, check out our website, which should
+        by now have a link to the Rexx beta kit, somewhere.  Maybe in the
+        /src directory.  Hey, if it's too easy, everyone will want one!
+
+    Libero for C++
+        Yes, Libero now [finally - Ed.] generates C++.  Our C++ guru Pascal
+        did a nice job.  Well, we would say that.  The C++ beta kit is in
+        the /src directory; you should be able to find a link to it if you
+        look hard enough.  Otherwise, set your browser to the magic address:
+        http://www.imatix.com/pub/libero/src/lr_cpp.zip.  [Try saying that
+        3 times, quickly - Ed.]
+
+    Libero for OS/2
+        Some of you reported a bug in the native OS/2 version: if the path
+        was a bit longish, lr.exe couldn't find its files.  Ewen McNeill,
+        though sick and facing piles of studying, dug into Libero and came
+        up with the problem and solution.  User Of The Month Award goes to
+        Ewen, for doing a really cool job.  You can download the new OS/2
+        installation from the usual place: /pub/libero/bin/lr_os2.zip.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    You can't stand it?  Does the dawn of a new month fill you with dread
+    at the idea of a new Liberetto plopping into your e-mail box?  Then
+    you're overreacting.  Okay, if the idea of pressing 'delete' is too
+    much, send us an e-mail, with something funny for the next issue,
+    and we'll remove your name from the Liberetto mailing list.  We use
+    a sharp knife and whisky: you won't feel a thing.
+
+    [Today's score is: Kevorked: 1*, Active: 150.  Details at 6. - Ed.]
+
+    * He was 'just getting Libero for a friend'.  Yeah, like we never
+      heard that one before.
+

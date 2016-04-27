@@ -1,0 +1,104 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The UNIX Korn Shell Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang12.htm">&lt;</A>
+ | <A href="lrlang14.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="ksh">&nbsp;</A>
+<H2><A NAME="TOC16">The UNIX Korn Shell Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is Korn Shell?</DT>
+<DD>The Korn shell (/bin/ksh) is the most advanced 'standard' UNIX shell. It
+extends the Bourne shell with lots of nice features, and is a lot faster.</DD>
+<DT>Portability</DT>
+<DD>The Korn shell is standard when available, but is not supplied on all UNIX
+boxes.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: supplied on most UNIXes; your scripts will run quickly. Cons: like
+all shells, slower than Awk or Perl or C.</DD>
+<DT>How To Get It</DT>
+<DD>Korn shell is available in a public-domain version (by Eric Baalberger)
+for Linux.</DD>
+</DL>
+
+<H3>Working With The UNIX Korn Shell</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.ksh.</LI>
+<LI><B>Program model:</B> executable UNIX script.</LI>
+<LI><B>Good for:</B> complex scripts; portable to GNU systems.</LI>
+<LI><B>Files used/made:</B> own work in <TT>myprog.mod</TT>; generates a
+script called <TT>myprog</TT>.</LI>
+<LI><B>Module functions:</B>
+<PRE>
+function module_function_name
+{
+</PRE></LI>
+<LI><B>Private functions:</B> <TT>function private_function_name {</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> 254 modules, 254 events, 1000 states.  The schema checks
+at generate-time that the dialog does not exceed these limits.  All tables
+are defined dynamically, at runtime.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after you change the dialog or
+<TT>.mod</TT> file.  When you add a new module, run <TT>lr</TT>, then edit
+the <TT>.mod</TT> file, then run <TT>lr</TT> again.  Don't change the
+generated script except for hacking - you'll lose your changes.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+<PRE>
+#################   MODULE FUNCTION NAME   #################
+
+function module_function_name
+{
+    return                      # Empty module needs 'return'
+}
+
+function private_function_name {
+    the_next_event=$ok_event
+    raise_exception $error_event
+}
+</PRE>
+
+<P><A HREF="doc/install.mod">A fuller example.</A></P>
+<P>See also: <A href="lrlang5.htm#unix_shells">Note on UNIX shells</A>.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang12.htm">&lt;</A>
+ | <A href="lrlang14.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <EM>The UNIX Korn Shell Language</EM>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

@@ -1,0 +1,72 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Efficiency</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser8.htm">&lt;</A>
+ | <A href="lruser10.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC10">Efficiency</A></H2>
+
+<H3><A NAME="TOC11">Efficiency of The Generated Code</A></H3>
+
+<P>People sometimes ask of Libero: "But does it produce efficient programs?".
+Bad grammar apart, this question gets a considered answer.  Usually I say:
+"What do you mean by 'efficient'?", or "Does a hammer build a solid table?".
+I have a practical definition of 'efficient': if a program is easy to write,
+easy to maintain, does the job on time, and no-one has trouble with it, it's
+efficient.  It's also unusual, but that is another soap-box.</P>
+
+<P>When I wrote Libero, my true goal was to make programming easier and
+safer, whatever the language.  This also gives me a convenient stock answer:
+if you write a program using Libero, and you find that it runs too slowly,
+you can rewrite it in a faster language quickly and cheaply.</P>
+
+<H3><A NAME="TOC12">Efficiency of The Dialog</A></H3>
+
+<P>First of all, the size of a dialog has only a slight relationship to the
+speed of the program.  A very large program will load and maybe run slower
+than a small one, but the program has to be a lot larger.</P>
+
+<P>Secondly, adding a new state, event, or action module will make the
+generated code larger.  If a dialog has 10 states, then a new event will add
+20 words to the program size.  If a dialog has 50 states, then a new event
+will add 100 words.  A dialog with 100 states and 100 events will use a
+whopping 20,000 words of storage for its main tables.  It is possible to
+compress large FSM tables, but I never had a problem that was so complex that
+it was worth it.  It is a function that one could add to Libero in the
+future. However, a program this complex is likely to be several tens of
+thousands of lines long.</P>
+
+<P>So, I generally tell people: if you make your dialog smaller, do it
+because it is better design, not because it is more efficient.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser8.htm">&lt;</A>
+ | <A href="lruser10.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <EM>Efficiency</EM>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

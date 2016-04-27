@@ -1,0 +1,371 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                DECEMBER 1997
+ =========
+  =======    The iMatix Newsletter                         Volume II Issue 12
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming - Technology - Finite State Machines - News - Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    I was thinking of a few predictions for the next couple of years.
+    What will life be like in the year 2000?  But first, a Xmas story.
+    "Ho ho ho", or perhaps I should say "Ho hum"...
+
+    For the second time in a short while, I'm going through the one thing
+    that a man can experience which approaches (in pure pain terms) the
+    woman's experience of giving birth.  Yes, I'm installing Windows NT.
+    This is a nasty, brutish, and long process.  Sure, NT 4 installs
+    cleanly, and is okay.  The first sign of trouble was that the CD-writer
+    software said 'Sorry, only runs on Windows 95'.  Oh, great.  Fine,
+    install Win95 too.  Now, this means sharing disks between these two
+    beasts (both state-of-the-art 32-bit operating systems from Microsoft,
+    both with the same look and feel, and both amazingly fantastic, if you
+    are an idiot).  The only way these two products can share data is if you
+    use the state-of-the-1980's-art DOS FAT system.  This basically means
+    formatting an expensive 4 Gbyte UltraWide SCSI-3 7200 RPM disk using a
+    technology that was meant for floppies.  Uh-oh.
+
+    Sure, the answer is to create a couple of FAT partitions, then give the
+    rest to NT.  I figured I could use my Jaz drive to shuffle data around.
+    Haha.  When I connect the Jaz drive (SCSI-2) to the SCSI-3 card, it
+    seems to work, but both Windows NT and Windows 95 hang when they boot.
+    Yes, I installed the NT service patch 3.  La meme chose, mon ami,
+
+    Now, since I'm also a Hardware Person, I was able to dig-up an old SCSI-
+    2 card, and install that.  Wow!  Windows NT now works with the Jaz
+    drive.  Windows 95 complains that the SCSI-2 card conflicts with the PCI
+    enabler interrupt.  No amount of tweaking helps, so finally I tell Win95
+    to forget it ever saw the card.
+
+    Well, I guess I can use NT to finally restore some of those backups that
+    I made on the Windows 95 accounting machine.  But no, NT will not read
+    the Win95 backup format.  Hey Bill, is this really the best your company
+    can do?  Look, haul a couple of guys off that fat Internet Explorer team,
+    and get them to make NT read Win95 backups!!  I'm serious!
+
+    Let's see... to write CDs I have to create the files under NT, reboot in
+    Win95, and write the CD there.  To recover backed-up files, I have to
+    copy the archive in NT, reboot in Win95, extract the files, reboot in
+    NT, and copy them.
+
+    The point of this gripe...?  One comment and one prediction.  Every new
+    standard, acronym, version, or miraculous technology just means more
+    incompatibilities, IRQ conflicts, and wasted hours.  New junk is still
+    junk.
+
+    Now the prediction: this is as good as it gets, and we can expect more
+    of the same for the next ten years.  Ho ho ho!!
+
+    Some more random predictions, for the next couple of years...
+
+    Prediction 1:
+    In 2000, you'll find little plastic electronic cameras for about US$25
+    that come complete with a web server (possibly Xitami), wireless
+    network, and connect to your private IP network or the Web if you prefer.
+    The ability to plant Spyes(tm) by the dozens will change the way we do
+    business, conduct wars, strikes and protests, and domestic affairs.
+
+    Prediction 2:
+    The future of office computing is NT 5, combined with thin clients that
+    run something like Citrix Winframe.  If I was Intel, I'd be a little
+    scared right now.  The desktop upgrade cycle is about to end, and hard.
+    I guess most PCs being used today are perfectly good 'network
+    computers'.  The NC paradigm works well.  It does not need lots of new
+    boxes.  And it ends a costly exercise in complexity.  There will be a
+    surge in sales of large NT servers systems: Digital and Compaq will do
+    well.  There will be many, many lost hours as people try vainly to make
+    NT 5 work.
+
+    Prediction 3:
+    We're only a small step away from global digital communications
+    conducted by satellite.  Maybe two more years: then it'll be cheaper to
+    buy a world-wide digital connection (for voice, data, whatever you
+    want) from Iridium than get a phone line from your local phone company.
+    If I was your local phone company, I'd be a little scared right now.
+    It's tough enough when you have local competitors.  Smart phone
+    operators will become network operators, offering you a direct hook to a
+    fast Internet network.
+
+    Prediction 4:
+    Forget the next generation of CDs (DVD).  This format will not get
+    standardised fast enough to make an impact before 2000.  Furthermore,
+    it's not really needed.  A VHS cassette works perfectly well for
+    movies.  Software producers do not want to see pirate CDs that hold a
+    hundred products at once.  And the music industry is not happy either.
+    Watch-out for small CD players that can play MP3 disks.  These are
+    standard CDs, written using any CD writer (except under NT4).  Yes, you
+    can put 12-15 hours of CD-quality music onto a $3 CD.  This is going to
+    be an explosive market!!  Sony, are you listening?  Put together a small
+    handheld PC with an MP3 player, single-speed CD-ROM, small B&W screen,
+    instant-on access, and 24-hour battery.  You'll sell millions.
+
+    Prediction 5:
+    By 2000, CGI (computer generated images) will be common in movies.
+    No longer will films like 'The Titanic' cost a large fortune to make.
+    This is a good thing: we'll see more movies, more fascinating effects,
+    and probably some new films from stars who are long gone.  If I was
+    the Hollywood actor's union, I'd be a little scared by the implications
+    of this.  Time to start a virtual actors' union?
+
+    Prediction 6:
+    The first domain name market (www.buyadomain.com) will open before 2000,
+    selling good domain names to the highest bidder.  Expect a good market
+    for .com domains, which will remain a sign of class.  Anyone with a good
+    .com domain has been around for a long time (perhaps even years).  If
+    you can still think of any nice domain names that have not been taken,
+    book them now!!  (This is safe advice, since there are exactly zero good
+    .com names left.)
+
+    Prediction 7:
+    I won't get my NT system working like it should before 2000.
+
+    Pieter Hintjens
+    Antwerpen
+    1 December 1997
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >From:          John Nelson <webshop@penn.com>
+    >To:            editors@imatix.com
+    >Subject:       Oh my goodness!
+    >Hi guys,
+    >I just received (and finished reading) my very first issue of the Liberetto
+    >newsletter, and in doing so I have come to a conclusion that I am more than
+    >happy to share with you:
+    >                        YOU GUYS ARE NUTS!!!!!  LOL
+    >Don't mind me, I'm still laughing.  I must say, it was very well written.
+    >It was informative, and humorous as well.  You people have a nice writing
+    >style.  I'm impressed.  Keep up the good work, guys!  I can't wait to read
+    >the next issue!
+    > -John
+
+    ;-)  That's a hard reputation to live up to, but we'll do our best.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Len Cumbow <cumbow@vmark.com>
+    >To:               editors@imatix.com
+    >Subject:          Re: Liberetto II/11 Kudos
+    >Mega-kudos!!  I am posting this on my office door!  There is nothing
+    >wrong with putting a sexy front end on old systems to make marketing
+    >easier, but don't throw the baby out with the bath water.
+    >Len Cumbow
+    >VMARK Software
+
+    That's what I always say when the boss tells me to learn Visual C++.
+    As you say, marketing is important.  But people forget the fundamentals
+    at their own risk.  Old bores like me only appear to be superbly good at
+    avoiding such pitfalls because we already fell into so many holes
+    before.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Jaime Evans <jfevans@ix.netcom.com>
+    >To:               editors@imatix.com
+    >Subject:          Re: Liberetto II/11
+    >Pieter, and editors:
+    >Thanks for Libero and its price/performance, we've had a great time
+    >working with it.  Of course, whenever one spends time with a product,
+    >thoughts, ideas and concepts for improvement naturally spring to mind.
+    >Using Lrwin, we've developed several opinions about its printing
+    >services.  Is it possible to generate print-outs that handle comments
+    >correctly?  Can a print-out be done that sizes the box to the text so
+    >that the text does not over-run the box borders?  Do you have any plans
+    >to construct a more win'95 friendly verison of Lrwin?  If so, when might
+    >it be available?
+    >Libero is quite useful (What we're doing with it):
+    >We are currently retrofitting a large messaging system with libero.  The
+    >original was written with 20+ finite state machines, where each state
+    >machine handles a message operation set.  Retrofitting this application
+    >has required us to construct a new schema that moves the concept of
+    >'GetExternalEvent' from inside the state machine to the outside of it.
+    >It is amazing how quickly and simply this could be done through the use
+    >of a new schema.
+    >Thanks for a great tool,
+    >Jaime Evans
+
+    Hmm, good questions, all.  We had to admit defeat with Libero for
+    Windows: the cost of development being just too high for the returns.
+    Our goal is to move all our tools to a Web-based environment, running
+    on a specialised version of Xitami.  This is moving ahead well, but
+    is a long, long project.  In the meantime we're working with what we
+    have.
+
+    There are many alternatives to the Windows printout; look at the
+    schema provided by Mathias Weidner in the iMatix archives.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:            "Noyes, Robert D" <RDNOYES@msg.pacbell.com>
+    >To:              "'Pieter Hintjens'" <editors@IMATIX.COM>
+    >Subject:         RE: Liberetto II/11
+    >Date sent:       Mon, 3 Nov 1997 17:02:39 -0800
+    >Bravo your comments on the Web designed replacement of the "old"
+    >MVS/CICS system. It is very true that design is first, not gadgets, cute
+    >tricks, or applying what was learned in the last class. I hope these
+    >seeds fall on fertile ground.
+    >I enjoy getting "Liberetto" every month, especially as it seems the only
+    >good news out of Belgium these days other than the "Cannibal", Eddy
+    >Mercxx. Eddy is great, was great, and always will be.!
+    >L8R
+
+    Well, the news in Belgium now is that beef from animals slaughtered for
+    health reasons (rabies, and BSE usually) generally end-up in the human
+    food chain, though at least only in cheap places frequented by poor
+    people and non-voters.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:          Jim Bowlin <bowlin@sirius.com>
+    >To:            ph@imatix.com
+    >Subject:       html preprocessor thoughts
+    >I think that the fundamental problem is GUI (WYSIWYG) vs. text based
+    >procedural processing.  A WYSIWYG is really handy for laying out
+    >a single page, or element or table.  But it drives me nuts when I have
+    >to apply the same change to 5 different places in one pages or 50
+    >or 100 or 1000 different places on a site.
+    >This problem is part of the cause of the Unix vs. NT wars.  Also the
+    >Mac vs. DOS, or Mac vs. Unix arguments.  What is really needed is
+    >a clever blend of GUI and procedural.  Html editing is an excellent
+    >place to try to resolve this conflict.  Both GUI and procedural
+    >editing are needed.
+    >Just my $0.02
+    >Jim Bowlin
+
+    There is a careful and considered answer to this problem, only I don't
+    know it.  I guess that it's the 'change 1000 documents' scenario that
+    really scare me.  (I've seen people who's job it is to do this kind of
+    work.)  There are HTML preprocessors that work entirely with HTML
+    comments; this lets you make the main markup using a HTML editor, then
+    punch the lot through the preprocessor.  Sadly, none are as powerful or
+    useful as htmlpp.  Such is life.
+
+    Perhaps the best answer lies in abstacting your needs.  Want to make a
+    table?  Okay, define a macro that does this, well, and then use the
+    macro.  Big advantage: you change your mind a month later, and change
+    one macro.  Whoom, all 1000 documents get the new look.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date:          Fri, 21 Nov 1997 05:14:21 -0500
+    >From:          "Michael Hartley(Info)" <HARTLEYM@BRIHOSP.MHS.compuserve.com
+    >Subject:       Libero
+    >To:            info@imatix.com
+    >Hi,
+    >Many thanks for releasing Libero, I've really enjoyed the freedom to
+    >dynamically implement and tailor designs.  Most especially for my
+    >current project which is to emplement a #! /bin/sh script to control
+    >hot/cold backups of our Oracle databases.
+    >One GUI version question.  How difficult would it be to locate a module
+    >in an editor after the schema has generated the templates?  I'm thinking
+    >in terms of mouse clicks to launch the editor and land the caret at the
+    >module.  My favourite programmers editor is at
+    >http://www.lancs.ac.uk/people/cpaap/pfe/  which supports DDE, would it
+    >be possible to integrate code editing into GUI Libero?
+    >Many thanks for all your excellent contributions to the internet
+    >community.
+    >Regards,
+    >Michael Hartley.
+    >Oracle DBA and Developer
+    >Bradford Hospitals NHS Trust.
+
+    Glad you like Libero.  As regards the GUI version; it would indeed
+    be useful to link directly to the module code in question.  However,
+    we've frozen development of that version, since it's simply too
+    expensive and will eventually be replaced by web-based tools.  (Where
+    the code modules will pop-up, hopefully into whatever editor you want
+    to use.)
+
+
+ == FOCUS ON TECHNOLOGY -.---.-.--.-.--.-.--.-.--.-.--.-.-.---....-.-.---...-
+
+    Perl Insult Generator - cut and paste as indicated...
+
+    - - - - - 8< - cut here - - - - - - - - - - - - - - - - - - - - - - - -
+    #! /bin/perl
+    #
+    #  Shakespearean Insult Generator
+    #
+    #  Written:  97/11/04  Pieter Hintjens
+    #  Revised:  97/11/04  Pieter Hintjens
+
+    @part1 = (
+    "artless","bawdy","beslubbering","bootless","churlish","cockered",
+    "clouted","craven","currish","dankish","dissembling","droning",
+    "errant","fawning","fobbing","froward","frothy","gleeking","goatish",
+    "gorbellied","impertinent","infectious","jarring","loggerheaded",
+    "lumpish","mammering","mangled","mewling","paunchy","pribbling",
+    "puking","puny","qualling","rank","reeky","roguish","ruttish",
+    "saucy","spleeny","spongy","surly","tottering","unmuzzled","vain",
+    "venomed","villainous","warped","wayward","weedy","yeasty");
+
+    @part2 = (
+    "base-court","bat-fowling","beef-witted","beetle-headed","boil-brained",
+    "clapper-clawed","clay-brained","common-kissing","crook-pated",
+    "dismal-dreaming","dizzy-eyed","doghearted","dread-bolted","earth-vexing",
+    "elf-skinned","fat-kidneyed","fen-sucked","flap-mouthed","fly-bitten",
+    "folly-fallen","fool-born","full-gorged","guts-griping","half-faced",
+    "hasty-witted","hedge-born","hell-hated","idle-headed,ill-breeding",
+    "ill-nurtured","knotty-pated","milk-livered,motley-minded","onion-eyed",
+    "plume-plucked","pottle-deep","pox-marked","reeling-ripe","rough-hewn",
+    "rude-growing","rump-fed","shard-borne","sheep-biting","spur-galled",
+    "swag-bellied","tardy-gaited","tickle-brained","toad-spotted",
+    "unchin-snouted","weather-bitten");
+
+    @part3 = ("apple-john","baggage","barnacle","bladder","boar-pig",
+    "bugbear","bum-bailey","canker-blossom","clack-dish","clotpole",
+    "coxcomb","codpiece","death-token","dewberry","flap-dragon",
+    "flax-wench","flirt-gill","foot-licker","fustilarian","giglet",
+    "gudgeon","haggard","harpy","hedge-pig","horn-beast","hugger-mugger",
+    "joithead","lewdster","lout","maggot-pie","malt-worm","mammet",
+    "measle","minnow","miscreant","moldwarp","mumble-news","nut-hook",
+    "pigeon-egg","pignut","puttock","pumpion","ratsbane","scut",
+    "skainsmate","strumpet","varlet","vassal","whey-face","wagtail");
+
+    srand ();
+    print "Thou ",$part1 [rand ($#part1)],
+          " ",    $part2 [rand ($#part2)],
+          " ",    $part3 [rand ($#part3)],"!\n";
+    - - - - - 8< - and cut here - - - - - - - - - - - - - - - - - - - - - -
+
+    Now paste into a file, and feed to Perl.  Stand back!!  Copy the results
+    to your Xmas cards and watch the fun!!  Your friends and family will be
+    amused for ages!
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+     We had to laugh when this dropped into our email box:
+
+    *************************************************
+       Turn Your Computer into a Home Business!
+    *************************************************
+        _________________________________________
+      __|
+     (___O)    -Free Bulk Email Software
+     (_____O)  -Checker - accept checks by fax
+     (_____O)   includes resale rights free!
+      (__O)    -Free email Addresses
+               -Lowest prices for Email Magnet and
+                Email Platinum bulk email software
+               -Bring traffic to your web site in droves!
+                NEW..Christmas Digital Postcard setup
+               -Get Your Own Computer super Web Server
+                (Xitami) here for free
+               -Link Your Computer to the web dynamically!
+
+                       All at
+    http://hut.stanford.edu/dips/Java_Fun_House/Default.htm
+
+             *********************
+             DON'T MISS THE COMING
+             INTERNET EXPLOSION!!!
+             *********************
+

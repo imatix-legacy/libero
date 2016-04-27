@@ -1,0 +1,316 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/6
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                  AUGUST 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 6
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - News and Views - Reader's Letters - Tips & Hints
+
+
+ == THE QUICK STORY ---..-.-.---.-...-...--.-..---.--...-...-...-.-.---.-.-.-
+
+    *   Libero now generates Java - free beta kit available on request.
+
+    *   Run, don't walk, and buy "Dr Dobb's Sourcebook" (July/August 1996).
+
+
+ == WELCOME .-..---.-.-.-....-----.--.....----.-.---....----.-.-...-.---...-.
+
+    This month...  Libero Lite!  Yes, you can safely press 'DELETE' now!
+    You'll miss nothing.  Otherwise, read on...
+
+    <disclaimer>
+    This Journal contains 100% whole-grain humourticles, with added zest
+    and the slightest dash of sea salt.  If this product fails to meet
+    your expectations, kindly return it to the place of purchase and ask
+    for a refund.  We guarantee our work for a lifetime.  We cannot, all
+    the same, be held responsible for transcultural humourticle decay.
+    Any lack of humor must be assumed to be non-present in the reader,
+    rather than this Journal.  Consider your position as a temporary
+    association of otherwise independent molecules, on a small dirtball
+    with pretensions.  Then read this again.  It may help.  Or not.
+    </disclaimer>
+
+
+ == EDITORIAL ---.-.---.-.-...--....-----.-.---....-----.-.----....---.----..
+
+    This is the 'silly season' of journalism, where nothing happens, so
+    journalists and editors are forced to invent stories like 'Spacemen
+    Ate My Hamster' or 'Charles Married My Mum!'.
+
+    As I sat in the bath last night, wondering what I could put into
+    this month's Liberetto, I had a great idea.  Science Fiction.
+
+    Okay, imagine this...  A planet, DirtBall, is home to a civilization
+    we'll call the Dirters.  The Dirter society is heavily into robots.
+    They've figured-out how to make robots that make robots, machines so
+    small that you cannot see them individually, but together they will
+    construct anything you can conceive.  One cell on the bank of a
+    river, correctly programmed, will build a trillion of its own, and
+    together they will build a bridge.
+
+    It's been almost a thousand years since the original robot was built,
+    by a mad Dirter who's real work was only recognized many years later
+    when it spontaneously built a 200-lane highway through the planet's
+    largest urban area.  The mad Dirter scientist was made into a saint,
+    and a new calendar was started, following the traditional series of
+    religious wars and persecutions.
+
+    The Dirter society is totally based on these robots.  No-one really
+    works, except for satisfaction.  Ironically, Dirters are mostly
+    workaholics.  A famous Dirter writer describes them as a 'race on
+    holiday'.  Dirters never wash dishes or clothes or put out the
+    garbage.  All matter is useful raw material for the little robots,
+    which have no trouble playing with a few neutrons and protons to
+    generate any specific elements they need.  Criminals don't exist,
+    since it was so easy to dispose of bodies that all violent genes
+    were eliminated (along with a large number of innocent genes) in
+    the first and second Religious Wars.
+
+    Now, a few years before the Millennium, scientists have mastered the
+    little robots well.  One day, they make a curious discovery.  The
+    robots are programmed with a clock, which they use to self-destruct
+    when necessary.  No, that is not the Discovery, because that was
+    already common knowledge.  The Discovery is that the little clocks
+    will all roll-over to zero when the Millennium comes.  At the precise
+    moment that the end of one year rolls into the next, every little
+    robot will, for one tiny second, calculate that it has been around
+    for a thousand years, which is way too long.  The scientists think,
+    but it is hard to know for sure, that the robots will probably just
+    self-destruct.  Not a real problem, except that no-one has ever
+    actually *made* one the things, except for the unnamed original mad
+    scientist.
+
+    End of millennium - no more robots - end of Dirter society.
+
+    Now, I have a couple of possible endings...  The scientists manage
+    to build a robot from scratch, although it's kind of unstable, and
+    probably will not work in time.
+
+    Alternatively, they decide to change the clock mechanism in every
+    one of the googol robots out there, which means creating a virus that
+    has to spread...  It's uncertain that it will work, but it seems to
+    be the only option.
+
+    What really happens?  Well, the news gets out, of course, and there
+    is widespread and serious public panic.  On the eve of the Millennium,
+    new religious wars break out.  The robots survive the Millennium with
+    little trouble (although the virus has a bug and destroys a whole lot
+    of the little robots).  But generally Dirter society recovers and
+    people get back (eventually) to having their extended holiday.
+
+    Nah, it could never happen.
+
+    Pieter Hintjens
+    Antwerpen,
+    1 August 1996
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Libero/Java Beta Kit Available
+
+        If you want to get into Java programming, this is one way.  Use
+        Libero to design the dialog, then tell it what kind of program
+        you want.  It will generate a skeleton and code for the dialog.
+        Fill in the blanks, and write your own Java applet.  To get the
+        Libero/Java beta kit, send us an e-mail.  This kit will be part
+        of the next main release of Libero.
+
+    Dr Dobb's Whatcha?
+
+        Libero gets its first reference - even if we had to write it
+        ourselves!  Yes, "The Libero Development Environment" by 'Pieter,
+        a programmer in Belgium' tells it all.  Get Dr Dobb's Sourcebook
+        for July/August and amaze your friends and colleagues.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    A bit embarrassing, really, since our postbag is seriously thin as far
+    as Libero is concerned.  Lots of mail about the SFL, some about the
+    Java kit, and even a few concerning our htmlpp tool.  But Libero?
+    Seems no-one has any questions.  Probably both of you are on holiday.
+
+    Well, our website is active enough.  Here are last week's statistics,
+    always fun reading:
+
+    WEB SERVER STATISTICS
+    -----------------------------------------------------------------
+    Program started at Sun-28-Jul-1996 01:30 local time.
+    Analysed requests from Mon-01-Jul-1996 00:00 to Sat-27-Jul-1996 21:02
+    (26.9 days).
+
+    Total completed requests: 14,872 (3,357)
+    Total failed requests: 4,264 (492)
+    Total redirected requests: 14 (5)
+    Average requests per day: 712 (550)
+    Number of distinct files requested: 367 (183)
+    Number of distinct hosts served: 1,139 (298)
+    Number of new hosts served in last 7 days: 251
+    Corrupt logfile entries: 0
+    Other logfile entries: 0
+    Total data transferred (in bytes): 261,947,401 (62,211,776)
+    Total data transferred (in Megabytes): 249.813
+    Average data transferred per day (in bytes): 9,746,124 (8,887,396)
+    (Figures in parentheses refer to the last 7 days).
+
+    Daily Summary
+    Each + represents 60 requests, or part thereof.
+
+    day: #reqs
+    ---  -----
+    Sun:   838: ++++++++++++++
+    Mon:  3106: ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Tue:  2834: ++++++++++++++++++++++++++++++++++++++++++++++++
+    Wed:  3119: ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Thu:  2268: ++++++++++++++++++++++++++++++++++++++
+    Fri:  1873: ++++++++++++++++++++++++++++++++
+    Sat:   834: ++++++++++++++
+
+    Hourly Summary
+    Each + represents 20 requests, or part thereof.
+
+    hr: #reqs
+    --  -----
+     0:   516: ++++++++++++++++++++++++++
+     1:   791: ++++++++++++++++++++++++++++++++++++++++
+     2:   641: +++++++++++++++++++++++++++++++++
+     3:   486: +++++++++++++++++++++++++
+     4:   511: ++++++++++++++++++++++++++
+     5:   826: ++++++++++++++++++++++++++++++++++++++++++
+     6:   947: ++++++++++++++++++++++++++++++++++++++++++++++++
+     7:   821: ++++++++++++++++++++++++++++++++++++++++++
+     8:   805: +++++++++++++++++++++++++++++++++++++++++
+     9:   845: +++++++++++++++++++++++++++++++++++++++++++
+    10:   944: ++++++++++++++++++++++++++++++++++++++++++++++++
+    11:   766: +++++++++++++++++++++++++++++++++++++++
+    12:   945: ++++++++++++++++++++++++++++++++++++++++++++++++
+    13:   770: +++++++++++++++++++++++++++++++++++++++
+    14:   691: +++++++++++++++++++++++++++++++++++
+    15:   529: +++++++++++++++++++++++++++
+    16:   524: +++++++++++++++++++++++++++
+    17:   464: ++++++++++++++++++++++++
+    18:   273: ++++++++++++++
+    19:   338: +++++++++++++++++
+    20:   358: ++++++++++++++++++
+    21:   370: +++++++++++++++++++
+    22:   380: +++++++++++++++++++
+    23:   331: +++++++++++++++++
+
+    Domain Report
+
+    #reqs: %bytes: domain
+    -----  ------  ------
+     4700: 30.53%: .com (USA Commercial)
+     1371: 12.18%: .net (Network)
+     1924: 11.80%: [unresolved numerical addresses]
+      904:  7.34%: .de (Germany)
+      776:  5.96%: .uk (United Kingdom)
+      845:  4.56%: .edu (USA Educational)
+      384:  2.87%: .fr (France)
+      357:  2.36%: .au (Australia)
+      447:  2.35%: .ca (Canada)
+      291:  1.94%: .it (Italy)
+      202:  1.70%: .fi (Finland)
+      246:  1.26%: .gov (USA Government)
+      284:  1.09%: .se (Sweden)
+      152:  0.93%: .be (Belgium)
+      125:  0.91%: .nl (Netherlands)
+      157:  0.90%: .jp (Japan)
+       96:  0.83%: .es (Spain)
+      271:  0.77%: .ch (Switzerland)
+       22:  0.74%: .pl (Poland)
+       50:  0.73%: .dk (Denmark)
+       59:  0.72%: .br (Brazil)
+      117:  0.65%: .us (United States)
+      121:  0.63%: .il (Israel)
+       48:  0.63%: .sg (Singapore)
+       47:  0.59%: .pt (Portugal)
+      172:  0.58%: .no (Norway)
+       21:  0.54%: .nz (New Zealand)
+       22:  0.50%: .cr (Costa Rica)
+       44:  0.48%: .at (Austria)
+      105:  0.44%: .org (Non-Profit Making Organisations)
+       64:  0.43%: .za (South Africa)
+       38:  0.38%: .ie (Ireland)
+       30:  0.32%: .tw (Taiwan)
+       25:  0.27%: .uy (Uruguay)
+       89:  0.26%: .mil (USA Military)
+       31:  0.20%: .mx (Mexico)
+       44:  0.15%: .su (Former USSR)
+       31:  0.15%: .kr (South Korea)
+       30:  0.09%: .ru (Russian Federation)
+       22:  0.09%: .hu (Hungary)
+       30:  0.05%: .gb (Great Britain)
+       26:  0.04%: .gr (Greece)
+        5:  0.02%: .cl (Chile)
+       19:  0.02%: .hr (Croatia)
+        8:  0.02%: .hk (Hong Kong)
+       13:  0.02%: [unknown]
+        6:       : .ee (Estonia)
+        1:       : .ro (Romania)
+
+    Hello, Romania!  Can we have your points please?  Hello?  Hello?
+    We apologise, but Romania seems to have been cut-off.
+
+
+ == COMPETITION ---.-.---....-..---....-.-.-.----.-.-.----.-..-.---..-.-.....
+
+    In keeping with the holiday spirit, we bring you a competition.  The
+    prize is an official iMatix logo t-shirt, designed by Al McGregor
+    himself.  The competition is in the form of a practical, entertaining,
+    and totally irrelevant question, as follows:
+
+        You have just drunk the contents of a bottle of wine with some
+        friends.  One of your drinking buddies pushes the wine cork
+        back into the empty bottle.  How do you get it out again?  You
+        cannot use fire or water, nor can you break the bottle or cork.
+
+    There are at least two methods we know of (long night, last night),
+    both taking only a few minutes to execute.  The answer we like most
+    wins the t-shirt.  Don't forget to tell us your address, otherwise
+    your t-shirt will be digitalised and sent as ASCII art.  Also, tell
+    us whether you want a small, medium, large, or American size.  Hmm.
+    You can also choose white or gray.
+
+    The Small Print: this competition is not open to employees of iMatix
+    or their housepets, girlfriends, relations, or houseplants.  The
+    results will be announced in Liberetto I/7.
+
+    Diagram:
+             .-.
+             | |    <--- Empty wine bottle
+             | |                                .------'\____/`-------.
+             | |                                |                     |
+            /   \                               |____            _____|
+           /     \               T-shirt ---->       |  iMatix  |
+          |       |              (not to scale)      |          |
+          |       |                                  |          |
+          |       |                                  |__________|
+          |   HH  | <--- Cork
+          |   HH  |
+          `-------'
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Spacemen ate my hamster.  Dirtballers on holiday.  Too much for you?
+    Then you might consider taking a break.  Seriously, next month we will
+    get down to serious business again (more laughter from the back of the
+    room).  Please, don't send us that terrible UNSUBSCRIBE mail!
+
+    I liked the recent poster in comp.lang.cobol and a zillion other groups
+    who stated that 'cancellation of this message will be invoiced at $100
+    per go.'  We could try that...  Send us cash or we'll keep sending you
+    Liberetto!
+
+ == --.-.---....---..-.-.-.--...---.---....--.-.-...----.-....-.---....-.-..-
+

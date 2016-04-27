@@ -1,0 +1,115 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The C++ Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang2.htm">&lt;</A>
+ | <A href="lrlang4.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="cpp">&nbsp;</A>
+<H2><A NAME="TOC6">The C++ Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is C++?</DT>
+<DD>C++ is a recent mutation of C, generally known as 'assembler with
+objects'.  Okay, perhaps a bit unkind.  C++ is widely used, combines
+the generality of C with solid object-orientation.  It's the language
+of choice for Windows GUI programming.</DD>
+<DT>Portability</DT>
+<DD>C++ is pretty portable.  C++ compilers are available for most
+platforms, but you may find that the main reasons for using C++ -
+class libraries - are not portable.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: C++ is powerful and widely known; it is object oriented.
+Cons: it's a large language to learn.</DD>
+<DT>How To Get It</DT>
+<DD>I guess most C++ users know the answers to this.</DD>
+<DT>Libero Supports</DT>
+<DD>Standard C++.</DD>
+</DL>
+
+<H3>Working With C++</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.cpp.</LI>
+<LI><B>Program model:</B> Class named after the program: entry point
+is a member function called 'execute'; you can change this.</LI>
+<LI><B>Good for:</B> not really sure.  We'll see.</LI>
+<LI><B>Files used/made:</B> own work in myprog.cpp; generates include
+files <TT>mydialog.h</TT> and <TT>mydialog.i</TT>.  You also need the
+<TT>prelude.h</TT> header file at compile time.</LI>
+<LI><B>Module functions:</B>
+<TT>MODULE Cprogram::module_function_name (void)</TT></LI>
+<LI><B>Private functions:</B>
+<TT>type Cprogram::private_function_name ()</TT></LI>
+()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+statically in the <TT>myprog.i</TT> file.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after changing the dialog.  If
+you add new modules, update the <TT>.cpp</TT> program. Compile, link, and
+run.  You need the <TT>.h</TT> and <TT>.i</TT> files at compile time.
+You can freely change the <TT>.h</TT> file to add private data and
+functions.  Follow the guidelines in the generated code which indicate
+where you can change code.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+/////////////////   MODULE FUNCTION NAME   //////////////////
+
+MODULE Cprogram::module_function_name (void)
+{
+                             //  Empty module needs no code
+}
+
+Cprogram::private_function_name (argument,...) {
+    the_next_event = ok_event;
+    raise_exception (error_event);
+}
+</PRE>
+
+<P><A HREF="doc/calcul.cpp">A fuller example.</A></P>
+
+<H4>Specific Schema Options</H4>
+<UL>
+<LI><B>-opt:class='xxx'</B> <TT>xxx</TT> is class name.  Default value is <TT>C$
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang2.htm">&lt;</A>
+ | <A href="lrlang4.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <EM>The C++ Language</EM>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

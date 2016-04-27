@@ -1,0 +1,317 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 October 1998
+ =========
+  =======    The iMatix Newsletter                        Volume III Issue 10
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    From time to time I have the pleasure to be asked to help with a project
+    in some far corner of the world.  In September I went to the Ile de la
+    Reunion, a small part of France stuck out in the Indian Ocean between
+    Madagascar and Mauritius.  Reunion is definitely worth visiting, for the
+    climate, the landscape, the food, and above all for the Creole people.
+
+    But this is not a travel guide. The project involved networking about a
+    hundred people to a Unix system.  Half used normal PCs, and half used
+    a small device that will certainly become more and more popular in the
+    next century.  It looks like a black modem, and stands on its side or
+    lies flat.  You plug-in a SVGA screen, keyboard, mouse, and network
+    cable, and switch it on.  In a half a minute, you are connected to the
+    X server running on the Unix.  X is a protocol that provides you with a
+    graphical terminal.
+    
+    This is all old news to those who have used computers in universities,
+    where X workstations have been used for many years.  The interesting
+    thing in this site was that these cute little X stations were being
+    installed to run nothing more fancy than an accounting system.
+
+    The second interesting thing about this project was that the X stations
+    would also run Netscape Navigator, and through that, allow users to read
+    their e-mail, run Lotus Notes applications, browse the intranet, and
+    eventually the Internet.  For the price of some add-on software, a big
+    NT server, and an (unused) NT Workstation license per user, these X
+    stations will also run the Citrix Winframe emulator, and through that,
+    Windows applications.
+
+    So, we have a little box which costs less than a PC, cannot catch a
+    virus, has no registry, and no DLLs.  It does not crash, and can be
+    replaced from stock in minutes.  It lets you do everything you do now,
+    and will never be outdated.  Your main additional cost is the Unix
+    server, which could be a Linux system.
+
+    The only drawback that I can see is that you can't take your work home
+    with you or, as do I did: pack it into your hand baggage and take it
+    with me to the Ile de la Reunion.
+
+    The future of office computing belongs to the servers, terminals, and 
+    portables.  The 'standard PC' is history.  Anyone want to buy mine?
+
+    Pieter Hintjens
+    Antwerpen
+    1 October 1998
+
+
+ == NEWS --..---.--..---.-.-.-.-.-.-.-.-.--..---.--..---.--..---.-.-.-.-.-..-
+
+    iMatix Website Cruises at 300Mb Daily!
+        Something like 500-600 people are downloading Xitami each day, and
+        the figures grow every week.  We get something like 20 technical
+        support enquiries each day, which means that over 96% of people
+        install and use Xitami without apparent difficulty.
+
+    Xitami Selected for Internet.com's 1998 "Hall of Fame"!!
+        The little server that could!!  Xitami has been on Internet.com's
+        list of Top 10 web servers for the last 25 weeks, and has been
+        sitting on the #1 position for longer than is decent.  For the full
+        story, see Forrest H. Stroud's letter in Feedback.
+
+    Hillary Gets Up at 5am...
+        Well, she would need to, to be the First Lady. Oops! Sorry.
+
+
+ == FOCUS ON TECHNOLOGY -..-..--..-..--..-..--.--.--.--.--.-..-...-.--...-.--
+
+    Our subject this month... memory.  More specifically, how to stop it
+    from leaking.  Yes, if you suffer from wet chips, this article is the
+    one you've been waiting for!
+
+    A 'memory leak' is actually a programming bug.  Most languages, like C,
+    let you allocate chunks of memory for all kinds of reasons, and some
+    languages, like C++, do this almost instinctively.  Before a C++
+    program can tie its shoelaces, it can already allocate more memory
+    than you need to feed a family of Eniacs.  *Really* modern languages,
+    like Java, do away with this kind of business, and one day may even be
+    as safe and robust as COBOL.  In my day, we didn't 'ave any of them
+    seedy roms, it were all fed in on paper tape...
+
+    Anyhow, a nice C program is full of nice little bugs, and one of the
+    nicest kind is the memory leak.  Our talented and enthusiastic programmer
+    has understood the 'malloc' function and now uses it to build strings,
+    arrays, lists, and entire virtual cathedrals.  The proper thing to do is
+    to use the 'free' function to return the memory once it's no longer
+    needed.  But when a program ends, this happens automatically, so most
+    programmers don't get into the habit of using free.
+
+    The consequence of doing malloc's without matching free's is that when
+    you use the program for a while, it simply swallows more and more memory
+    until it's so fat it explodes, a bit like the guy in Monty Python's "The
+    Meaning of Life".  This rude enough for a word processor, but it's very
+    bad manners indeed for a program like Xitami which has to run day and
+    night.
+
+    The iMatix SFL library contains a module, sflmem.  If you compare the
+    enthusiastic programmer to a kid checking-out books from a library
+    without ever returning them, then sflmem is the librarian who gives him
+    nightmares.
+
+    Sflmem keeps track of every malloc and every free.  When the program
+    (eventually) ends, sflmem checks that every malloc was nicely freed.
+    If it finds one that was not, it shows a polite but stern message and
+    aborts the program.  The program was ending anyhow, so the abort is a
+    bit redundant, but it's sflmem's way of making a point.
+
+    How do we use this to make Xitami more robust?  First, we use sflmem's
+    functions for all malloc's and free's.  Then, when Xitami ends, it calls
+    the sflmem 'mem_assert' function, which does the check and eventual
+    abort.  We fire-up Xitami, run tests on it, then end it.  If any memory
+    was left unfreed, we get the nasty message, and a trace file that shows
+    where the original 'malloc' was.
+    
+    We've used this technique in all our software since the SFL project was
+    started, and it works well.  Not that we're about to boast, but it does
+    make our software more reliable and stable.
+    
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+
+    From:       Christopher Barham <ccbarham@yahoo.com>
+    Subject:    Schema for OPL (Psion handhelds language)
+    -----------------------------------------------------------------------
+    Hi,
+    I notice that you have a number of schemas for various languages.
+    How difficult would it be to add support for OPL, the language used
+    in EPOC32 based handheld machines? (these include the Psion range
+    and the Geofox one).  I think there would be a large take up by the
+    enthusiastic OPL developers out there.  The specs and SDK are all
+    freely available...  SDK from: http://developer.epocworld.com/
+    Language guide/ref manual from:http://www.psion.com/downloads/docs/opl/
+    Many thanks for making Libero...  I am trying hard with the REXX
+    schema, and almost made my brain understand the concept!
+    -- Chris
+
+
+    From:       John Totten <john@totten.com>
+    Subject:    Re: Libero 3.x
+    -----------------------------------------------------------------------
+    So what can we look forward to with XML and Libero 3.x ?
+    -- JohnT
+
+
+    Pieter Hintjens replies: Nothing specific yet.  We're building this up
+    slowly. The main things will be:
+    - Dialogs stored as XML files instead or as an alternative to the .l
+      format.  This will make it possible to use the many current and future
+      tools which accept, edit, or manipulate XML, including future browsers.
+    - A new code generator, based on an XML-driven system we're developing
+      today.  We are looking at allowing XML trees to be derived by
+      inheritance from other trees, which means that dialogs could be based
+      on other dialogs, adding or replacing actions, events, and states.
+    - A web-based dialog editor, part of our web-based development environment,
+      iMatix Studio.
+
+
+    Date sent:  Tue, 15 Sep 1998 02:03:21 -0500
+    From:       "Forrest H. Stroud" <neuroses@myriad.net>
+    Subject:    Congratulations!  ServerWatch Hall of Fame 1998 Winner
+    -----------------------------------------------------------------------
+    Congratulations!  Xitami has been selected as a Hall of Fame winner for
+    1998 on Internet.com's ServerWatch (serverwatch.internet.com), the
+    premier site for Internet Servers and Web Development Tools.
+    The Hall of Fame '98 page is located at
+    http://serverwatch.internet.com/halloffame.html.
+    Xitami is one of a select number of servers that have made our weekly
+    Top 15 Net Server Downloads page or our Top 10 Web Server Downloads page
+    for each of the last 25 weeks.
+    -- Forrest H. Stroud
+
+
+    From:       Greg Elborne <gelborne@v-wave.com>
+    Subject:    Libero
+    -----------------------------------------------------------------------
+    Dear iMatix,
+    Please add me to the Liberetto distribution list.  I have recently
+    downloaded Libero v2.30, and I think that it is a great programming
+    tool.  I had no previous experience with the concept of state machines,
+    so it took me a couple of days to get the hang of things.  I was
+    able to turn my first dialog into Visual Basic code and step through
+    the program as it was running using MS-Access.  I found this to be
+    very useful in order to figure out the relationships between states,
+    events, and modules.  I then took the same dialog and turned it into
+    a COBOL program, which I was able to upload to the mainframe and
+    compile cleanly on the first try.  Very cool!!
+
+    On a slightly more disturbing note, I noticed that the following
+    warning sign had recently been posted on the Coke machine at our
+    office:
+
+      "DO NOT TIP OR ROCK THIS VENDING MACHINE.  TIPPING
+         OR ROCKING MAY CAUSE SERIOUS INJURY OR DEATH"
+
+    When I saw this sign, I immediately ran back to my desk and re-read
+    your Coke machine example dialog.  I did not find any references to
+    this sort of psychopathic behaviour.  Is this particular Coke machine
+    an isolated case, or are you aware of an increasing trend towards
+    violence in Coke machines in general?  If this is the case, I think
+    that your example dialog should be updated.  I took a crack at this
+    myself as a practice exercise: 
+
+    Should-Be-Gently-Humming:
+        (--) Ok                                 -> Something-Happened
+              + Wait-For-A-Punter
+        (--) Dead                               -> 
+              + Stop-The-Programme
+
+    Something-Happened:
+        (--) Clink                              -> Before-Cooperating
+              + Accept-Punters-Cash
+              + Wait-For-Punters-Choice
+              + Shall-We-Cooperate
+        (--) Tipped                             -> Attack-Punter
+              + Determine-Punters-Fate
+        (--) Rocked                             -> Attack-Punter
+              + Determine-Punters-Fate
+        (--) Clunk                              -> 
+              + Exit-Stage-Left-Running
+              + Stop-The-Programme
+
+    Attack-Punter:
+        (--) Intimidate                         -> Something-Happened
+              + Scare-Punter-Away
+              + Wait-For-A-Punter
+        (--) Maim                               -> Something-Happened
+              + Inflict-Serious-Injury
+              + Wait-For-A-Punter
+        (--) Kill                               -> Something-Happened
+              + Kill-Punter
+              + Wait-For-A-Punter
+
+    I'm still pretty new at this, so any suggestions for improvement
+    are most welcome.  Thanks for Libero!
+    -- Greg Elborne
+
+
+    From:       Cynthia Higginbotham <cyhiggin@pipeline.com>
+    Subject:    htmlpp in LJ
+    -----------------------------------------------------------------------
+    Hi!
+    I discovered your html pre-processor courtesy of your article in the
+    December 1997 issue of Linux Journal (I've a bit of a backlog in my
+    reading... :-). It sounded like something I could use, so I downloaded
+    it and have been playing with it ever since.  Very useful; I've used it
+    to convert some reports at work from Word to a useful HTML format (Word
+    97's auto-convert produces truly awful HTML), and on my personal web
+    pages.  [http://www.pipeline.com/~cyhiggin] 
+
+    No, I haven't used it to produce all of my pages, but I did use it to
+    overhaul some of my mud-related pages. Two problems your program proved
+    very useful in solving: (1) standard headers & footers with navbars on
+    each page, and (2) creating Lynx-compatible tables.  #2 required a bit
+    of macro programming, and I still didn't get it as automatic as I would
+    have liked--I still don't understand the macro-expansion and when to
+    escape characters and when not to in Perl as well as I should -- but it
+    works. TIMTOWTDI.
+
+    One of these days I'll learn enough Perl to write a Perl script to
+    auto-convert existing small tables to Lynx-friendly tables. It would be
+    a good learning project, I think.
+
+    BTW, the Linux Journal article was a very good tutorial on how to use
+    htmlpp. You should put an html version of it on your website, and pack it
+    with your htmlpp distribution, to complement the htmlpp reference you do
+    include in your docs.
+
+    Thank you for a really useful program.
+    -- Cynthia Higginbotham
+
+
+ == LINKS OF THE MONTH -..-..---.-.--...-.-..---..-....---..-.-.-.--...-.-..-.
+
+    http://serverwatch.internet.com/halloffame.html
+        The little server makes it into the Big League.  What will happen
+        next?
+   
+    http://www.linuxjournal.com/issue44/2448.html
+        The original Linux Journal article on htmlpp.
+
+    http://www.lj.com/
+        Not Linux Journal, but the place where old sites come to die.  Yes,
+        this is a domain name broker, as predicted in Liberetto 97/12.
+        Here you can buy, sell, broke, and probably barter domain names to
+        your heart's content.
+
+
+ == WEB SITE STATISTICS -..-..--..-..----...-.-...---.-..-.-..-..----..-..---
+
+    Way too much.  This month's 'Forget the HTML, just give me the download'
+    prize is shared between Bermuda and Egypt, each with one download of
+    Xitami and nothing else.  This month's least-known country name (at
+    least at the iMatix Corporation world HQ) is .bn, 'Brunei Darussalam'.
+    Nope, I did not know that either.  The 'Most Exotic Browser' name goes
+    to '(Cloaked!) : Client 204.113.198.10 is using a fake IP!'
+
+    
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To stop receiving these newsletters, reply with 'remove' in the subject.
+    This is reasonably safe, but should not be attempted while driving the
+    car.  iMatix Corporation can not assume any responsibility for the
+    consequences of careless e-mailing.

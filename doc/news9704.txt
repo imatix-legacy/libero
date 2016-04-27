@@ -1,0 +1,319 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   APRIL 1997
+ =========
+  =======    The iMatix Newsletter                          Volume II Issue 4
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - Programming - News and Views - Feedback - Reports
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    A small company in the states, Global Link, is challenging the telecoms
+    giants (AT&T, BT,...) by offering global phone calls through the Internet
+    - at the cost of local phone calls.  Internet phone calls are notoriously
+    painful; slow to connect and with lousy quality.  Global Link claim to
+    have solved these problems - which may be true, or not.  But the shape of
+    the future is clear.  Within a few years - maybe as soon as 1999 - the
+    cost of a phone call to any point in the world will be much the same, and
+    low.
+
+    The implications of this could be huge.  Most people still rely on
+    the telephone and fax, even telex for telecommunications.  The advent of 
+    low-cost calls to the billions of people without e-mail will give a 
+    gigantic kick to the ongoing process of globalisation.
+
+    It's going to be a headache for the large telecoms companies, who now
+    reap a rich profit from long-distance calls.  They will have to make
+    their margin on far more, far cheaper calls, while fighting-off scores
+    of small and aggressively modern new competitors.  But for the global 
+    consumer it is going to be a golden age where a precious, rich-person's
+    resource becomes cheaper than water.
+
+    The Internet has revolutionised business life in the rich countries. 
+    Now, it is set to do the same for the rest of the world.  The global
+    village is around the corner, and it's just a phone call away.
+
+    Pieter Hintjens
+    Antwerpen
+    1 April 1997
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >From:             Ken Nicolson <ken@ride.demon.co.uk>
+    >To:               info@imatix.com
+    >Subject:          Serious Problem with Xitami Web Server
+    >Hi,
+    >I downloaded your web server v1.0d, but unfortunately, it only works
+    >when I am on-line. I have Win95 with Dial-up Networking, and since I
+    >get charged for phone calls, I was wanting a webserver that I could
+    >use off-line, so now I'll have to find another.
+    >If you have an update or a workaround that fixes this problem, please
+    >let me know.
+    >Thanks!
+    >Ken
+
+    There are various ways around this -- it's the way Windows 95 works.
+    These are some of the techniques we know:
+    
+      - Use the address 'http://127.0.0.1/' to refer to your own machine.
+        The address '127.0.0.1' is a loop-back address that always
+        connects to the local system.
+    
+      - You could create/modify the 'hosts' file in the Windows directory
+        to define 'localhost' as '127.0.0.1', then use 'http://localhost'.
+        This is a little cleaner.
+    
+      - When Windows pops-up the 'Connect' box, just select the 'Cancel'
+        button.
+    
+      - Netscape Navigator reacts better than Internet Explorer.  With
+        IE, you need to actually connect, then disconnect.  From then on
+        -- until you reboot -- it accepts local TCP/IP connections.
+        Netscape accepts them as soon as you cancel the connection
+        dialogue.
+    
+    I think you'll find that this works with any server (though I suspect
+    that Microsoft's Personal Web Server cheats when you use IE).
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    >From:             Don Black <dBlack@top.monad.net>
+    >Send reply to:    dBlack@top.monad.net
+    >Subject:          xios210d
+    >Hi;
+    >I just wanted to tell you that the link you have for the OS2 port of
+    >xitami 1.0d returns error 404.  I was able to find the zip file in
+    >/pub/xitami .  It would probably be more effacatious if you modified the
+    >link, or move the file into /html/xitami.  By the way, I really
+    >appreciate the fact that you software is ported to OS2.  I have been
+    >running it for about 6 years now (v2.0 through v4.0) and have had mixed
+    >luck finding ports of good software.  Since I currently have MSWindows
+    >3.1, Windows NT 3.51, OS2 v4.0, Solaris x86, SCO OpenServer 5.0.?, and
+    >Linux on my machine, or ready to be loaded as soon as I find room,
+    >finding software that is truly cross platform is very refreshing.
+    >Thanks.
+    >Don Black
+
+    Ooops, a bug in the website.  Well, such things happen.  You should see
+    the last version of Xitami when it runs (or, rather, takes a few steps,
+    then falls down frothing at the mouth and screaming that the cars are
+    talking too loudly again today) under OS/2.  Ewen McNeill (honourable
+    past winner of user of the month) has been acting as senior emergency 
+    room surgeon, and Xitami is more or less valid again under OS/2, only 
+    it's now got three and a half legs.  More news at 10, but for now stay
+    with version 1.0d, Don.
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    >From:             vances@vambo.telco.on.ca (Vance Shipley)
+    >To:               ph@imatix.com
+    >Subject:          Initialize vs Initialise
+    >
+    >According to Websters it's "initialize".
+    >I noticed it today because I couldn't find something but it turned
+    >out to be a conflict with our spellings of the word.
+    >    -Vance
+    >[ I've been coding with SMT for three days solid, 12 hours a day.
+    >  It's amazing how much I've been able to accomplish!  Using this
+    >  was definitely a good decision for us.  Thanks again.            ]
+    
+    I say, chap, this is rather strong.  Actually, it's not really cricket at
+    all, what!  The fact of the matter is that Al. McGregor, who invented SMT
+    together with head techno at iMatix, Mr. Hinches, is a Scot, and respects
+    no authority except Robert Burns (you have to really roll the 'R's there).
+
+    Glad you like SMT.
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    >From:             Claudio Menetti <bel17363@labsis.bo.cnr.it>
+    >To:               ph@imatix.com
+    >Subject:          From Italian Students
+    >
+    >Hello, we are two students of Computer Science in Italy, in Bologna.
+    >This is our last year, we will do the exam 3 mounths in the future.
+    >We have a lot of thing to study, and our teacher gives us a work about
+    >socket in unix.
+    >If you want to give us an help, we must only do an example of a 
+    >connection between two computer using unix socket.
+    >We will be very happy if you will send us a complete program, finished
+    >and working correctly, but everything is well accepted.
+    >Sorry for our english, and sorry for the time you used for read this
+    >letter.
+    >Thenk you.
+    >Goodbye
+    >       Claudio Menetti , Luca Bendoni.
+
+    Hehehe!  As the old man said to me in Ouagadougou, 'you can ask a mango
+    tree to give you fruit, but it only works four times a year'.  Find the
+    University Library, find any decent book on TCP/IP, copy the examples.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    >From:             Brooks David Smith <brooks@csd.uwm.edu>
+    >Organization:     University of Wisconsin -- Milwaukee
+    >To:               info@imatix.com
+    >Subject:          liberetto mailing list
+    >
+    >Please, oh please, add me to the liberetto mailing list. I like what
+    >you are doing and I like how you are doing it.  I've been in this
+    >business a long time so it may take me longer than the 5-year-old
+    >to use libero effectively but I see the light. :-)
+
+    
+    >From:             Paul Pomerleau <pom2@dura.spc.uchicago.edu>
+    >Subject:          unsubscribe
+    >To:               maelstrom@imatix.com
+    >
+    >Unsubscribe
+    >
+    >Weary with email, I haste me to my bed,
+    >The dear respose for fingers with travel tired,
+    >But then begins a journey in my head
+    >To work my mind, when body's work's expired.
+    >For then my thoughts (from far where I abide)
+    >Intend a zealous pilgrimage to thee,
+    >And keep my drooping eyelids open wide,
+    >Looking on darkness which the blind do see.
+    >Save that my soul's imaginary sight
+    >Presents thy shadow to my sightless view,
+    >Which like a jewel (hung in ghastly night)
+    >Makes black night beauteous, and her old face new.
+    >Lo thus by day my fingers, by night my mind,
+    >For thee, and for my self, no quiet find.
+    >
+    >Until now.
+    
+    
+    >Date sent:        Sat, 1 Mar 1997 13:46:33 +0200
+    >To:               news@imatix.com
+    >From:             Andreas Dinkelacker <amd@isis.co.za>
+    >Subject:          Subscription to Liberretto
+    >
+    >I would like to subscribe to Liberretto.
+    >Thanks in anticipation
+    >Andreas Dinkelacker
+    >Johannesburg
+    >South Africa
+    
+    
+    >To:               editors@imatix.com
+    >Subject:          Re: Liberetto II/3
+    >From:             "James R. Larus" <larus@cs.wisc.edu>
+    >
+    >Please take me off the mailing list.
+    >Thanks,
+    >/Jim
+
+    Such is the ebb and flow of life in Liberland.
+    
+
+ == GRATUITOUS STORY SECTION .--.---...-..---.--...-....---.--..---.--.....-
+
+    Mr Hengens, recently back from a trip to Ouagadougou, Burkina Faso,
+    produced this 'report' of the state of Finite Machines in that city...
+    Read on, but be warned: this has almost exactly nothing at all to do
+    with Libero.
+
+    "It was late in the afternoon when Issa, my friend who worked for the
+    cargo section of an airline, and who was helping me to organise a 
+    shipment of djembes, came to Dramane's house to pick us up.  Dramane is
+    a Griot; he and his seven brothers are helping me to build the drums.  
+    Griots are a caste of musician artisans.  When Dramane plays the djembe
+    you feel the power of a people who work with their hands and heart
+    against an unforgiving environment.  When he plays the Kora (a twenty-one
+    stringed lyre), you understand that this culture is ancient, complex,
+    profound.
+
+    Issa has come in his Peugeot 205, a small blue car, built like most 
+    French cars from carton and chewing gum.  When new, this car was as 
+    robust as a tin can. After a decade of hard roads, his car barely holds
+    together.  In the car economy of Ouaga, this is a new car.  Dramane
+    and I climb in, and we set off downtown to Issa's house.  He has about
+    twenty drum forms there; Dramane and I will take them back by taxi to
+    Dramane's place.  A few miles on, the car starts to overheat.  We pull 
+    into a garage, and negotiate with the owner for a bucket of water.
+
+    Opening the car hood, Issa peers inside, finds the water bottle and 
+    opens it.  Steaming water boils out, and Issa drops the bottle quickly.
+    He lets it cool off, then looks at the motor.  "I think there is an air
+    bubble in the cooling system he says."  Then he unscrews a small cap on
+    the water pipe.  The cap pops off under the pressure of the hot water,
+    and falls into the motor.  "Merde!"  Issa says.
+
+    Dramane and I, not dressed as finely as Issa, kneel down and peer under
+    the car but see nothing.  The cap is lost somewhere in the motor.  Issa
+    looks inside the motor hood, but the heat of the engine make it hard to
+    look very closely.  He pours the bucket of water over the engine, but all
+    that falls down to the ground is water.  We shake the car, three of us
+    shoving and pulling the already-battered Peugeot.  Amazingly it does not
+    fall apart.  But no cap falls down either.
+
+    It's dark now - and in Ouaga, there is little or no street lighting - and
+    without the cap, we cannot drive, since whatever water there is in the
+    cooling circuit just comes out again.  I suggest that we put the car over
+    the work pit at the back of the garage, to look at the car from underneath.
+    We push the car over the pit, then I go to negotiate with the garage owner
+    for light.  Amazingly the pit lights work, so Dramane and I climb into the
+    pit and crawl under the car to look.  We're covered in old oil, dirt, sweat.
+    The bottom of the car is covered with a thick plate, to protect against the
+    rocks and bumps of African country driving.  We call to Issa for a spanner
+    to undo the plate, but at this he balks and we push the car down back off
+    the pit.
+
+    Dramane bends down, picks-up a small twig, pushes it into the nozzle
+    normally covered by the vanished cap, and water stops bubbling out.  A
+    miracle!  As if one great idea was not enough, Issa takes one of the caps
+    off a tyre, and amazingly, it too fits the nozzle perfectly, screwing 
+    into place exactly as the original cap did!  We dance and clap in joy.
+
+    Issa is still not satisfied.  "There are is still air in the circuit", he
+    says.  "I have to get them out".  "Careful!" I warn.  He fiddles with the
+    new cap, and 'POP', it jumps out of his fingers, and falls into the motor.
+
+    We jump and shove and pour buckets of water, but to no avail.  This cap is
+    lost too.  All the other tyres are capless.  Somewhere deep inside the 
+    motor lies a cap graveyard, filled with the decomposing caps of a thousand
+    amateur mechanics.
+
+    Despondent, Issa plugs in Dramane's twig, and we drive to Issa's house. 
+    When we get there, the twig has of course popped out, and the car is
+    overheating again.  Issa finds a taxi - a Renault 4 that would be rejected
+    by any junkyard in the West - and Dramane sets off with the first load of
+    about fifteen drum forms.
+
+    Issa and I design a range of possible wooden plugs, finally settling for 
+    a nice Y-shaped combination that can be tied-down with a piece of cloth. 
+    Then the old man that guards Issa's house comes out with a new cap, taken
+    from a spare tire.  Issa tries it, it fits.  Still, we want to perfect our
+    wooden plug.  I take off the cap, fit-in a plug.  At that moment the taxi
+    returns, and Issa and I load in the remaining drum forms.  I leave with
+    the taxi, and we bounce and rattle back to the Griots' house.
+
+    Some hours later, I'm walking back to the hostel, after spending a
+    pleasant evening telling the story to Dramane's brothers Fantoma, Ibrahim,
+    and Adamus.  Suddenly I see Issa's small blue car pull-up in front of me,
+    and Issa gets out.  "What are you doing driving in that death-trap?" I 
+    ask.  No sane person would want to drive around in a car that overheats
+    faster than a Belgian tourist.  "My cap, my cap!" Issa says, "you've still
+    got my cap!".  He's been driving around for two hours, trying to find me.
+    The cap is in my shirt pocket, where I put it when I tried the wooden plug.
+    I pass it back to him, and we're both laughing like idiots.  I buy him a
+    beer, a large Brakina, and we toast the African night, the stars shining
+    clearly through the rustling mango leaves above us."
+    
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+    No protocol, no formalities.  Unsubscriptions are free, a public service
+    offered by the communications department of iMatix at precisely no cost.
+    Simply collect twenty-five engine-cooling caps, and send to Issa, care of
+    iMatix HQ (we'd prefer Peugeot but anything will do).  All sales are final
+    and subject to local taxes where unavoidable without undue legal expenses.
+    

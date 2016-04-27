@@ -1,0 +1,58 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using The Defaults State</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser3.htm">&lt;</A>
+ | <A href="lruser5.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC5">Using The Defaults State</A></H2>
+
+<P>You can define a single Defaults state in any dialog.  You use this state
+to simplify dialogs.  Often, the same event can happen in many states, with
+the same effect.  Typically, you want to handle a fatal error at any point by
+displaying a message and halting the program.</P>
+
+<P>Rather than repeating the event and its (identical) actions in every state
+where the fatal error may happen, place it in Defaults.  If the event ever
+happens, Libero looks in the current state first.  If it cannot find the
+event there it looks in the Defaults state.  The Defaults state is ideal for
+error exception events that require central handling.</P>
+
+<P>After processing the actions for the event, the dialog sets the next state
+as follows: if the specified next state is empty, it returns to the original
+state.  If some next state is specified, it goes to that state.</P>
+
+<P>When you use a Defaults state, the generated code for your dialog does not
+get smaller.  It will actually get a little larger.  But your dialog source
+code can usually be simplified, and this is always a good idea.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser3.htm">&lt;</A>
+ | <A href="lruser5.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <EM>Using The Defaults State</EM>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

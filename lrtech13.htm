@@ -1,0 +1,236 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Quick Reference - Libero Schema Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech12.htm">&lt;</A>
+ | &gt; | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC28">Quick Reference - Libero Schema Language</A></H2>
+
+<H3><A NAME="TOC29">General</A></H3>
+
+<P>
+<TT>!</TT> at start of line - comment to end of line.<BR>
+<TT>:</TT> at start of line - command line.<BR>
+<TT>:</TT> by itself on line - ignored as comment.<BR>
+<TT>#</TT> in command line - comment to end of line.<BR>
+<TT>$xyz</TT> - insert value of variable xyz.<BR>
+<TT>$xyz\text</TT> - insert value of variable xyz followed by
+<TT>text</TT>.<BR>
+<TT>$"text"</TT> - format <TT>text</TT> using <TT>-style</TT> setting.<BR>
+<TT>$$</TT> - insert single '$'.
+
+
+<H3><A NAME="TOC30">Read-Only Variables</A></H3>
+
+<P>
+<TT>$author</TT> - value of <TT>-author</TT> setting.<BR>
+<TT>$date</TT> - current date: <TT>yy/mm/dd</TT>.<BR>
+<TT>$time</TT> - current time: <TT>hh:mm</TT>.<BR>
+<TT>$fulldate</TT> - current date: <TT>dd Mmm, yyyy</TT>.<BR>
+<TT>$fulltime</TT> - current time: <TT>hh:mm:ss</TT>.<BR>
+<TT>$out_count</TT> - lines output including current line (1 up).<BR>
+<TT>$dialog</TT> - name of current dialog file, no extension.<BR>
+<TT>$schema</TT> - name of schema being read; value of <TT>-schema</TT>.<BR>
+<TT>$source</TT> - name of source file, no extension; value of
+<TT>-source</TT>.<BR>
+<TT>$style</TT> - value of <TT>-style</TT>.<BR>
+<TT>$defaults</TT> - number of the <TT>defaults</TT> state, or zero.<BR>
+<TT>$events</TT> - number of events in dialog.<BR>
+<TT>$maxaction</TT> - maximum action number (largest vector).<BR>
+<TT>$modules</TT> - number of modules in dialog.<BR>
+<TT>$states</TT> - number of states in dialog.<BR>
+<TT>$vectors</TT> - number of action vectors in dialog.<BR>
+<TT>$version</TT> - current Libero version: e.g. <TT>2.32</TT>.
+
+<H3><A NAME="TOC31">Schema Commands</A></H3>
+
+<P>
+<TT>:output <I>filename</I></TT> - outputs following schema text to
+<I>filename</I>.<BR>
+<TT>:extend <I>filename</I></TT> - appends following schema text to
+<I>filename</I>.<BR>
+<TT>:close</TT> - closes current output file.<BR>
+<TT>:copy <I>fromfile</I> <I>tofile</I></TT> - copies one file to
+another.<BR>
+<TT>:rename <I>fromfile</I> <I>tofile</I></TT> - renames one file to
+another.<BR>
+<TT>:delete <I>filename</I></TT> - deletes <I>filename</I>.<BR>
+<TT>:include [optional] <I>filename</I> [<I>from</I> [<I>to</I>]]</TT>
+- includes <I>filename</I> in current output code.  <I>From</I> and <I>to</I>
+are strings of text that sit by themselves on a line in filename.<BR>
+<TT>:echo <I>text</I></TT> - echoes <I>text</I>.  "\n" is a newline.<BR>
+<TT>:declare [int | string] $<I>variable</I> [= <I>expression</I>]
+</TT> - defines <I>variable</I> for later use in the schema.<BR>
+<TT>:set $<I>variable</I> = <I>expression</I></TT> - assigns new value
+to <I>variable</I>.<BR>
+<TT>:push [$]<I>variable</I> [= <I>expression</I>]</TT> - creates a
+new instance of <I>variable</I>.<BR>
+<TT>:pop [$]<I>variable</I></TT> - removes last instance of
+<I>variable</I>.<BR>
+<TT>:do <I>condition</I></TT> - starts code block output repeatedly
+depending on <I>condition</I>.<BR>
+<TT>:do while <I>logical-condition</I></TT> - repeats code block while
+<I>logical-condition</I> is true.<BR>
+<TT>:enddo [<I>condition</I>]</TT> - ends closest previous :do
+block.<BR>
+<TT>:if <I>logical-condition</I></TT> - outputs code block if
+<I>logical-condition</I> is true.<BR>
+<TT>:else</TT> - outputs code block if previous :if was false.<BR>
+<TT>:endif [all]</TT> - ends closest previous :if block.<BR>
+<TT>:exit [<I>level</I>]</TT> - aborts code generation: level 0 =
+okay, 1= error.<BR>
+<TT>:option -<I>name</I>[=<I>value</I>]</TT> - enforces Libero
+option.<BR>
+<TT>:internal <I>module</I></TT> - <I>module</I> required by generated
+dialog code, but not by dialog.<BR>
+<TT>:substr <I>from</I> [<I>size</I>]</TT> - specifies substring for
+next <TT>$<I>name</I></TT> or <TT>$row</TT> insertion.  <I>From</I> starts at
+1.  If <I>size</I> is not specified, remainder of value is used.
+
+<H3><A NAME="TOC32">Expressions</A></H3>
+
+<PRE>
+:declare int $number = 1
+:set $number = ($number + 10) / 2
+:set "$string" = "$string\more_text"
+</PRE>
+
+<P>Strings: max. 255 characters.  Numbers: from -2,147,483,648 to
++2,147,483,647.
+
+<H3><A NAME="TOC33">Logical Conditions</A></H3>
+
+<PRE>
+:if $flag            # non-zero number or non-empty string
+:if not <I>condition</I>    # reverse test
+:if $var1 =  $var2   # If strings or numbers are equal
+:if $var1 == $var2   # If equal
+:if $var1 != $var2   # If not equal
+:if $var1 &lt;&gt; $var2   # If not equal
+:if $var1 &lt;  $var2   # If less than
+:if $var1 &gt;  $var2   # If greater than
+:if $var1 &lt;= $var2   # If less than or equal
+:if $var1 &gt;= $var2   # If greater than or equal
+
+:if exist <I>file</I>       # file exists in current directory
+:if animate          # -animate option
+:if check            # -check option
+:if caps             # -style=caps option
+:if cobol            # -style=cobol option
+:if headline         # -style=headline option
+:if normal           # -style=normal option
+:if plain            # -style=plain option
+:if title            # -style=title option
+:if defaults         # dialog defines a Defaults state
+:if state <I>name</I>       # name is state in dialog
+:if event <I>name</I>       # name is event in dialog
+:if module <I>name</I>      # name is module in dialog
+</PRE>
+
+<H3><A NAME="TOC34">Control Variables</A></H3>
+
+<P>
+<TT>$array_base</TT> - base value for tables. Default 0.<BR>
+<TT>$comma_before</TT> - used as <TT>$comma</TT> when current item is not last.
+Default ",".<BR>
+<TT>$comma_last</TT> - used as <TT>$comma</TT> when current item is last.
+Default empty.<BR>
+<TT>$comment_ind</TT> - comment indicator in schema command lines. Default
+"#".<BR>
+<TT>$module_line</TT> - template for module header in source file. Default
+"MODULE %s (void)".<BR>
+<TT>$number_fmt</TT> - used to format the <TT>$number</TT> value. Must be
+valid printf format string.  Default "%ld".<BR>
+<TT>$row_first</TT> - used to format first numeric item in a <TT>$row</TT>
+value.  Must be a valid <TT>printf</TT> format string.  Default "%ld".<BR>
+<TT>$row_after</TT> - used to format numeric items in <TT>$row</TT> after
+first.  Must be valid <TT>printf</TT> format string.  Default ",%ld".<BR>
+<TT>$row_clean</TT> - when 1, Libero removes non-numeric data from start of
+overflow rows.  Default 0.<BR>
+<TT>$row_null</TT> - used in <TT>$row</TT>'s when there is no event defined in
+state.  Default 0.<BR>
+<TT>$row_width</TT> - maximum size of <TT>$row</TT> item in generated source.
+Default 60.  Longer rows are chopped into 'overflow' pieces.<BR>
+<TT>$run_away</TT> - maximum times through any :do loop. Default 1000.<BR>
+<TT>$stub_before</TT> - output before each stub header. Default ""
+(empty).<BR>
+<TT>$stub_first</TT> - output at start of stub header line. Default "/".<BR>
+<TT>$stub_between</TT> - repeated to build-up stub header line. Default
+"*".<BR>
+<TT>$stub_last</TT> - output at end of stub header line. Default "/".<BR>
+<TT>$stub_width</TT> - width of stub header line. Default 79.
+
+<H3><A NAME="TOC35">Standard :do Conditions</A></H3>
+
+<P><TT>:do while <I>condition</I></TT> - repeats while <I>condition</I> is
+true.  Loop is executed 0..n times.  Loop variables: <TT>$number</TT>.
+
+<P><TT>:do event</TT> - builds list of events.  Outputs block for each event
+in dialog.  Loop variables: <TT>$name</TT>, <TT>$number</TT>,
+<TT>$comma</TT>.
+
+<P><TT>:do state</TT> - builds list of states.  Outputs block for each state
+in dialog.    Loop variables: <TT>$name</TT>, <TT>$number</TT>,
+<TT>$comma</TT>.
+
+<P><TT>:do module</TT> - builds list of modules.  Outputs block for each
+module in dialog.  Loop variables: <TT>$name</TT>, <TT>$number</TT>,
+<TT>$comma</TT>.
+
+<P><TT>:do action</TT> - builds table containing one row per state, with one
+item per row for each event transition.  Each item is number of an action
+vector.  Invalid state/event transitions are filled by value of $row_null.
+Loop variables: <TT>$row</TT>, <TT>$number</TT>, <TT>$comma</TT>,
+<TT>$offset</TT>, <TT>$tally</TT>.
+
+<P><TT>:do nextst</TT> - builds table containing one row per state, with one
+item per row for each event transition.  Each item is number of next state.
+Invalid state/event transitions are marked by value of $row_null.  Loop
+variables: <TT>$row</TT>, <TT>$number</TT>, <TT>$comma</TT>,
+<TT>$offset</TT>, <TT>$tally</TT>.
+
+<P><TT>:do vector</TT> - builds table of action vectors.  An action vector is
+a list of modules executed in series for a state/event transition.
+Duplicate vectors are collapsed.   Loop variables: <TT>$row</TT>,
+<TT>$number</TT>, <TT>$comma</TT>, <TT>$offset</TT>, <TT>$tally</TT>.
+
+<P><TT>:do overflow</TT> - used to build source code that has to be output
+over several lines.  Block is output until overflow row is empty.    Loop
+variables: <TT>$row</TT>, <TT>$number</TT>, <TT>$comma</TT>,
+<TT>$tally</TT>.
+
+<P><TT>:do stubs [<I>filename</I>]...</TT> builds a set of module stubs at
+end of filename.
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech12.htm">&lt;</A>
+ | &gt; | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <A href="lrtech1.htm">Read-Only Variables</A>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <EM>Quick Reference - Libero Schema Language</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

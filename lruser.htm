@@ -1,0 +1,112 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Libero</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | &lt;
+ | <A href="lruser1.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+<H1>Using Libero</H1>
+
+<P>
+<MENU>
+<LI><A HREF="#TOC1">Running The lr Program</A></LI>
+<LI><A HREF="lruser1.htm#TOC2">The Dialog File Syntax</A></LI>
+<LI><A HREF="lruser2.htm#TOC3">Libero Options</A></LI>
+<LI><A HREF="lruser3.htm#TOC4">Using Exceptions</A></LI>
+<LI><A HREF="lruser4.htm#TOC5">Using The Defaults State</A></LI>
+<LI><A HREF="lruser5.htm#TOC6">Using Sub-Dialogs</A></LI>
+<LI><A HREF="lruser6.htm#TOC7">Using Super-States</A></LI>
+<LI><A HREF="lruser7.htm#TOC8">Using Templates</A></LI>
+<LI><A HREF="lruser8.htm#TOC9">Using Get-External-Event</A></LI>
+<LI><A HREF="lruser9.htm#TOC10">Efficiency</A></LI>
+<MENU>
+<LI><A HREF="lruser9.htm#TOC11">Efficiency of The Generated Code</A></LI>
+<LI><A HREF="lruser9.htm#TOC12">Efficiency of The Dialog</A></LI>
+</MENU>
+<LI><A HREF="lruser10.htm#TOC13">Care and Feeding of Dialogs</A></LI>
+<MENU>
+<LI><A HREF="lruser10.htm#TOC14">Style - Good, Bad, and Ugly</A></LI>
+<LI><A HREF="lruser10.htm#TOC15">Choosing Names</A></LI>
+</MENU>
+<LI><A HREF="lruser11.htm#TOC16">When To Use Libero</A></LI>
+</MENU>
+</P>
+<HR>
+
+<H2><A NAME="TOC1">Running The lr Program</A></H2>
+
+<P>To run Libero, type the 'lr' command like this:</P>
+
+<PRE>
+    $ lr [options] dialogname...
+</PRE>
+
+<P>Libero is a code generator.  It works as follows: you write a dialog
+description, and Libero generates (by default) C code to execute the dialog.
+This C code contains (a) various tables and definitions, and (b) the FSM
+engine.  If necessary, Libero also generates (c) a skeleton C program to wrap
+the whole thing together.  When you change your dialog (many times during
+program development), Libero re-generates (a) and (b) and any new bits
+needed in (c).</P>
+
+<P>When you run the lr command, Libero goes through these steps:
+<UL>
+<LI>It displays a start-up message and checks that it can find its message
+file.  If this fails, there is a problem with the PATH definition.</LI>
+<LI>It reads the dialog file(s) you specified.</LI>
+<LI>For each dialog file, it run the language-specific schema file.  The
+schema generates code, the exact mechanics depending on the language in
+question:<BR>
+1. If necessary, the schema creates a skeleton program.<BR>
+2. If necessary, the schema adds empty module 'stubs' to the end of the
+program for each module in the dialog.  You will often want to rearrange
+these in a meaningful order.<BR>
+3. The schema generates the tables and code required to run your dialog
+program.  These go into include files or other code modules.</LI>
+</UL></P>
+
+<P>The standard C schema is LRSCHEMA.C.  This schema creates two include
+files, with the dialog's name, but extensions '.D' and '.I'.  The first of
+these contains the DATA, the second the INTERPRETER.  Other schemas (for
+other programming languages) have different conventions.</P>
+
+<P>Dialogs have the extension .l, though you can be bloody-minded and use
+other extensions.  On systems that support long filenames, the name can be up
+to 128 characters long, including the extension.  I seriously recommend that
+you stick to eight-character filenames for anything that is remotely useful.
+When I were a lad, filenames were one hex digit.  To create a new dialog,
+take skeleton.l and copy it.  I recommend that you give a dialog the same
+name as the program it drives.  For instance, a source file myprog.c would
+use a dialog  myprog.l.  Sometimes I append a 'd' to the name to make the
+filename (without extension) unique.  Then, for instance, the .bak files that
+my editor creates carry different names.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | &lt;
+ | <A href="lruser1.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <EM>Using Libero</EM>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <A href="lruser7.htm">Using Templates</A>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

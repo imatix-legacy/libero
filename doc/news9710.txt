@@ -1,0 +1,326 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                 OCTOBER 1997
+ =========
+  =======    The iMatix Newsletter                         Volume II Issue 10
+--- === ---------------------------------------------------------------------
+     =                          Copyright (c) 1997 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming - Technology - Finite State Machines - News - Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    The King Is Dead, Long Live The King!
+
+    Not a reference to the English Royals, but to the end of another era and
+    the start of a new hegemony.  Yes, King Billy has toppled Netscape, the 
+    old king of the Net.  The battle is more or less over, although Netscape 
+    will probably carry on kicking for a while yet.  The MS penal squads are 
+    out putting bullets through the heads of the brave but outgunned Netscape
+    troopers.  It's hard to fight against human wave tactics, where so many 
+    people are thrown at something that some are bound to get through.
+
+    Microsoft's Internet Explorer 3.0 was already faster and smaller than
+    Navigator 3 (which is no great compliment).  While Netscape has been 
+    working hard on important things like protocols and committees, 
+    Microsoft has been pushing, hard, to win control of the desktop.  
+    Netscape's trying to keep up but not doing a great job.  IE is free, and 
+    rich.  It will come with every new PC including Macs.  It takes the 'PC 
+    as browser' metaphor to the limits, and often beyond, if you have enough 
+    RAM.
+
+    Looking at this unfolding drama, I think the Web Wars are more important 
+    than we sometimes imagine.  Bill Gates does not throw this much money at
+    something because he had a tough week and felt like dropping a billion or
+    two.  Basically, my humble opinion is this: the next generation of PCs 
+    will be Internet Terminals, with the ability to play Solitaire on the 
+    side.  This is probably a natural and good thing.  PCs are just too 
+    complex and expensive, no matter how sophisticated the OS becomes.  When
+    people prefer Windows 3.11 over Windows 95, the Great Leap Forwards looks 
+    more like a fantastically expensive and noisy leap somewhere sideways and
+    backwards, down a rabbit hole, and into the Wonderland.
+
+    What is more worrying is that we will be working with a browser-like 
+    interface that has developed more from a religeous conversion (Bill Meets 
+    God, and God says "The Net") than from sound principles.  When design is
+    imposed by dogma, the results are usually junk.
+
+    Recently I installed MS Visual C/C++ 5.0 on a natty new NT system with a 
+    fast CPU, 128Mb RAM, UltraWide SCSI disks, etc.  This system should *fly*.
+    Right?  Nope.  MSVC 5 acts like it's written in Basic.  Screen updates 
+    dribble down the screen; when I press F1 for Help it tries to connect to 
+    my Internet Service Provider, since it's really starting a copy of IE.  I
+    finally kicked-out MSVC 5 and re-installed version 4.2.  This causes the 
+    NT to freeze-up twice a day or so, so I'm thinking about moving to 4.0
+    instead.
+
+    Somewhere along the line, we're getting conned.  And when there are no
+    alternatives, that spells trouble.
+
+    Pieter Hintjens
+    Antwerpen
+    1 October 1997
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-..
+
+    Xitami Beta Escapes!  Red Faces At iMatix HQ!
+        An iMatix spokesman denied today that megabytes of unpronounceable
+        software had been broadcast to the entire Internet.  "We only sent
+        it to several hundred users", he claimed.  "And that was a computer
+        fault!"  Yeah, sure.  The guilty parties (an Intel 386DX and a very
+        shady-looking Overdrive processor) were given a fair trial before 
+        being condemned, and now face a long and painful future running beta
+        versions of Office 97 on top of Windows 98.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    >From:             freiheit <freiheit@tstonramp.com>
+    >Subject:          OS/2
+    >Hello,
+    >I found your site from the Tucows list of server softwware for OS/2
+    >(Xitami in particular).  I'm pleased to see so much OS/2 software on
+    >your site, however on many of the information pages for individual
+    >apps/tools you list multiple platforms and OS/2 is not listed, yet
+    >farther down somewhere in the full text description you wind up
+    >mentioning OS/2.  I'd just like to ask that you make OS/2 more noticable
+    >by naming it in the short descriptions where you currently name DOS,
+    >Windows, Unix, VAX, etc.
+    >Sincerely,
+    >/------------------dON eITNER------------------\
+    >|  published author, web publisher, OS/2 user  |
+    >|----------------------------------------------|
+    >|            freiheit@tstonramp.com            |
+    >| http://www.tstonramp.com/~freiheit/styx.html |
+    >\----------------------------------------------/
+
+    Yes, indeed.  Well, that's seven more mentions on the iMatix website!
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Subject:       "BetterState Pro"
+    >From:          "John M. Klassa" <klassa@aur.alcatel.com>
+    >Hi,
+    >Just wondering if you've ever heard of "BetterState Pro" by Integrated
+    >Systems (ISI, at www.isi.com)?  The glossy says it's a "graphical
+    >environment for application specification and implementation based on
+    >StateCharts and Petri Nets"...  Generates code in C, C++, Perl & a
+    >variety of other languages.
+    >The concept sounds very much like Libero, except with a GUI (thought
+    >there is the VB GUI tool for Libero, for Windows).
+    >Anyway, didn't know if you'd ever heard of it...
+    >Keep up that good work at IWWHQ (that's "Imatix World-Wide
+    >Headquarters")! :-)
+    >--
+    >John Klassa / Alcatel Telecom / Raleigh, NC, USA
+
+    I think the word 'glossy' gives it away.  One of those Serious FSM code
+    generators.  Clearly they've also understood the benefits of targetting
+    arbitrary languages.  The main differences as far as I'm aware are (a) 
+    support for more kinds of formalism, and (b) prettier printouts.  The weak
+    point of such tools is that they tend to assume they are the primary 
+    workbench for a developer, while Libero can be integrated into any kind 
+    of environment by dint of writing schemas for the purpose.
+
+    Libero is also highly favoured by coke-machines, partly because they
+    are highly formal creatures with a mathematical bent, and like to make
+    hyperspatial Libero schemas for an evening's amusement, but mostly 
+    because they like the jokes.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:         "Alexandre Gregoire" <gregoire@pasici.fr>
+    >Subject:      Pro-Pulses
+    >Priority:     urgent
+    >Bonjour,
+    >Quelqu'un(e) ds la maison a-t'il une connaissance de Pro-Pulses 
+    >(logiciel de gestion d'entrainement sportif)?
+    >It isn't a joke. Merci
+    >Alexandre Gregoire
+
+    No, but you should take a look at Microsoft's website; the new
+    "MS-Pulse Explorer '98" is fully Active X enabled and comes with IE
+    4.0 included.  It is free and runs on any NT 4.0 with at least 128Mb
+    memory.  The download file is 230Mb, for the minimal install, or 502Mb
+    for the full install.  Microsoft say that "Pulse Explorer '98 will
+    bring the richness of the Internet to every fitness room".  Any
+    application that can handle the new NPAP (Networked Pulse
+    Administration Protocol) can read pulses from any location on the
+    intranet or internet.
+
+    Industry analysts note that Netscape has already released a
+    competitive product, "PulseRate Enterprise", aimed at coporate
+    training systems.  The Netscape protocol, "LPRAP" (Lightweight Pulse
+    Rate Access Protocol) also provides for on-line modification of any
+    pulse rate.
+
+    Meanwhile the first 'virus antisportif' has been found in a French
+    computer network: it infects every system it finds and sends illegal
+    LPRAP messages to all users, increasing their pulse rate to 1,000,000
+    per minute, which is not fast enough to run "MS-Pulse Explorer '98"
+    but still makes a nasty mess on the screen.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >Date sent:        Fri, 19 Sep 1997 21:34:57 -0400
+    >From:             RooT <gumball@octonline.com>
+    >Subject:          hi
+    >U guys rule! U kick ass! Thanx for all the software! :)
+
+    Gee, thanx! :-)  iMatix Kix Ass!!  We're seriously considering this as a
+    logo for our website.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Rainer Glaap <rgl@software-ag.de>
+    >Subject:          werbserver
+    >hi,
+    >i just installed your webserver. easy. small footprint. i like it.
+    >but how do i get it to replace the frontpage server(S) that come with
+    >it out of the box?
+    >best regards
+    >rainer glaap
+    >software ag, product marketing
+
+    Let's see...  got the manual here somewhere...  ah, yes.  You type
+    'format c: /s' and press Enter, then press 'y' a few times.  That should
+    do the trick.
+
+    Hang-on, one of the techies is saying something.  Okay, here it is.  
+    You can normally stop the FrontPage server from one of the control
+    panels or the Internet Server manager, depending on what version of
+    Windows you've been cursed with.  If that does not work, you can run
+    Xitami on another port (e.g. 8080).
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             John Kniewasser <jhk@radiant.net>
+    >To:               info@imatix.com
+    >Subject:          HTTP/1.0 400: Bad request
+    >Hi there,
+    >I am just starting the process of writing applications for the
+    >web and I stumbled onto your Webserver.  I tried quite a few
+    >and yours worked right awway!
+    >Congratulations on a job well done, and thank you.
+    >Where can I find a list of the http errors?  Any idea would
+    >be appreciated.
+    >With thanks
+    >jhk@radiant.net
+
+    The HTTP errors are noted in the doc, somewhere.  You can configure
+    the text for any message.  This is quite useful: instead of the boring
+    '404 Not Found', you can say something like "Wow!  You're in a small
+    cave, deep undergound.  Twisty passageways leads north and east."  Then,
+    a '401 Unauthorized' can become "A large rock falls on your head.  You
+    have two lives left.  Click 'Home' to continue."
+
+    Slang alert: "Where's Bill?" Answer: "He's gone 404", means he went
+    for a coffee and has not been seen since, like Lord Lucan.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Roy Barnard <Barnard.R@Sandwell.gov.UK>
+    >Organization:     Sandwell Metropolitan Borough Council
+    >Subject:          admin
+    >Dear support,
+    >I have installed XITAMI on an old 386 with 4mb Ram using Reflection RNS
+    >TCP/IP stack.  The speed is brill! but I can not seem to get the browse
+    >admin to work I just get the message "document contains no data"
+    >Is this to do with win311 not being able to run cgi scripts?
+    >Roy Barnard, Network Services
+
+    Two things.  First, part of the iMatix web site got caught in a localised
+    temporal disjunction, so that the doc for version 2.0 (which has not yet
+    been released) got put onto the site.  To put it another way, we screwed
+    up.  (Been happening a lot around here recently, since we installed
+    Windows NT.)  Second thing: the admin functions won't work in the 16-bit
+    version of Xitami.  Despite what some people might say about Win95 (not
+    us, we love it!!), at least it runs programs of a decent size.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:         "Gail Wiltmaes" <gwilt@msn.net>
+    >Subject:      Stop bashing Microsoft
+    >
+    >To whom it may concern,
+    >Why are you always criticising Microsoft?  Don't you know they make
+    >some of the best software around?  I thought Libretto made up its
+    >own opinion instead of just following fashion!  I love Windows 95!!
+    >Gail Wiltmaes
+
+    Yes, indeed.  By the way, it's "Liberetto", and we also love Win 95!!
+    Seriously, it's a damn fine product, considering the design limitations
+    that were imposed: must run 32-bit software, 16-bit software, DOS games,
+    Office 97, quickly, on 8Mb RAM, and look pretty  [At this point Ed's
+    Windows 95 system started to react v e r y  s l o w l y, and finally
+    had to be reset].
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             "Allen Evenson" <ase@seanet.com>
+    >Subject:          Libero and Xitami
+    >Hello,
+    >Just a note to say Thank you for developing two extremely useful 
+    >products.
+    >Xitami worked perfectly on install ... In order to make my machine 
+    >(Win95 box) recognize my virtual hostname. I setup IE4.0 to connect 
+    >using a LAN (just a terminated BNC connection) and added an address to 
+    >the 'host' file (127.0.0.2). This way, 'localhost', 127.0.0.1, and 'my 
+    >virtual hostname' work perfectly. I just now connect to the net through 
+    >Dial up Networking before going Live...(I don't trust that new connection 
+    >manager anyway )
+    >Libero in a word is SUPERB. After reading the excellent documentation 
+    >and examples (love the humor .. course, I like Douglas Adams alot, and 
+    >the wife think its nuts). Before now I had very little experience with 
+    >FSM's. I have been learning Perl for awhile so this is my first language 
+    >of choice although with Libero I might tackle some C projects. The point 
+    >is with Libero it doesn't really matter what language I write it in 
+    >because I Libero gives me a tool that I can express a general solution 
+    >to whatever problem im faced with and worry about the details of the 
+    >actual modules later. Included as attachments is my first working dialog 
+    >and resultant perlscript for your enjoyment or ridicule. :)
+    >Thanks again for developing fine software (and making it free!)
+    >Allen S Evenson, Seattle, Wa
+
+    Thanks, Allen.  We like you too.
+
+
+ == IRRELEVANT STUFF -..-.--.-..-.--...---.-.---...-.----....-.---....---..-.
+
+    Book of the Month
+        "Excession" by Ian M Banks.  The kind of book you read once, without
+        pausing to eat or sleep, then turn back to page one, and start again.
+   
+    CD of the Month
+        "Everything is Wrong" by Moby.  Okay, a year or two old by now, but
+        unstoppable.  If you buy just one CD before lunch, buy this one.
+
+    Weekend of the Month
+        Second weekend of the Munchen Oktoberfeest.  You never saw so many
+        people completely and totally tanked, yet behaving themselves.  The
+        glasses hold 1 litre (that's about 15 US gallons, or twenty-three 
+        Imperial cubits).  Each day the half-million visitors drink about an
+        Olympic pool full of beer.  This gives new meaning and depth to the
+        phrase 'queue for the toilet'.  Oh yeah, Munich is the only city I
+        know that has 24-hour free surfing facilities in the main park.
+
+
+ == MACHINES OF STATE -..-..--..-..--.-.--.-.--.-.-..---.-.-..-.---.-.-.-.-..
+
+    We apologise for all those who were offended by our gross lack of taste
+    and common decency last month.  No more off-topic, purile humour.  (To
+    those of you who wrote asking for more of the same, shame on you!)
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    If you've had enough, okay, we understand.  Just send your cheque to the
+    usual address, and don't forget to sign the back.  Unsubscriptions are 
+    available for a limited time at the special price of US$299, which 
+    includes a year's supply of beta release's.  Just think - you can give
+    one to Granny!!
+  

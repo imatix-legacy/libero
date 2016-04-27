@@ -1,0 +1,606 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   APRIL 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 4
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Today's date is something to remember, because it's the day that one
+    of the most popular and significant pieces of software ever distributed
+    - the Netscape web browser - changes from commercial product into Free
+    Software, in a daring (or desperate) attempt by Netscape to find a way
+    to compete with the Microsoft Machine.  This is of course a vindication
+    for companies like iMatix, which have based their business model on this
+    approach from the start.
+
+    Whether Netscape will make money by doing this is not clear at all.
+    But the wartime tactic of burning your crops before the enemy can use
+    them has a long history.
+
+    The other day I was talking, well, e-mailing, to Eugene Eric Kim, of
+    Dr Dobb's Journal.  Eugene was writing about free software, and he
+    asked me the question which I guess is the first thing that most people
+    ask about iMatix, namely: how do you guys make money when you give it
+    all away for free?  This became a pretty long discussion about how and
+    why iMatix was constructed, and mechanics of free software, and its role
+    in today's world of software.
+
+    The Netscape Manoeuvre may go down as an interesting footnote in the
+    history of the Internet Wars, but its relevance is profound.  Free
+    software is no longer the realm of the student hacker or the dedicated
+    (but misguided) believer.  Rather, it's a serious alternative (perhaps
+    the only alternative) to Microsoft's approach, and a pointer to a new
+    commercial model, in which the actual binary or source code packages
+    are not the product, but a means of reaching new clients, who will pay
+    for services based on those packages.
+    
+    When one puts software on the Internet, even protected by a lock, it
+    becomes free software.  One could ignore this, or, like iMatix and now
+    Netscape, embrace it and use it.
+
+    And no, we don't make money by giving away our free software.  But we
+    do meet a lot of interesting new people!
+
+    Pieter Hintjens
+    Antwerpen
+    1 April 1998
+
+
+ == NEWS -..--.-.-.-..--.-.-....----.-.---...---..-.-.-----...-.---.-.-.-.---
+
+    iMatix Corporation's Web Site Hits 7Gb Monthly!!
+        If you have difficulty imagining what 7Gb looks like, imagine the
+        entire set of National Geographic magazines (six hundred and thirty
+        volumes, not including fold-out maps, but including all the photos).
+        The impressive yellow stack is about as high as a house.  This is
+        the size of Internet Explorer 4.0, unless you go for the 'full' kit,
+        in which case you need two houses.  Now imagine the full set of
+        Liberettos, which do not come with fold-out maps, though we're
+        working on the educational photographs.  This impressive bundle is
+        about the height of a single floppy disk, which is considerably
+        cheaper than the average house, and much handier.  Try sticking a
+        house in your shirt pocket, for instance.  Now imagine five thousand
+        houses, which is a small town, roughly equivalent to fifty imperial
+        blocks.  This, finally, is what 7Gb looks like.
+
+    Horror Shock Probe!  "Manoeuvre" Finally Spelt Correctly!!
+        Yes, after several searches in assorted dictionaries, including the
+        unpublished-but-leaked-from-the-website volume V of "Schruberger's
+        Dictionary of Multilingual Insults", we found the correct spelling
+        of 'manoeuvre'.  Schruberger V tells us that this word is a deadly
+        insult with blood-feud implications in at least seven regions (their
+        investigators did not return from four more), but we have no fear!!
+
+    Xitami Rumours Denied, Hotly!
+        iMatix Spokesperson Mandy today hotly denied rumours that the next
+        release of Xitami would be released with full source code.  "Just
+        because Netscape do this does not mean everyone has to follow suit".
+        Meanwhile, press reports that the full source code for this server
+        is available freely from www.imatix.com continue to circulate.
+
+    Liberetto Celebrates Its 25th Birthday!!
+        The Liberetto editorial staff (Pixel and Snoekes, when they're not
+        playing Tomb Raider) today hotly celebrated the glorious 25th issue
+        of Liberetto, also known as the Mother of All Serious Journals.
+        If you've managed to collect all 25 issues, then you should probably
+        consider getting a job that demands more of you!
+
+    DOs and DON'Ts for 1998
+        DON'T try to install Linux RedHat on top of a Windows NT system
+        unless you feel lucky.  We tried it, and fried our system disk, bad.
+
+        If you managed to install Linux RedHat on top of a Windows NT,
+        DON'T push your luck and try to install OS/2 on top of that.  We
+        tried that too, and fried another system disk.  Wow, that hurt!
+
+        DON'T try downloading the Netscape Communicator 5 sources unless a
+        45Mb source code packet (4000 files) seems like a good start.
+
+        DO consider using Opera, a nice fast shareware web browser (Windows
+        only) from www.operasoftware.com.
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    >From:             Jim Bowlin <bowlin@sirius.com>
+    >Subject:          Xitami suggestions
+    >
+    >I got the new Liberetto.  It was short but sweet.  Thanks.
+    >
+    >It reminded me that I had a couple of Xitami suggestions
+    >for you.  I ended up not using Xitami on the server I put
+    >together.  Instead I am running IIS (a real big pain) and
+    >Apache (still very beta) and Serv-U for FTP service.
+    >
+    >I think I could have used Xitami if it had the following two
+    >features:
+    >1) the ability to have aliases with "/" in them so I could
+    >make virtual directories such as
+    >/faculty/teacher         -> /user/faculty/teacher/web
+    >/faculty/cgi-bin/teacher -> /user/faculty/teacher/cgi-bin
+    >
+    >2) the ability to run the FTP service as a different user
+    >than the HTTP service.  Since you allow me to have detailed
+    >user control inside the FTP service, it has to run with fairly
+    >generous permissions.  For example it must be able to write
+    >to all the directories that any person using the FTP service
+    >can write to.  On the other hand, if I allow the HTTP server
+    >to have this same write access, then someone can easily write
+    >a CGI script that will (for example) erase all the files that
+    >the FTP service has access to.
+    >
+    >I really appreciate all the wonderful software you have so
+    >generously made freely available.  Your code is beautiful!
+    >I also appreciate the high quality of information in Liberetto.
+    >It is such a refreshing change from the standard drivel that
+    >comes through my modem.
+    >
+    >Thanks, Jim Bowlin
+
+    Thanks, Jim, for the useful suggestions.  Well, these have all been on
+    our wish list for some time, and will one day be supported in Xitami.
+    The advantage of writing portable software is that you can take your
+    time...  You do not need to finish it before your OS is made redundant.
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Jimi T Joergensen <jimbo@jimi.dk>
+    >Subject:          Re: Xitami 2.2d is now available
+    >
+    >Do you remember I told you some 2 or 3 months ago that I did
+    >implement Xitami on our end-user system ? The case is really simple
+    >- I had an NT box with IIS4, but the IIS4 is not stable when is't
+    >exposed to excessive load over many directories and hundreds or
+    >thousands of files. So I just disbled the W3SVC (IIS4) and installed
+    >Xitami with the FTP part disabled and I haven't touched the box since
+    >(except to remotely disable some users who had porn at their homepage)
+    >and it's still serving some 120.000 hits a day, sending approx.
+    >1,2 Gig of data and not using more than 15% CPU - pretty impressive..
+    >Have a nice weekend..
+    >
+    >Cheers
+    >Jimi
+
+    How much is 1.2 Gig?  About 2600 times more than the full collected
+    Liberetto, including the lousy jokes.  Makes you wonder...  We're glad
+    to hear that it's running like it should.  If only everything was this
+    simple.
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             "Kobus Jooste" <kobusj@global.co.za>
+    >Subject:          Thanks. Libero is number one.
+    >
+    >Hi. I downloaded Libero 2.30 source and compiled it on Linux. (No
+    >sweat.)  Next I printed out your fine documentation.  Little more sweat,
+    >had to make fonts smaller and alter linespacing to save a few trees.
+    >(100 pages is a LOT of paper)
+    >Just finished a small telnet client using Libero and I'm checking out
+    >SMT next. ;)
+    >Thanks for the great tool!
+    >Please put me on the Libero mailing-list.
+    >
+    >cheers,
+    >kobus
+
+    Unless things went terribly wrong (floods, fires, earthquakes, or your
+    copy of Liberetto getting lost), you're reading this.  Telnet clients,
+    yes, this is the kind of thing Libero loves to get its teeth into.  But
+    be very careful not to feed it after midnight, or it will mutate into a
+    fully Java-based object-oriented 5GL GUI application server component
+    that will chew-up your system and spit it out, brutally, in little wet
+    pieces.  (PureJava 1.2 required; may not run on all systems; monitor not
+    included.)
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From:             Rob Judd <judd@alphalink.com.au>
+    >Subject:          XIC3222D
+    >
+    >You may be surprised to learn, as I was, that the 32-bit console version
+    >of Xitami works on my DOS/Win 3.11 machine!!
+    >
+    >In some ways this version works better than the standard 16-bit version.
+    >It's noticeably faster for one thing, albeit much larger. I have
+    >to reboot to shut it down or restart, but this isn't much of an
+    >inconvenience for testing. I now correctly get error messages using the
+    >http://localhost/error?xxx format, which didn't work on xiw1621c at all.
+    >
+    >There you go, isn't that amazing?
+    >Rob
+
+    This is the kind of story that makes our day.  After struggling for at
+    least several minutes with the pathetic memory scheme imposed by the 16-
+    bit Windows model, Rob discovers that the 32-bit console version will
+    run pretty well on a Win3.x system.  Okay, CGI acts a little bizarre,
+    where 'bizarre' can be defined as launching background processes that do
+    nothing, for a long time, creating several dozen empty, randomly-named
+    files, issuing small noises somewhat akin to the noise a cat makes when
+    you sit on it (ignoring the noise *you* then make), and so on.  But,
+    with Win32s, you can use the browser-based admin console, LRWP and WSX
+    plugins, and FTP.  The server also flies (where 'flies' is defined as
+    running fast, very fast).
+
+    Manic laughter as we dance around a bonfire of diskettes marked 'Win 3.x
+    Xitami source code - do not burn or recharge'.
+
+
+ == FOCUS ON TECHNOLOGY -..-.---..---..-.---..-...-.---.....-.-.---...-..-.--
+
+    XML...  Wake up and smell the bacon!!
+
+        Time for coffee and croissants, or that famous New York equivalent,
+        'co-affee and bagels'.  XML is being hyped as the successor to HTML,
+        but it's more than that.  We'll explain what XML is, why it will
+        be important, and how iMatix will exploit it mercilessly.
+
+        HTML is a markup language, an instance of a language defined using
+        SGML, which is a meta-language.  No-one understands how SGML works,
+        not even the people who use it, since it was invented largely by IBM.
+        This is a slight barrier to world-wide acceptance, so people have
+        decided to try again.
+
+        SGML lets you specify a specific markup language using something
+        called a DTD (document template description).  This specific markup
+        language can then be processed by tools like SGML parsers, or (more
+        usefully), a web browser.  (Main difference: an SGML parser takes
+        several minutes to parse a document, then says 'Invalid tag <!Blarp>
+        caused continuity failure at entry point 23 in sub document 2'.  A
+        web browser just shrugs its shoulders and shows the page anyhow.)
+
+        XML does exactly the same, but since it was not invented by IBM,
+        it's easy to use and understand.
+
+        I do hope you're following this.  
+        
+        The main reason why browser vendors are pushing XML is that it will
+        end all that useless discussion about the value of the <MARQUEE> tag
+        and the names for colours.  Each browser can define its own 'HTML',
+        why staying perfectly XML-compliant.  Happy days.  And you thought
+        that JavaScript was a compatability problem!
+
+        The main reason why everyone else is pushing XML is that it puts an
+        end to the endless discussions about data formats.  How do you store
+        a structured data object - a cheque, an invoice, a tax bill?  You
+        define your preferred XML language ('tax bill markup language') and
+        off you go...  The nice thing about standards is that there are so
+        many to choose from.
+
+        We like XML because it provides a way to store information like
+        project descriptions, database table definitions, and such, in a
+        portable and standard way.  You'll find that the latest release of
+        the SFL library contains functions to read and write XML files.
+
+        But our intentions go further than that.  At this moment, deep in
+        the iMatix Corporation Headquarters Research and Frisbee department,
+        we're working on an XML-driven code generator that will eventually
+        replace the code-generation engine inside Libero, and many of our
+        other tools (some of which are so arcane that we don't even allow
+        them to wander outside the laboratory) (or is that lavoratory?)
+
+
+ == WEB SITE STATISTICS -..-..--..-..----...-.-...---.-..-.-..-..----..-..---
+
+    For our regular readers...
+
+    Program started at Sun-Mar-29-1998 02:38 local time.
+    Analyzed requests from Sat-Feb-28-1998 23:55 to
+      Sat-Mar-28-1998 23:55 (28.0 days).
+
+    Total successful requests: 250,447 (54,107)
+    Average successful requests per day: 8,944 (7,729)
+    Total successful requests for pages: 62,628 (13,498)
+    Average successful requests for pages per day: 2,237 (1,928)
+    Total failed requests: 1,848 (446)
+    Total redirected requests: 175 (39)
+    Number of distinct files requested: 834 (789)
+    Number of distinct hosts served: 15,425 (3,754)
+    Number of new hosts served in last 7 days: 3,079
+    Unwanted logfile entries: 121
+    Total data transferred (in bytes): 7,267,376,601 (1,481,532,069)
+    Total data transferred (in Megabytes): 6930.710 Mb (1412.899 Mb)
+    Average data transferred per day: 259,542,727 bytes (211,647,438 bytes)
+    (Figures in parentheses refer to the last 7 days).
+
+    Daily Summary
+
+    day: #reqs:  %reqs:      bytes: %bytes: 
+    ---  -----  ------  ----------  ------  
+    Sun: 32154: 12.84%: 1012802580: 13.94%: 
+    Mon: 41134: 16.42%: 1165508828: 16.04%: 
+    Tue: 40695: 16.25%: 1114352086: 15.33%: 
+    Wed: 38449: 15.35%: 1186055222: 16.32%: 
+    Thu: 39058: 15.60%: 1091896475: 15.02%: 
+    Fri: 34171: 13.64%:  949179469: 13.06%: 
+    Sat: 24786:  9.90%:  747581941: 10.29%: 
+
+    Daily Report
+
+         date: #reqs:  %reqs:     bytes: %bytes: 
+    ---------  -----  ------  ---------  ------  
+    Mar/ 1/98: 11314:  4.52%: 431291542:  5.93%: 
+    Mar/ 2/98: 13046:  5.21%: 436171747:  6.00%: 
+    Mar/ 3/98: 11618:  4.64%: 346211323:  4.76%: 
+    Mar/ 4/98: 11630:  4.64%: 401425734:  5.52%: 
+    Mar/ 5/98: 10536:  4.21%: 330084570:  4.54%: 
+    Mar/ 6/98:  8495:  3.39%: 251001037:  3.45%: 
+    Mar/ 7/98:  6305:  2.52%: 212990619:  2.93%: 
+
+    Mar/ 8/98:  6867:  2.74%: 201993903:  2.78%: 
+    Mar/ 9/98: 10702:  4.27%: 279541129:  3.85%: 
+    Mar/10/98: 10698:  4.27%: 293535507:  4.04%: 
+    Mar/11/98:  9190:  3.67%: 262658341:  3.61%: 
+    Mar/12/98: 11201:  4.47%: 308494666:  4.24%: 
+    Mar/13/98:  9739:  3.89%: 260823310:  3.59%: 
+    Mar/14/98:  7231:  2.89%: 186115417:  2.56%: 
+
+    Mar/15/98:  7034:  2.81%: 190367958:  2.62%: 
+    Mar/16/98:  9286:  3.71%: 232647856:  3.20%: 
+    Mar/17/98:  8843:  3.53%: 253497677:  3.49%: 
+    Mar/18/98:  8854:  3.54%: 250367911:  3.45%: 
+    Mar/19/98:  9947:  3.97%: 243670816:  3.35%: 
+    Mar/20/98:  7853:  3.14%: 227949379:  3.14%: 
+    Mar/21/98:  5411:  2.16%: 167874866:  2.31%: 
+
+    Mar/22/98:  6939:  2.77%: 189149177:  2.60%: 
+    Mar/23/98:  8100:  3.23%: 217148096:  2.99%: 
+    Mar/24/98:  9536:  3.81%: 221107579:  3.04%: 
+    Mar/25/98:  8775:  3.50%: 271603236:  3.74%: 
+    Mar/26/98:  7374:  2.94%: 209646423:  2.88%: 
+    Mar/27/98:  8084:  3.23%: 209405743:  2.88%: 
+    Mar/28/98:  5823:  2.33%: 179947245:  2.48%: 
+
+    Hourly Summary
+
+    hr: #reqs:  %reqs:     bytes: %bytes: 
+    --  -----  ------  ---------  ------  
+     0:  7945:  3.17%: 218103244:  3.00%: 
+     1:  8500:  3.39%: 243719200:  3.35%: 
+     2:  8444:  3.37%: 270075685:  3.72%: 
+     3:  7925:  3.16%: 239948719:  3.30%: 
+     4:  9257:  3.70%: 286814689:  3.95%: 
+     5: 10248:  4.09%: 306625175:  4.22%: 
+     6: 12026:  4.80%: 372864401:  5.13%: 
+     7: 12636:  5.05%: 362612790:  4.99%: 
+     8: 12814:  5.12%: 378980255:  5.21%: 
+     9: 15628:  6.24%: 398116043:  5.48%: 
+    10: 15726:  6.28%: 401773547:  5.53%: 
+    11: 11102:  4.43%: 318781372:  4.39%: 
+    12: 13644:  5.45%: 368950479:  5.08%: 
+    13: 11555:  4.61%: 337510985:  4.64%: 
+    14: 11245:  4.49%: 316070523:  4.35%: 
+    15: 10870:  4.34%: 320661846:  4.41%: 
+    16:  9822:  3.92%: 311923908:  4.29%: 
+    17:  9283:  3.71%: 262023464:  3.61%: 
+    18:  9783:  3.91%: 302600783:  4.16%: 
+    19:  9888:  3.95%: 278082473:  3.83%: 
+    20:  8602:  3.43%: 261839703:  3.60%: 
+    21:  7162:  2.86%: 213734719:  2.94%: 
+    22:  7120:  2.84%: 228419255:  3.14%: 
+    23:  9222:  3.68%: 267143343:  3.68%: 
+
+    Domain Report
+
+    Printing all domains, sorted by number of requests.
+    #reqs:  %reqs:      bytes: %bytes: domain
+    -----  ------  ----------  ------  ------
+    56956: 22.74%: 1459968327: 20.09%: .com (Commercial, mainly USA)
+    50081: 20.00%: 1514760293: 20.84%: [unresolved numerical addresses]
+    41046: 16.39%: 1159600650: 15.96%: .net (Network)
+    12694:  5.07%:  494952617:  6.81%: .de (Germany)
+    12692:  5.07%:  319561198:  4.40%: .edu (USA Educational)
+     9085:  3.63%:  238338189:  3.28%: .ca (Canada)
+     5274:  2.11%:  153329575:  2.11%: .nl (Netherlands)
+     5175:  2.07%:  149935863:  2.06%: .uk (United Kingdom)
+     4205:  1.68%:  121984150:  1.68%: .au (Australia)
+     3731:  1.49%:  205117461:  2.82%: .br (Brazil)
+     3608:  1.44%:  103571451:  1.43%: .se (Sweden)
+     3318:  1.32%:  105273333:  1.45%: .no (Norway)
+     3306:  1.32%:  108731952:  1.50%: .it (Italy)
+     3228:  1.29%:   94443842:  1.30%: .fr (France)
+     2962:  1.18%:   51524992:  0.71%: .jp (Japan)
+     2173:  0.87%:   50261818:  0.69%: .be (Belgium)
+     1965:  0.78%:   32361439:  0.45%: .kr (South Korea)
+     1895:  0.76%:   39451810:  0.54%: .fi (Finland)
+     1736:  0.69%:   50578323:  0.70%: .dk (Denmark)
+     1692:  0.68%:   45394133:  0.62%: .es (Spain)
+     1433:  0.57%:   33323542:  0.46%: .org (Non-Profit Making Organisations)
+     1399:  0.56%:   46706763:  0.64%: .at (Austria)
+     1273:  0.51%:   39854362:  0.55%: .ch (Switzerland)
+     1151:  0.46%:   24866509:  0.34%: .us (United States)
+     1135:  0.45%:   48159083:  0.66%: .ru (Russian Federation)
+     1049:  0.42%:   35712247:  0.49%: .pl (Poland)
+     1004:  0.40%:   23428956:  0.32%: .pt (Portugal)
+      949:  0.38%:   26201040:  0.36%: .nz (New Zealand)
+      866:  0.35%:   31750817:  0.44%: .th (Thailand)
+      858:  0.34%:   25542069:  0.35%: .gov (USA Government)
+      856:  0.34%:   27910761:  0.38%: .sg (Singapore)
+      835:  0.33%:   24566421:  0.34%: .my (Malaysia)
+      806:  0.32%:   19426270:  0.27%: .il (Israel)
+      792:  0.32%:   22622052:  0.31%: .cz (Czech Republic)
+      742:  0.30%:   28820214:  0.40%: .hu (Hungary)
+      704:  0.28%:   21896170:  0.30%: .mil (USA Military)
+      700:  0.28%:   23236614:  0.32%: .gr (Greece)
+      588:  0.23%:   13695205:  0.19%: .ie (Ireland)
+      541:  0.22%:   22667757:  0.31%: .hk (Hong Kong)
+      538:  0.21%:   11435802:  0.16%: .cn (China)
+      429:  0.17%:   11949242:  0.16%: .za (South Africa)
+      428:  0.17%:   26684510:  0.37%: .mx (Mexico)
+      407:  0.16%:   14670310:  0.20%: .ar (Argentina)
+      377:  0.15%:    9660709:  0.13%: .cr (Costa Rica)
+      302:  0.12%:    8067084:  0.11%: .hr (Croatia)
+      299:  0.12%:   14801688:  0.20%: .tw (Taiwan)
+      270:  0.11%:   10455836:  0.14%: .arpa (Old style Arpanet)
+      261:  0.10%:    7328754:  0.10%: .ua (Ukraine)
+      233:  0.09%:   14410838:  0.20%: .id (Indonesia)
+      201:  0.08%:    9207307:  0.13%: .is (Iceland)
+      187:  0.07%:    7352571:  0.10%: .lu (Luxembourg)
+      187:  0.07%:    6205739:  0.09%: .si (Slovenia)
+      181:  0.07%:    9497431:  0.13%: .sk (Slovak Republic)
+      165:  0.07%:    5418967:  0.07%: .ee (Estonia)
+      131:  0.05%:    4933669:  0.07%: .yu (Yugoslavia)
+      129:  0.05%:    5870053:  0.08%: .su (Former USSR)
+      121:  0.05%:    4466580:  0.06%: .lv (Latvia)
+      112:  0.04%:    3713847:  0.05%: .in (India)
+      109:  0.04%:    8396214:  0.12%: .ro (Romania)
+      108:  0.04%:     351270:       : .ke (Kenya)
+       98:  0.04%:    1622926:  0.02%: .co (Colombia)
+       85:  0.03%:    1392018:  0.02%: .tr (Turkey)
+       70:  0.03%:    4506464:  0.06%: .bg (Bulgaria)
+       64:  0.03%:    2694951:  0.04%: [unknown]
+       59:  0.02%:    1380284:  0.02%: .cl (Chile)
+       41:  0.02%:     698018:  0.01%: .py (Paraguay)
+       34:  0.01%:    2531328:  0.03%: .lt (Lithuania)
+       34:  0.01%:    3812579:  0.05%: .ph (Philippines)
+       33:  0.01%:     681465:  0.01%: .by (Belarus)
+       31:  0.01%:     665684:  0.01%: .do (Dominican Republic)
+       23:  0.01%:     675216:  0.01%: .om (Oman)
+       22:  0.01%:     730200:  0.01%: .jm (Jamaica)
+       22:  0.01%:     834106:  0.01%: .pk (Pakistan)
+       21:  0.01%:     669708:  0.01%: .tt (Trinidad and Tobago)
+       20:  0.01%:      96851:       : .kz (Kazakhstan)
+       20:  0.01%:    2858094:  0.04%: .ve (Venezuela)
+       19:  0.01%:     208533:       : .ec (Ecuador)
+       17:  0.01%:    1302280:  0.02%: .int (International)
+       17:  0.01%:      53084:       : .ni (Nicaragua)
+       13:  0.01%:    1210180:  0.02%: .am (Armenia)
+        7:       :     286821:       : .uy (Uruguay)
+        6:       :     622520:  0.01%: .pe (Peru)
+        5:       :     602480:  0.01%: .bm (Bermuda)
+        3:       :      25831:       : .aw (Aruba)
+        1:       :     582803:  0.01%: .ae (United Arab Emirates)
+        1:       :     582803:  0.01%: .eg (Egypt)
+        1:       :     582803:  0.01%: .gb (Great Britain)
+        1:       :     582803:  0.01%: .ge (Georgia)
+        1:       :     477079:  0.01%: .mz (Mozambique)
+
+    File Type Report
+
+    Printing all extensions, sorted by number of requests.
+     #reqs:  %reqs:      bytes: %bytes: extension
+    ------  ------  ----------  ------  ---------
+    156161: 62.35%:  387212752:  5.33%: .gif
+     49244: 19.66%:  703053967:  9.67%: .htm
+     13374:  5.34%:   54831881:  0.75%: (directories)
+     10249:  4.09%: 3961738757: 54.51%: .exe
+      9475:  3.78%:   21681163:  0.30%: (no extension)
+      8714:  3.48%: 1880188433: 25.87%: .zip
+      1509:  0.60%:   17571433:  0.24%: .txt
+      1255:  0.50%:  236976215:  3.26%: .tgz
+       188:  0.08%:     561093:  0.01%: .class
+        52:  0.02%:    1111918:  0.02%: .cob
+        51:  0.02%:     579249:  0.01%: .pl
+        49:  0.02%:     597664:  0.01%: .c
+        39:  0.02%:     227725:       : .mod
+        32:  0.01%:     364904:  0.01%: .cpp
+        31:  0.01%:     270960:       : .bas
+        14:  0.01%:     112754:       : .asm
+        10:       :     295733:       : .html
+
+    Request Report
+
+    Printing package requests, sorted by number of requests.
+    #reqs:  %reqs:      bytes: %bytes: file
+    -----  ------  ----------  ------  ----
+     6654:  2.66%: 2787913758: 38.36%: /pub/xitami/xiw3222d.exe
+     1509:  0.60%:  426004114:  5.86%: /pub/xitami/xiw3222d.zip
+      918:  0.37%:  246003719:  3.39%: /pub/xitami/xic3221c.exe
+      821:  0.33%:  297142330:  4.09%: /pub/xitami/xic3222d.exe
+      777:  0.31%:  331389500:  4.56%: /pub/xitami/xis3222d.exe
+      517:  0.21%:  126772356:  1.74%: /pub/xitami/xic3222d.zip
+      501:  0.20%:   37565364:  0.52%: /pub/tools/htmlp40b.zip
+      411:  0.16%:  287560798:  3.96%: /pub/xitami/xswin22d.zip
+      407:  0.16%:   81895904:  1.13%: /pub/libero/bin/lrmswin.zip
+      379:  0.15%:  127588172:  1.76%: /pub/libero/bin/libero.exe
+      371:  0.15%:   86055810:  1.18%: /pub/libero/bin/lrmswins.zip
+      348:  0.14%:  102999092:  1.42%: /pub/xitami/xis3222d.zip
+      331:  0.13%:   89657306:  1.23%: /pub/libero/doc/lrhtml.zip
+      290:  0.12%:   69379250:  0.95%: /pub/xitami/xiw3221c.exe
+      277:  0.11%:  149880860:  2.06%: /pub/xitami/xiuni22d.tgz
+      261:  0.10%:   52807452:  0.73%: /pub/libero/example/complete.zip
+      258:  0.10%:   17912589:  0.25%: /pub/libero/doc/lrfull.zip
+      257:  0.10%:   64599388:  0.89%: /pub/sfl/src/sflsrc18.zip
+      242:  0.10%:   91061393:  1.25%: /pub/xitami/xios222d.zip
+      232:  0.09%:   55804414:  0.77%: /pub/xitami/xiw1621c.exe
+      168:  0.07%:   55926506:  0.77%: /pub/sfl/doc/sfldoc18.zip
+      166:  0.07%:   17225482:  0.24%: /pub/archives/xitamiml.zip
+
+    Referrer Report
+
+    Printing non-iMatix referring URLs, sorted by number of requests.
+     #reqs:  %reqs: URL
+    ------  ------  ---
+      1916:  0.86%: http://www.winfiles.com/apps/98/servers-websrv.html
+       867:  0.39%: http://www.windows95.com/apps/98/servers-websrv.html
+       393:  0.18%: http://www.winfiles.com/apps/nt/servers-websrv.html
+       372:  0.17%: http://members.xoom.com/theoutzone/hacker/progs.html
+       245:  0.11%: http://cws.internet.com/32cwss.html
+       220:  0.10%: http://www.geocities.com/SiliconValley/Lab/3961/down.html
+       196:  0.09%: http://serverwatch.internet.com/webserver-xitami.html
+       191:  0.09%: http://www.geocities.com/Paris/Rue/6460/Downloads.html
+       186:  0.08%:
+       http://www.download.com/PC/Result/Download/0,21,0-41697,00.html
+       174:  0.08%: http://nng.simplenet.com/servd32.html
+       160:  0.07%: http://cws.internet.com/32newapps.html
+       140:  0.06%: http://www.windows95.com/apps/nt/servers-websrv.html
+       115:  0.05%: http://reference.perl.com/query.cgi?cgi
+       107:  0.05%: http://www.davecentral.com/2426.html
+       100:  0.04%:
+       http://www.softseek.lishing_Tools/Servers/Review_12419_index.html
+        80:  0.04%: http://webcompare.internet.com/compare/xitami.html
+        80:  0.04%: http://www.infogoal.com/cbd/cbdtol.htm
+        73:  0.03%: http://www.freecode.com/cgi-bin/viewproduct.pl?2426
+        70:  0.03%: http://diego.dgsca2.unam.mx/server/
+        63:  0.03%: http://tucows.tierranet.com/server95.html
+        63:  0.03%: http://www.freecode.com/cgi-bin/viewproduct.pl?4379
+        58:  0.03%: http://www.xnet.com/~blatura/linapp6.html
+        57:  0.03%: http://ftp.sunet.se/nonags/servd32.html
+        53:  0.02%: http://cnyweb.com/nonags/servd32.html
+        53:  0.02%: http://www.os2ss.com/news/
+
+    Browser Report
+
+    Printing the first 20 browsers, sorted by number of requests.
+    #reqs:  %reqs: browser
+    -----  ------  -------
+    31256: 12.42%: Mozilla/4.04 [en] (Win95; I)
+    24579:  9.77%: Mozilla/4.0 (compatible; MSIE 4.01; Windows 95)
+    15515:  6.17%: Mozilla/4.0 (compatible; MSIE 4.0; Windows 95)
+    12712:  5.05%: Mozilla/4.04 [en] (WinNT; I)
+    10310:  4.10%: Mozilla/4.0 (compatible; MSIE 4.01; Windows NT)
+     7957:  3.16%: Mozilla/3.0 (Win95; I; HTTPClient 1.0)
+     5137:  2.04%: Mozilla/4.04 [en] (Win95; I ;Nav)
+     5017:  1.99%: Mozilla/4.03 [en] (Win95; I)
+     4885:  1.94%: Mozilla/4.04 [en] (Win95; U)
+     4372:  1.74%: Mozilla/4.0 (compatible; MSIE 4.01; Windows 98)
+     3922:  1.56%: Mozilla/2.0 (compatible; MSIE 3.0; Windows 95)
+     3645:  1.45%: Mozilla/2.0 (compatible; MSIE 3.01; Windows 95)
+     3520:  1.40%: Mozilla/4.0 (compatible; MSIE 4.0; Windows NT)
+     3429:  1.36%: Mozilla/2.0 (compatible; MSIE 3.02; Update a; Windows 95)
+     3350:  1.33%: Mozilla/4.01 [en] (Win95; I)
+     3320:  1.32%: Mozilla/2.0 (compatible; MSIE 3.02; Windows 95)
+     2698:  1.07%: Mozilla/3.01Gold (Win95; I)
+     2688:  1.07%: Mozilla/3.04Gold (Win95; I)
+     2605:  1.04%: Mozilla/3.01 (Win95; I)
+     2490:  0.99%: Mozilla/4.03 [de] (Win95; I)
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Well, anything's possible: pigs may fly, Windows NT may live in peace 
+    and harmony with OS/2 on the same system, and people may want to get off 
+    the Liberetto mailing list.  No, we don't really believe any of it either.
+    To get off this list, send a self-addressed and stamped e-mail to our usual
+    address, with a haiku on the subject of post-modern communications based on
+    electrons and cleft sticks.  We'll publish the best entries.
+
+    As we say around here, if in doubt, hit it with a large rock!!  If it 
+    breaks, it was probably no use anyhow.

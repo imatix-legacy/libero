@@ -1,0 +1,327 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/9
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                NOVEMBER 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 9
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Finite State Machines - News and Views - Reader's Letters - Tips & Hints
+
+    Warning: this issue contains combinations of letters that may or may not
+    be offensive, humorous, or intelligible.  iMatix is not responsible for
+    any effects, collateral damage, or minor nuclear wars that may result
+    directly or indirectly from this journal, or anything else.
+
+
+ == EDITORIAL ..---.-.-.-....-----.--.....----.-.---....----.-.-...-.---...-.
+
+    Paedophilia, Revolution, and the Net
+
+    Belgium is normally a quiet country, where citizens of venerable city
+    states like Antwerpen, Brugge, Charleroi, and Gent have since the middle
+    ages kept the peace by bribing their mobsters to go somewhere else, or -
+    if that failed - by hiring them into the political system.  This cosy
+    endemic corruption was blown wide open this summer by revelations of a
+    high-level child abduction and murder network, grossly mishandled by
+    ministers and judges.  The Belgians, usually preoccupied with work and
+    tax avoidance, are on the streets, striking, marching, stoning
+    government buildings, and the hot smell of revolution is in the air.
+
+    Something else is happening too, less dramatic, but still important.
+    The paedophile scandals come at a convenient time for those seeking to
+    control the Internet in Europe.  Who will dare to argue that it is right
+    to allow the flow of child pornography as a matter of principle?  And,
+    if the principle of censorship can be applied to certain types of
+    pornography, why not all undesirable information?
+
+    In Liberetto I/4 I said that governments would try to control the
+    Internet.  The first salvoes were fired in the US with the now-defunct
+    Computer Decency Act.  Now Europe is following suit, with various
+    measures directed against paedophile material and - in the UK - all
+    'pornography'.
+
+    The results will be multifold.  Firstly, many people will realise that
+    the Internet is a source of illicit material, and will get connected for
+    that purpose.  Secondly, truly illicit users will go underground, a
+    trivial effort in Internet terms.  Thirdly, European governments will
+    use the opportunity to build mechanisms to censor the Internet.  In
+    France, the government will keep its ill-advised ban on encryption on
+    public networks.  In most countries, ISPs will become liable for the
+    material sent through their networks.
+
+    These opportunistic measures will ultimately fail.  But in the meantime
+    they will hinder the growth of the Internet in Europe, and push it
+    partly underground.  An open Internet is a powerful tool in the fight
+    for a fair government.  An underground Internet is a tool for criminals.
+
+    It's ironic - but to a Belgian, sadly predictable - that governments
+    would act in the interests of criminals.
+
+    Pieter Hintjens
+    Antwerpen
+    1 November 1996
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    Did Mandy strangle Alex?  Or was it the coffee?  Why are you reading
+    this junky journal anyhow?  And why are we asking these questions?  All
+    will be revealed.  Just read on as we dig into our postbag for those
+    letters that made our day...
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: BMG@gnn.com (Bob McGhee)
+    >Subject: Re: Liberetto Vol I/8
+    >
+    >Thank you for your Liber[ett]o Newsletter.
+    >It makes my day!
+
+    We try.  Well, maybe that's a small overstatement.  Somewhere near the
+    end of the month, the Liberetto editorial team start grumbling about
+    'that time of the month again'.  One can see small signs of the
+    impending deadline.  Mandy, the Office Manager, wears a t-shirt saying
+    "Distract me and I'll strangle you!".  Alex goes into a caffeine
+    overdose, and stumbles around the iMatix HQ corridors asking if "it's
+    Monday yet".  Small arguments and minor stabbings happen around the
+    coffee machine.  Finally, after several long nights searching for the
+    necessary bits, Liberetto hits the presses and we're able to send it
+    out.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    > Folks:
+    > I would like to know if there are any plans to provide extensions to
+    > Liberio for Visual C++.
+    > Thanks in advance,
+    > --
+    > Paul J. Powers
+    > Lucent Technologies
+    > Bell Labs Innovations
+    > p.j.powers@lucent.com
+
+    It's "Libero", but no matter. I guess you mean 'when can I build VC++
+    apps using Libero'?  We're waiting for someone to want to do this badly
+    enough to make the appropriate code generation schema.  You can already
+    generate pure C++, and certainly mix the generated code with your own
+    modules that use VC++ extensions.  More fundamentally, we do not really
+    see any trivial way to build a 'normal' Windows program using Libero,
+    whatever the language used.  You can build pieces of code using Libero.
+    Typically, any large complex chunk of code that is not intimately driven
+    by events from the GUI can be designed as a Libero program.
+
+    We do have a non-trivial way to build serious GUI programs using Libero,
+    namely using our SMT kernel.  (No-one has done this yet, but it is a
+    Small Matter Of Programming.)  You need to build a thin front-end that
+    collects events and manages the screen, and implement your application
+    as SMT agents that handle the various GUI events.  Again, this does not
+    apply to MS VC++, but to any GUI-driven application in any language.  I
+    think.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    > Please add me to your weekly news letter. Thanks.
+    > --
+    > Jim Meinke                               jmeinke@pcsi.cirrus.com
+    > Pacific Communication Sciences, Inc.     Phone: 619-535-9505, x1398
+
+    It's monthly, but no matter.  You can consider yourself well and truly
+    added.  Maybe monthly is better, on consideration.  I think weekly would
+    be a little hard to sustain.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: "Gregory B. Brooks" <brooks.greg@worldnet.att.net>
+    >Subject: How do you do it? Libero
+    >
+    >I arrived at your site via a post to comp.protocols.misc concerning
+    >using a FSM to do communication to a PLC (Programmable Logic Controler,
+    >i.e. computer to control equipment) via RS-232.  One of the posts
+    >suggested "Libero".  I was amazed when I linked to your site, and I
+    >still am!  Other posts suggested petri nets, I haven't found anything
+    >to compare with the interest I have developed with Libero.  But being
+    >new I have several questions:
+    >How can you provide such a tool to the programming community so freely?
+    >Is Libero suited to do communication protocol programming interfaces?
+    >I downloaded Vax bins and srcs via browser then ftp'ed via bin to vax.
+    >Executable seems to work fine, but srcs are not exactly readable, i.e.
+    >CR, LF ?  What did I do wrong?
+    >How long before Borland Delphi Object Pascal is supported?  I see the
+    >grayed out radio-button and assume it is in the works.
+    >Can I get the sources to Windows Libero?  I know you don't want to
+    >admit that you are a VB programmer and all ;-O
+    >Again I would like to congratulate you on your efforts.  It is great to
+    >be linked to a site like yours, that provides good tools, knowledge,
+    >etc.  Keep up the good work!!!
+    >Please make sure you keep me on your mailing list.
+    >Thanks alot,
+    >Gregory B. Brooks
+
+    Oh yeah, we love this kind of mail.  More, more!  Yes, Libero is like a
+    dirty-big hammer for communications protocol programming.  Thump, thump,
+    does the job, good 'n solid.  Petri nets sound kind of effete, don't you
+    think.  (I'm trying to think of a good joke involving Petri nets that
+    won't invoke the wrath of gay or feminist groups.)  (Nah, can't do.)  If
+    you transfer .zip files to a VAX or UNIX, remember to use binary
+    transfer mode, and unzip using the "-a" option.
+
+    Our Delphi schema is unborn so far.  If anyone out there wants to make
+    it, go for it!  If Delphi had been out a few months earlier, we'd have
+    used that instead of Visual (Very) Basic to make Libero for Windows.
+    As it is, you can get the Libero for Windows sources from our website at
+    the URL: http://www.imatix.com/pub/libero/src/lrwinscr.zip.
+
+    Lastly, why is Libero free software?  Think of it as our way of repaying
+    the debt to all those people who built Linux, GNU, the Net, and all the
+    other tools that make life easier and cheaper.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: Alan Hensel <alanh@vnet.net>
+    >Subject: wagging dogs
+    >
+    >Hey... Libero is a cool tool, definitely one to keep in my toolbox.
+    >But one thing may eliminate Libero from usage in maybe half the cases
+    >where I might employ a FSM. Namely, either you do it Libero's way, and
+    >let the FSM control your program, or you write your program to control
+    >the FSM. That is to say, I can't seem to adapt Libero to a project I'm
+    >already in the middle of, because what I really want to do is
+    >instantiate a bunch of FSM objects, and more or less toss them events
+    >asynchronously... How would I design this in Libero's programming model,
+    >without resorting to multithreading? Would Libero have to be modified,
+    >and if so, could the modification be done through schema-tweaking alone?
+    >-Alan
+
+    Glad you asked.  How to manage several asynchronous state machines without
+    multithreading?  All is revealed in the special developer's guide below.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    >From: Howard Goldstein <hg@penny.n2wx.ampr.org>
+    >Subject: alternative schema?
+    >
+    >Hello Pieter, libero is a nice system.  I can see it having many
+    >timesaving applications for me.
+    >In one particular application I'd like to use it I'm not quite sure
+    >how to do it.  I have an event driven app that needs to run multiple
+    >state machines but I'm not sure how to do it in that it seems the
+    >schemas want to take control of the process completely until the
+    >machine finishes executing.  I need state machines that let me call
+    >them to do what needs doing, then return to my stuff so I can call
+    >them later while the state they were in persists between calls.
+    >Is this functionality already in here or perhaps available in an
+    >alternative schema (for c)?  It doesn't look like it would be too hard
+    >to split the MAIN into callable init and processing portions and I'll
+    >do that if someone else hasn't already done it.
+    >Thanks for putting this neat tool out!
+    >Howie
+
+    Glad you asked, etc.  Read on...
+
+
+ == DEVELOPER'S GUIDE TO SMT ---.---..---.-.-..-.---.-..-.---.-...-.---.-....
+
+    In a dark corner of the subway station, just out of reach of the
+    flickering fluorescent lights, something was happening...  Now, it is
+    true that at the atomic, and even the molecular, level, something is
+    *always* happening, everywhere, except in pure vacuum conditions and the
+    brains of company receptionists.  However, it would be poetically
+    correct to state that while most of the subway station was notable for a
+    relatively total lack of things in the processes of happening, this was
+    definitely *not* the case in the dark corner.  There, as we just said,
+    something was happening.
+
+    It had been said that the stresses of modern life are extreme.  The
+    little-known plumber-philosopher, Char Sui-Sen, roughly translated as
+    "I'll have a soup with noodles, please", once remarked that the planet
+    was like a prison cell built for four, now inhabited by thirty-two, not
+    including kids and grandparents.  He also said that the world was round,
+    and that humans evolved from higher life forms, and "I'll have that soup
+    now, please".
+
+    While Char Sui-Sen was burning his palate with hot soup, something was
+    still happening in the dark corner, across the other side of the world,
+    in a mostly empty subway station.  The habitual drink dispenser, Cocus
+    Machinus Sentiens, was metamorphosing - with appropriate aural and
+    visual effects - into its adult form, Plurococus Sentiens, driven by the
+    extreme stresses of modern life, except hot noodle soup, of which, in
+    the subway station, there was exactly none.
+
+    Plurococus Sentiens, known colloquially as "that coke machine in the
+    corner that's somehow slightly larger than it was before, and is
+    strangely moving in my direction, ohmygoditsgotteethandAAAAAGH!!...", is
+    supremely adapted to modern life.  It can simultaneously dispense
+    canisters of carbonated carbohydrated caffeinated coloured water
+    ("Nausea", "Nausea Lite", and "Nausea Original" being three popular
+    choices), play a selection of Original Subway Hits, and resolve some of
+    the deeper problems in the universe, such as the origin of space-time,
+    the nature of life, and where do the little old ladies go when the
+    subway trains stop running.
+
+    Plurococus, after its refreshing and sustaining snack, moves back into
+    its corner to consider its options.  (We should note here that the
+    earlier statement that the subway station was empty was not entirely
+    correct; one little old lady was seen crossing the hall.  Currently,
+    however, apart from Plurococus, and a black handbag, the subway station
+    is now empty.)
+
+    The key to Plurococus' new abilities is a metamorphosed command and
+    control center, called brain in non-military jargon.  While the old
+    Cocus Machinus brain was limited to simple choices like 'Do I bite or
+    run?', Pluro can go through the entire range from 'Do I bite or run,
+    bite AND run, run, then bite, or just bite?' to 'Where did all the good
+    times go, and why is it always raining?'
+
+    More importantly, at least if we want to get this newsletter out in
+    time, Plurococus can think about several things at once.  This is how
+    one technical expert described it:
+
+    "Okay, look here.  We have a separate logic module for each thought
+    process.  See here is the muzak center, here is the little-old-lady
+    tracking monitor, here is the carbonation control center.  Now, we see
+    that each logic module need input events.  These come in here, here, and
+    here.*  Now, see how each logic module has a input event queue?  Right.
+    When someone inserts coins, or a little old lady crosses the empty
+    subway station floor, an event arrives here, here, or here.**  Each
+    logic module handles its incoming events, does its work, and sometimes
+    sends events, or 'bowls of hot noodle soup' as we like to call them, to
+    other modules."
+
+    To build a Plurococus Sentiens simulator, you could use Libero and SMT.
+    Each logic module is a separate finite-state program, written as an SMT
+    agent.  Each logic module has its own queue for incoming events.  Events
+    come from other logic modules, or the outside world.  The SMT kernel
+    multitasks the various finite-state machine programs, giving the
+    illusion of parallel processing.  The question: 'multithreading or
+    single-threading' is interesting but not very important: the principles
+    are the same in either case.
+
+    Meanwhile, the last word from our technical expert: "and here we see
+    that the ohmygoditsgothumungousteethandAAAAAGH!!..."
+
+    * The reader will just have to imagine the diagrams.
+    ** see above.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.
+
+       MUMBLE interj. 1. Said when the correct response is either too
+       complicated to enunciate or the speaker has not thought it out.
+       Often prefaces a longer answer, or indicates a general reluctance
+       to get into a big long discussion.  "Well, mumble."  2. Sometimes
+       used as an expression of disagreement.  "I think we should buy it."
+       "Mumble!"  Common variant: MUMBLE FROTZ.
+                                        -- From the AI Hackers' Dictionary
+
+    If you change address, please let us know.  Just imagine, start of a new
+    month, and no Liberetto!  Intolerable.  We hate getting those 'Mail was
+    returned; adressee unknown' messages.
+
+    To get off this mailing list, send a mail to kevorkian@imatix.com.
+

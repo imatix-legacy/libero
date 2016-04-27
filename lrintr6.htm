@@ -1,0 +1,184 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Example of Parsing An Arithmetic Expression</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr5.htm">&lt;</A>
+ | <A href="lrintr7.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC12">Example of Parsing An Arithmetic Expression</A></H2>
+
+<P>The next example is for an arithmetic expression evaluator that was
+originally proposed by <A href="mailto:leif@ibm.net">Leif Svalgaard</A>.  The program works out the
+value of a string like '2-SQR(2)*1.414'.  The program translates easily into
+most of the languages I've worked with so far, from assembler to Basic to C
+and COBOL.</P>
+
+<P>Here I describe the program <TT>lrcalc.c</TT>, which is a subroutine that
+I use in Libero.  You can find the source for this program along with the
+other sources for Libero in the <A href="/pub/libero/src/lrsrc232.zip">lrsrc.zip</A> archive.  There are also
+versions of this program in various languages in the
+<A href="/pub/libero/example/expr.zip">examples archive</A>.</P>
+
+<P>Lrcalc chops the expression into tokens, each representing an operand
+(numbers) or operator.  The operators are classified as:
+<UL>
+<LI>term operator: '+' and '-'</LI>
+<LI>factor operator: '*' and '/'</LI>
+<LI>left-parenthesis: '('</LI>
+<LI>right-parenthesis: ')'</LI>
+<LI>end-mark: indicates the end of the expression.</LI>
+</UL></P>
+
+<P>There are various ways of parsing an expression like this; <TT>lrcalc</TT>
+combines two basic techniques: push-down stacks for the operands and
+operators, and states to indicate how tokens are handled.  Each state accepts
+specific tokens and rejects others. For instance, at the start of the
+expression, an operator like '*' is not valid.  When a state accepts an
+operand or operator, it adds it to the appropriate stack.  When a state
+stacks an operator, it evaluates any previous operators that have the same,
+or higher priority.  '*' and '/' have a higher priority than '+' and '-'.</P>
+
+<P>Operators like '(' and ')' are placeholders that group parts of the
+expression together with a higher priority.  Operators like '*', '/', '+',
+and '-' are binary operators that take two values off the operand stack, do
+their work, and place the result back on the stack.</P>
+
+<P>The program basically takes tokens one by one, stacks and evaluates them
+according to the priority rules, until it reaches the end of the expression.
+To make this clean, the program places a special end-mark token at the end of
+the expression when it starts.  When it reaches the end-mark, it evaluates
+any remaining operators, which leaves the result of the expression sitting on
+the stack.</P>
+
+<PRE>
+After-Init:
+    (--) Ok                         -&gt; Expecting-Initial
+          + Get-Next-Token
+    (--) Error                      -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The two states Expecting-Initial and Expecting-Operand are similar, except
+that the first allows End-Mark while the latter does not.  I.e. we accept an
+empty expression (End-Mark in Expecting-Initial), but don't accept an
+expression that ends when we expect an operand:</P>
+
+<PRE>
+Expecting-Initial:
+    (--) Term-Op                    -&gt;
+          + Allow-Signed-Number
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Number                     -&gt; Expecting-Operator
+          + Stack-The-Number
+          + Get-Next-Token
+    (--) Left-Par                   -&gt; Expecting-Operand
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) End-Mark                   -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>These two states handle signed numbers (e.g.. -12, +100) by accepting
+Term-Op tokens (ie. '+' or '-') so long as these are stuck to a following
+number.  The module Allow-Signed-Number gets the next token, and if this is a
+number, it kicks the dialog into accepting a number in the same state.  It
+does this using an exception event called Number:</P>
+
+<PRE>
+Expecting-Operand:
+    (--) Term-Op                    -&gt;
+          + Allow-Signed-Number
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Number                     -&gt; Expecting-Operator
+          + Stack-The-Number
+          + Get-Next-Token
+    (--) Left-Par                   -&gt; Expecting-Operand
+          + Stack-The-Operator
+          + Get-Next-Token
+</PRE>
+
+<P>After stacking an operand, the dialog expects an operator:</P>
+
+<PRE>
+Expecting-Operator:
+    (--) Term-Op                    -&gt; Expecting-Operand
+          + Unstack-Ge-Operators
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) Factor-Op                  -&gt; Expecting-Operand
+          + Unstack-Ge-Operators
+          + Stack-The-Operator
+          + Get-Next-Token
+    (--) End-Mark                   -&gt;
+          + Unstack-All-Operators
+          + Unstack-If-End-Mark
+          + Terminate-The-Program
+   (--) Right-Par                  -&gt; Expecting-Operator
+          + Unstack-All-Operators
+          + Unstack-If-Left-Par
+          + Get-Next-Token
+</PRE>
+
+<P>The Defaults state lists all tokens.  If a state does not explicitly
+accept some token, the Defaults state handles it: it issues an error message
+and terminates the program:</P>
+
+<PRE>
+Defaults:
+    (--) Number                     -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Term-Op                    -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Factor-Op                  -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) End-Mark                   -&gt;
+          + Signal-Token-Missing
+          + Terminate-The-Program
+    (--) Left-Par                   -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Right-Par                  -&gt;
+          + Signal-Invalid-Token
+          + Terminate-The-Program
+    (--) Exception                  -&gt;
+          + Terminate-The-Program
+</PRE>
+
+<P>The expression parsing technique shown here is easy to elaborate to
+support variables, functions, other operators, strings, etc.  It is true that
+some languages have easier ways of evaluating expressions, but this technique
+is easily applied to languages like assembler and COBOL that do not have
+support from tools like lex and yacc.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrintr.htm">&lt;&lt;</A> | <A href="lrintr5.htm">&lt;</A>
+ | <A href="lrintr7.htm">&gt;</A> | <A href="lrintr8.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrintr.htm">Introduction to Libero</A>
+| <A href="lrintr1.htm">The Coke Machine Example</A>
+| <A href="lrintr2.htm">Example of Using a Telephone</A>
+| <A href="lrintr3.htm">Example of Controlling a Telephone</A>
+| <A href="lrintr4.htm">Source Code For Phone.c</A>
+| <A href="lrintr5.htm">Example of a C/C++ Comment Stripper</A>
+| <EM>Example of Parsing An Arithmetic Expression</EM>
+| <A href="lrintr7.htm">Dialogs For Dummies</A>
+| <A href="lrintr8.htm">Frequently Asked Questions</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

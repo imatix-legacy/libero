@@ -1,0 +1,142 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The C Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang1.htm">&lt;</A>
+ | <A href="lrlang3.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="ansic">&nbsp;</A>
+<H2><A NAME="TOC5">The C Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is C?</DT>
+<DD>C is part of UNIX originally, now almost a universal language. It is a
+very general purpose language, and typically used for systems programming.
+ANSI C is a widely supported standard.</DD>
+<DT>Portability</DT>
+<DD>ANSI C compilers are available on (almost) all platforms. ANSI C programs
+can be highly portable if you eschew compiler extensions, and don't rely on
+libraries that are not portable.  Some UNIX vendors include non-ANSI
+compilers but charge extra for ANSI C compilers.  Luckily the GNU gcc
+compiler is excellent and ported to most UNIX systems.</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: C is flexible and widely known; it is a small and clean language.
+C compilers are generally well-tuned and sometimes exceptionally good.  Cons:
+no easy string handling; sloppy programmers write horrendous C code.</DD>
+<DT>How To Get It</DT>
+<DD>How to get it On UNIX boxes, 'cc', or 'gcc'. GNU gcc is widely available
+and well-regarded.  Commercial C compilers are available for almost all
+platforms from mainframes to embedded systems.</DD>
+<DT>Libero Supports</DT>
+<DD>ANSI C, though you can freely use any extensions you need to. Libero
+generates ANSI C code, so your compiler must be happy with things like
+prototypes.</DD>
+</DL>
+
+<H3>Working With C</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.c.</LI>
+<LI><B>Program model:</B> function with arguments; you can change the
+function name and arguments in the proposed program.</LI>
+<LI><B>Good for:</B> large C programs; complex functions; batch
+programs.</LI>
+<LI><B>Files used/made:</B> own work in myprog.c; generates include files
+<TT>mydialog.d</TT> and <TT>mydialog.i</TT>.  You also need the
+<TT>prelude.h</TT> header file at compile time.</LI>
+<LI><B>Module functions:</B> <TT>MODULE module_function_name (void)</TT></LI>
+<LI><B>Private functions:</B> <TT>static type private_function_name
+()</TT></LI>
+<LI><B>Naming style:</B> any except -style=cobol.</LI>
+<LI><B>Limits:</B> standard Libero limits.  All tables are defined
+statically in the <TT>myprog.i</TT> file.</LI>
+<LI><B>Development cycle:</B> run <TT>lr</TT> after changing the dialog.  If
+you add new modules, update the <TT>.c</TT> program.  Compile, link, and run.
+You need the <TT>.i</TT> and <TT>.d</TT> files at compile time.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+/****************   MODULE FUNCTION NAME   *****************/
+
+MODULE module_function_name (void)
+{
+                             /* Empty module needs no code */
+}
+
+static type private_function_name (argument,...) {
+    the_next_event = ok_event;
+    raise_exception (error_event);
+}
+</PRE>
+
+<P><A HREF="doc/calcul.c">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<P>I've used Libero to help me write C programs for a few years.  It would be
+false to say I used Libero all the time; this is simply not the case.  For
+example, I wrote Libero in C: there are 12 separate source files, and four of
+these have dialogs.  I used a dialog whenever I had a single function that
+got rather complex. In Libero, this happens to be in:
+<OL>
+<LI>the module that parses and loads a dialog (<TT>lrload</TT>);</LI>
+<LI>the code generator module, which scans the schema and interprets the
+simple language embedded in the schema (<TT>lrcode</TT>);</LI>
+<LI>the two modules that evaluate expressions (<TT>lrcalc</TT> and
+<TT>lreval</TT>).</LI>
+</OL></P>
+
+<P>It's probably no coincidence that all these modules do some kind of
+parsing.  Libero is a code generator, so it's normal that the most complex
+modules are parsers.  As a consultant, I've written some profoundly complex C
+programs using Libero.  In at least one case I still don't see any other way
+that I could have done the project.</P>
+
+<P>When you write a C program using Libero, you tend to use a lot of
+source-local variables.  This is disturbing to some programmers, who reckon
+that a program must consist of lots of internested modules that hide data
+from each other.  Sure, this is one way of managing complexity.  Still,
+modules in a Liberated program aren't nested; they all sit at the same level
+below the dialog.  They all share (mostly) a common set of data objects.  In
+real programs this seems to work nicely, so if you have problems with it,
+just close your eyes the first few times.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang1.htm">&lt;</A>
+ | <A href="lrlang3.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <EM>The C Language</EM>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <A href="lrlang4.htm">The COBOL Language</A>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

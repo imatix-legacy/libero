@@ -1,0 +1,100 @@
+<HTML><HEAD><!--Revised: 15 Apr 1996, 18:33 12 Apr 1996 By: Pieter Hintjens-->
+<TITLE>Read-Only Variables</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech.htm">&lt;</A>
+ | <A href="lrtech2.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC3">Read-Only Variables</A></H2>
+
+<P>You can use these read-only variables anywhere in a schema:
+
+<DL>
+<DT>$author</DT>
+<DD>The value of the -author option.</DD>
+<DT>$date</DT>
+<DD>The current date in a shortened form: 'yy/mm/dd'. Libero
+always uses this date format for short dates.</DD>
+<DT>$time</DT>
+<DD>The current time in a shortened form: 'hh:mm'.</DD>
+<DT>$fulldate</DT>
+<DD>The current date in a long form: 'dd Mmm, yyyy'. The month
+is abbreviated to 3 letters, in English.</DD>
+<DT>$fulltime</DT>
+<DD>The current time including seconds: 'hh:mm:ss'.</DD>
+<DT>$out_count</DT>
+<DD>The number of lines output so far, including the current
+line.  This starts at 1.</DD>
+<DT>$dialog</DT>
+<DD>The name of the dialog file being processed, without
+extension.</DD>
+<DT>$schema</DT>
+<DD>The name of the schema being read.  This is the value of the
+-schema option.</DD>
+<DT>$source</DT>
+<DD>The name of the source file for dialog, without an
+extension.  This name is derived as follows: normally, it is the
+same as the dialog file name.  If -plusd was specified, it is
+formed by adding 'D' to the dialog file name.  If -source=xxx
+was used, this explicitly tells the source name to use.</DD>
+<DT>$style</DT>
+<DD>The value of the -style option.</DD>
+<DT>$defaults</DT>
+<DD>The number of the defaults state, or zero if none was
+specified.</DD>
+<DT>$events</DT>
+<DD>The number of events in the dialog.  This is used to
+dimension various tables.</DD>
+<DT>$maxaction</DT>
+<DD>The maximum action number (largest vector).  This is used to
+dimension various tables.</DD>
+<DT>$modules</DT>
+<DD>The number of modules in the dialog.  This is used to
+dimension various tables.</DD>
+<DT>$states</DT>
+<DD>The number of states in the dialog.  This is used to
+dimension various tables.</DD>
+<DT>$vectors</DT>
+<DD>The number of action vectors in the dialog.</DD>
+<DT>$version</DT>
+<DD>The current Libero version number as 4 characters: 'n.nn';
+e.g. '2.32'.</DD>
+</DL>
+<P>Additionally, you can use <TT>$comma</TT>, <TT>$name</TT>,
+<TT>$number</TT>, <TT>$offset</TT>, <TT>$tally</TT>, <TT>$row</TT>, and
+<TT>$overflow</TT> within a <TT>:do</TT> block.  These variables are
+explained later.  You cannot define a variable with the name of a standard
+Libero variable.
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrtech.htm">&lt;&lt;</A> | <A href="lrtech.htm">&lt;</A>
+ | <A href="lrtech2.htm">&gt;</A> | <A href="lrtech13.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrtech.htm">Libero Technical Reference</A>
+| <EM>Read-Only Variables</EM>
+| <A href="lrtech2.htm">Schema Commands</A>
+| <A href="lrtech3.htm">Syntax Of Expressions</A>
+| <A href="lrtech4.htm">Syntax Of Logical Conditions</A>
+| <A href="lrtech5.htm">Control Variables</A>
+| <A href="lrtech6.htm">Standard :do Conditions</A>
+| <A href="lrtech7.htm">Extra Variables In A :do Loop</A>
+| <A href="lrtech8.htm">General Rules for Code Generation</A>
+| <A href="lrtech9.htm">Generating Module Stubs</A>
+| <A href="lrtech10.htm">Generating COBOL Code</A>
+| <A href="lrtech11.htm">The State Machine Algorithm</A>
+| <A href="lrtech12.htm">Compiled-In Limitations</A>
+| <A href="lrtech13.htm">Quick Reference - Libero Schema Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

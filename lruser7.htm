@@ -1,0 +1,101 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>Using Templates</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser6.htm">&lt;</A>
+ | <A href="lruser8.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC8">Using Templates</A></H2>
+
+<P>The standard Libero schemas support templates.  This just means that you
+can build a library of code that the generator will pull-in whenever you use
+it in a dialog.</P>
+
+<P>For example, let's say that you are working in a COBOL application where a
+lot of programs need to do the same work in Initialise-The-Program:</P>
+
+<PRE>
+    MOVE LINKAGE-BLOCK TO OWN-LINKAGE-BLOCK
+    PERFORM CHECK-LINKAGE-VALUES
+    IF CURRENT-LANGUAGE = SPACES
+        MOVE "ENGLISH" TO CURRENT-LANGUAGE
+</PRE>
+
+<P>You can either:
+<UL>
+<LI>Retype or copy this code into each new program you create. This is extra
+effort for nothing.</LI>
+<LI>Modify the standard schema.  This is also extra effort, not today, but
+when the next release of Libero comes around.</LI>
+<LI>Use a COPY book (an included file) for the common code.  This is okay if
+the code is regularly changed, or large.  For many small pieces of code you
+just get a terrible burden of managing lots of these COPY books.
+<LI>Use a template.  Of course, this is the way to do it.</LI>
+</UL></P>
+
+<P>Let's say you make a file called TEMPLATE.cob.  This looks like this:</P>
+
+<PRE>
+&lt;Initialise-The-Program&gt;
+    MOVE LINKAGE-BLOCK TO OWN-LINKAGE-BLOCK
+    PERFORM CHECK-LINKAGE-VALUES
+    IF CURRENT-LANGUAGE = SPACES
+        MOVE "ENGLISH" TO CURRENT-LANGUAGE
+&lt;END&gt;
+</PRE>
+
+<P>Now, when you build a new program, Libero magically includes
+this code in the INITIALISE-THE-PROGRAM section.  This is how templates
+work:
+<UL>
+<LI>Each schema looks for a template file with the same extension as the
+schema.  If the template file does not exist, this is okay.</LI>
+
+<LI>The schema 'pulls in' code at various points.  Again, if it cannot find
+the code it's looking for, that is okay.</LI>
+
+<LI>Each section in the template starts with a keyword between "&lt;" and
+"&gt;" and ends in "&lt;END&gt;".  The schemas define a number of standard
+section keywords: "&lt;HEADER&gt;" and "&lt;DATA&gt;", plus one section per
+module.</LI>
+
+<LI>The keywords are case-sensitive.  &gt;Get-next-token&gt; is not the same
+as &gt;Get-Next-Token&gt;.  The second form is correct; the first will not
+work.</LI>
+
+<LI>The template can be in the current directory, or on the path.</LI>
+</UL></P>
+
+<P>The file template provides an example that you can use for your own
+templates.</P>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lruser.htm">&lt;&lt;</A> | <A href="lruser6.htm">&lt;</A>
+ | <A href="lruser8.htm">&gt;</A> | <A href="lruser11.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lruser.htm">Using Libero</A>
+| <A href="lruser1.htm">The Dialog File Syntax</A>
+| <A href="lruser2.htm">Libero Options</A>
+| <A href="lruser3.htm">Using Exceptions</A>
+| <A href="lruser4.htm">Using The Defaults State</A>
+| <A href="lruser5.htm">Using Sub-Dialogs</A>
+| <A href="lruser6.htm">Using Super-States</A>
+| <EM>Using Templates</EM>
+| <A href="lruser8.htm">Using Get-External-Event</A>
+| <A href="lruser9.htm">Efficiency</A>
+| <A href="lruser10.htm">Care and Feeding of Dialogs</A>
+| <A href="lruser11.htm">When To Use Libero</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

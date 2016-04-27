@@ -1,0 +1,348 @@
+From: Pieter Hintjens <pahint@eunet.be>
+Subject: Liberetto Vol I/2
+
+     .
+    /|\    ------------------------------------------------------------------
+  /  |  \    -L- -I- -B- -E- -R- -E- -T- -T- -O-                   APRIL 1996
+ - ( . ) -
+  \  |  /    The Libero Newsletter                           Volume 1 Issue 2
+    \|/    ------------------------------------------------------------------
+     '                          Copyright (c) 1996 iMatix - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+ == EDITORIAL --.-.----...-.-....-.-.--..-.-.-..-.--....-.-.-..-.---..-.-..-.
+
+    Last month I was in Burkina Faso, for a week.  This is one of the poorest
+    countries in the world, and yet things seem to function.  People live,
+    eat, work.  Sometimes we rich folks start to think things like: what if
+    I don't get that pay rise?  If I can't afford that new car?  If I can't
+    buy that superfast PC?  Africa throws such concerns into sharp focus.
+
+    And yet, the lives we live must have some relevance.  When I look at my
+    work, I have to ask myself: what possible use is this to people who's
+    main daily concern is finding enough to drink and eat?  The easy answer
+    is 'none'.  But I believe there is a more positive answer.
+
+    On the radio one night in Ouagadougou, I listened to a broadcast about
+    the Internet.  The speaker explained what it was, and what it would do
+    for Burkina Faso.  I was impressed: the explanations were clearer than
+    many I have heard in Europe.  One point was really interesting.  The
+    Internet would open the world market for services.  A country such as
+    Burkina Faso could move from an agricultural economy to a service
+    economy without the nasty industrial stage in-between.  This applies to
+    most of black Africa, but also South America, China, India,...
+
+    Now, what is the effect of billions of new brains on the world market
+    for services?  Firstly, we rich kids will need to work a lot harder and
+    a lot better.  Secondly, there will be a lot more brainpower out there
+    to solve the problems that face us all.
+
+    Some people, however, fear competition.  Their reaction to this kind
+    of development is to lock the door, put up a wall, try to ignore the
+    news.  It seems more and more likely that the Internet will become the
+    rock on which the world society will either break open, or break apart.
+
+    What about Libero?  Is this relevant?  I believe so.  I made this tool
+    free, to all people.  Knowledge cannot be the property of one person or
+    group: prosperity comes from exchange, not hoarding.
+
+    One day, a young Burkinabe will download Libero, and discover a new
+    way to solve problems.  This can only be described as a Good Thing.
+
+    Pieter Hintjens
+    Antwerpen,
+    4 Apr 1996
+
+
+ == NEWS ..--.-....-.-.----.-...-...-.---.---.-...-.-.---.-.--..-...-.-.---.-
+
+    Libero Documentation Hits The Road
+
+        The complete Libero documentation is now available on-line as HTML
+        documents.  To make things easy, you can download the complete kit
+        and install on a local hard-disk.  Just follow the links...
+
+        To build this documentation we developed a new tool, HTMLPP, a Perl
+        program.  If you are into Perl, or always wanted to take a look,
+        this is a great example.  Follow the links from the iMatix home page.
+
+    Multithreading?  Seems it's simple...
+
+        The Libero Simple Multithreading (SMT) kernel is available at
+        http://www.imatix.com/pub/smt/smtsdk11.zip.  This is still an
+        early beta version, but interesting to anyone who is involved
+        in internet programming or multithreaded programming.  We are
+        working on a fuller kit for the near future.
+
+        A more complete description of SMT comes later in Liberetto.
+
+    User of The Month Prize...
+
+        Goes to three equal winners:
+            Ole Asbjorn Fadum <oaf@vingmed.no>
+            Clive Hayward <haywardc@wlsunlab.queensu.ca>
+            Jim Hu <jim@gl.rhbnc.ac.uk>
+
+        For their struggle to get Libero compiled and running on Sun
+        platforms without the ANSI C compiler.  And I thought that ANSI
+        C was standard!  Thanks especially to Jim Hu for the Sparc and
+        Iris binary kits.
+
+
+ == LETTERS -..-.----.-.-...-.-.----.-.-.-...-.-----....-.--.-..-..-..--.-.-.
+
+    More extracts from your mail, since no-one sued us last time...
+
+    >From: larus@cs.wisc.edu (James Larus)
+    >Subject: Re: FYI: Libero 2.10 is available
+    >Pieter,
+    >I'm probably not the first to point this out, but.... Finite state
+    >machines and Turing machines are fundamentally different.  Automata
+    >theory showed (in the early 1960's) that FSM can perform a rather
+    >limited set of actions, primarily because they have a finite memory,
+    >and that push down automata are strictly more powerful that FSM and
+    >that Turing machines are strictly more powerful that push down automata.
+    >This is not to detract from your software--FSM are useful for lots of
+    >things, however they are not universal computation engines like Turing
+    >machines.
+    >/Jim
+
+    Aaargh!  And I thought that I had finally found a raison d'etre for the
+    old Turing Machine.  Jim is of course entirely correct.  I checked some
+    dusty books, which indicate that a Turing Machine is a bit like a FSM,
+    only it uses a very long digital tape.  Personally, I was sound asleep
+    at this point in our Computer Science courses.  Let's just say that
+    Libero is a more practical programming tool than a Sony DAT Walkman.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Marc Edgar <edgarm@crd.GE.COM>
+    >Subject: Libero... some questions.
+    >Greetings,
+    >Libero looks very interesting.  I am down-loading a copy
+    >at the moment.  Was the goal to have a language independent
+    >meta-language?
+    >Is there a schema avalible for java?
+    >Do you have any plans to add a GUI front end?  Or could one
+    >be adapted for Libero?
+    >Thanks.
+    >Marc
+    >PS - It would be helpful to use gzip or compress for unix versions,
+    >zip is not always avalible.
+
+    Thank you, sure, yes, no, what?, sure, no problem.  I've started
+    providing a gzip/tar (.tgz) archive for all UNIX install kits.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >From: Ewen McNeill <ewen@naos.co.nz>
+    >Subject: Libero - a port to OS/2
+    >Hi,
+    >
+    >I saw an announcement of Libero in comp.lang.perl.announce and thought I
+    >should have a look at it.  First off congratulations on a well designed
+    >web site -- fast to load, and informative.  Secondly congratulations on
+    >a very well put together distribution set.
+    >My main machine runs OS/2 Warp, but I've got another one here running
+    >Linux.  I figured I'd download the source and the Linux binary and look
+    >at the source and then play around with the Linux binary.  I still
+    >haven't got to the Linux binary because the OS/2 binary built first time
+    >(well, second time, the globbing in OS/2 picked up one file twice
+    >leading to two "main"s and some confusion).
+    >
+    >The command to build it?
+    >gcc lr.c lrcalc.c lrcode.c lrdump.c lreval.c lrfree.c lrglib.c lrlibr.c
+    >    lrload.c lroptn.c lrsort.c lrsymb.c -o lr.exe
+    >
+    >(The first version listed in install.sh as an alternate didn't quite
+    >work because the lr????.c globbed to lr.c as well as the initial lr.c.
+    >
+    >I don't have awk installed at present on my OS/2 machine, nor a
+    >bourne-like shell; both do exist for OS/2 though.)
+    >This is with EMX 0.9b, which is a port of GCC 2.7.2 to OS/2 with several
+    >useful utilties thrown in.
+    >I've only just started playing with it so I'm not certain the port is
+    >perfect (for one thing I could turn on some optimisation :-) ), but it
+    >appears to run at least as far as reading settings files, displaying
+    >help, and printing error messages.  I'm going to have a play with it
+    >this weekend, after I've looked at some of your examples.
+    >
+    >For the more official bit:
+    >
+    >>Who are you
+    >        Ewen McNeill
+    >>E-mail
+    >        ewen@naos.co.nz
+    >>What version of Libero do you use
+    >        2.11
+    >>Where did you get Libero from
+    >        Your web site
+    >>Where did you hear about Libero
+    >        comp.lang.perl.announce
+    >>Operating system and compiler
+    >        OS/2 Warp 3, fixpack 10, compiled with EMX 0.9b (gcc 2.7.2)
+    >        Onto a HPFS file system; if it runs without changes under DOS
+    >        then it stands a pretty reasonable chance of running on FAT as
+    >        well.  (HPFS is a long files, more flexible, file system for
+    >        OS/2 than the standard DOS FAT.)
+    >>Compile switches, if any
+    >        None at this stage; or alternatively as listed above (which is
+    >        bog standard).
+    >>Installation problems
+    >        None to date.
+    >>Difficulties in using Libero
+    >        If you give the program /help=no as an option (either in the ini
+    >        file or I presume on the command line) then it spits out the
+    >        help messages.  Counter intuitive, but I presume because it
+    >        doesn't expect that as input.  (I found this by cutting and pasting
+    >        the output of lr -settings into the ini file.)  Might be worth
+    >        making /help=no a no-op or something.
+    >>Difficulties with the documentation
+    >        The HTML docs only have the first few sections (when that
+    >        is complete it will be very handy), but otherwise none.  (I've
+    >        got the Word and ASCII docs here as well.)
+    >>What do you use Libero for
+    >        I haven't figured that out yet.  But I've seen way way too many
+    >        poorly hacked together state machines and so I jumped at the
+    >        chance to look at this.
+    >>You program in which language(s)
+    >        C, Perl, Ksh/Bash shell scripts, Pick Basic
+    >>Suggestions for technical changes
+    >        None yet.
+    >>Suggestions for the documentation
+    >        A latex version of the documentation?  Or possibly better still
+    >        a GNU-info version of the documentation. There are programs to
+    >        turn that into latex source, and from there into DVI files, and
+    >        from there into postscript, giving people a touch more
+    >        flexibility.   There's probably also something to go from Info
+    >        to HTML.
+    >
+    >And yes, I would like to be kept informed of any updates. I can send you
+    >an OS/2 binary once I've had a chance to try to break it if you like.
+    >(The binary itself is 118K as compiled above, and zips to about 48K.
+    >Compiled with -O, it is 104K, which zips to 49K.)
+    >
+    >Ewen
+    >--
+    >Ewen McNeill, ewen@naos.co.nz
+
+
+ == COMMMENT ---.-.-..--....-.---....-.-.-..-...-.-.....---.-.-..-.-.--..-.-.
+
+    The Simple Multithreading (SMT) Kernel
+
+        SMT is an add-on for Libero that lets you build portable internet
+        servers using a 'multithreaded' approach.  If you don't know or care
+        what that is, skip to the end, 'cause we gonna get deep technical
+        now.
+
+        The principle behind SMT is that multithreading is the only way to
+        build really heavy industrial internet servers.  The alternatives
+        are too flimsy to stand-up to the load of hundreds of simultaneous
+        connections: forking is too expensive, and managing concurrency
+        within a single thread is too difficult and error-prone.
+
+        Since you are programming with Libero anyhow, SMT takes the liberty
+        of timeslicing multiple threads in the same state machine.  Each
+        thread gets its own state and event values, managed automatically
+        by the kernel.  The SMT API lets you create and kill threads, pass
+        messages between threads, and (most importantly) do asynchronous
+        i/o so that one thread cannot block another while waiting for input
+        on a socket, pipe, or other device.
+
+        The principles are language independent, but this implementation
+        uses the C library to get where it has to.  The SMT kernel is
+        aimed at a specific market, namely writing internet servers and
+        clients.  We are developing http and ftp servers, which will be
+        made freely available in the near future.
+
+        If this kernel interests you, download it and take a look.  The
+        current version has been ported & tested on various Unix's, and
+        on Windows (Win 95).  We plan to port it to more Unix platforms
+        and Vax/VMS before we are through.
+
+    Focus On Perl
+
+        If you have not yet tried this language, perhaps it's time.  Perl
+        has been described as the Swiss-army battle cruiser of languages.
+        Well, it was something like that...
+
+        Why is Perl special?  Well, like all tools, it depends on what you
+        are doing.  If your work involves processing text, generating code,
+        publishing documents, managing a computer system, you will find
+        that Perl is a dream come true.  Very often, you'll think: how do
+        I do this particular fiddly thing with a piece of data... and
+        scanning through the Perl manual you'll find that Larry Wall
+        already built an answer into the language.  Despite the wide
+        scope of the language, it runs quickly, is very portable, and
+        is not so difficult to learn.
+
+        Many useful Perl programs are one or two-liner's.
+
+        It's when you start to consider really large Perl programs that
+        you hit the same complexity wall that hits you in C, assembler,
+        Awk, COBOL, Basic,...  So, you reach for the same solution, which
+        is of course Libero.
+
+        The htmlpp (besides being a useful tool) is a good example of a
+        Perl program written using Libero.  Download it from the iMatix
+        site at http://www.imatix.com/pub/htmlpp/htmlpp.zip.
+
+    Focus On Awk
+
+        Sometimes a battle cruiser is a bit too heavy for the job...  Awk
+        is a small and clean language that can be surprisingly useful.
+        GNU Gawk is portable to many systems, including MS-DOS, and runs
+        quickly and cleanly.  If you tried to get into Perl, but found
+        it a bit to hairy, take a look at Awk.  There is a nice example
+        of a large Awk/Libero program in the iMatix examples archive at
+        http://www.imatix.com/pub/libero/example/erbot.zip.
+
+    Focus On C
+
+        C is often critised for being unreadable, but if you've looked
+        at the Libero source code you'll know that this is just a matter
+        of care and attention, as with any programming language.  One
+        point where even good C programmers can get into a real mess is
+        when they start doing #ifdef's.  Once a program has been ported
+        across three or four systems, it starts to look schizophrenic.
+
+        Portability is one thing that we know.  And rule number one is:
+        never let portability issues rise to the application level.
+        Always (always) hide these in an abstracted lower layer, an API.
+
+        iMatix is working on two technologies to help.  Firstly, the
+        standard function library (SFL) will provide a set of resuable,
+        portable, ported functions covering everything from internet
+        access to file access.  Secondly, we are developing a Universal
+        Header File (take a look at prelude.h in the Libero source kit)
+        that encapsulates the problem of using the right #include's for
+        each system.
+
+        These are old ideas, and there are many existing C libraries and
+        portability platforms.  But: we believe in free software.  The
+        SFL and Universal Header File will be released according to the
+        GNU GPL, and will cover a wide range of machines, as usual.
+
+        If you feel you can contribute, drop us a line.  But be warned:
+        we only use the best.
+
+    Focus On Assembler
+
+        31EA:0100  3E D1 DF 02 75 0A 80 3E-D8 E0 3A 75 03 E8 3B FF
+        31EA:0110  5D 5A 59 5F 5E C3 83 3E-D1 DF 02 75 34 00 D9 31
+        31EA:0120  3A 75 05 E8 25 FF EB E8-03 F5 80 3E CF DF 00 74
+        31EA:0130  06 F7 C2 02 00 75 D9 C7-04 2E 2A C6 44 02 00 83
+        31EA:0140  06 D1 DF 02 EB CA 03 F5-41 8B FE 47 FD F3 A4 FC
+        31EA:0150  8B 36 CB DF C6 04 2A EB-B7 52 51 53 0A C0 75 1A
+        31EA:0160  EB 12 52 51 53 E8 28 01-0A C0 75 58 80 7C 01 3A
+        31EA:0170  8A 04 74 06 B4 19 CD 21-04 41 B4 3A 2E A3 DF E2
+        
+        :-)
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To get off this mailing list send a message to mail@imatix.com with a
+    subject line along the lines of 'no more liberetto please'.  Our Variant
+    Intelligence Processor will try to make sense of such messages and will
+    either take you off the Liberetto mailing list or send you all the back-
+    issues with extra copies for your friends and family.  Such is life.

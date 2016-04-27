@@ -1,0 +1,198 @@
+<HTML><HEAD><!--Revised: 28 Dec 1996 By: Pieter Hintjens-->
+<TITLE>The COBOL Language</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> Libero home page</A>
+ | <A href="index2.htm#doc_index">Libero documentation</A><BR>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang3.htm">&lt;</A>
+ | <A href="lrlang5.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="lr_tiny.gif" ALT="Libero" WIDTH=55 HEIGHT=60 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>Libero</B><BR><FONT SIZE=2>Version 2.32
+</TABLE>
+<HR>
+
+<A NAME="cobol">&nbsp;</A>
+<H2><A NAME="TOC7">The COBOL Language</A></H2>
+
+<H3>Overview</H3>
+
+<DL>
+<DT>What Is COBOL?</DT>
+<DD>COBOL is a standard language for business software, a job that it does
+well.  It is heavily used in the mainframe world.  COBOL has an undeserved
+reputation for inefficiency, and a deserved reputation for verbosity.  Today,
+many COBOL applications are being moved from mainframes to UNIX boxes.</DD>
+<DT>Portability</DT>
+<DD>Deaf, dumb, blind COBOL programs can be very portable. Otherwise you can
+use external libraries to achieve 100% portability (catch: you may have to
+write these libraries yourself).</DD>
+<DT>Pros and Cons</DT>
+<DD>Pros: easy to use and teach. An excellent language for mediocre
+developers, which includes me at least two days of the week.  Cons: Tends to
+encourage large, monolithic programs.  Like unreadable C code, this is a
+question of discipline.  COBOL provides no way to define data types directly,
+and has a verbose and over-rich syntax.  COBOL compilers are often
+unimpressive.  This is actually putting it mildly: on several systems that
+I've worked on, a simple loop in COBOL runs from 100 to 1000 times slower
+than the same loop coded in assembler.  I've seen just one COBOL compiler
+(Versions 2 and 3 of Realia) that could produce truly excellent code.</DD>
+<DT>How To Get It</DT>
+<DD>No free implementations exist, despite various attempts -- including one
+by me: if a COBOL compiler is Mt. Everest, I got as far as London Heathrow
+airport.  You need to find a commercial COBOL vendor for your system.</DD>
+<DT>Libero Supports</DT>
+<DD>ANSI 74 COBOL and ANSI 85 COBOL.</DD>
+</DL>
+
+<H3>Working With COBOL</H3>
+
+<UL>
+<LI><B>Schema:</B> lrschema.cob.</LI>
+<LI><B>Program model:</B> main program without linkage or called program with
+linkage.</LI>
+<LI><B>Good for:</B> COBOL batch programs and subroutines.</LI>
+<LI><B>Files used/made:</B> own work in <TT>MYPROG.cob</TT>; generates a copy
+book <TT>MYDIALOG.cbl</TT>.</LI>
+<LI><B>Module functions:</B> <TT>MODULE-FUNCTION-NAME</TT>.</LI>
+<LI><B>Private functions:</B> <TT>PRIVATE-FUNCTION-NAME</TT>.</LI>
+<LI><B>Naming style:</B> schema sets -style=cobol automatically</LI>
+<LI><B>Limits:</B> 999 states, events, modules.  (Libero allows 1000 of
+anything.)  All tables are defined statically.  Some compilers restrict any
+one 01-level item to 32K bytes.</LI>
+<LI><B>Development cycle:</B> run lr after you change the dialog.  Edit
+the source program, then recompile and link.</LI>
+</UL>
+
+<H3>Example of code</H3>
+
+<P>Code fragments:</P>
+
+<PRE>
+*****************   MODULE FUNCTION NAME   *****************
+
+ MODULE-FUNCTION-NAME.
+     EXIT
+     .
+
+ PRIVATE-FUNCTION-NAME.
+     MOVE OK-EVENT TO THE-NEXT-EVENT
+
+     MOVE ERROR-EVENT TO THE-EXCEPTION-EVENT
+     MOVE    "YES"    TO EXCEPTION-RAISED
+     .
+</PRE>
+
+<P><A HREF="doc/calcpk.cob">A fuller example.</A></P>
+
+<H4>Notes</H4>
+
+<UL>
+<LI>The dialog file can't have same name as the program (on some systems the
+extension for a program and a copy book is the same); the schema gives an
+error message in this case.  I suggest you use the <TT>-plusd</TT> option in
+your dialog.</LI>
+<LI>Since there is no way to distinguish the dialog paragraphs ('modules')
+from private paragraphs, the schema turns-off idle module checking.</LI>
+<LI>With some compilers (typically on IBM systems) you need to add a QUOTES
+option to compile the generated code.  The generated code uses quotes, not
+apostrophes - this is more portable, though maybe unusual for IBM'ers.</LI>
+<LI>There is no FEEDBACK variable or RAISE-EXCEPTION function, in contrast
+with most other schemas.</LI>
+<LI>Assumes the old-fashioned 80-column format with 6-digit sequence number
+and 8-character comment at right-hand side. Generates upper-case text.</LI>
+</UL>
+
+<P>COBOL has a reputation for encouraging large unwieldy programs.  This is
+justified to the extent that the language is verbose.  I think it's more due
+to the fact that COBOL programs tend to be written and maintained under
+particular pressures: get it working, now, and who cares if it is a little
+unwieldy.  You don't often see COBOL code competing on the open market for
+software where program size and speed are important.</P>
+
+<P>People working in COBOL expect monsters, so often get them. Now, I've
+spent a lot of my life writing COBOL - perhaps half a million lines or so,
+and I know that this unnecessary suffering. Of course it is possible to write
+clean, organised, commented code without Libero.  It is just a lot more
+effort, and I'm lazy.</P>
+
+<P>This schema is for batch programs and subroutines.  Batch programs are
+often the largest and most complex COBOL programs, and often benefit from a
+dialog.  I've not seen a lot of subroutines that really needed a a dialog;
+the expression calculator is one example.  Also, if you split a large batch
+program into smaller subroutines, these can be complex enough to warrant a
+dialog.  Very roughly, I would reckon that a COBOL program of more than 1000
+lines is worth building around a dialog.</P>
+
+<H4>Specific Schema Options</H4>
+<UL>
+<LI><B>-opt:ext=xxx</B> <TT>xxx</TT> is extension for copybook.  Default
+value is <TT>cbl</TT>.  Recommended values are: <TT>cob</TT> for MS-DOS
+Realia, <TT>cbl</TT> for UNIX, <TT>lib</TT> for VAX/VMS.</LI>
+
+<LI><B>-opt:model=main</B>  The generated code does not define any linkage
+section.  This is the default model.</LI>
+
+<LI><B>-opt:model=called</B>  The generated code defines a linkage section
+that contains a single 01-level data item.  You must detail this data item in
+a copybook called MYPROGR.  The copybook must follow this general format,
+with a 01-level header, then a comment line containing the text '*CONTENTS',
+then the details of the linkage section.  For example:<BR>
+
+<PRE>
+000100 01  CALCPK-CONTROL.
+000200*CONTENTS
+000300     02  CALCPK-OPERATION        PIC X.
+000400     02  CALCPK-FEEDBACK         PIC X.
+000500     02  CALCPK-POINT-CHAR       PIC X.
+000600     02  CALCPK-ERROR-RETURN.
+000700         03  CALCPK-ERROR-CODE   PIC X(2).
+000800         03  CALCPK-ERROR-MESG   PIC X(30).
+000900     02  CALCPK-ERROR-POSN       PIC 9(2).
+001000     02  CALCPK-EXPRESSION.
+001100         03  EXPR-CHAR           PIC X          OCCURS 80 TIMES.
+001200     02  CALCPK-RESULT           PIC S9(9)V9(9).
+001300     02  CALCPK-VARIABLE         PIC S9(9)V9(9) OCCURS 5 TIMES.
+</PRE></LI>
+
+<LI><B>-opt:level=ansi74</B>  Generate ANSI 74 COBOL.  Some heritage COBOL
+compilers don't support ANSI 85 COBOL.  This is the default level.</LI>
+
+<LI><B>-opt:level=ansi85</B>  Generate ANSI 85 COBOL.  The ANSI 85 code runs
+a little faster, since it uses an EVALUATE statement against a series of IF
+statements in the ANSI 74 code.</LI>
+
+<LI><B>-opt:console=name</B>  Display trace output and error messages on
+specified device.  By default blank.  Some systems do not like DISPLAY by
+itself, and require an output device name.  For example, to generate
+statements DISPLAY ... UPON CONSOLE, use 'opt:console="UPON CONSOLE"'.  Note
+that you must place quotes around the value for two reasons: it contains a
+space, and you want to keep it in uppercase.</LI>
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="lrlang.htm">&lt;&lt;</A> | <A href="lrlang3.htm">&lt;</A>
+ | <A href="lrlang5.htm">&gt;</A> | <A href="lrlang14.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A href="lrlang.htm">Libero's Languages</A>
+| <A href="lrlang1.htm">The Awk Language</A>
+| <A href="lrlang2.htm">The C Language</A>
+| <A href="lrlang3.htm">The C++ Language</A>
+| <EM>The COBOL Language</EM>
+| <A href="lrlang5.htm">The GNU Borne-Again Shell Language</A>
+| <A href="lrlang6.htm">The Java Language</A>
+| <A href="lrlang7.htm">The Microsoft Setup Basic Language</A>
+| <A href="lrlang8.htm">The MS Visual Basic Language</A>
+| <A href="lrlang9.htm">The Perl Language</A>
+| <A href="lrlang10.htm">The Rexx Language</A>
+| <A href="lrlang11.htm">The UNIX C Shell Language</A>
+| <A href="lrlang12.htm">The UNIX Bourne Shell Language</A>
+| <A href="lrlang13.htm">The UNIX Korn Shell Language</A>
+| <A href="lrlang14.htm">The 80x86 Assembler Language</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

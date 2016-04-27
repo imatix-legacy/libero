@@ -1,0 +1,308 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                February 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 2
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Last week I was trying to copy a document on a large departmental
+    copier.  This animal is able to copy, collate, and stable while printing
+    on both sides of the paper, translating it into German, and singing the
+    opening aria from 'La Traviatta' all at the same time.  Okay, I
+    exaggerate - it can't really staple.
+
+    Really cleverly, it copies from last page to first, and on page two, it
+    suddenly stopped, and said 'Check Bin!'  Oh-oh.  The small LCD screen
+    showed a small animated cartoon of a martian opening the side door of the
+    copier.  I did this, trying to make the correct martian facial gestures,
+    and the copier then said 'Remove Paper!'.  Yup, two sheets of half-
+    printed paper were crinkled-up there.  I pulled them out, getting black
+    and sticky toner on my hands.  Okay, wash the hands, come back, 'Close
+    Bin!', and then 'Press Start Button!'.  I did.  It said 'Clear Sorter!'.
+    This is the bunch of trays where the copies always come out in the wrong
+    order.  I did that, and pressed Start again.   The machine got ready,
+    started doing its noise-of-a-combine-harvester imitation, then stopped,
+    saying 'Check Bin!'
+
+    On the little screen, the martian pulled-down the side door, pulled-out
+    the paper, and went-off to wash his little green hands.  I did the same,
+    being sure to imitate his (or her, you can't tell) walk.  One never
+    knows, it could matter.
+
+    Once more I pressed the Start Button, and listened to the internal
+    machinations of the photocopier.  It got as far as spewing one copy of
+    page 2 into the sorter, then said 'Check Cover!'.  On the screen, the
+    martian had its head in its little green hands.  I'm made of stronger
+    stuff, so I opened the top cover.  There was nothing.  I looked for the
+    'Give Hint!' key, but there was none.  I closed the cover again, and the
+    machine now said 'Internal Error - Cycle Power!'.  This is techtalk for
+    'We apologise: this photocopier is running Windows 98'.  Perhaps I'm a
+    cynic, but I rebooted the copier anyhow.
+
+    The small martian was carefully fashioning a noose, possibly because as
+    soon as I pressed 'Start', the copier said 'Check Bin!'.
+
+    Admitting defeat, I went back to my office and told my colleague, Marc,
+    that the copier had beaten me, 1-0.  'Did you clear the bin?', he asked.
+    'Sure, five times', I replied.  Rising to the challenge, he strode off
+    to battle.
+
+    I waited for the screams, but after about thirty seconds, Marc was back
+    with the finished copies in his hands.  I said something rude, and he
+    explained that the little martian did not know that a bit of paper had
+    gotten jammed in another, deeply hidden bin.
+
+    The moral of this story is that one should not believe martians with
+    little hands.  Or maybe, that a pretty interface that hides vital
+    information can be pretty useless.
+
+    Pieter Hintjens
+    Antwerpen
+    1 February 1999
+
+
+ == NEWS ..---.-...---.--..-.---...-.-.----.-..-.-.-.-.-----..-.-.-.----.-..-
+
+    iMatix announces partnership with Tzolkin Corporation!
+        Xitami supports dynamic DNS under Windows, Unix, and OS/2!  Full
+        press release below...
+
+    GSLgen hits the market!!
+        Yes, our new universal code generator has hit the market with a
+        bang.  Glenn R. Williams says 'I think it is an excellent product
+        with great potential'.  Stay tuned for the release of GSLperl, an
+        Open Source implementation of GSL.
+
+
+ == PRESS RELEASE --...-.-.--...-..---..-.-.--...-...-.-.---.-..----.-.-.--..
+    
+    Tzolkin Corporation teams with iMatix Corporation to integrate TZO
+    Dynamic DNS technology with Xitami, a popular Open Source web server.
+
+    Pepperell, MA (February 1, 1999) – Tzolkin Corporation and iMatix
+    Corporation announced today that they have developed a web server with an
+    integrated dynamic Domain Name System (DDNS). The TZO Dynamic DNS allows
+    users with a Dynamic IP address to host a website using a permanent domain
+    name.
+
+    iMatix has incorporated Tzolkin’s unique DDNS technology into the popular
+    Xitami web server, which is currently listed on Internet.Com's Top 10
+    Server List for over 45 weeks.  Tzolkin’s DDNS technology, branded as
+    TZO, gets around the main problem for home Internet users, namely that
+    their server's IP number changes with each connection.  Tzolkin currently
+    offers a low cost Dynamic DNS Internet Service that allows Dialup,
+    Cable-modem, or xDSL to use a fixed server name instead of a Dynamic IP
+    address.  This service will be offered under the 'xitami.net' domain
+    beginning on February 1, 1999.  The users will get an initial 30-day free
+    trial, and users can purchase the service for a $24.95 fee per year.
+
+    Gary Cook, President of Tzolkin Corporation says "Our Dynamic DNS
+    technology allows a cable modem, xDSL or dialup user that is stuck with
+    a Dynamic IP address to get a permanent Internet domain name.  Typically,
+    this problem is what holds many home or small business users back from
+    operating their own web server on the Internet."
+
+    Pieter Hintjens, CEO of iMatix feels that this product will be a
+    breakthrough for home and business users that want to run their own web
+    server.  "This is a great match, because the home user can now get a
+    fixed domain name even when their IP address changes frequently."
+    See http://www.xitami.net for more details.
+
+    About the Tzolkin Corporation:
+    Based in Pepperell, MA, the Tzolkin Corporation is a leader in Dynamic
+    DNS technology aimed at the home and small business user.  The company
+    assists home and business Internet users get a domain name for their
+    computer, even if they have a dynamic IP address.  Tzolkin Corporation
+    offers many flexible Dynamic DNS, domain and mail hosting services that
+    allows the small or home office user to get more from their Internet
+    connection.  The company’s web address is http://www.tzo.com
+
+    About iMatix Corporation
+    iMatix Corporation is an Internet-based software technology firm whose
+    products include the popular open source Xitami web server, which offers
+    fast and easy service on Windows, Unix, and other platforms.  iMatix
+    Corporation has been a pioneer in developing open source products as a
+    core of their business strategy since 1996.  The Xitami web site is at
+    http://www.xitami.com.  iMatix Corporation’s website is at
+    http://www.imatix.com
+
+    Contact Information
+    Pieter Hintjens pieter@imatix.com
+    Eric McIntyre Eric@tzo.com
+    Voice: (978) 433-6865
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+  
+    From:           	"Glenn R. Williams" <gloonie@ibm.net>
+    Send reply to:  	gloonie@ibm.net
+    To:             	editors@imatix.com
+    Subject:        	Re: Liberetto IV/1
+    -----------------------------------------------------------------------
+    Hi Pieter and all!
+    Naturally, after so many days of visiting the iMatix site and staying
+    home to wait for the cyber-arrival of the next Liberetto, I was overjoyed
+    to see a the announcement of GSLgen! We will try it out and evaluate.
+    If it is of the usual iMatix quality, it looks like a license is in the
+    works!
+    Can you publish a little something on how this all fits in with the
+    development of Libero? Is GSLgen the future of Libero?
+    Anyway, congratulations on the new addition to your suite of tools.
+    Regards,
+    Glenn
+    Glenn R. Williams
+    Advanced Decisions Inc.
+
+    >>>>>>>>>>>>>
+    Libero basically takes a structured data file (the dialog definition),
+    then massages this into a set of data tables, and then mixes the result
+    with a schema in the language of your choice.  GSLgen does the same,
+    except for the massage part.  GSL is a lot more powerful than Libero's
+    schema language, though, and you can actually do the grunt work (a good
+    massage) directly in the schema.
+
+    GSL represents the future of Libero for two reasons: first off, it works
+    with XML files, and it's becoming clear that XML is a good standard for
+    structured data like Libero's dialogs.  You'll find a wealth of tools
+    that work with XML.  It's going to be worth moving Libero to XML just
+    because of that.  Secondly, the GSL language is a standard for schema
+    languages, and once you've learnt how to use it in one application (e.g.
+    Libero), you will find it valuable in many others.
+
+    So, GSLgen is the future of Libero, once we've worked through a few of
+    the technical details (like how to split tables into multiple lines in
+    languages like Cobol with particular habits).
+    
+
+    To:             	editors@imatix.com
+    From:           	"Stephen R. Holmes" <srh@iname.com>
+    Subject:        	address change request (Libretto)
+    -----------------------------------------------------------------------
+    Dear folks;
+    I'm changing my ISP, and the first order of business is to be sure
+    that I continue to receive Libretto each and every month! (An
+    absolutely *wonderful* publication, by the way  --  much like your
+    software!)
+    Many thanks, and keep up the great work! Warmest regards...
+    Steve Holmes
+      -- FSMs forever!
+
+
+    From:           	"Chris McFarlane" <chrismac@xtra.co.nz>
+    To:             	info@imatix.com
+    Subject:        	Libero, Prelude.h, & SFL, SMT with EGCS (GCC)?
+    -----------------------------------------------------------------------
+    Hi,
+    Would you consider accomodating the compilation of Libero FSM
+    output, prelude.h, SFL, & SMT using the EGCS compiler (a.k.a.
+    Mingw32; [or cygnus/cygwin])?
+    Cheers,
+    Chris McFarlane
+
+    >>>>>>>>>>>>>
+    What can we say?  It should be a piece of cake.  Most of the exotic
+    compilers that SFL supports were added by people using the compilers,
+    rather than us.  It's a straight-forward business - you compile the
+    various SFL test programs, and hack prelude.h, sfldir, and the other
+    modules until the test programs appear to run correctly.  Then you send
+    the result to us, and we rework your changes into the mother of all
+    versions.  Then you test our reworking, find lots of bugs, fix these,
+    send them back to us, and this goes around a few times until the thing
+    either works, or some obscure compiler bug forces us to give up.
+    
+
+    From:           	Shawn Patton <Shawn@fraservalleymall.com>
+    To:             	info@imatix.com
+    Subject:        	Libero and adding another language?
+    -----------------------------------------------------------------------
+    Hello,
+    According to the docs:
+    "If it is a language that we can easily get hold of, we'll add
+    support more or less on demand"
+    Can this be true!?  You guys are that giving?  (nudge nudge, wink
+    wink ;-)
+    Ok then,  Will you please add support for php (www.php.net)
+    PHP: A Perl and C like scripting language. Open Source.
+    I look forward to hearing from you.
+    Thank you.
+    Shawn Patton
+
+    >>>>>>>>>>>>>
+    Not only are we really giving, but a PHP schema already exists.  Check-
+    out Bernard de Rubinat's page at http://www.netgames.org/fsm-php/.  The
+    PHP schema was written by Attilio <glen@ats.it>, and will be packaged
+    with Libero Real Soon Now.
+
+
+    From:           	Kshipra Sahajpal <kshipra_sahajpal@rocketmail.com>
+    Subject:        	Libero
+    To:             	info@imatix.com
+    -----------------------------------------------------------------------
+    Hi,
+    I've recently downloaded Libero am just fiddling round and playing with
+    it... trying to get a hang of things. but I have some trouble here.
+    I was wondering if u could help in suggesting how do I model actions
+    (ie modules to be executed) that occur as soon as u enter a state as
+    opposed to occuring on certain events received in a state. similarly,
+    how do u show actions that occur when a state is to be exited.  Any
+    pointers will be appreciated.
+    Cheers
+    soon-turning-into-a-big-libero-fan
+    Kshipra
+
+    >>>>>>>>>>>>>
+    We asked Libero's author, some hacker called Pieter Hintjens, about this:
+
+    Liberetto: Pieter, why doesn't Libero support this feature?  Surely it's
+    something useful, and many other FSM tools support it...
+    Pieter: True, it's a common notion.  People who are used to another FSM
+    tool often ask for it.  People who started with Libero never ask for it.
+    When you look at how a FSM is expressed, this is simply a shortcut for a
+    special case - when all events leading to a state have a common action.
+
+    Liberetto: And isn't that special case worth supporting?
+    Pieter: That's just it.  In any realistic dialog, you'll never find such
+    a case.  There are always some exceptions.  Libero's big advantage over
+    richer FSM tools is precisely that its notation is extremely clear and
+    literal: nothing is hidden.  You can read a Libero dialog as
+    documentation, without missing much.
+
+    Liberetto: No way you're going to change your mind?
+    Pieter: Well, Libero is an Open Source product, so anyone who wants to
+    add this kind of feature can just go ahead and do it.  It's no big deal.
+    When we migrate Libero to XML, sometime this year or next year, it'll be
+    even easier, since all the intelligence will be in the schema, instead
+    of the Libero code generator.  It will be possible to implement any kind
+    of FSM model with Libero/GSL, instead of the single model we support now.
+
+    
+    From:           	"Joern Stannat" <stannat@ccom.de>
+    To:             	<info@imatix.com>
+    Subject:        	sflcomp
+    -----------------------------------------------------------------------
+    dear sir,
+    have you sflcomp.c in java ?
+    thanks
+    joern
+
+    >>>>>>>>>>>>>
+    SFL is mainly a C library, although parts have been developed in Perl.
+    We're quite intrigued by collecting modules in other languages, so if
+    you do develop a Java version of sflcomp (oh yes, the answer to your
+    question is 'no'), we'll happily use it as the kernel of an SFL/Java
+    implementation.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To be removed from this mailing list, e-mail us with the subject
+    'remove'.  Liberetto should be taken once monthly, with food and drink.
+

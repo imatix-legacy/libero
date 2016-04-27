@@ -1,0 +1,81 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                December 1999
+ =========
+  =======    The iMatix Newsletter                         Volume IV Issue 12
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    When I was a kid, The Future always started in 2000, or maybe 2001 for
+    geeks.  Now we're teetering on the edge of The Future, like the Viking
+    boat falling over the edge of the World.  The Millennium Bug is the
+    baptism of fire that we have to endure to make it through.  I guess.
+    We'll see about that.
+
+    When I was a kid, in Scotland, I also learnt that New Year's Eve was
+    the occasion to celebrate, while Christmas was a Germanic tradition
+    imported by the Hapsburgs along with overhanging front teeth and
+    leather jodhpurs.  To the Scottish mindset, the New Year's tradition
+    of going out in groups, getting totally drunk, and then visiting your
+    neighbors as early as possible on January 1st to exchange lumps of
+    coal, black bun, and whisky was infinitely preferable to going with
+    aunty to sing Sassenach carols on a cold church pew.
+
+    My great-uncle Angus McHooter, famous for inventing the 100% coal
+    black bun, would have enjoyed the Millennium, the Hogsmanay to end
+    them all.  He was last seen on January 1st 1967, sometime around
+    4am, singing 'Scots Wa Hae' down Princes Street in Edinburgh.  If
+    you ever meet him, don't eat the dark fruit cake.
+
+    Since this is the last Liberetto of 1999, I wish you a very happy
+    December, a peaceful Hogsmanay and a very prosperous Future.  It's
+    been an interesting Millennium.
+
+    Pieter Hintjens
+    Antwerpen
+    1 December 1999
+
+
+ == NEWS .-...----.-.----....-.--...----.-.---...-.---...-.--.-...---.--..-..
+
+    iMatix Corporation goes to the Bazaar!!
+        If you're in New York City between December 14th and 16th, you can
+        come and meet some of the iMatix gang in person!  Yes, we're
+        exhibiting our wares and faces at the Bazaar Open Source conference
+        (http://thebazaar.org).  Come by and get a free signed 'Millenium
+        Xitami' retro diskette.  Yes, a complete web server on a special
+        nearly-gold-plated diskette.
+
+        Also on offer: Xitami/Pro plus a limited-edition iMatix t-shirt for
+        a very special low price!
+
+    iMatix announces OpenKernel - The internet server platform!!
+        We're proud to announce the introduction of OpenKernel, the Open
+        Source platform for portable, high-speed internet server
+        development.  OpenKernel may be familiar to those who use Libero
+        and SMT.  It brings all our server-development technologies
+        together under one roof, and (early next year) one web site.
+        OpenKernel is the first and only Open Source toolkit for portable
+        high-speed internet server development*.  We'll be giving away a
+        limited number of OpenKernel CD-ROMS at the Bazaar Conference.
+
+    iMatix also announces OpenKernel/SSL
+        OpenKernel/SSL is the only full-scale platform for secure internet
+        server development.  With OpenKernel/SSL you can apply Secure
+        Socket technology to any TCP/IP protocol, including Telnet, FTP,
+        HTTP, and custom protocols.  For prices and more information please
+        contact openkernelssl@imatix.com.
+
+        *We think. If you know of another one, please don't tell anyone.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.

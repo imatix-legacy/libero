@@ -1,0 +1,200 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                     May 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 5
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    Windows 98, Windows 1984?
+
+    So, somewhere in western Bosnia, at a crossroads, a UN truck collides
+    with a car from the European Union, a Bosnian army jeep, and an
+    ambulance driven by the Red Cross.  The drivers get out and start to
+    blame each other, gesticulating about stop signs and who smashed who
+    first.  Finally the EU person says: 'Gentlemen, gentlemen!  Let's settle
+    this like reasonable people.  Clearly it was a plot by the Croatians!'
+
+    In the computer business it's not the Croatians or El Nino, but Mr Bill
+    Gates who is seen to be behind every event, calamity, or minor traffic
+    accident.
+
+    In my occasional role as iMatix agony aunt ("Dear iMatix, my computer
+    has run off with an incompatible operating system.  I am desolate."
+    "Dear Desolate, if your software really loves you it will run on any
+    operating system.  Just don't overload your boot sectors.") I get the
+    occasional e-mail pointing-out how Microsoft is involved in (say)
+    banking, and that we are heading for a totalitarian society where we
+    will all be forced to sing words from Chairman Bill's memoirs to the
+    music of the Windows 2002 start-up jingle.
+
+    Time to separate the wishful paranoia from the facts and see if the
+    undoubted megalomaniac tendencies of MS Corporation really pose a threat
+    to the values we hold so dear.
+
+    First off, remember that MS is the prodigal child of IBM, and learnt its
+    main lesson from IBM: where there's a market, control 85% of it.  IBM
+    was the past master of this strategy, and like MS, was subject to
+    eternal battles with the US Justice Department over the methods it used
+    to eliminate rivals, corner customers, and manipulate markets.  IBM
+    itself inherited these skills from NCR.  And so on.  Plus ca change,
+    plus ca reste la meme.
+
+    Secondly, technology's role in this affair is definitely ambiguous.
+    Sure, it gives the giant corporations the means to manipulate ever
+    larger and deeper markets.  But it also gives the consumer the means
+    to resist this.  The PC was a harbinger of anarchy, not control.
+
+    Lastly, as a corporation gets larger, it gets slower.  I was pretty
+    impressed when Microsoft recognised that the Internet possibly was a
+    market (and therefore fell into the 'control 85%' category).  IBM made
+    the mistake of not recognising PCs as a market.  It seems clear today
+    that the Internet is not actually a market after all, but the carrier
+    for future markets.  It will be interesting to see if MS can follow, and
+    it's fun to speculate on what will provoke their crisis.  Free software,
+    the Millenium Crash, or a return to terminal-based computing?
+
+    The first of May used to be marked by enormous Soviet parades of men,
+    missiles, and machines.  No longer.  One thing we've learnt from the
+    20th century is that George Orwell's Big Brother is not just unlikely,
+    but unsustainable too.
+
+    Pieter Hintjens
+    Antwerpen
+    1 May 1998
+
+
+ == NEWS -..--.-.-.-..--.-.-....----.-.---...---..-.-.-----...-.---.-.-.-.---
+
+    Bugs found in latest Xitami Alpha - El Nino Blamed!
+        Despite labels bearing the international symbol for highly-toxic
+        bionuclear waste, signs reading 'unstable alpha release, use at own
+        risk', hundreds of enthusiastic users installed the latest Xitami
+        Alpha and some even survived to press the 'Send' button.
+
+    New Standard Form for iMatix EMails
+        The world-reknowned iMatix Corporation Research Labs yesterday
+        revealed their new invention, designed to simplify the laborious
+        process of sending an email to the iMatix technical support lines.
+        The New Standard Form, which is built around a multithreaded XML
+        jargoniser, generates a platitudes paragraph and a problem report
+        joined by a however flange.  An example:
+
+        "Hi, tech support.  Xitami is really the greatest program I've ever
+        used, I installed it and it was so easy to set-up.  All my friends
+        tell me that it's improved my looks, and my neighbour's dog has even
+        stopped chewing my foot.
+        "However, when I try to use the flush button, all I get is a blue
+        screen saying 'thank you for using MS Windows' in hexadecimal.
+        "Please reply!"
+
+        Version 1.0 of the New Standard Form provides a range of over 250
+        platitudes and 125 rare and unusual problems.  If you're interested
+        in becoming an alpha tester, let us know now!!
+
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    From:             Rob Judd <judd@alphalink.com.au>
+    Subject:          Studio
+
+    Thanks for the [Studio technical white paper].  I have read it with much
+    interest and now see that I was right in assuming you had a Cunning Plan
+    in all of this free software. It is a very thorough work built on a solid
+    foundation of experience, and I'm sure it will be a great hit.
+
+    I'm not sure I agree with you about Posix, however. MS only support it
+    (and barely, and without integration with Win32) in order to gain
+    contracts where this is required i.e. Government. Perhaps it will
+    improve, but their record says otherwise. Support in the console isn't
+    too bad however.
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From:             "Bernard D. Tremblay" <ab006@chebucto.ns.ca>
+    Subject:          Re: Liberetto III/4
+
+    Thanks.
+    No, really. Thank you.
+    Nononono, really. No. Nono. No, really. Thanks. No. Really.
+    Really, thanks.
+    oh
+    Okay, then. Here goes:
+
+    Ontic'ly ambiguous, [oops, that's photon, not electron. Enh.],
+    Splitted pointy bit of branch.
+    "Emic", "etic"; just what's the "."?
+
+    ben
+
+
+ == FOCUS ON TECHNOLOGY -.--.--.-...----.-.---....--.---.---....-.-...--.-.--
+
+    LRWP, LRWP... what the heck is LRWP?
+
+    Invented and built by Robin Dunn of Total Control Software, LRWP is a
+    protocol for long-running web processes.  It comes packaged with the
+    Xitami web server.  A quick drawing in the sand:
+
+                          Speaks HTTP
+                          to browsers
+                               :
+                               :
+                          .----------.
+                          :  Xitami  :
+                          :----------:
+                          :   LRWP   :
+                          :  agent   :
+                          `----------'
+                     .-------'   `-------.
+              .--------------.    .--------------.
+              :     LRWP     :    :     LRWP     :
+              : peer process :    : peer process :
+              `--------------'    `--------------'
+
+    A LRWP peer process is like a CGI program: it accepts data from forms,
+    prepares HTML output, and so on.  Unlike CGI programs, a LRWP peer
+    process starts once (typically when Xitami starts), and stays active.
+    This makes LRWP really good for database applications: you only need to
+    connect to the database once, not for each transaction.
+
+    LRWP is portable, like Xitami, and lets you program in any language that
+    supports TCP/IP.  Xitami comes with libraries to help you get started in
+    C and Python, but it should be a snap to work in Perl or Java.  A LRWP
+    peer process generally runs locally (on the same system as Xitami) but
+    you can configure this otherwise, and run the LRWP process on any system
+    on the network.
+
+    When a LRWP peer process starts-up, it connects to the special LRWP port
+    and tells the LRWP agent what URLs it wants to handle.  For instance, a
+    web counter can say that all URLs starting with '/counter' should be
+    passed to it.
+
+    LRWP has a couple of rough edges.  For example, you have to start-up the
+    peer processes yourself.  We don't yet have many example peer process
+    programs.  But LRWP is a great protocol for building web applications.
+
+    Take a look at it!
+
+
+ == LINK OF THE DAY --..-..----...-..---.-.-.-.-----....-.-..-..-.---...-..---
+
+    http://sagan.earthspace.net/~esr/faqs/hacker-howto.html
+
+    "Specifically, hackerdom is what anthropologists call a gift culture.
+    You gain status and reputation in it not by dominating other people, nor
+    by being beautiful, nor by having things other people want, but rather
+    by giving things away. Specifically, by giving away your time, your
+    creativity, and the results of your skill."
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    the_next_event := terminate_event;

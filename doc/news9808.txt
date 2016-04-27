@@ -1,0 +1,278 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                  August 1998
+ =========
+  =======    The iMatix Newsletter                         Volume III Issue 8
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1998 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    In July, the largest building in the world opened for business.  This
+    structure is so large that an orbiting astronaut or curious alien could
+    spot it, gleaming in the sea off China.  Hong Kong International Airport
+    at Chek Lap Kok is a symptom of our age, a project so large that its
+    financing caused serious political problems before the handover of Hong
+    Kong to China in 1997.
+
+    Today, there are so many problems with the handling of baggage and cargo
+    that the US has put an embargo on cargo coming from Hong Kong.
+
+    I remember similar problems hitting Denver International Airport when it
+    opened in 1995 and Brussels Airport when they started using a new system
+    for baggage and cargo in 1996.
+
+    These are not software projects, though software plays a critical role
+    in their success (and failure).  But a burning question applies as well
+    to large software projects as it does to these engineering works... why
+    is it that so many large projects fail so badly?
+
+    In my experience, there are some visible symptoms of a project that is
+    going to get into trouble (if it's not already there).
+
+    Firstly, a technology-led or technology-driven approach.  When a project
+    is led or driven by technology, rather than by the needs of its clients.
+    Technology is so seductive that we often treat it as a goal, rather than
+    a means.  This is really obvious, but people keep forgetting it.  How
+    many software trends are simply the expression of technology, for its
+    own sake, rather than solutions for real problems?   
+
+    Secondly, teams with different disciplines who don't share the same
+    objectives.  You can quickly spot this symptom: teams or individuals
+    working in their corners, each focussed on their part of the work, but
+    never coming together to look at the whole picture.  
+        
+    Thirdly, weak project management, which exacerbates the problem of
+    communication.  A strong project management team can imprint their
+    vision on diverse teams.  Weak management, which lacks a vision or the
+    will to impose it, takes refuge in excessive administration and the
+    assertion of petty control.
+     
+    Fourthly, excessive complexity, always a sign of trouble.  Complexity is
+    the last refuge of the incompetent, someone once said.  It's the clean,
+    deceptively simple solutions that take skill and time to develop, and
+    which can stand-up to the rigours of the real world.
+    
+    Lastly, insufficient risk analysis.  People and systems do fail, and
+    this must be realistically analysed and allowed for in a project.  Often
+    the risks are internal: the use of new technology, bad communications,
+    poor project management.  Sometimes they're external: politics, budgets,
+    the El Nino (or is it La Nina?) effect.
+
+    The larger the project, the worse these symptoms can be.  In my
+    experience, the failure rate of projects increases as they are built to
+    a larger scale.
+    
+    So, how does one make large projects?  Simple: one makes a small project
+    first, then one extends that.  Clearly this demands that the kernel of
+    the whole project be well-designed from the start.  But a step-wise
+    approach is very robust against unforseen risks, can absorb new
+    technology, and can give teams the time to learn to work together, on a
+    common goal.
+ 
+    Unfortunately, it looks like we're still heading for larger, more
+    ambitious projects in the next millenium.  Hold-on to your hats and
+    expect more large failures.
+
+    Pieter Hintjens
+    Antwerpen
+    1 August 1998
+
+
+ == NEWS -..-..---.-.----.-..-.---..-..---.-..-..----.-.-.---....-.-.---.-..-
+
+    The little webserver that could - Xitami hits #1!
+        Yes, in July 1998, Xitami topped the charts at internet.com.  Look
+        at http://serverwatch.internet.com/top10.html for the current top
+        10.  Xitami was highlighted in "Server Showcase" in July (see
+        http://serverwatch.internet.com/showcase.html), which may have had
+        something to do with it.
+
+    SFL Library now supports XML
+        XML is a standard format for data files which will be dominant in
+        the next century.  It has a universal appeal and real value as a tag
+        language for arbitrary data.  You can now read and write XML files
+        using the new sflxml module in the SFL library.  Get your hands on
+        this from www.imatix.com.  Hint: the latest version of SFL is always
+        packaged with the Xitami source package.
+
+    Libero 3.x is conceived!
+        After several years of wondering how such a perfect program could
+        get better, the iMatix Corporation Research Labs has finally come
+        back from lunch and started designing Libero, version 3.  While we
+        can't give you all the details, here are some of the proposed
+        features of the new Libero tool: XML-based dialog format, web-based
+        editing and code-generation, and object-oriented-style inheritance.
+       
+
+ == FEEDBACK -..-.-.-.--....-.-.-.--..-...-.--.-....-.-.--...-.-.-.----.-.---
+
+    From:     "DataRescue sprl" <datarescue@pophost.eunet.be>
+    Subject:  Re: Liberetto III/7
+    -----------------------------------------------------------------------
+    > Pieter Hintjens wrote:
+    > Researchers in the US recently discovered just how important sleep is.
+    > People need a certain amount of sleep (8 to 9 hours) every night.  If
+    > you get less sleep, you get stupider.  No joke: every hour of sleep
+    > that you don't get, costs you one point of IQ.
+    
+    I've heard they worked three months round the clock the finalize
+    their paper.
+    ---
+    Pierre Vandevenne, MD
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    On the 15th of July we sent out a little note to our Xitami users...
+
+    "Xitami is now number one on Internet.Com's Top 10 web server list, at
+     http://serverwatch.internet.com/top10.html.  Take a look..."
+
+    We got many replies; these are some of them.
+
+
+    From:    "Forrest H. Stroud" <neuroses@tcac.com>
+    Subject:  Congratulations!  ServerWatch Server Showcase Winner
+    -----------------------------------------------------------------------
+    Congratulations on this -- Xitami has really taken off the last two
+    weeks in terms of number of downloads from ServerWatch.  Part of this
+    can be attributed to Xitami being this past week's Server Showcase
+    (see below), but my guess is that Xitami is here to stay (right along
+    with Apache ;-).  
+
+    I meant to send this message last week but forgot all about it until 
+    today.  We chose Xitami as our showcase server last week -- here's
+    the official message that we send out to the showcase winners:
+
+    Congratulations!  Xitami has been selected as this week's
+    Server Showcase (serverwatch.internet.com/showcase.html) on
+    Internet.com's ServerWatch (http://serverwatch.internet.com),
+    the premier site for Internet server software information.
+
+    As a selected Server Showcase recipient, Xitami is now a 
+    member of an extremely elite group of applications.  While 
+    only the best servers are even reviewed by ServerWatch,
+    only the very best of the best are honored with the Server
+    Showcase award.
+
+
+    From:     flying-ferret@charis.co.uk (Alan Silver)
+    Subject:  Re: Xitami is #1
+    -----------------------------------------------------------------------
+    Don't get me wrong, I'm a big fan of Xitami, but your claim is grossly
+    misleading. Xitami had the most *downloads* in the past month. That does
+    not make it the number 1 server. With a market share of 0.02% you have a
+    long way to go.
+
+    I'm all for people celebrating their triumphs, and when you've got a
+    good product shout about it, but let's be a little more honest here. You
+    could have explained the statistic and we would all have been impressed
+    anyway. I like Xitami, I would like to see more people use it, but I also
+    like fair claims to usage.
+
+    Just a comment, meant to be constructive.
+    --
+    Alan Silver
+    Flying Ferret Web Services
+
+
+    From:     Leif Svalgaard" <leif@ibm.net>
+    Subject:  Re: Xitami is #1
+    -----------------------------------------------------------------------
+    If you read their review, there is a page where they say that Xitami's
+    market penetration is 504 copies. Where do they get that number from?
+    And does that jive with being number 1 or 3 or even 10?
+
+
+    From:     Ryan Szekeres <rszekeres@solar.stanford.edu>
+    Subject:  Re: Xitami is #1
+    -----------------------------------------------------------------------
+    Could it have something to do with a new release every day?
+
+
+    From:     Roy Barnard <roy.barnard@sandwell.gov.uk>
+    Subject:  RE: Xitami is #1
+    -----------------------------------------------------------------------
+    I am not surprised at all.
+    It is the best free web server I have see.
+
+    ---
+    So, Xitami is obviously popular, but still only shows-up as several
+    hundred Internet web sites.  The reason for this is simple: the vast
+    majority of Xitami users use their web server on an intranet, or for
+    testing web sites.  Most people regard Xitami (rightly or wrongly) as
+    a 'personal' web server, and the standard models of Unix+Apache and
+    NT+IIS will dominate the Internet scene for a long time.
+
+    We have something like 10,000-15,000 downloads per month from our main
+    site, and an unknown number from our mirror sites and other mirrors like
+    Tucows.com.  We serve about 4.000-5.000 new users each month; the rest
+    of the downloads are upgrades to existing users (with an average of
+    about 2 new releases every month).
+
+    In August we'll be conducting a survey of our registered users to see
+    how many of them use Xitami for Internet sites.  Using the Data
+    Sleuthing techniques explained in Liberetto III/6, we'll be able to
+    estimate the real number of Xitami users, world-wide.  The results
+    will be published in next month's Liberetto.
+    
+    Hey, Jimi Joergensen, where are your 20,000 virtual hosts?  :)
+    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    From:             "Williams, Glenn" <Glenn.Williams@viacom.com>
+    Subject:          T-Shirts in the USA?
+    -----------------------------------------------------------------------
+    Hi Folks,
+    As a longtime supporter of imatix's free and opensource software
+    development efforts, I thought I should finally breakdown and support
+    the effort by buying your T-shirt!
+    If I send cash through the mail, will you spend it on:
+    1. Beer
+    2. Beer and Development
+    3. Development
+    Seriously, do you really have a t-shirt and if so, how can I order some?
+    Regards,
+    Glenn R. Williams
+
+    ---
+    Firstly, as we've said often and loudly, if you have to send us cash by
+    mail, just make sure it's legal tender.  We're tired of getting pretty
+    but no longer valid 5G notes from our humourous Dutch friends.  Next,
+    the iMatix t-shirts appeared to be incompatible with the TCP/IP stack in
+    Windows 98, and kept turning blue with strange messages.  We had to send
+    the whole lot back.  So, sorry, no t-shirts.  Lastly, we did a quick
+    poll in the office as to points 1, 2 and 3, and the consensus was 'yes,
+    indeed!'.  There you have it.
+
+
+ == OBITUARY ..-.-...----..-...-..---...-.-.-.-.----...-...-.-.-...-.---.--..-
+
+    BYTE Magazine, RIP 1998.  This magazine brought us wide-ranging coverage
+    of topics with an independent and hard-hitting professionalism that is
+    missing from most other computer magazines except Dr Dobb's Journal.
+
+    In July 1998, BYTE was bought by new owners who suspended publishing and
+    have promised a 'new look BYTE' sometime later this year.  Maybe so.
+    But the old look was pretty good already.
+
+    If you can still find it, get your hands on the last BYTE magazine, which
+    has an excellent feature on the year 2000 problem.
+    
+ 
+ == LINK OF THE MONTH .-..-..---.-.--...-.-..---..-....---..-.-.-.--...-.-..-.
+
+
+    BYTE magazine, www.byte.com.  A sad but still valuable site.
+
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    Until Liberetto gets taken-over in a corporate buy-out, we'll be sending
+    out our little journal every month.  You can get off this mailing list
+    by sending us a mail.

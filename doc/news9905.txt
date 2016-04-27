@@ -1,0 +1,112 @@
+     =
+--- === ---------------------------------------------------------------------
+  =======    -L- -I- -B- -E- -R- -E- -T- -T- -O-                     May 1999
+ =========
+  =======    The iMatix Newsletter                          Volume IV Issue 5
+--- === ---------------------------------------------------------------------
+     =              Copyright (c) 1999 iMatix Corporation - distribute freely
+                                         Back issues at http://www.imatix.com
+                                              Comments to: editors@imatix.com
+
+    Programming -- Technology -- Finite State Machines -- News -- Other Stuff
+
+
+ == COMMENT ---...-.-...-.--...-.--...-.-...-.....---..-....--.--..-.-.---.--
+
+    iMatix Corporation is an internet company, but of course we consist of
+    real people, working in real offices.  Each month I write this editorial
+    from Antwerpen, the capital of Flanders, and a lovely port city.
+    Sometime soon, iMatix will be moving its headquarters to a new building,
+    in Brussels.  With a little luck, the work will be finished for the
+    millenium (the real one, 1 January 2001, the re-millenium).
+
+    And 'work' it is, because we bought an old industrial depot, in one of
+    Brussels' post-industrial areas, Molenbeek.  It's a large, low brick
+    thing with a beautiful facade, and various levels and workshops.
+
+    Suddenly, after many years of doing projects for clients, we are the
+    client, and while this is strictly a hardware project, not software,
+    it's curious to be at the paying end and making hard decisions.
+
+    We're still chosing an architect.  Some architects, like Madame V, are
+    into 'formal methods'.  They work according to a formal procedure,
+    well-explained with brochures with titles like 'How To Work With An
+    Architect (For Idiots)'.  I'll not bore you with details, but after a
+    long process, apparently driven by truckloads of cash, we get the keys
+    to a sparkling new building.
+
+    There are also architects, like Monsieur B, who work as consultants.
+    They provide advice and plans, but don't take responsibility for the
+    overall results.
+
+    The parallels with software development are amusing.  In both cases
+    we're trying to build an environment that will support our work.  There
+    is the Big Bang approach: make plans, give full artistic control to
+    Madame V, wait for two years, and hope the results are what we need.
+    Then there is the organic approach: start with a bag of cement and a
+    discussion with Monsieur B, and spend the next two years learning and
+    building at the same time.
+
+    Everything we've made at iMatix - Libero, SMT, SFL, Xitami, and the
+    other tools we depend on - were built organically, often over many
+    years.
+
+    So I guess it's a foregone conclusion that we will thank Mdm. V for her
+    brochures, and make another appointment with Monsieur B.
+
+    Pieter Hintjens
+    Antwerpen
+    1 May 1999
+
+
+ == INBOX -..-..---.-.---..-.-.-.--...---.....----.-.-.----....--.--...----.-
+
+    From:       "Anthony T. Colyandro" <anthony@dao.gsfc.nasa.gov>
+    Subject:    new schema
+    I love your Libero. It is a great tool. I read in the documentation
+    that you do custom schemas. I have a request for a Windows version: 
+    1. Fortran 90 
+    2. Standard ML (SML)
+    (http://cm.bell-labs.com/cm/cs/what/smlnj/index.html) 
+    and 3: Is there some book / tutorial to learn about making schemas
+    that work with Libero?
+    Thanks,
+    -
+    Anthony T. Colyandro
+    Software Manager
+    NASA Goddard Space Flight Center
+
+    >>>>>>>>>>>>>>>
+    Good question.  We asked Libero's author, Pieter Hintjens, to reply.
+
+    Liberetto: Pieter, could you reply to this question?
+    Pieter: First off, I'm happy to see that Libero is working its way into
+    space.  Perhaps one day, on a far-off planet, a young alien will
+    discover the magic of using Libero to write a tentacle-interface program
+    to control dispensers of stimulant non-nourishing liquids.  Let's lobby
+    to get Libero sent on the next Voyager disk.
+
+    Liberetto: Right, whatever.  How about Fortran 90 and SML?
+    Pieter: Oh yeah.  Schemas.  Look: a Libero schema is just a mix of
+    whatever language you're programming in - Fortran, Cobol, C, whatever -
+    and instructions to Libero like 'put the name of the program here' and
+    'put the state/event transition table here'.  In 1999, we saw people
+    make new schemas for PHP (a web programming language) and for PL/SQL
+    (used in the Oracle database).  My guess is that a decent Fortran 90
+    programmer can make a Libero schema in a day or so, simply by taking one
+    of the existing schemas, and converting it to Fortran.  Looking at SML,
+    which is a nice clean programming language, this should be a simple task
+    too.
+
+    Liberetto: How about the tutorial?
+    Pieter: everything I ever wanted to say about Libero is online at
+    imatix.com.  The nice thing about the Internet is you never need to
+    repeat yourself.
+
+    Liberetto: How about the tutorial?
+    Pieter: yeah, thanks, and have a nice day!
+    
+
+ == TERMINATE THE PROGRAM -...---...-..----....-.---..---...-...---.-...---.-
+
+    To unsubscribe, just send us an e-mail.
